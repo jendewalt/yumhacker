@@ -1,14 +1,19 @@
 Router = Backbone.Router.extend({
     routes: {
-        '': 'main'
+        '': 'mainIndex',
+        'establishments': 'establishmentsIndex'
     },
 
-    main: function () {
-        new MainView({el: '.main_index'});
+    mainIndex: function () {
+        new MainIndexView({el: '.main_index'});
+    },
+
+    establishmentsIndex: function () {
+    	new EstablishmentsIndexView({el: '.main_index'});
     }
 });
 
-new Router();
+App = new Router();
 
 $(document).ready(function () {
     Backbone.history.start({ pushState: true });
