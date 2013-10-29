@@ -12,6 +12,6 @@ MainIndexView = Backbone.View.extend({
 	},
 
 	goToEstablishmentsIndex: function () {
-		App.navigate('establishments', {trigger: true});
+		App.navigate('establishments', { trigger: true });
 	}
 });

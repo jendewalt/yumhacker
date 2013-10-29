@@ -4,6 +4,7 @@ Yumhacker::Application.routes.draw do
   root :to => "main#index"
 
   get 'establishments', to: 'main#index'
+  get 'establishments/:id', to: 'main#index'
 
   namespace :api do
     resources :establishments
