@@ -1,6 +1,6 @@
 MainIndexView = Backbone.View.extend({
 	events: {
-		'click': 'goToEstablishmentsIndex'
+		'click a': 'goToEstablishmentsIndex'
 	},
 
 	initialize: function () {
@@ -8,10 +8,12 @@ MainIndexView = Backbone.View.extend({
 	},
 
 	render: function () {
-		this.$el.html(render('main/index', { name: 'jen' }));
+		this.$el.html(render('main/index'));
 	},
 
-	goToEstablishmentsIndex: function () {
-		App.navigate('establishments', { trigger: true });
+	goToEstablishmentsIndex: function (e) {
+		e.preventDefault();
+		xxx = e
+		App.navigate(e.target.pathname, { trigger: true });
 	}
 });
