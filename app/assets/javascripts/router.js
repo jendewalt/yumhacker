@@ -2,7 +2,8 @@ Router = Backbone.Router.extend({
     routes: {
         '': 'mainIndex',
         'establishments': 'establishmentsIndex',
-        'establishments/:id': 'establishmentsShow'
+        'establishments/:id': 'establishmentsShow',
+        'users': 'usersIndex'
     },
 
     mainIndex: function () {
@@ -18,6 +19,10 @@ Router = Backbone.Router.extend({
             el: '.main_index',
             model: new Establishment({ id: id })
         });
+    },
+
+    usersIndex: function () {
+        new UsersIndexView({ el: '.main_index' });
     }
 });
 

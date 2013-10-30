@@ -5,6 +5,8 @@ Yumhacker::Application.routes.draw do
 
   get 'establishments', to: 'main#index'
   get 'establishments/:id', to: 'main#index'
+  get 'users', to: 'main#index'
+  get 'users/:id', to: 'main#index'
 
   namespace :api do
     resources :establishments
