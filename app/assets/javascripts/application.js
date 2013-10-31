@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require underscore
 //= require json2
 //= require backbone
+//= require jquery_cookie
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./templates

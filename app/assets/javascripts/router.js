@@ -4,6 +4,8 @@ Router = Backbone.Router.extend({
         'establishments': 'establishmentsIndex',
         'establishments/:id': 'establishmentsShow',
         'users': 'usersIndex',
+        'users/sign_in': 'nothing',
+        'users/sign_out': 'nothing',
         'users/:id': 'usersShow'
     },
 
@@ -31,10 +33,19 @@ Router = Backbone.Router.extend({
             el: '.main_index',
             model: new User({ id: id })
         });
+    },
+
+    nothing: function () {
     }
 });
 
 App = new Router();
+
+$(window).on("popstate", function(e) { 
+    if (e.originalEvent.state !== null) { 
+        e.preventDefault(); 
+    } 
+});
 
 $(document).ready(function () {
     Backbone.history.start({ pushState: true });

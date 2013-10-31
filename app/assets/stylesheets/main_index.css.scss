@@ -1,0 +1,26 @@
+body.main_index {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+    nav {
+        padding: 10px 30px;
+        margin-bottom: 20px;
+        background-color: #333;
+        color: #fff;
+
+        h3 {
+            float: left;
+            font-size: 20px;
+        }
+
+        a {
+            float: right;
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+        }
+    }   
+
+    .clear {
+        clear: both;
+    }
+}
