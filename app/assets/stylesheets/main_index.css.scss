@@ -1,5 +1,20 @@
 body.main_index {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    text-align: center;
+    color: #555;
+
+    h1 {
+        padding: 10px;
+        line-height: 30px;
+        font-size: 30px;
+        color: #222;
+    }
+
+    h3, li {
+        padding: 10px;
+        line-height: 20px;
+        font-size: 20px;        
+    }
 
     nav {
         padding: 10px 30px;
@@ -9,7 +24,6 @@ body.main_index {
 
         h3 {
             float: left;
-            font-size: 20px;
         }
 
         a {
