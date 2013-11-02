@@ -1,6 +1,6 @@
 ApplicationHeaderView = Backbone.View.extend({
     events: {
-        'click a': 'goToSubIndex'
+        'click .nav': 'goToSubIndex'
     },
 
     initialize: function () {
@@ -8,7 +8,7 @@ ApplicationHeaderView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(render('layouts/header', CurrentUser));
+        this.$el.html(render('application/header', CurrentUser));
     },
 
     goToSubIndex: function (e) {

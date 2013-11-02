@@ -10,43 +10,27 @@ Router = Backbone.Router.extend({
     },
 
     mainIndex: function () {
-        new ApplicationLayout({ 
-            el: '.main_index', 
-            controller: 'main', 
-            action: 'index' 
-        });
+        new MainIndexView({ el: '#main_container' });
     },
 
     establishmentsIndex: function () {
-        new ApplicationLayout({ 
-            el: '.main_index', 
-            controller: 'establishments', 
-            action: 'index' 
-        });
+        new EstablishmentsIndexView({ el: '#main_container' });
     },
 
     establishmentsShow: function (id) {
-        new ApplicationLayout({ 
-            el: '.main_index',
-            controller: 'establishments', 
-            action: 'show',
+        new EstablishmentsShowView({ 
+            el: '#main_container',
             model: new Establishment({ id: id })
         });
     },
 
     usersIndex: function () {
-        new ApplicationLayout({ 
-            el: '.main_index',
-            controller: 'users', 
-            action: 'index' 
-        });
+        new UsersIndexView({ el: '#main_container' });
     },
 
     usersShow: function (id) {
-        new ApplicationLayout({
-            el: '.main_index', 
-            controller: 'users',
-            action: 'show', 
+        new UsersShowView({
+            el: '#main_container', 
             model: new User({ id: id })
         });
     },
@@ -64,6 +48,8 @@ $(window).on("popstate", function(e) {
 });
 
 $(document).ready(function () {
+    new ApplicationHeaderView({ el: 'header' });
+
     Backbone.history.start({ pushState: true });
     // Backbone.history.start({ pushState: true, hashChange: false }); enable when you start worrying about IE 9 and under
 });

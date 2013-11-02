@@ -10,6 +10,10 @@ class Api::UsersController < ApplicationController
   end
 
   def followers
-    @user = User.find(params[:id])
+    @followers = User.find(params[:user_id]).followers
+  end
+
+  def followed_users
+    @followed_users = User.find(params[:user_id]).followed_users
   end
 end

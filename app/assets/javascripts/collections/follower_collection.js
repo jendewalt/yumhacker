@@ -1,22 +1,7 @@
-FollowerCollection = Backbone.Collection.extend({
+FollowersCollection = Backbone.Collection.extend({
     model: User,
 
-    url: '/api/users',
-
-    initialize: function (models, id) {
-        if (id) {
-            this.fetchById(id);
-        }
-    },
-
-    fetchById: function (id) {
-        var baseUrl = this.url;
-
-        this.url += '/' + id + '/followers';
-        this.fetch({ rest: true });
-
-        this.url = baseUrl;
-    },
+    url: '/api/users/followers',
 
     parse: function (response) {
         return response.followers;

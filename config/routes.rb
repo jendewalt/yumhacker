@@ -10,8 +10,8 @@ Yumhacker::Application.routes.draw do
 
   namespace :api do
     resources :establishments
-    resources :users do
-      resources :followers
-    end
+    get 'users/followers', to: 'users#followers'
+    get 'users/followed_users', to: 'users#followed_users'
+    resources :users
   end
 end

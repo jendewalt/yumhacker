@@ -1,9 +1,9 @@
 <nav>
-    <a href="/" class="logo">YumHacker</a>
+    <a href="/" class="logo nav">YumHacker</a>
 
     <div class="nav_links_container">
         <% if (CurrentUser.logged_in()) { %>
-                <a href="/users/<%= CurrentUser.id %>"><%= CurrentUser.get('name') %></a>
+                <a class="nav" href="/users/<%= CurrentUser.id %>"><%= CurrentUser.get('name') %></a>
                 <a data-method="delete" href="/users/sign_out" rel="nofollow">Sign Out</a>
         <% } else { %>
             <a href="users/sign_in" >Sign In</a>

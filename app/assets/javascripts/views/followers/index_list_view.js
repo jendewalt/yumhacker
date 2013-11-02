@@ -3,7 +3,11 @@ FollowersIndexListView = Backbone.View.extend({
     },
 
     initialize: function () {
-        this.render();
+        this.collection = new FollowersCollection();
+
+        this.listenTo(this.collection, 'reset', this.render);
+
+        this.collection.fetch({ reset: true, data: { user_id: this.model.get('id') }});
     },
 
     render: function () {
