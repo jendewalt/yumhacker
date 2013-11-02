@@ -11,23 +11,23 @@ UsersShowView = Backbone.View.extend({
     render: function () {
         this.$el.html(render('users/show', this.model));
         this.followers = new FollowerCollection({}, this.model.id);
-        this.followeds = new FollowedUserCollection({}, this.model.id);
+        this.followed_users = new FollowedUserCollection({}, this.model.id);
 
-        this.listenTo(this.followers, 'sync', this.renderFollowerList);
-        this.listenTo(this.followeds, 'sync', this.renderFollowedList);
+        this.listenTo(this.followers, 'sync', this.renderFollowersList);
+        this.listenTo(this.followed_users, 'sync', this.renderFollowedUsersList);
     },
 
-    renderFollowerList: function () {
-        new FollowingListView({
+    renderFollowersList: function () {
+        new FollowersIndexListView({
             el: '.followers',
             collection: this.followers
         });        
     },
 
-    renderFollowedList: function () {
-        new FollowingListView({
+    renderFollowedUsersList: function () {
+        new FollowedUsersIndexListView({
             el: '.followed_users',
-            collection: this.followeds
+            collection: this.followed_users
         });        
     }
 });

@@ -10,27 +10,43 @@ Router = Backbone.Router.extend({
     },
 
     mainIndex: function () {
-        new MainIndexView({ el: '.main_index' });
+        new ApplicationLayout({ 
+            el: '.main_index', 
+            controller: 'main', 
+            action: 'index' 
+        });
     },
 
     establishmentsIndex: function () {
-        new EstablishmentsIndexView({ el: '.main_index' });
+        new ApplicationLayout({ 
+            el: '.main_index', 
+            controller: 'establishments', 
+            action: 'index' 
+        });
     },
 
     establishmentsShow: function (id) {
-        new EstablishmentsShowView({
+        new ApplicationLayout({ 
             el: '.main_index',
+            controller: 'establishments', 
+            action: 'show',
             model: new Establishment({ id: id })
         });
     },
 
     usersIndex: function () {
-        new UsersIndexView({ el: '.main_index' });
+        new ApplicationLayout({ 
+            el: '.main_index',
+            controller: 'users', 
+            action: 'index' 
+        });
     },
 
     usersShow: function (id) {
-        new UsersShowView({
-            el: '.main_index',
+        new ApplicationLayout({
+            el: '.main_index', 
+            controller: 'users',
+            action: 'show', 
             model: new User({ id: id })
         });
     },

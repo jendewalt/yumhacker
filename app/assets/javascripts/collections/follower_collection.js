@@ -9,16 +9,16 @@ FollowerCollection = Backbone.Collection.extend({
         }
     },
 
-    parse: function (response) {
-        return response.followers;
-    },
-
     fetchById: function (id) {
         var baseUrl = this.url;
 
-        this.url += '/' + id;
+        this.url += '/' + id + '/followers';
         this.fetch({ rest: true });
 
         this.url = baseUrl;
-    }
+    },
+
+    parse: function (response) {
+        return response.followers;
+    },
 });

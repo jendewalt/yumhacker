@@ -1,14 +1,3 @@
-<nav>
-    <h3>YumHacker</h3>
-
-    <% if (CurrentUser.logged_in()) { %>
-        <a data-method="delete" href="/users/sign_out" rel="nofollow">Sign Out</a>
-    <% } else { %>
-        <a href="users/sign_in" class="btn">Sign In</a>
-    <% } %>
-    <br class="clear">
-</nav>
-
 <div class='btn_container'>
     <a href="users" class="btn nav">Users</a>
     <a href="establishments" class="btn nav">Establishments</a>

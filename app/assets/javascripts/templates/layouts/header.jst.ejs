@@ -1,0 +1,13 @@
+<nav>
+    <a href="/" class="logo">YumHacker</a>
+
+    <div class="nav_links_container">
+        <% if (CurrentUser.logged_in()) { %>
+                <a href="/users/<%= CurrentUser.id %>"><%= CurrentUser.get('name') %></a>
+                <a data-method="delete" href="/users/sign_out" rel="nofollow">Sign Out</a>
+        <% } else { %>
+            <a href="users/sign_in" >Sign In</a>
+        <% } %>
+    </div>
+    <br class="clear">
+</nav>

@@ -1,4 +1,4 @@
-FollowingListView = Backbone.View.extend({
+FollowersIndexListView = Backbone.View.extend({
     events: {
     },
 
@@ -14,7 +14,7 @@ FollowingListView = Backbone.View.extend({
     },
 
     renderUser: function (user) {
-        var user_view = new UsersIndexUserView({
+        var user_view = new FollowersIndexUserView({
             tagName: 'li',
             model: user
         });
