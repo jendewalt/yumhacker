@@ -1,1 +1,5 @@
-<a class='follow_button'><%= get('following') %></a>
+<% if (get('following')) { %>
+    <a class='follow_btn followed'>Unfollow</a>
+<% } else { %>
+    <a class='follow_btn not_following'>Follow</a>
+<% } %>

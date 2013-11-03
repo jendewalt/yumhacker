@@ -13,6 +13,8 @@ Yumhacker::Application.routes.draw do
     get 'users/followers', to: 'users#followers'
     get 'users/followed_users', to: 'users#followed_users'
     get 'users/following', to: 'users#following'
+    post 'users/follow', to: 'users#follow'
+    delete 'users/follow', to: 'users#unfollow'
     resources :users
   end
 end

@@ -11,7 +11,7 @@ FollowersIndexListView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html('');
+        this.$el.html(render('followers/index_follower_list'));
         this.collection.each(function (user){
             this.renderUser(user);
         }, this);
@@ -23,6 +23,6 @@ FollowersIndexListView = Backbone.View.extend({
             model: user
         });
 
-        this.$el.append(user_view.el);
+        this.$('ul.followers').append(user_view.el);
     }
 });

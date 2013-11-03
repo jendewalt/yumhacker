@@ -17,10 +17,5 @@ FollowedUsersIndexUserView = Backbone.View.extend({
 
     goToUserShow: function () {
         App.navigate('users/' + this.model.get('id'), { trigger: true });
-    },
-
-    toggleFollowing: function (e) {
-        e.preventDefault();
-        console.log(e);
     }
 });

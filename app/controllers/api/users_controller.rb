@@ -9,6 +9,22 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def unfollow
+    if current_user.unfollow!(params[:user_id])
+      render :json => { following: false }
+    else
+      render :json => { following: true }
+    end
+  end
+
+  def follow
+    if current_user.follow!(params[:user_id])
+      render :json => { following: true }
+    else
+      render :json => { following: false }
+    end
+  end
+
   def followers
     @followers = User.find(params[:user_id]).followers
   end
@@ -19,6 +35,6 @@ class Api::UsersController < ApplicationController
 
   def following
     following = current_user.following?(params[:user_id])
-    respond_with({following: following})
+    render :json => { following: following }
   end
 end

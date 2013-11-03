@@ -10,15 +10,20 @@ UsersShowView = Backbone.View.extend({
             model: this.model
         });
 
-        new FollowersIndexListView({
-            el: 'ul.followers',
-            model: this.model
+        new UsersShowFollowingContainerView({
+            el: '.following_container',
+            model: this.model            
         });
 
-        new FollowedUsersIndexListView({
-            el: 'ul.followed_users',
-            model: this.model
-        });        
+        // new FollowersIndexListView({
+        //     el: '.following_list_container',
+        //     model: this.model
+        // });
+
+        // new FollowedUsersIndexListView({
+        //     el: '.following_list_container',
+        //     model: this.model
+        // });        
     },
 
     render: function () {
