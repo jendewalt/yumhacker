@@ -12,6 +12,7 @@ Yumhacker::Application.routes.draw do
     resources :establishments
     get 'users/followers', to: 'users#followers'
     get 'users/followed_users', to: 'users#followed_users'
+    get 'users/following', to: 'users#following'
     resources :users
   end
 end

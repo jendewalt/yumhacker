@@ -11,16 +11,16 @@ class User < ActiveRecord::Base
   has_many :endorsements, :dependent => :destroy
   has_many :establishments, :through => :endorsements
 
-  def following?(user)
-    relationships.where(:followed_id => user.id).count > 0
+  def following?(id)
+    relationships.where(:followed_id => id).count > 0
   end
 
-  def follow!(user)
-    relationships.create!(:followed_id => user.id)
+  def follow!(id)
+    relationships.create!(:followed_id => id)
   end
 
-  def unfollow!(user)
-    relationships.where(:followed_id => user.id).first.try(:destroy)
+  def unfollow!(id)
+    relationships.where(:followed_id => id).first.try(:destroy)
   end
 
   def endorsing?(establishment)

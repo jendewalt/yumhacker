@@ -16,4 +16,9 @@ class Api::UsersController < ApplicationController
   def followed_users
     @followed_users = User.find(params[:user_id]).followed_users
   end
+
+  def following
+    following = current_user.following?(params[:user_id])
+    respond_with({following: following})
+  end
 end
