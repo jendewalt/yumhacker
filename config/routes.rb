@@ -22,5 +22,6 @@ Yumhacker::Application.routes.draw do
     resources :users
 
     get 'geolocations', to: 'geolocations#index'
+    get 'geolocations/details', to: 'geolocations#details'
   end
 end

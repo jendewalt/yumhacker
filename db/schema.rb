@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131101041814) do
+ActiveRecord::Schema.define(version: 20131104012114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(version: 20131101041814) do
   add_index "establishments", ["name"], :name => "index_establishments_on_name"
   add_index "establishments", ["neighborhood"], :name => "index_establishments_on_neighborhood"
   add_index "establishments", ["price"], :name => "index_establishments_on_price"
+
+  create_table "hours", force: true do |t|
+    t.string   "event_type"
+    t.integer  "day"
+    t.integer  "time"
+    t.integer  "establishment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "hours", ["establishment_id"], :name => "index_hours_on_establishment_id"
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"

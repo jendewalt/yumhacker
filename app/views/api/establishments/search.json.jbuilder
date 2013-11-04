@@ -5,4 +5,5 @@ json.establishments @establishments do |establishment|
     json.lat establishment[:lat]
     json.lng establishment[:lng]
     json.price establishment[:price]
+    json.reference establishment[:reference]
 end

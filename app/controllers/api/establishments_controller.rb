@@ -18,6 +18,15 @@ class Api::EstablishmentsController < ApplicationController
     @establishment.save 
 
     current_user.endorse!(@establishment.id)
+
+    details = google_places_details(params[:reference])
+    hours = details[:hours]
+    details.delete(:hours)
+    hours.each do |hour|
+      @establishment.hours.create!(hour)
+    end
+    @establishment.update_attributes(details)
+
     render :json => @establishment.to_json
   end
 
