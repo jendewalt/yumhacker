@@ -44,7 +44,12 @@ body {
             color: #fff;
             text-decoration: none;
         }
-    }   
+    }  
+
+    li {
+        padding: 10px;
+        border-bottom: 1px solid #333;
+    } 
 
     .clear {
         clear: both;

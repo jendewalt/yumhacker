@@ -23,15 +23,15 @@ class User < ActiveRecord::Base
     relationships.where(:followed_id => id).first.try(:destroy)
   end
 
-  def endorsing?(establishment)
-    endorsements.where(:establishment_id => establishment.id).count > 0
+  def endorsing?(id)
+    endorsements.where(:establishment_id => id).count > 0
   end
 
-  def endorse!(establishment)
-    endorsements.create!(:establishment_id => establishment.id)
+  def endorse!(id)
+    endorsements.create!(:establishment_id => id)
   end
 
-  def unendorse!(establishment)
-    endorsements.where(:establishment_id => establishment.id).first.try(:destroy)
+  def unendorse!(id)
+    endorsements.where(:establishment_id => id).first.try(:destroy)
   end
 end

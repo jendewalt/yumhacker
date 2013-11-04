@@ -2,6 +2,7 @@ Router = Backbone.Router.extend({
     routes: {
         '': 'mainIndex',
         'establishments': 'establishmentsIndex',
+        'establishments/search': 'establishmentsSearch',
         'establishments/:id': 'establishmentsShow',
         'users': 'usersIndex',
         'users/sign_in': 'nothing',
@@ -15,6 +16,10 @@ Router = Backbone.Router.extend({
 
     establishmentsIndex: function () {
         new EstablishmentsIndexView({ el: '#main_container' });
+    },
+
+    establishmentsSearch: function (id) {
+        new EstablishmentsSearchView({ el: '#main_container' });
     },
 
     establishmentsShow: function (id) {

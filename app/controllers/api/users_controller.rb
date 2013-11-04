@@ -10,19 +10,23 @@ class Api::UsersController < ApplicationController
   end
 
   def unfollow
-    if current_user.unfollow!(params[:user_id])
-      render :json => { following: false }
-    else
-      render :json => { following: true }
-    end
+    current_user.unfollow!(params[:user_id])
+    render :json => { following: current_user.following?(params[:user_id]) }
   end
 
   def follow
-    if current_user.follow!(params[:user_id])
-      render :json => { following: true }
-    else
-      render :json => { following: false }
-    end
+    current_user.follow!(params[:user_id])
+    render :json => { following: current_user.following?(params[:user_id]) }
+  end
+
+  def unendorse
+    current_user.unendorse!(params[:id])
+    render :json => { endorsing: current_user.endorsing?(params[:id]) }
+  end
+
+  def endorse
+    current_user.endorse!(params[:id])
+    render :json => { endorsing: current_user.endorsing?(params[:id]) } 
   end
 
   def followers
@@ -34,7 +38,6 @@ class Api::UsersController < ApplicationController
   end
 
   def following
-    following = current_user.following?(params[:user_id])
-    render :json => { following: following }
+    render :json => { following: current_user.following?(params[:user_id] }
   end
 end

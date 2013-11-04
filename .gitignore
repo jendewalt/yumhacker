@@ -20,6 +20,7 @@
 .DS_Store
 **.orig
 /config/database.yml
+/config/config.yml
 /config/deploy.rb
 /config/nginx.god
 /config/redis.god
