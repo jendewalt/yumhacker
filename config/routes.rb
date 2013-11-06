@@ -12,13 +12,15 @@ Yumhacker::Application.routes.draw do
     get 'establishments/search', to: 'establishments#search'
     resources :establishments
 
+    get 'users/endorsing', to: 'users#endorsing'
     post 'users/endorse', to: 'users#endorse'
     delete 'users/endorse', to: 'users#unendorse'
-    get 'users/followers', to: 'users#followers'
-    get 'users/followed_users', to: 'users#followed_users'
+    
     get 'users/following', to: 'users#following'
     post 'users/follow', to: 'users#follow'
     delete 'users/follow', to: 'users#unfollow'
+    get 'users/followers', to: 'users#followers'
+    get 'users/followed_users', to: 'users#followed_users'
     resources :users
 
     get 'geolocations', to: 'geolocations#index'

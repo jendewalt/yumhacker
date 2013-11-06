@@ -1,8 +1,8 @@
-EndorsementButton = Backbone.Model.extend({
-    urlRoot: '/api/users/endorse',
+EndorseButton = Backbone.Model.extend({
+    urlRoot: '/api/users/endorsing',
 
     toggle: function () {
-        if (this.get('endorsed')) {
+        if (this.get('endorsing')) {
             this.unendorse();
         } else {
             this.endorse();
@@ -15,7 +15,7 @@ EndorsementButton = Backbone.Model.extend({
             url: '/api/users/endorse',
             method: 'DELETE',
             dataType: 'json',
-            data: { establishment_id: this.get('id') },
+            data: { establishment_id: this.get('establishment_id') },
             success: function (response) {
                 that.set(response);
             },
@@ -27,12 +27,11 @@ EndorsementButton = Backbone.Model.extend({
 
     endorse: function () {
         var that = this;
-
         $.ajax({
             url: '/api/users/endorse',
             method: 'POST',
             dataType: 'json',
-            data: this.model.toJSON(),
+            data: { establishment_id: this.get('establishment_id') },
             success: function (response) {
                 that.set(response);
             },

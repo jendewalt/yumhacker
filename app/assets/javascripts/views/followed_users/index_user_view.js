@@ -1,6 +1,6 @@
 FollowedUsersIndexUserView = Backbone.View.extend({
     events:{
-        'click .user': 'goToUserShow'
+        'click .user_name': 'goToUserShow'
     },
 
     initialize: function () {

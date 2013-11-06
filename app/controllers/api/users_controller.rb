@@ -19,16 +19,6 @@ class Api::UsersController < ApplicationController
     render :json => { following: current_user.following?(params[:user_id]) }
   end
 
-  def unendorse
-    current_user.unendorse!(params[:id])
-    render :json => { endorsing: current_user.endorsing?(params[:id]) }
-  end
-
-  def endorse
-    current_user.endorse!(params[:id])
-    render :json => { endorsing: current_user.endorsing?(params[:id]) } 
-  end
-
   def followers
     @followers = User.find(params[:user_id]).followers
   end
@@ -38,6 +28,22 @@ class Api::UsersController < ApplicationController
   end
 
   def following
-    render :json => { following: current_user.following?(params[:user_id] }
+    render :json => { following: current_user.following?(params[:user_id]) }
+  end
+
+  def unendorse
+    logger.debug('$$$$$$$$$$$$$$$$$$')
+    logger.debug(params[:establishment_id])
+    current_user.unendorse!(params[:establishment_id])
+    render :json => { endorsing: current_user.endorsing?(params[:establishment_id]) }
+  end
+
+  def endorse
+    current_user.endorse!(params[:establishment_id])
+    render :json => { endorsing: current_user.endorsing?(params[:establishment_id]) } 
+  end
+
+  def endorsing
+    render :json => { endorsing: current_user.endorsing?(params[:establishment_id]) }
   end
 end

@@ -1,6 +1,6 @@
 UsersIndexUserView = Backbone.View.extend({
     events:{
-        'click': 'goToUserShow'
+        'click .user_name': 'goToUserShow'
     },
 
     initialize: function () {
@@ -9,6 +9,10 @@ UsersIndexUserView = Backbone.View.extend({
 
     render: function () {
         this.$el.html(render('users/index_user', this.model));
+        this.application_follow_button_view = new ApplicationFollowButtonView({ 
+            el: this.$('.follow_btn_container'),
+            user_id: this.model.get('id') 
+        });
     },
 
     goToUserShow: function () {

@@ -13,14 +13,19 @@ UsersShowFollowingContainerView = Backbone.View.extend({
         this.$el.html(render('users/show_following_container'));
     },
 
-    renderFollowers: function () {
+    renderFollowers: function (e) {
+        $('.followers_tab').addClass('current_tab');
+        $('.followed_users_tab').removeClass('current_tab');
         this.followersIndexListView = new FollowersIndexListView({
             el: '.following_list_container',
             model: this.model
         });
+        console.log(e)
     },
 
-    renderFollowedUsers: function () {
+    renderFollowedUsers: function (e) {
+        $('.followed_users_tab').addClass('current_tab');
+        $('.followers_tab').removeClass('current_tab');
         this.followedUsersIndexListView = new FollowedUsersIndexListView({
             el: '.following_list_container',
             model: this.model
