@@ -6,4 +6,5 @@ json.establishments @establishments do |establishment|
     json.lng establishment[:lng]
     json.price establishment[:price]
     json.reference establishment[:reference]
+    json.google_id establishment[:google_id]
 end

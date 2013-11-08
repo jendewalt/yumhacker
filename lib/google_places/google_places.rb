@@ -15,6 +15,7 @@ module GooglePlaces
             result[:name] = place[:name] if place[:name]
             result[:price] = place[:price_level] if place[:price_level]
             result[:reference] = place[:reference] if place[:reference]
+            result[:google_id] = place[:id] if place[:id]
             results.push result.with_indifferent_access
         end
         results

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131104012114) do
+ActiveRecord::Schema.define(version: 20131108001434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,9 +43,11 @@ ActiveRecord::Schema.define(version: 20131104012114) do
     t.string   "website"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "google_id"
   end
 
   add_index "establishments", ["formatted_address"], :name => "index_establishments_on_formatted_address"
+  add_index "establishments", ["google_id"], :name => "index_establishments_on_google_id", :unique => true
   add_index "establishments", ["latlng"], :name => "index_establishments_on_latlng", :spatial => true
   add_index "establishments", ["name"], :name => "index_establishments_on_name"
   add_index "establishments", ["neighborhood"], :name => "index_establishments_on_neighborhood"
