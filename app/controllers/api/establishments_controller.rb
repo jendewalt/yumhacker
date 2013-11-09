@@ -13,19 +13,31 @@ class Api::EstablishmentsController < ApplicationController
   end
 
   def create
-    @establishment = Establishment.create(name: params[:name], formatted_address: params[:formatted_address], price: params[:price], google_id: params[:google_id])
-    @establishment.latlng = Establishment.rgeo_factory_for_column(:latlng).point(params[:lng], params[:lat])
-    @establishment.save 
+    @establishment = Establishment.find_by_google_id(params[:google_id])
 
-    current_user.endorse!(@establishment.id)
-
-    details = google_places_details(params[:reference])
-    hours = details[:hours]
-    details.delete(:hours)
-    hours.each do |hour|
-      @establishment.hours.create!(hour)
+    unless @establishment
+      @establishment = Establishment.create(name: params[:name], formatted_address: params[:formatted_address], price: params[:price], google_id: params[:google_id])
+      @establishment.latlng = Establishment.rgeo_factory_for_column(:latlng).point(params[:lng], params[:lat])
+      @establishment.save
     end
-    @establishment.update_attributes(details)
+
+    unless current_user.endorsing?(@establishment.id)
+      current_user.endorse!(@establishment.id)
+    end
+
+    logger.debug('$$$$$$$$$$$$$$$$$')
+    logger.debug(@establishment)
+    # Reference is returning nil.........?
+
+    unless params[:reference].nil?
+      details = google_places_details(params[:reference])
+      hours = details[:hours]
+      details.delete(:hours)
+      hours.each do |hour|
+        @establishment.hours.create!(hour)
+      end
+      @establishment.update_attributes(details)
+    end
 
     render :json => @establishment.to_json
   end
