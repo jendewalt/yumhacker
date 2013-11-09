@@ -1,7 +1,8 @@
 UsersShowFollowingContainerView = Backbone.View.extend({
     events: {
         'click .followers_tab': 'renderFollowers',
-        'click .followed_users_tab': 'renderFollowedUsers'
+        'click .followed_users_tab': 'renderFollowedUsers',
+        'click .endorsements_tab': 'renderEndorsements'
     },
 
     initialize: function () {
@@ -20,7 +21,6 @@ UsersShowFollowingContainerView = Backbone.View.extend({
             el: '.following_list_container',
             model: this.model
         });
-        console.log(e)
     },
 
     renderFollowedUsers: function (e) {
@@ -30,6 +30,14 @@ UsersShowFollowingContainerView = Backbone.View.extend({
             el: '.following_list_container',
             model: this.model
         });        
-    }
+    },
 
+    renderEndorsements: function (e) {
+        // $('.followed_users_tab').addClass('current_tab');
+        // $('.followers_tab').removeClass('current_tab');
+        this.endorsementsIndexListView = new EndorsementsIndexListView({
+            el: '.following_list_container',
+            model: this.model
+        });     
+    }
 });

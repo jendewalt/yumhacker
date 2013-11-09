@@ -25,10 +25,6 @@ class Api::EstablishmentsController < ApplicationController
       current_user.endorse!(@establishment.id)
     end
 
-    logger.debug('$$$$$$$$$$$$$$$$$')
-    logger.debug(@establishment)
-    # Reference is returning nil.........?
-
     unless params[:reference].nil?
       details = google_places_details(params[:reference])
       hours = details[:hours]

@@ -32,8 +32,6 @@ class Api::UsersController < ApplicationController
   end
 
   def unendorse
-    logger.debug('$$$$$$$$$$$$$$$$$$')
-    logger.debug(params[:establishment_id])
     current_user.unendorse!(params[:establishment_id])
     render :json => { endorsing: current_user.endorsing?(params[:establishment_id]) }
   end
@@ -45,5 +43,10 @@ class Api::UsersController < ApplicationController
 
   def endorsing
     render :json => { endorsing: current_user.endorsing?(params[:establishment_id]) }
+  end
+
+  def endorsements
+    @establishments = User.find(params[:user_id]).establishments
+    render 'api/establishments/index'
   end
 end

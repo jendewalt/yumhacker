@@ -13,6 +13,7 @@ Yumhacker::Application.routes.draw do
     resources :establishments
 
     get 'users/endorsing', to: 'users#endorsing'
+    get 'users/endorsements', to: 'users#endorsements'
     post 'users/endorse', to: 'users#endorse'
     delete 'users/endorse', to: 'users#unendorse'
     

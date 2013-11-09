@@ -52,9 +52,11 @@ module GooglePlaces
         end
 
         result[:hours] = []
-        location[:opening_hours][:periods].each do |period|
-            result[:hours].push({ event_type: 'close', day: period[:close][:day], time: period[:close][:time] })
-            result[:hours].push({ event_type: 'open', day: period[:open][:day], time: period[:open][:time] })
+        unless location[:opening_hours].nil?
+            location[:opening_hours][:periods].each do |period|
+                result[:hours].push({ event_type: 'close', day: period[:close][:day], time: period[:close][:time] })
+                result[:hours].push({ event_type: 'open', day: period[:open][:day], time: period[:open][:time] })
+            end
         end
         result
     end
