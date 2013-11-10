@@ -9,6 +9,10 @@ MainIndexView = Backbone.View.extend({
 
 	render: function () {
 		this.$el.html(render('main/index', CurrentUser));
+
+		this.main_index_map_view = new MainIndexMapView({
+			el: '.map_canvas_container'
+		});
 	},
 
 	goToSubIndex: function (e) {
