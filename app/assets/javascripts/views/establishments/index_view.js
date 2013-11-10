@@ -4,6 +4,7 @@ EstablishmentsIndexView = Backbone.View.extend({
 
 	initialize: function () {
 		this.collection = new EstablishmentCollection();
+		// Need to pass latlng here like .fetch({data: {lat: 234, lng: 532}, reset: true})
 		this.collection.fetch({ reset: true });
 		this.listenTo(this.collection, 'reset', this.render);
 	},

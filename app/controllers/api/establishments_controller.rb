@@ -5,7 +5,14 @@ class Api::EstablishmentsController < ApplicationController
   include GooglePlaces
 
 	def index
-		@establishments = Establishment.all
+    params[:lat] ||= 37.7833
+    params[:lng] ||= -122.4167
+    params[:radius] ||= 5
+
+    lat = params[:lat]
+    lng = params[:lng]
+    radius = params[:radius]
+    @establishments = Establishment.where("ST_DWithin(latlng, ST_geomFromText('POINT (? ?)', 4326), ?)", lng.to_f, lat.to_f, radius.to_f * 1609.34).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry")	
 	end
 
   def show
@@ -13,7 +20,7 @@ class Api::EstablishmentsController < ApplicationController
   end
 
   def create
-    @establishment = Establishment.find_by_google_id(params[:google_id])
+    @establishment = Establishment.find_by(:google_id => params[:google_id])
 
     unless @establishment
       @establishment = Establishment.create(name: params[:name], formatted_address: params[:formatted_address], price: params[:price], google_id: params[:google_id])
