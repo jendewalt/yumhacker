@@ -4,7 +4,7 @@ ApplicationFollowButtonView = Backbone.View.extend({
     },
 
     initialize: function (options) {
-        if (options.user_id != CurrentUser.get('id')){
+        if (CurrentUser.get('id') && (options.user_id != CurrentUser.get('id'))){
             this.model = new FollowButton();
             this.listenTo(this.model, 'sync', this.render);
             this.listenTo(this.model, 'change', this.render);
