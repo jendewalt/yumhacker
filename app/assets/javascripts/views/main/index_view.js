@@ -1,26 +1,34 @@
 MainIndexView = Backbone.View.extend({
 	events: {
 		'click .nav': 'goToSubIndex',
-		'submit': 'getEndorsedEstablishments'
+		'submit': 'getEstablishments',
+		'click #from_followed': 'toggleFromFollowed'
 	},
 
 	initialize: function () {
+		if (CurrentUser.logged_in()) {
+			this.fromFollowed = true;
+		} else {
+			this.fromFollowed = false;
+		}
+
 		this.collection = new EndorsedEstablishmentCollection();
         this.listenTo(this.collection, 'reset', this.renderEstablishments);
-		this.collection.fetch({ reset: true, data: { location: 'San Francisco, CA' } });
 		this.render();
 	},
 
 	render: function () {
 		this.$el.html(render('main/index', CurrentUser));
-		this.renderEstablishments();
+		this.getEstablishments();
 	},
 
-	// getEndorsedEstablishments: function (e) {
-	// 	e.preventDefault();
-	// 	console.log(e.target[0].value);
-	// 	this.collection.fetch({ reset: true, data: { location: e.target[0].value } });		
-	// },
+	getEstablishments: function (e) {
+		var location = e ? e.target[0].value : 'San Francisco, CA';
+		if (e) {
+			e.preventDefault();
+		}
+		this.collection.fetch({ reset: true, data: { location: location, from_followed: this.fromFollowed, radius: this.radius } });		
+	},
 
 	renderEstablishments: function () {
 		this.main_index_establishments_list_view = new MainIndexEstablishmentsListView({
@@ -37,5 +45,10 @@ MainIndexView = Backbone.View.extend({
 	goToSubIndex: function (e) {
 		e.preventDefault();
 		App.navigate(e.target.pathname, { trigger: true });
+	},
+
+	toggleFromFollowed: function (e) {
+		this.fromFollowed = !this.fromFollowed;
+		this.getEstablishments();
 	}
 });

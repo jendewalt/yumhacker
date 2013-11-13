@@ -5,14 +5,28 @@ class Api::EstablishmentsController < ApplicationController
   include GooglePlaces
 
 	def index
-    params[:lat] ||= 37.7833
-    params[:lng] ||= -122.4167
-    params[:radius] ||= 5
-
+    location = params[:location]
     lat = params[:lat]
     lng = params[:lng]
+    params[:from_followed] ||= false
+    params[:radius] ||= 4437.769563280639 # Radius in meters
+
+    if location && !location.strip.empty?
+      geocoded_location = geocode(location)[0]
+      lat = geocoded_location[:lat]
+      lng = geocoded_location[:lng]
+    else
+      render :json => [] and return
+    end
+
     radius = params[:radius]
-    @establishments = Establishment.where("ST_DWithin(latlng, ST_geomFromText('POINT (? ?)', 4326), ?)", lng.to_f, lat.to_f, radius.to_f * 1609.34).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry")	
+    from_followed = params[:from_followed]
+
+    if from_followed == 'true' && current_user
+      @establishments = Establishment.from_users_followed_by(current_user).where("ST_DWithin(latlng, ST_geomFromText('POINT (? ?)', 4326), ?)", lng.to_f, lat.to_f, radius.to_f * 1609.34).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry")
+    else
+      @establishments = Establishment.where("ST_DWithin(latlng, ST_geomFromText('POINT (? ?)', 4326), ?)", lng.to_f, lat.to_f, radius.to_f).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry")
+    end
 	end
 
   def show

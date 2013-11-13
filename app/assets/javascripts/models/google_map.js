@@ -3,7 +3,7 @@ GoogleMap = Backbone.Model.extend({
         
         options: {
             center: new google.maps.LatLng(37.7833, -122.4167),
-            zoom: 12,
+            zoom: 13,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     }
