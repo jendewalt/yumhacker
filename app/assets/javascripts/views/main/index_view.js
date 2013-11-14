@@ -2,7 +2,8 @@ MainIndexView = Backbone.View.extend({
 	events: {
 		'click .nav': 'goToSubIndex',
 		'submit': 'getLocationLatLng',
-		'click #from_followed': 'toggleFromFollowed'
+		'click #from_followed': 'toggleFromFollowed',
+		'click #nearby_btn': 'getUserLocation'
 	},
 
 	initialize: function () {
@@ -27,7 +28,7 @@ MainIndexView = Backbone.View.extend({
 		this.$el.html('');
 		this.$el.html(render('main/index', CurrentUser));
 
-		this.main_index_map_view = new MainIndexMapView({
+		this.map_view = new MapView({
 			el: '.map_canvas_container',
 			collection: this.collection
 		});
@@ -35,28 +36,32 @@ MainIndexView = Backbone.View.extend({
 
 	getLocationLatLng: function (e) {
 		if (e) { e.preventDefault(); }
-		var location = e ? e.target[0].value : 'San Francisco, CA';
+		var location = e ? $.trim(e.target[0].value) : 'San Francisco, CA';
 		
-		var that = this;
-        $.ajax({
-            url: '/api/geolocations',
-            method: 'GET',
-            dataType: 'json',
-            data: { query: location },
-            success: function (response) {
-                that.center.lat = response[0].lat;
-                that.center.lng = response[0].lng;
-                that.getEstablishments();
-            },
-            error: function (xhr, status) {
-                console.log(status)
-            }
-        });
+		if (location) {
+			var that = this;
+	        $.ajax({
+	            url: '/api/geolocations',
+	            method: 'GET',
+	            dataType: 'json',
+	            data: { query: location },
+	            success: function (response) {
+	            	if (response.length) {
+		                that.center.lat = response[0].lat;
+		                that.center.lng = response[0].lng;
+		                that.getEstablishments();            		
+	            	}
+	            },
+	            error: function (xhr, status) {
+	                console.log(status)
+	            }
+	        });			
+		}
 	},
 
 	getEstablishments: function () {
 		this.collection.fetch({ reset: true, data: { lat: this.center.lat, lng: this.center.lng, from_followed: this.fromFollowed, radius: this.radius } });
-		this.main_index_map_view.setMapCenter(this.center.lat, this.center.lng);
+		this.map_view.setMapCenter(this.center.lat, this.center.lng);
 	},
 
 	renderEstablishments: function () {
@@ -74,5 +79,19 @@ MainIndexView = Backbone.View.extend({
 	toggleFromFollowed: function (e) {
 		this.fromFollowed = !this.fromFollowed;
 		this.getEstablishments();
+	},
+
+	getUserLocation: function () {
+		var that = this;
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(getNearbyEstablishments);
+		} 
+
+		function getNearbyEstablishments(position) {
+			that.center.lat = position.coords.latitude;
+			that.center.lng = position.coords.longitude;
+			that.getEstablishments();
+			$('form #location').val('');
+		}
 	}
 });

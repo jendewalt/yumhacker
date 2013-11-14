@@ -1,4 +1,4 @@
-MainIndexMapView = Backbone.View.extend({
+MapView = Backbone.View.extend({
 	events: {
 	},
 
@@ -10,7 +10,7 @@ MainIndexMapView = Backbone.View.extend({
 
 	render: function () {
 		this.$el.html('');
-		this.$el.html(render('main/index_map'));
+		this.$el.html(render('application/map'));
 
 		var mapOptions = new GoogleMap().get('options');
 		this.map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
@@ -24,32 +24,20 @@ MainIndexMapView = Backbone.View.extend({
 		}
 
 		this.collection.each(function (establishment) {
-			this.renderMarker(establishment, this.map);
+			this.renderMarker(establishment);
 		}, this);		
 	},
 
 	clearMarkers: function () {
 		_.each(this.markers, function (marker) {
-			marker.setMap(null);
+			marker.remove();
 		});
 
 		this.markers = [];
 	},
 
-	renderMarker: function (establishment, map) {
-		var that = this;
-		var position = new google.maps.LatLng(establishment.get('lat'), establishment.get('lng'));
-		var marker = new google.maps.Marker({
-			map: map,
-			position: position,
-			title: establishment.get('name')
-		});
-
-		google.maps.event.addListener(marker, 'click', function () {
-			var content = establishment.get('name') + '<br>' + establishment.get('formatted_address');
-			that.infoWindow.setContent(content);
-			that.infoWindow.open(map, this);
-		});
+	renderMarker: function (establishment) {
+		marker = new MapMarker(establishment, this.map, this.infoWindow);
 
 		this.markers.push(marker);
 	},

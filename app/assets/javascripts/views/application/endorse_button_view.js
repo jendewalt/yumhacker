@@ -4,7 +4,6 @@ ApplicationEndorseButtonView = Backbone.View.extend({
     },
 
     initialize: function (options) {
-        console.log(options)
         this.model = new EndorseButton();
         this.listenTo(this.model, 'sync', this.render);
         this.listenTo(this.model, 'change', this.render);
