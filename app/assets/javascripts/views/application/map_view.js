@@ -5,7 +5,7 @@ MapView = Backbone.View.extend({
 	initialize: function () {
 		this.render();
 		this.markers = [];
-		this.infoWindow = new google.maps.InfoWindow();
+		this.infoWindow = new google.maps.InfoWindow({ maxWidth: 200 });
 	},
 
 	render: function () {
