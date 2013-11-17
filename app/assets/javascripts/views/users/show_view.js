@@ -1,7 +1,5 @@
 UsersShowView = Backbone.View.extend({
-    events: {
-    },
-
+    
     initialize: function () {
         this.render()
 

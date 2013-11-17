@@ -46,6 +46,7 @@ Router = Backbone.Router.extend({
 
 App = new Router();
 
+// why is this here
 $(window).on("popstate", function(e) { 
     if (e.originalEvent.state !== null) { 
         e.preventDefault(); 

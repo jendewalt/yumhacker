@@ -1,7 +1,5 @@
 UsersIndexView = Backbone.View.extend({
-    events: {
-    },
-
+    
     initialize: function () {
         this.collection = new UserCollection();
         this.collection.fetch({ reset: true });

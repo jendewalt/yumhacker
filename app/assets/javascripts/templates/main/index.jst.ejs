@@ -1,17 +1,4 @@
-<div class='establishment_search_container'>
-    <h3>See Endorsed Restaurants Near</h3>
-    <button class='btn' id='nearby_btn'>Search Nearby</button>
-    <form id='establishment_search_form'>
-        <input id='location' type='text' value="San Francisco">
-
-        <% if (CurrentUser.logged_in()) { %>
-            <label>Only show restaurants from people I'm following</label>
-            <input id='from_followed' type='checkbox' checked>
-        <% } %>
-
-        <input class='btn' type='submit' value='Submit'>
-    </form>
-</div>
+<div class='establishment_search_container'></div>
 
 <div class='establishments_container'>
     <ul class='establishments_list'></ul>

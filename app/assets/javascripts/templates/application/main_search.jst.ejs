@@ -1,0 +1,12 @@
+<h3>See Endorsed Restaurants Near</h3>
+<button class='btn' id='nearby_btn'>Search Nearby</button>
+<form id='establishment_search_form'>
+    <input id='location' type='text' value="<%= MainSearch.get('location_name') %>">
+
+    <% if (CurrentUser.logged_in()) { %>
+        <label>Only show restaurants from people I'm following</label>
+        <input id='from_followed' type='checkbox' <%= MainSearch.get('from_followed') ? 'checked' : '' %> >
+    <% } %>
+
+    <input class='btn' type='submit' value='Submit'>
+</form>

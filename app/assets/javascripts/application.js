@@ -15,6 +15,7 @@
 //= require underscore
 //= require json2
 //= require backbone
+//= require ext/backbone
 //= require jquery_cookie
 //= require_tree ./models
 //= require_tree ./collections

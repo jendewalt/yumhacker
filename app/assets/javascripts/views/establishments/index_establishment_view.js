@@ -11,7 +11,8 @@ EstablishmentsIndexEstablishmentView = Backbone.View.extend({
 		this.$el.html(render('establishments/index_establishment', this.model));	
 	},
 
-	goToEstablishmentShow: function () {
+	goToEstablishmentShow: function (e) {
+		e.preventDefault();
 		App.navigate('establishments/' + this.model.get('id'), { trigger: true });
 	}
 });

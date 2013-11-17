@@ -1,7 +1,5 @@
 EstablishmentsShowView = Backbone.View.extend({
-	events: {
-	},
-
+	
 	initialize: function () {
 		this.listenTo(this.model, 'sync', this.render);
         this.model.fetch();

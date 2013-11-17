@@ -1,21 +1,25 @@
-MapView = Backbone.View.extend({
+MapView = new (Backbone.View.extend({
 	events: {
 	},
 
 	initialize: function () {
-		this.render();
+		console.log('Init: google map')
 		this.markers = [];
 		this.infoWindow = new google.maps.InfoWindow({ maxWidth: 200 });
+		this.mapOptions = new GoogleMap().get('options');
+		this.mapCanvas = $('<div>', {
+			id: 'map_canvas'
+		});
+		this.map = new google.maps.Map(this.mapCanvas[0], this.mapOptions);
 	},
 
 	render: function () {
-		this.$el.html('');
-		this.$el.html(render('application/map'));
+		this.mapCanvas.appendTo(this.el);
+		google.maps.event.trigger(this.map, 'resize');
+	},
 
-		var mapOptions = new GoogleMap().get('options');
-		this.map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-
-        this.listenTo(this.collection, 'reset', this.resetMarkers);			
+	resetMap: function () {
+		this.map.setCenter(new google.maps.LatLng(MainSearch.get('lat'), MainSearch.get('lng')));
 	},
 
 	resetMarkers: function () {
@@ -45,4 +49,4 @@ MapView = Backbone.View.extend({
 	setMapCenter: function (lat, lng) {
 		this.map.setCenter(new google.maps.LatLng(lat, lng));
 	}
-});
+}))();

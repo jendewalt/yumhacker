@@ -17,9 +17,6 @@ MapMarker = Backbone.Model.extend({
         google.maps.event.addListener(this.marker, 'click', function () {
             App.navigate('establishments/' + that.get('id'), { trigger: true });
         });
-
-        console.log(this.get('id'))
-        console.log(establishment.get('id'))
     },
 
     remove: function () {
