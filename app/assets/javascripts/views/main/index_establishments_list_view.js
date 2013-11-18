@@ -19,8 +19,7 @@ MainIndexEstablishmentsListView = Backbone.View.extend({
 	renderEstablishment: function (establishment) {
 		var establishment_view = new EstablishmentsIndexEstablishmentView({
 			tagName: 'li',
-			model: establishment,
-			collection: this.collection
+			model: establishment
 		});
 
 		this.$el.append(establishment_view.el);

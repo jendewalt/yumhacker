@@ -22,17 +22,8 @@ MainIndexView = Backbone.View.extend({
 		});
 
 		this.main_btn_container_view = new MainBtnContainerView({
-			el: '.main_btn_container',
-			// collection: this.collection
+			el: '.main_btn_container'
 		});
-
-		window.setTimeout($.proxy( function () {
-            this.listenTo(App, 'route', this.removeListeners);
-        }, this), 0);
-    },
-
-    removeListeners: function (e) {
-        this.stopListening();
     },
 
 	render: function () {

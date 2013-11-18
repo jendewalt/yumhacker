@@ -10,31 +10,42 @@ Router = Backbone.Router.extend({
         'users/:id': 'usersShow'
     },
 
+    setup: function () {
+        if (this.currentView) { this.currentView.remove(); }
+        $('<div>', { id: 'main_container' }).appendTo('section');
+    },
+
     mainIndex: function () {
-        new MainIndexView({ el: '#main_container' });
+        this.setup();
+        this.currentView = new MainIndexView({ el: '#main_container' });
     },
 
     establishmentsIndex: function () {
-        new EstablishmentsIndexView({ el: '#main_container' });
+        this.setup();
+        this.currentView = new EstablishmentsIndexView({ el: '#main_container' });
     },
 
     establishmentsSearch: function (id) {
-        new EstablishmentsSearchView({ el: '#main_container' });
+        this.setup();
+        this.currentView = new EstablishmentsSearchView({ el: '#main_container' });
     },
 
     establishmentsShow: function (id) {
-        new EstablishmentsShowView({ 
+        this.setup();
+        this.currentView = new EstablishmentsShowView({ 
             el: '#main_container',
             model: new Establishment({ id: id })
         });
     },
 
     usersIndex: function () {
-        new UsersIndexView({ el: '#main_container' });
+        this.setup();
+        this.currentView = new UsersIndexView({ el: '#main_container' });
     },
 
     usersShow: function (id) {
-        new UsersShowView({
+        this.setup();
+        this.currentView = new UsersShowView({
             el: '#main_container', 
             model: new User({ id: id })
         });

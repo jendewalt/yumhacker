@@ -7,18 +7,10 @@ MainSearchView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
-
         this.geolocations = new GeolocationCollection();
 
         this.listenTo(this.geolocations, 'reset', this.updateLatLng);
         this.listenTo(MainSearch, 'change', this.render);
-        window.setTimeout($.proxy( function () {
-            this.listenTo(App, 'route', this.removeListeners);
-        }, this), 0);
-    },
-
-    removeListeners: function (e) {
-        this.stopListening();
     },
 
     render: function () {

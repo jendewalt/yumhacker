@@ -24,3 +24,12 @@ function getCurrentLocation (callback) {
         alert('Current location not supported.');
     }
 }
+
+// in case you ever need this ... delete when I deploy
+// window.setTimeout($.proxy( function () {
+//     this.listenTo(App, 'route', this.removeListeners);
+// }, this), 0);
+
+// removeListeners: function (e) {
+//     this.stopListening();
+// }
