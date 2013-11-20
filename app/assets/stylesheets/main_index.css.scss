@@ -1,4 +1,8 @@
 body.yumhacker {
+    $blue: #2e4da7;
+    $red: #df353d;
+    $orange: #f77837;
+
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     text-align: center;
     color: #555;
@@ -17,7 +21,6 @@ body.yumhacker {
 
     nav {
         padding: 10px 30px;
-        margin-bottom: 20px;
         background-color: #333;
         color: #fff;
 
@@ -50,8 +53,8 @@ body.yumhacker {
         font-family: Arial, sans-serif;
         text-decoration: none;
         letter-spacing: 1px;
-        background-color: #4AC9FF;
-        color: #215A73;
+        background-color: $blue;
+        color: #fff;
         border-bottom: 3px solid #215A73;
         border-radius: 5px;
         cursor: pointer;
@@ -59,22 +62,10 @@ body.yumhacker {
         &:active {
             background-color: #215A73;
             color: #000;
-            border-top: 1px solid #4AC9FF;
+            border-top: 1px solid $blue;
             border-bottom: none;
         }
     }
-
-    .follow_btn_container {
-        line-height: 30px;
-    }
-
-    .main_btn_container {
-        a {
-            margin: 5px;
-            line-height: 36px;
-            font-size: 18px;
-        }
-    } 
 
     ul {
         padding: 0 30px;
@@ -84,76 +75,149 @@ body.yumhacker {
             line-height: 30px;
             padding: 10px;
             border-bottom: 1px solid #333;
-        } 
 
-        .user_name {
-            display: inline-block;
-            cursor: pointer;
-        }
+            a {
+                cursor: pointer;
+                color: $blue;
+                font-weight: bold;
 
-        .follow_btn_container {
-            display: inline-block;
-            vertical-align: middle;
-            text-align: center;
-            
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
             .btn {
                 margin: 0 5px;
                 width: 70px;
                 line-height: 25px;
                 font-size: 15px;
             }
-        }
+        } 
     }
 
-    .user_model_container {
-        margin-bottom: 10px;
+    #main_container {
+        display: inline-block;
+        width: 1000px;
 
-        .btn {
-            margin: 0 5px;
-            width: 70px;
-            line-height: 25px;
-            font-size: 15px;
+        .establishment_search_container {
+            padding: 20px;
         }
-    }
+        
+        .establishments_container {
+            width: 100%;
 
-    .following_container {
-
-        .follow_tabs_container {
-            margin-bottom: 10px;
-            padding: 5px;
-            text-align: left;
-
-            .tab {
+            .establishments_list {
                 display: inline-block;
-                width: 150px;
-                line-height: 28px;
-                font-size: 16px;
-                background-color: #888;
-                color: #222;
-                text-align: center;
+                vertical-align: top;
+                width: 59%;
 
-                &.current_tab {
-                    background-color: #ff8f17; 
+                .details {
+                    color: #888;
+                    font-size: 13px;
+                    line-height: 20px;
+                }
+
+                .website {
+                    line-height: 16px; 
+                    font-weight: normal;
+                }
+            }
+
+            .map_canvas_container {
+                display: inline-block;
+                vertical-align: top;
+                width: 40%;
+
+                #map_canvas {
+                    width: 100%;
+                    height: 500px;
                 }
             }
         }
     }
 
-    #map_canvas {
-        width: 400px;
-        height: 300px;
-    }
 
-    .endorse_btn_container {
 
-        .btn {
-            margin: 0 5px;
-            width: 100px;
-            line-height: 25px;
-            font-size: 15px;
-            text-align: center;
-        }
-    }
+
+
+
+
+
+
+
+
+
+
+
+    // .follow_btn_container {
+    //     line-height: 30px;
+    // }
+
+    // .main_btn_container {
+    //     a {
+    //         margin: 5px;
+    //         line-height: 36px;
+    //         font-size: 18px;
+    //     }
+    // } 
+
+    //     .user_name {
+    //         display: inline-block;
+    //         cursor: pointer;
+    //     }
+
+    //     .follow_btn_container {
+    //         display: inline-block;
+    //         vertical-align: middle;
+    //         text-align: center;
+            
+    //     }
+
+    // .user_model_container {
+    //     margin-bottom: 10px;
+
+    //     .btn {
+    //         margin: 0 5px;
+    //         width: 70px;
+    //         line-height: 25px;
+    //         font-size: 15px;
+    //     }
+    // }
+
+    // .following_container {
+
+    //     .follow_tabs_container {
+    //         margin-bottom: 10px;
+    //         padding: 5px;
+    //         text-align: left;
+
+    //         .tab {
+    //             display: inline-block;
+    //             width: 150px;
+    //             line-height: 28px;
+    //             font-size: 16px;
+    //             background-color: #888;
+    //             color: #222;
+    //             text-align: center;
+
+    //             &.current_tab {
+    //                 background-color: #ff8f17; 
+    //             }
+    //         }
+    //     }
+    // }
+
+
+    // .endorse_btn_container {
+
+    //     .btn {
+    //         margin: 0 5px;
+    //         width: 100px;
+    //         line-height: 25px;
+    //         font-size: 15px;
+    //         text-align: center;
+    //     }
+    // }
 
     .clear {
         clear: both;

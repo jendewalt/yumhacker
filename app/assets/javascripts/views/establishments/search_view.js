@@ -1,4 +1,7 @@
 EstablishmentsSearchView = Backbone.View.extend({
+	events: {
+		'submit': 'searchForEstablishments'
+	},
 
 	initialize: function () {
 		this.render();
@@ -21,8 +24,3 @@ EstablishmentsSearchView = Backbone.View.extend({
 		this.collection.fetch({ reset: true, data: { query: query, location: location } });
 	}
 });
-
-// need to move this to a subview
-// events: {
-// 		'submit': 'searchForEstablishments'
-// 	},

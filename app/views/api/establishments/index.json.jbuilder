@@ -7,7 +7,6 @@ json.establishments @establishments do |establishment|
     json.phone establishment.phone
     json.website establishment.website
     json.price establishment.price
-
-    json.lng establishment.latlng.lon
+    json.lat establishment.latlng.lat
 	json.lng establishment.latlng.lon
 end
