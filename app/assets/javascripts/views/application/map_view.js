@@ -39,8 +39,8 @@ MapView = new (Backbone.View.extend({
 			this.clearMarkers();
 		}
 
-		this.collection.each(function (establishment) {
-			this.renderMarker(establishment);
+		this.collection.each(function (establishment, i) {
+			this.renderMarker(establishment, i);
 		}, this);
 
 		this.map.fitBounds(this.bounds);		
@@ -54,16 +54,12 @@ MapView = new (Backbone.View.extend({
 		this.markers = [];
 	},
 
-	renderMarker: function (establishment) {
+	renderMarker: function (establishment, i) {
 		var myLatLng = new google.maps.LatLng(establishment.get('lat'), establishment.get('lng'));
-		marker = new MapMarker(establishment, this.map);
+		marker = new MapMarker(establishment, this.map, i);
 
 		this.bounds.extend(myLatLng);
 
 		this.markers.push(marker);
-	},
-
-	// setMapCenter: function (lat, lng) {
-	// 	this.map.setCenter(new google.maps.LatLng(lat, lng));
-	// }
+	}
 }))();

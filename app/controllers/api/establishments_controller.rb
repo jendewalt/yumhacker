@@ -18,7 +18,7 @@ class Api::EstablishmentsController < ApplicationController
     if from_followed == 'true' && current_user
       # convert miles to degrees = 1.0/(60 * 1.15078)
 
-      # Find estabs in bouding box area ... get center and radius from params to expand center point to radius to give bounding box. To set Google Map viewport client side, find the farthest estab and set bounds to that distance + padding || minimum bounding (1/16 mi converted to degrees). 
+      # Find estabs in bouding box area ... get center and radius from params to expand center point to radius to give bounding box.
 
       @establishments = Establishment.from_users_followed_by(current_user).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry")
     else
