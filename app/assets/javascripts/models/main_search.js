@@ -2,7 +2,7 @@ MainSearch = new (Backbone.Model.extend({
     defaults: {
         lat: 37.7749295,
         lng: -122.4194155,
-        radius: 8000,
+        radius: 5,
         from_followed: false,
         location_name: 'San Francisco, CA'        
     },

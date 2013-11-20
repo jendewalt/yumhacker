@@ -1,6 +1,6 @@
 MapMarker = Backbone.Model.extend({
-	initialize: function (establishment, map, infoWindow) {
-        var that = this;
+	initialize: function (establishment, map) {
+        // var that = this;
         var position = new google.maps.LatLng(establishment.get('lat'), establishment.get('lng'));
         this.marker = new google.maps.Marker({
             map: map,
@@ -8,14 +8,9 @@ MapMarker = Backbone.Model.extend({
             title: establishment.get('name')
         });
 
-        google.maps.event.addListener(this.marker, 'mouseover', function () {
-            var content = establishment.get('name') + '<br>' + establishment.get('formatted_address');
-            infoWindow.setContent(content);
-            infoWindow.open(map, this);
-        });
-
         google.maps.event.addListener(this.marker, 'click', function () {
-            App.navigate('establishments/' + that.get('id'), { trigger: true });
+            // Marker has same id as establishment...?
+            App.navigate('establishments/' + establishment.get('id'), { trigger: true });
         });
     },
 
