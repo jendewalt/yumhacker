@@ -1,17 +1,26 @@
 body.yumhacker {
-    $blue: #2e4da7;
+    $blue: #0d70eb;
+    $dark-blue: #094da1;
     $red: #df353d;
-    $orange: #f77837;
+    $orange: #fd8c08;
+    $dark-orange: #ea7f02;
+    $magenta: #e91367;
+    $dark-magenta: #d9114a;
+    $yellow: #ffd303;
+    $dark-grey: #19191c;
+    $mid-grey: #737378;
+    $light-grey: #c1c1c3;
 
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     text-align: center;
-    color: #555;
+    color: $dark-grey;
+    overflow-y: scroll;
 
     h1 {
         padding: 10px;
         line-height: 30px;
         font-size: 30px;
-        color: #222;
+        color: $dark-grey;
     }
 
     h3 {
@@ -21,8 +30,8 @@ body.yumhacker {
 
     nav {
         padding: 10px 30px;
-        background-color: #333;
-        color: #fff;
+        background-color: white;
+        border-bottom: 1px solid $magenta;
 
         .logo {
             font-size: 20px;
@@ -40,8 +49,78 @@ body.yumhacker {
             margin-left: 14px;
             line-height: 30px;
             font-size: 16px;
-            color: #fff;
             text-decoration: none;
+        }
+
+        #establishment_search_container {
+            fieldset {
+                float: left;
+                width: 55%;
+                padding-left: 30px;
+                text-align: left;
+                
+                label {
+                    color: $light-grey;
+
+                    &.large {
+                        display: block;
+                        font-size: 18px;
+                    }
+
+                    &.small {
+                        font-size: 13px;
+                    }
+                }
+
+                img {
+                    vertical-align: middle;
+                }
+
+                #inputs_container {
+                    vertical-align: top;
+
+                    #location_container {
+                        float: left;
+                        width: 88%;
+                        margin: 5px 0;
+                        padding: 0 5px;
+                        border: 1px solid $light-grey;
+
+                        #location {
+                            width: 90%;
+                            height: 30px;
+                            border: none;
+                            padding: 0;
+                            line-height: 30px;
+                            font-size: 18px;
+                            color: $orange;
+                        }
+
+                        #nearby_btn {
+                            float: right;
+                            margin: 0;
+                        }
+
+                    }
+
+                    #submit_container {
+                        float: right;
+                        margin: 5px 0;
+                        padding: 0;
+                        height: 30px;
+                        width: 10%;
+
+                        .btn {
+                            height: 32px;
+                        }
+                    }
+                    
+                    #from_followed_container {
+                        margin: 0;
+                    }
+
+                }
+            }
         }
     } 
 
@@ -53,23 +132,23 @@ body.yumhacker {
         font-family: Arial, sans-serif;
         text-decoration: none;
         letter-spacing: 1px;
-        background-color: $blue;
-        color: #fff;
-        border-bottom: 3px solid #215A73;
-        border-radius: 5px;
+        background-color: $orange;
+        color: white;
+        border-radius: 2px;
         cursor: pointer;
 
         &:active {
-            background-color: #215A73;
+            background-color: $dark-orange;
             color: #000;
-            border-top: 1px solid $blue;
-            border-bottom: none;
+            box-shadow: 0 3px 3px rgba(0,0,0,0.1) inset;
         }
     }
 
-    ul {
+    ol {
         padding: 0 30px;
         text-align: left;
+        list-style-type: decimal;
+        list-style-position:inside;
 
         li {
             line-height: 30px;
@@ -98,10 +177,6 @@ body.yumhacker {
     #main_container {
         display: inline-block;
         width: 1000px;
-
-        .establishment_search_container {
-            padding: 20px;
-        }
         
         .establishments_container {
             width: 100%;
@@ -109,7 +184,7 @@ body.yumhacker {
             .establishments_list {
                 display: inline-block;
                 vertical-align: top;
-                width: 59%;
+                width: 50%;
 
                 .details {
                     color: #888;
@@ -126,7 +201,7 @@ body.yumhacker {
             .map_canvas_container {
                 display: inline-block;
                 vertical-align: top;
-                width: 40%;
+                width: 49%;
 
                 #map_canvas {
                     width: 100%;

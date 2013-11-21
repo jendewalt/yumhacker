@@ -1,6 +1,9 @@
 <a class='biz_name'><%= get('name') %></a>
 <p class="details"><%= get('street_number') %> <%= get('street') %></p>
 
-<p class="details"><%= get('phone') %></p>
+<p class="details phone"><%= get('phone') %></p>
 <a class="details website" href="<%= get('website') %>"><%= get('website') %></a>
-<p class="details"><%= get('price') %></p>
+
+<p class="details price">
+<% for (var i = 0; i < get('price'); i++) { %>$<% } %>
+</p>

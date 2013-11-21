@@ -7,7 +7,7 @@ MainIndexView = Backbone.View.extend({
         this.collection.fetch({ reset: true, data: MainSearch.predicate() });
 		
 		this.main_search_view = new MainSearchView({
-			el: '.establishment_search_container',
+			el: '#establishment_search_container',
 			collection: this.collection
 		});
 

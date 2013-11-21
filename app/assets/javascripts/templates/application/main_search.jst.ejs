@@ -1,12 +1,27 @@
-<h3>See Endorsed Restaurants Near</h3>
-<button class='btn' id='nearby_btn'>Search Nearby</button>
 <form id='establishment_search_form'>
-    <input id='location' type='text' value="<%= MainSearch.get('location_name') %>">
+    <fieldset>
+        <label class='large'>Find Endorsed Restaurants Near</label>
+        
+        <div id='inputs_container'>
+            <div id='location_container'>
+                <input id='location' type='text' value="<%= MainSearch.get('location_name') %>">
+                <a id='nearby_btn'><img  src="/assets/current_location.png"></a>
+                <br class="clear">
+            </div>
+            
+            <div id='submit_container'>
+                <button class='btn' type='submit' value='submit'>
+                    <span><img src="/assets/search_icon.png"></span>
+                </button>
+            </div>
+            <br class="clear">
+        </div>
 
-    <% if (CurrentUser.logged_in()) { %>
-        <label>Only show restaurants from people I'm following</label>
-        <input id='from_followed' type='checkbox' <%= MainSearch.get('from_followed') ? 'checked' : '' %> >
-    <% } %>
-
-    <input class='btn' type='submit' value='Submit'>
+        <% if (CurrentUser.logged_in()) { %>
+            <div id='from_followed_container'>
+                <input id='from_followed' type='checkbox' <%= MainSearch.get('from_followed') ? 'checked' : '' %> >
+                <label class='small'>Show only people I'm following</label>
+            </div>
+        <% } %>
+    </fieldset>
 </form>

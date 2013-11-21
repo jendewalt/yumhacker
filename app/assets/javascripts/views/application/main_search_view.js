@@ -20,7 +20,8 @@ MainSearchView = Backbone.View.extend({
 
     getLatLng: function (e) {
         e.preventDefault();
-        this.geolocations.fetch({ reset: true, data: { query: e.target[0].value }});
+        xxx = e
+        this.geolocations.fetch({ reset: true, data: { query: e.target[1].value }});
     },
 
     updateLatLng: function () {

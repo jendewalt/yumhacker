@@ -1,6 +1,8 @@
 <nav>
     <a href="/" class="logo nav">YumHacker</a>
 
+    <div id='establishment_search_container'></div>
+
     <div class="nav_links_container">
         <% if (CurrentUser.logged_in()) { %>
                 <a class="nav" href="/users/<%= CurrentUser.id %>"><%= CurrentUser.get('name') %></a>
