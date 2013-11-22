@@ -1,6 +1,6 @@
 MainSearchView = Backbone.View.extend({
     events: {
-        'submit': 'getLatLng',
+        'submit': 'checkForRedirect',
         'click #from_followed': 'toggleFromFollowed',
         'click #nearby_btn': 'getUserLocation'
     },
@@ -16,12 +16,21 @@ MainSearchView = Backbone.View.extend({
     render: function () {
         this.$el.html('');
         this.$el.html(render('application/main_search'));
+        console.log('search render')
     },
 
-    getLatLng: function (e) {
+    checkForRedirect: function (e) {
         e.preventDefault();
-        xxx = e
-        this.geolocations.fetch({ reset: true, data: { query: e.target[1].value }});
+        var query = e.target[1].value;
+        console.log(Backbone.history.fragment)
+        if (Backbone.history.fragment) {
+            App.navigate('/', { trigger: true });
+        }
+        this.getLatLng(query);
+    },
+
+    getLatLng: function (query) {
+        this.geolocations.fetch({ reset: true, data: { query: query }});
     },
 
     updateLatLng: function () {
@@ -33,29 +42,20 @@ MainSearchView = Backbone.View.extend({
                 lng: result.get('lng'),
                 location_name: result.get('formatted_address')
             });
-
-            this.fetchEstablishments();
         }        
-    },
-
-    fetchEstablishments: function () {
-        this.collection.fetch({ reset: true, data: MainSearch.predicate() });
     },
 
     toggleFromFollowed: function (e) {
         MainSearch.set('from_followed', $(e.target).prop('checked'));
-        this.fetchEstablishments();
     },
 
     getUserLocation: function () {
-        var that = this;
         getCurrentLocation(function (position) {
             MainSearch.set({
                 lat: position.coords.latitude,
                 lng: position.coords.longitude,
                 location_name: 'Current Location'
             });
-            that.fetchEstablishments();
         });
     }
 

@@ -5,9 +5,13 @@ ApplicationHeaderView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
+        this.main_search_view = new MainSearchView({
+            el: '#establishment_search_container'
+        });
     },
 
     render: function () {
+        this.$el.html('')
         this.$el.html(render('application/header', CurrentUser));
     },
 

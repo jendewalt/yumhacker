@@ -5,10 +5,10 @@ MainIndexView = Backbone.View.extend({
 
 		this.collection = new EstablishmentCollection();
         this.collection.fetch({ reset: true, data: MainSearch.predicate() });
-		
-		this.main_search_view = new MainSearchView({
-			el: '#establishment_search_container',
-			collection: this.collection
+
+		this.listenTo(MainSearch, 'change', function () {
+			console.log('main view triggered by search change')
+        	this.collection.fetch({ reset: true, data: MainSearch.predicate() });
 		});
 
 		MapView.el = '.map_canvas_container';

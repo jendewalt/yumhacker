@@ -24,6 +24,8 @@ MainSearch = new (Backbone.Model.extend({
             lng: this.get('lng'),
             radius: this.get('radius'),
             from_followed: this.get('from_followed')
+            // radius: Filter.get('radius'),
+            // from_followed: Filter.get('from_followed')
         };
         return data;
     }
