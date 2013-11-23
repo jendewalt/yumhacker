@@ -1,15 +1,16 @@
 body.yumhacker {
-    $blue: #0d70eb;
-    $dark-blue: #094da1;
-    $red: #df353d;
-    $orange: #fd8c08;
-    $dark-orange: #ea7f02;
     $magenta: #e91367;
     $dark-magenta: #d9114a;
-    $yellow: #ffd303;
+    $blue: #0d70eb;
+    $dark-blue: #094da1;
     $dark-grey: #19191c;
     $mid-grey: #737378;
     $light-grey: #c1c1c3;
+    
+    $red: #df353d;
+    $orange: #fd8c08;
+    $dark-orange: #ea7f02;
+    $yellow: #ffd303;
 
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     text-align: center;
@@ -61,14 +62,6 @@ body.yumhacker {
                 width: 55%;
                 padding-left: 30px;
                 text-align: left;
-                
-                label {
-                    color: $light-grey;
-
-                    &.small {
-                        font-size: 13px;
-                    }
-                }
 
                 img {
                     vertical-align: middle;
@@ -144,7 +137,7 @@ body.yumhacker {
     }
 
     ol {
-        padding: 0 30px;
+        padding-right: 30px;
         text-align: left;
         list-style-type: decimal;
         list-style-position:inside;
@@ -176,7 +169,40 @@ body.yumhacker {
     #main_container {
         display: inline-block;
         width: 1000px;
-        
+
+        #main_filter_container {
+            padding : 10px;
+            text-align: left;
+            background: #F7F7F7;
+            border-bottom: 1px solid $light-grey;
+
+            #filter_container {
+
+                label {
+                    color: $mid-grey;
+                    font-size: 13px;
+                }
+
+                #from_followed_container {
+                    margin-top: 8px;
+                }
+
+                #radius_container {
+
+                    label {
+                        font-size: 16px;
+                    }
+
+                    select {
+                        border: 1px solid $light-grey;
+                        height: 20px;
+                        width: 110px;
+                        color: $dark-grey;
+                    }
+                }
+            }
+        }
+
         .establishments_container {
             width: 100%;
 
