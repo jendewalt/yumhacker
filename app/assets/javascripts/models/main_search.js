@@ -2,8 +2,6 @@ MainSearch = new (Backbone.Model.extend({
     defaults: {
         lat: 37.7749295,
         lng: -122.4194155,
-        radius: 5,
-        from_followed: false,
         location_name: 'San Francisco, CA'        
     },
 
@@ -22,10 +20,8 @@ MainSearch = new (Backbone.Model.extend({
         var data = {
             lat: this.get('lat'),
             lng: this.get('lng'),
-            radius: this.get('radius'),
-            from_followed: this.get('from_followed')
-            // radius: Filter.get('radius'),
-            // from_followed: Filter.get('from_followed')
+            // radius: this.get('radius'),
+            // from_followed: this.get('from_followed')
         };
         return data;
     }

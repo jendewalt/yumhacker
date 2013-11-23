@@ -3,7 +3,6 @@ MapView = new (Backbone.View.extend({
 	},
 
 	initialize: function () {
-		console.log('Init: google map')
 		this.markers = [];
 		this.mapOptions = new GoogleMap().get('options');
 		this.mapCanvas = $('<div>', {

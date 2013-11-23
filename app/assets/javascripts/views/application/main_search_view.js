@@ -1,7 +1,7 @@
 MainSearchView = Backbone.View.extend({
     events: {
         'submit': 'checkForRedirect',
-        'click #from_followed': 'toggleFromFollowed',
+        // 'click #from_followed': 'toggleFromFollowed',
         'click #nearby_btn': 'getUserLocation'
     },
 
@@ -16,17 +16,15 @@ MainSearchView = Backbone.View.extend({
     render: function () {
         this.$el.html('');
         this.$el.html(render('application/main_search'));
-        console.log('search render')
     },
 
     checkForRedirect: function (e) {
         e.preventDefault();
-        var query = e.target[1].value;
-        console.log(Backbone.history.fragment)
+
         if (Backbone.history.fragment) {
             App.navigate('/', { trigger: true });
         }
-        this.getLatLng(query);
+        this.getLatLng(e.target[1].value);
     },
 
     getLatLng: function (query) {

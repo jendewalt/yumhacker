@@ -14,13 +14,5 @@
             </div>
             <br class="clear">
         </div>
-
-        <!-- Move to top of list column  -->
-        <% if (CurrentUser.logged_in()) { %>
-            <div id='from_followed_container'>
-                <input id='from_followed' type='checkbox' <%= MainSearch.get('from_followed') ? 'checked' : '' %> >
-                <label class='small'>Show only people I'm following</label>
-            </div>
-        <% } %>
     </fieldset>
 </form>

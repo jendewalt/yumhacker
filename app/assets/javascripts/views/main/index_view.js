@@ -4,11 +4,14 @@ MainIndexView = Backbone.View.extend({
 		this.render();
 
 		this.collection = new EstablishmentCollection();
-        this.collection.fetch({ reset: true, data: MainSearch.predicate() });
+        this.collection.fetch({ reset: true, data: _.extend(MainSearch.predicate(), Filter.predicate()) });
 
 		this.listenTo(MainSearch, 'change', function () {
-			console.log('main view triggered by search change')
-        	this.collection.fetch({ reset: true, data: MainSearch.predicate() });
+        	this.collection.fetch({ reset: true, data: _.extend(MainSearch.predicate(), Filter.predicate()) });
+		});
+
+		this.listenTo(Filter, 'change', function () {
+        	this.collection.fetch({ reset: true, data: _.extend(MainSearch.predicate(), Filter.predicate()) });
 		});
 
 		MapView.el = '.map_canvas_container';
@@ -16,6 +19,11 @@ MainIndexView = Backbone.View.extend({
 		MapView.render();
 		this.listenTo(this.collection, 'reset', function () { MapView.resetMap(); });
 		
+		this.filter_view = new FilterView({
+			el: '#main_filter_container',
+			// collection: this.collection
+		});
+
 		this.main_index_establishments_list_view = new MainIndexEstablishmentsListView({
 			el: '.establishments_list',
 			collection: this.collection
