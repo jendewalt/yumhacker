@@ -1,8 +1,9 @@
 MapMarker = Backbone.Model.extend({
 	initialize: function (establishment, map, number) {
         var position = new google.maps.LatLng(establishment.get('lat'), establishment.get('lng'));
-        var marker_sprite_offset = 28;
-        var marker_sprite_offset = number * 28;
+        var marker_width = 24;
+        var marker_height = 34.286;
+        var marker_sprite_offset = marker_width * number;
 
         this.marker = new google.maps.Marker({
             map: map,
@@ -10,8 +11,8 @@ MapMarker = Backbone.Model.extend({
             title: establishment.get('name'),
             icon: {
                 origin: new google.maps.Point(marker_sprite_offset, 0),
-                size: new google.maps.Size(28, 40),
-                url: 'http://i1324.photobucket.com/albums/u608/jenniferdewalt/dev/map_markers_zps7922e161.png'
+                size: new google.maps.Size(marker_width, marker_height),
+                url: 'http://i1324.photobucket.com/albums/u608/jenniferdewalt/dev/map_markers_zps2c35262d.png'
             }
         });
 

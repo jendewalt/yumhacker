@@ -9,12 +9,12 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="280"
-   height="40"
+   width="240.00002"
+   height="34.285725"
    id="svg4115"
    version="1.1"
    inkscape:version="0.48.2 r9819"
-   sodipodi:docname="map_marker_sandbox.svg">
+   sodipodi:docname="map_markers.svg">
   <defs
      id="defs4117" />
   <sodipodi:namedview
@@ -24,17 +24,21 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="1202.1601"
-     inkscape:cy="252.34778"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="376.86368"
+     inkscape:cy="115.96508"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1440"
      inkscape:window-height="1006"
-     inkscape:window-x="2372"
-     inkscape:window-y="19"
-     inkscape:window-maximized="0" />
+     inkscape:window-x="2386"
+     inkscape:window-y="189"
+     inkscape:window-maximized="0"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <metadata
      id="metadata4120">
     <rdf:RDF>
@@ -51,244 +55,183 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-1012.3622)">
+     transform="translate(-5.6e-7,-1018.0765)">
     <g
-       id="g3174"
-       transform="translate(-763.50003,635)">
-      <g
-         inkscape:export-ydpi="8.999999"
-         inkscape:export-xdpi="8.999999"
-         inkscape:export-filename="/Users/jen/Design/yumhacker/graphics/map_marker.svg.png"
-         transform="matrix(0.07153121,0,0,0.07208823,773.61275,499.95278)"
-         id="g3979-7">
-        <path
-           style="color:#000000;fill:#df353d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-           d="m 54.34375,-1700.5625 c -92.26059,-0.25 -195.71875,87.6287 -195.71875,195.7188 0,108.09 127.90586,219.7118 195.71875,359.1562 67.81289,-139.4444 195.71875,-251.0662 195.71875,-359.1562 0,-108.0901 -103.45816,-195.9688 -195.71875,-195.7188 z"
-           id="rect3069-93"
-           inkscape:connector-curvature="0" />
-        <text
-           xml:space="preserve"
-           style="font-size:300px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
-           x="-42.90625"
-           y="-1388.1631"
-           id="text3849-80"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3851-2"
-             x="-42.90625"
-             y="-1388.1631">1</tspan></text>
-      </g>
-      <g
-         inkscape:export-ydpi="8.999999"
-         inkscape:export-xdpi="8.999999"
-         inkscape:export-filename="/Users/jen/Design/yumhacker/graphics/map_marker.svg.png"
-         transform="matrix(0.07153121,0,0,0.07208823,769.4483,498.25962)"
-         id="g4268-4">
-        <path
-           style="color:#000000;fill:#df353d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-           d="m 504,-1677.0751 c -92.26059,-0.25 -195.71875,87.6287 -195.71875,195.7189 0,108.0899 127.90586,219.7118 195.71875,359.1561 67.81289,-139.4444 195.71875,-251.0662 195.71875,-359.1561 0,-108.0901 -103.45816,-195.9689 -195.71875,-195.7189 z"
-           id="rect3069-1-8"
-           inkscape:connector-curvature="0" />
-        <g
-           id="g4014-3"
-           transform="translate(2.3,0)">
-          <text
-             sodipodi:linespacing="125%"
-             id="text3849-0-9"
-             y="-1364.6757"
-             x="406.75"
-             style="font-size:300px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
-             xml:space="preserve"><tspan
-               y="-1364.6757"
-               x="406.75"
-               id="tspan3851-4-0"
-               sodipodi:role="line">2</tspan></text>
-        </g>
-      </g>
-      <g
-         inkscape:export-ydpi="8.999999"
-         inkscape:export-xdpi="8.999999"
-         inkscape:export-filename="/Users/jen/Design/yumhacker/graphics/map_marker.svg.png"
-         transform="matrix(0.07153121,0,0,0.07208823,761.96882,498.25962)"
-         id="g4274-5">
-        <path
-           style="color:#000000;fill:#df353d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-           d="m 1000,-1677.0751 c -92.26059,-0.25 -195.71875,87.6287 -195.71875,195.7189 0,108.0899 127.90586,219.7118 195.71875,359.1561 67.8129,-139.4444 195.7188,-251.0662 195.7188,-359.1561 0,-108.0901 -103.4582,-195.9689 -195.7188,-195.7189 z"
-           id="rect3069-17-2"
-           inkscape:connector-curvature="0" />
-        <text
-           xml:space="preserve"
-           style="font-size:300px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
-           x="907.75"
-           y="-1364.6757"
-           id="text3849-4-2"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3851-9-7"
-             x="907.75"
-             y="-1364.6757">3</tspan></text>
-      </g>
-      <g
-         inkscape:export-ydpi="8.999999"
-         inkscape:export-xdpi="8.999999"
-         inkscape:export-filename="/Users/jen/Design/yumhacker/graphics/map_marker.svg.png"
-         transform="matrix(0.07153121,0,0,0.07208823,756.77835,499.41303)"
-         id="g4279-3">
-        <path
-           style="color:#000000;fill:#df353d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-           d="m 1464,-1693.0751 c -92.2606,-0.25 -195.7188,87.6287 -195.7188,195.7188 0,108.09 127.9059,219.7118 195.7188,359.1562 67.8128,-139.4444 195.7187,-251.0662 195.7187,-359.1562 0,-108.0901 -103.4582,-195.9688 -195.7187,-195.7188 z"
-           id="rect3069-9-7"
-           inkscape:connector-curvature="0" />
-        <text
-           xml:space="preserve"
-           style="font-size:300px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
-           x="1368.45"
-           y="-1380.6757"
-           id="text3849-1-9"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3851-0-0"
-             x="1368.45"
-             y="-1380.6757">4</tspan></text>
-      </g>
-      <g
-         inkscape:export-ydpi="8.999999"
-         inkscape:export-xdpi="8.999999"
-         inkscape:export-filename="/Users/jen/Design/yumhacker/graphics/map_marker.svg.png"
-         transform="matrix(0.07153121,0,0,0.07208823,751.30174,497.68291)"
-         id="g4287-2">
-        <path
-           inkscape:connector-curvature="0"
-           id="rect3069-11-3"
-           d="m 1932.0001,-1669.0751 c -92.2606,-0.25 -195.7188,87.6287 -195.7188,195.7189 0,108.0899 127.9059,219.7118 195.7188,359.1561 67.8128,-139.4444 195.7187,-251.0662 195.7187,-359.1561 0,-108.0901 -103.4582,-195.9689 -195.7187,-195.7189 z"
-           style="color:#000000;fill:#df353d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-        <text
-           sodipodi:linespacing="125%"
-           id="text3849-8-9"
-           y="-1356.6757"
-           x="1838.7001"
-           style="font-size:300px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
-           xml:space="preserve"><tspan
-             y="-1356.6757"
-             x="1838.7001"
-             sodipodi:role="line"
-             id="tspan4071-9">5</tspan></text>
-      </g>
-      <g
-         inkscape:export-ydpi="8.999999"
-         inkscape:export-xdpi="8.999999"
-         inkscape:export-filename="/Users/jen/Design/yumhacker/graphics/map_marker.svg.png"
-         transform="matrix(0.07153121,0,0,0.07208823,746.39738,499.98973)"
-         id="g4292-7">
-        <path
-           inkscape:connector-curvature="0"
-           id="rect3069-5-0"
-           d="m 2392.0001,-1701.0751 c -92.2606,-0.25 -195.7188,87.6287 -195.7188,195.7188 0,108.09 127.9059,219.7118 195.7188,359.1562 67.8128,-139.4444 195.7187,-251.0662 195.7187,-359.1562 0,-108.0901 -103.4582,-195.9688 -195.7187,-195.7188 z"
-           style="color:#000000;fill:#df353d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-        <text
-           sodipodi:linespacing="125%"
-           id="text3849-2-3"
-           y="-1388.6757"
-           x="2295.4001"
-           style="font-size:300px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
-           xml:space="preserve"><tspan
-             y="-1388.6757"
-             x="2295.4001"
-             sodipodi:role="line"
-             id="tspan4088-9">6</tspan></text>
-      </g>
-      <g
-         inkscape:export-ydpi="8.999999"
-         inkscape:export-xdpi="8.999999"
-         inkscape:export-filename="/Users/jen/Design/yumhacker/graphics/map_marker.svg.png"
-         transform="matrix(0.07153121,0,0,0.07208823,740.0624,498.83632)"
-         id="g4300-8">
-        <path
-           style="color:#000000;fill:#df353d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-           d="m 2872.0001,-1685.0751 c -92.2606,-0.25 -195.7188,87.6287 -195.7188,195.7189 0,108.0899 127.9059,219.7118 195.7188,359.1561 67.8128,-139.4444 195.7187,-251.0662 195.7187,-359.1561 0,-108.0901 -103.4582,-195.9689 -195.7187,-195.7189 z"
-           id="rect3069-6-6"
-           inkscape:connector-curvature="0" />
-        <text
-           xml:space="preserve"
-           style="font-size:300px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
-           x="2776"
-           y="-1372.6757"
-           id="text3849-84-5"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3851-8-76"
-             x="2776"
-             y="-1372.6757">7</tspan></text>
-      </g>
-      <g
-         inkscape:export-ydpi="8.999999"
-         inkscape:export-xdpi="8.999999"
-         inkscape:export-filename="/Users/jen/Design/yumhacker/graphics/map_marker.svg.png"
-         transform="matrix(0.07153121,0,0,0.07208823,732.29681,499.41302)"
-         id="g4332-2">
-        <path
-           style="color:#000000;fill:#df353d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-           d="m 3372,-1693.075 c -92.2606,-0.25 -195.7188,87.6287 -195.7188,195.7188 0,108.09 127.9059,219.7118 195.7188,359.1562 67.8128,-139.4444 195.7187,-251.0662 195.7187,-359.1562 0,-108.0901 -103.4582,-195.9688 -195.7187,-195.7188 z"
-           id="rect3069-6-4-7"
-           inkscape:connector-curvature="0" />
-        <text
-           xml:space="preserve"
-           style="font-size:300px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
-           x="3275.0999"
-           y="-1380.6757"
-           id="text3849-84-0-0"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3851-8-7-3"
-             x="3275.0999"
-             y="-1380.6757">8</tspan></text>
-      </g>
-      <g
-         inkscape:export-ydpi="8.999999"
-         inkscape:export-xdpi="8.999999"
-         inkscape:export-filename="/Users/jen/Design/yumhacker/graphics/map_marker.svg.png"
-         transform="matrix(0.07153121,0,0,0.07208823,727.39244,499.70137)"
-         id="g4337-9">
-        <path
-           style="color:#000000;fill:#df353d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-           d="m 3832.0001,-1697.075 c -92.2606,-0.25 -195.7188,87.6287 -195.7188,195.7188 0,108.09 127.9059,219.7118 195.7188,359.1562 67.8128,-139.4444 195.7187,-251.0662 195.7187,-359.1562 0,-108.0901 -103.4582,-195.9688 -195.7187,-195.7188 z"
-           id="rect3069-6-4-1-9"
-           inkscape:connector-curvature="0" />
-        <text
-           xml:space="preserve"
-           style="font-size:300px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
-           x="3735.1001"
-           y="-1384.6757"
-           id="text3849-84-0-9-9"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3851-8-7-1-1"
-             x="3735.1001"
-             y="-1384.6757">9</tspan></text>
-      </g>
-      <g
-         inkscape:export-ydpi="8.999999"
-         inkscape:export-xdpi="8.999999"
-         inkscape:export-filename="/Users/jen/Design/yumhacker/graphics/map_marker.svg.png"
-         transform="matrix(0.07153121,0,0,0.07208823,727.06608,499.70137)"
-         id="g4342-7">
-        <path
-           inkscape:connector-curvature="0"
-           id="rect3069-6-4-3-2"
-           d="m 4228.0001,-1697.075 c -92.2606,-0.25 -195.7188,87.6287 -195.7188,195.7188 0,108.09 127.9059,219.7118 195.7188,359.1562 67.8128,-139.4444 195.7187,-251.0662 195.7187,-359.1562 0,-108.0901 -103.4582,-195.9688 -195.7187,-195.7188 z"
-           style="color:#000000;fill:#df353d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-        <text
-           sodipodi:linespacing="125%"
-           id="text3849-84-0-96-3"
-           y="-1384.6757"
-           x="4039.9275"
-           style="font-size:300px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:-25px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
-           xml:space="preserve"><tspan
-             y="-1384.6757"
-             x="4039.9275"
-             id="tspan3851-8-7-5-6"
-             sodipodi:role="line">10</tspan></text>
-      </g>
+       id="g3111"
+       transform="matrix(0.08571498,0,0,0.08571498,20.228736,915.87293)"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:export-filename="/Users/jen/src/yumhacker/app/assets/images/map_markers.png">
+      <path
+         inkscape:connector-curvature="0"
+         id="rect3069"
+         d="M -96.00002,1192.3625 C -161.99513,1192.1823 -236,1255.5325 -236,1333.4527 c 0,77.9202 91.4926,158.3864 139.99998,258.9095 48.50738,-100.5231 139.99998,-180.9893 139.99998,-258.9095 0,-77.9202 -74.00487,-141.2704 -139.99998,-141.0902 z"
+         style="color:#000000;fill:#e91367;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <text
+         transform="scale(0.99612895,1.0038861)"
+         sodipodi:linespacing="125%"
+         id="text3849"
+         y="1412.0782"
+         x="-166.2075"
+         style="font-size:215.42755127px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
+         xml:space="preserve"><tspan
+           y="1412.0782"
+           x="-166.2075"
+           id="tspan3851"
+           sodipodi:role="line">1</tspan></text>
+      <path
+         inkscape:connector-curvature="0"
+         id="rect3069-1"
+         d="m 183.99997,1192.3626 c -65.99511,-0.1803 -139.99998,63.1699 -139.99998,141.0903 0,77.9201 91.4926,158.3863 139.99998,258.9093 48.50738,-100.523 139.99998,-180.9892 139.99998,-258.9093 0,-77.9203 -74.00487,-141.2706 -139.99998,-141.0903 z"
+         style="color:#000000;fill:#e91367;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <text
+         transform="scale(0.99612895,1.0038861)"
+         sodipodi:linespacing="125%"
+         id="text3849-0"
+         y="1412.0784"
+         x="116.5322"
+         style="font-size:215.42755127px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
+         xml:space="preserve"><tspan
+           y="1412.0784"
+           x="116.5322"
+           id="tspan3851-4"
+           sodipodi:role="line">2</tspan></text>
+      <path
+         inkscape:connector-curvature="0"
+         id="rect3069-17"
+         d="m 463.99997,1192.3626 c -65.99511,-0.1803 -139.99998,63.1699 -139.99998,141.0903 0,77.9201 91.4926,158.3863 139.99998,258.9093 48.50739,-100.523 140.00002,-180.9892 140.00002,-258.9093 0,-77.9203 -74.0049,-141.2706 -140.00002,-141.0903 z"
+         style="color:#000000;fill:#e91367;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <text
+         transform="scale(0.99612895,1.0038861)"
+         sodipodi:linespacing="125%"
+         id="text3849-4"
+         y="1412.0784"
+         x="399.55914"
+         style="font-size:215.42755127px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
+         xml:space="preserve"><tspan
+           y="1412.0784"
+           x="399.55914"
+           id="tspan3851-9"
+           sodipodi:role="line">3</tspan></text>
+      <path
+         inkscape:connector-curvature="0"
+         id="rect3069-9"
+         d="m 744.00005,1192.3625 c -65.99512,-0.1802 -140.00002,63.17 -140.00002,141.0903 0,77.9202 91.49263,158.3863 140.00002,258.9094 C 792.5074,1491.8391 884,1411.373 884,1333.4528 c 0,-77.9203 -74.0049,-141.2705 -139.99995,-141.0903 z"
+         style="color:#000000;fill:#e91367;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <text
+         transform="scale(0.99612895,1.0038861)"
+         sodipodi:linespacing="125%"
+         id="text3849-1"
+         y="1412.0784"
+         x="678.27759"
+         style="font-size:215.42755127px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
+         xml:space="preserve"><tspan
+           y="1412.0784"
+           x="678.27759"
+           id="tspan3851-0"
+           sodipodi:role="line">4</tspan></text>
+      <path
+         style="color:#000000;fill:#e91367;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         d="m 1024.0001,1192.3625 c -65.9951,-0.1802 -140,63.17 -140,141.0903 0,77.9201 91.4926,158.3864 140,258.9094 C 1072.5074,1491.8391 1164,1411.3729 1164,1333.4528 c 0,-77.9202 -74.0049,-141.2705 -139.9999,-141.0903 z"
+         id="rect3069-11"
+         inkscape:connector-curvature="0" />
+      <text
+         transform="scale(0.99612895,1.0038861)"
+         xml:space="preserve"
+         style="font-size:215.42755127px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
+         x="960.98145"
+         y="1412.0782"
+         id="text3849-8"
+         sodipodi:linespacing="125%"><tspan
+           id="tspan4071"
+           sodipodi:role="line"
+           x="960.98145"
+           y="1412.0782">5</tspan></text>
+      <path
+         style="color:#000000;fill:#e91367;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         d="m 1304,1192.3625 c -65.9951,-0.1802 -140,63.17 -140,141.0902 0,77.9202 91.4926,158.3864 140,258.9094 48.5073,-100.523 140,-180.9892 140,-258.9094 0,-77.9202 -74.0049,-141.2704 -140,-141.0902 z"
+         id="rect3069-5"
+         inkscape:connector-curvature="0" />
+      <text
+         transform="scale(0.99612895,1.0038861)"
+         xml:space="preserve"
+         style="font-size:215.42755127px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
+         x="1239.6998"
+         y="1412.0782"
+         id="text3849-2"
+         sodipodi:linespacing="125%"><tspan
+           id="tspan4088"
+           sodipodi:role="line"
+           x="1239.6998"
+           y="1412.0782">6</tspan></text>
+      <path
+         inkscape:connector-curvature="0"
+         id="rect3069-6"
+         d="m 1584,1192.3625 c -65.9951,-0.1802 -140,63.17 -140,141.0903 0,77.9201 91.4926,158.3864 140,258.9094 48.5073,-100.5231 140,-180.9893 140,-258.9094 0,-77.9202 -74.0049,-141.2705 -140,-141.0903 z"
+         style="color:#000000;fill:#e91367;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <text
+         transform="scale(0.99612895,1.0038861)"
+         sodipodi:linespacing="125%"
+         id="text3849-84"
+         y="1412.0782"
+         x="1521.2186"
+         style="font-size:215.42755127px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
+         xml:space="preserve"><tspan
+           y="1412.0782"
+           x="1521.2186"
+           id="tspan3851-8"
+           sodipodi:role="line">7</tspan></text>
+      <path
+         inkscape:connector-curvature="0"
+         id="rect3069-6-4"
+         d="m 1864.0001,1192.3625 c -65.9952,-0.1802 -140.0001,63.17 -140.0001,141.0902 0,77.9202 91.4927,158.3864 140.0001,258.9095 C 1912.5074,1491.8391 2004,1411.3729 2004,1333.4527 c 0,-77.9202 -74.0049,-141.2704 -139.9999,-141.0902 z"
+         style="color:#000000;fill:#e91367;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <text
+         transform="scale(0.99612895,1.0038861)"
+         sodipodi:linespacing="125%"
+         id="text3849-84-0"
+         y="1412.0782"
+         x="1801.6605"
+         style="font-size:215.42755127px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
+         xml:space="preserve"><tspan
+           y="1412.0782"
+           x="1801.6605"
+           id="tspan3851-8-7"
+           sodipodi:role="line">8</tspan></text>
+      <path
+         inkscape:connector-curvature="0"
+         id="rect3069-6-4-1"
+         d="m 2144,1192.3625 c -65.9951,-0.1802 -140,63.17 -140,141.0902 0,77.9202 91.4926,158.3864 140,258.9094 48.5073,-100.523 139.9999,-180.9892 139.9999,-258.9094 0,-77.9202 -74.0049,-141.2704 -139.9999,-141.0902 z"
+         style="color:#000000;fill:#e91367;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <text
+         transform="scale(0.99612895,1.0038861)"
+         sodipodi:linespacing="125%"
+         id="text3849-84-0-9"
+         y="1412.0781"
+         x="2082.7488"
+         style="font-size:215.42755127px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
+         xml:space="preserve"><tspan
+           y="1412.0781"
+           x="2082.7488"
+           id="tspan3851-8-7-1"
+           sodipodi:role="line">9</tspan></text>
+      <path
+         style="color:#000000;fill:#e91367;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.47499999;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         d="m 2424,1192.3625 c -65.9951,-0.1802 -140,63.17 -140,141.0902 0,77.9202 91.4926,158.3864 140,258.9094 48.5073,-100.523 140,-180.9892 140,-258.9094 0,-77.9202 -74.0049,-141.2704 -140,-141.0902 z"
+         id="rect3069-6-4-3"
+         inkscape:connector-curvature="0" />
+      <text
+         transform="scale(0.99612895,1.0038861)"
+         xml:space="preserve"
+         style="font-size:215.42755127px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:-17.9522953px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Avenir Next;-inkscape-font-specification:Avenir Next Bold"
+         x="2298.3667"
+         y="1412.0781"
+         id="text3849-84-0-96"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3851-8-7-5"
+           x="2298.3667"
+           y="1412.0781">10</tspan></text>
     </g>
   </g>
 </svg>

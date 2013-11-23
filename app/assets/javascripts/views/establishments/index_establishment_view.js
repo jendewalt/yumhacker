@@ -1,6 +1,6 @@
 EstablishmentsIndexEstablishmentView = Backbone.View.extend({
 	events: {
-		'click': 'goToEstablishmentShow'
+		'click .biz_name': 'goToEstablishmentShow'
 	},
 
 	initialize: function () {

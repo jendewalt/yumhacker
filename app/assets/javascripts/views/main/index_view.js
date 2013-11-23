@@ -21,7 +21,6 @@ MainIndexView = Backbone.View.extend({
 		
 		this.filter_view = new FilterView({
 			el: '#main_filter_container',
-			// collection: this.collection
 		});
 
 		this.main_index_establishments_list_view = new MainIndexEstablishmentsListView({

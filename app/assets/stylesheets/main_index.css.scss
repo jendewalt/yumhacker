@@ -25,7 +25,6 @@ body.yumhacker {
     }
 
     h3 {
-        padding: 10px;
         font-size: 20px;        
     }
 
@@ -104,6 +103,7 @@ body.yumhacker {
 
                         .btn {
                             height: 32px;
+                            width: 50px;
                         }
                     }
                     
@@ -119,7 +119,7 @@ body.yumhacker {
     .btn {
         border: none;
         display: inline-block;
-        padding: 0 15px;
+        // padding: 0 15px;
         vertical-align: bottom;
         font-family: Arial, sans-serif;
         text-decoration: none;
@@ -133,6 +133,18 @@ body.yumhacker {
             background-color: $dark-magenta;
             color: #000;
             box-shadow: 0 3px 3px rgba(0,0,0,0.1) inset;
+        }
+
+    }
+
+    .endorse_btn_container {
+
+        .btn {
+            width: 100px;
+            line-height: 25px;
+            height: 25px;
+            font-size: 15px;
+            text-align: center;
         }
     }
 
@@ -212,7 +224,7 @@ body.yumhacker {
                 width: 50%;
 
                 .details {
-                    color: #888;
+                    color: $mid-grey;
                     font-size: 13px;
                     line-height: 20px;
                 }
@@ -234,8 +246,73 @@ body.yumhacker {
                 }
             }
         }
-    }
 
+        #establishment_show_container {
+            text-align: left;
+
+            #establishment_info_container {
+                display: inline-block;
+                width: 40%;
+                padding: 10px;
+                text-align: left;
+
+                border: 1px solid $light-grey;
+
+                h3 {
+                    margin-bottom: 5px;
+                    line-height: 20px;
+                    font-weight: bold;
+                    color: $blue;
+                }
+
+
+                .details {
+                    font-size: 16px;
+                    line-height: 20px;
+      
+                    &.small {
+                        padding: 5px 0 20px;
+                        line-height: 13px;
+                        font-size: 13px;
+                        color: $mid-grey;
+                    }
+                }
+
+                #contact_info {
+                    padding: 0 10px;
+
+                    .phone {
+                        padding-top: 20px;
+                        padding-bottom: 5px;
+                    }
+
+                    .website {
+                        line-height: 16px; 
+                        font-weight: normal;
+                    }
+                }
+
+                .endorse_btn_container {
+                    padding: 20px 0 0 10px;
+
+                    .btn {
+
+                    }
+                }
+            }
+
+            #map_canvas_container {
+                display: inline-block;
+                vertical-align: top;
+                width: 49%;
+
+                #map_canvas {
+                    width: 100%;
+                    height: 500px;
+                }
+            }
+        }
+    }
 
 
 
@@ -296,7 +373,7 @@ body.yumhacker {
     //             width: 150px;
     //             line-height: 28px;
     //             font-size: 16px;
-    //             background-color: #888;
+    //             background-color: $mid-grey;
     //             color: #222;
     //             text-align: center;
 
@@ -304,18 +381,6 @@ body.yumhacker {
     //                 background-color: #ff8f17; 
     //             }
     //         }
-    //     }
-    // }
-
-
-    // .endorse_btn_container {
-
-    //     .btn {
-    //         margin: 0 5px;
-    //         width: 100px;
-    //         line-height: 25px;
-    //         font-size: 15px;
-    //         text-align: center;
     //     }
     // }
 

@@ -1,25 +1,25 @@
 EstablishmentsIndexListView = Backbone.View.extend({
-	events: {
-	},
+	// events: {
+	// },
 
-	initialize: function () {
-		this.render();
-	},
+	// initialize: function () {
+	// 	this.render();
+	// },
 
-	render: function () {
-		this.$el.html('');	
+	// render: function () {
+	// 	this.$el.html('');	
 
-    	this.collection.each(function (establishment) {
-			this.renderEstablishment(establishment);
-		}, this);
-	},
+ //    	this.collection.each(function (establishment) {
+	// 		this.renderEstablishment(establishment);
+	// 	}, this);
+	// },
 
-	renderEstablishment: function (establishment) {
-		var establishment_view = new EstablishmentsIndexEstablishmentView({
-			tagName: 'li',
-			model: establishment
-		});
+	// renderEstablishment: function (establishment) {
+	// 	var establishment_view = new EstablishmentsIndexEstablishmentView({
+	// 		tagName: 'li',
+	// 		model: establishment
+	// 	});
 
-		this.$el.append(establishment_view.el);
-	}
+	// 	this.$el.append(establishment_view.el);
+	// }
 });

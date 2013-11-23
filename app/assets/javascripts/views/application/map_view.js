@@ -12,6 +12,7 @@ MapView = new (Backbone.View.extend({
 	},
 
 	render: function () {
+		this.clearMarkers();
 		this.mapCanvas.appendTo(this.el);
 		google.maps.event.trigger(this.map, 'resize');
 	},
