@@ -19,7 +19,7 @@ UsersIndexListView = Backbone.View.extend({
             tagName: 'li',
             model: user
         });
-
+        
         this.$el.append(user_view.el);
     }
 });

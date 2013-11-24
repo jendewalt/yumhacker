@@ -10,6 +10,7 @@ Yumhacker::Application.routes.draw do
 
   namespace :api do
     get 'establishments/search', to: 'establishments#search'
+    get 'establishments/endorsers', to: 'establishments#endorsers'
     resources :establishments
 
     get 'users/endorsing', to: 'users#endorsing'

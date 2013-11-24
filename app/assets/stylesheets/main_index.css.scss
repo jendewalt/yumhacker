@@ -6,13 +6,15 @@ body.yumhacker {
     $dark-grey: #19191c;
     $mid-grey: #737378;
     $light-grey: #c1c1c3;
+    $x-light-grey: #f2f2f5;
     
     $red: #df353d;
     $orange: #fd8c08;
     $dark-orange: #ea7f02;
     $yellow: #ffd303;
 
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    letter-spacing: 1px;
     text-align: center;
     color: $dark-grey;
     overflow-y: scroll;
@@ -119,10 +121,11 @@ body.yumhacker {
     .btn {
         border: none;
         display: inline-block;
-        // padding: 0 15px;
-        vertical-align: bottom;
-        font-family: Arial, sans-serif;
+        vertical-align: middle;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 13px;
         text-decoration: none;
+        text-transform: uppercase;
         letter-spacing: 1px;
         background-color: $magenta;
         color: white;
@@ -143,7 +146,6 @@ body.yumhacker {
             width: 100px;
             line-height: 25px;
             height: 25px;
-            font-size: 15px;
             text-align: center;
         }
     }
@@ -173,7 +175,6 @@ body.yumhacker {
                 margin: 0 5px;
                 width: 70px;
                 line-height: 25px;
-                font-size: 15px;
             }
         } 
     }
@@ -185,7 +186,7 @@ body.yumhacker {
         #main_filter_container {
             padding : 10px;
             text-align: left;
-            background: #F7F7F7;
+            background: $x-light-grey;
             border-bottom: 1px solid $light-grey;
 
             #filter_container {
@@ -251,12 +252,10 @@ body.yumhacker {
             text-align: left;
 
             #establishment_info_container {
-                display: inline-block;
-                width: 40%;
+                width: 50%;
+                margin-bottom: 20px; 
                 padding: 10px;
                 text-align: left;
-
-                border: 1px solid $light-grey;
 
                 h3 {
                     margin-bottom: 5px;
@@ -289,6 +288,11 @@ body.yumhacker {
                     .website {
                         line-height: 16px; 
                         font-weight: normal;
+                        color: $mid-grey;
+
+                        &:hover {
+                            color: $magenta;
+                        }
                     }
                 }
 
@@ -301,14 +305,36 @@ body.yumhacker {
                 }
             }
 
-            #map_canvas_container {
-                display: inline-block;
-                vertical-align: top;
-                width: 49%;
+            #endorsers_list_container {
+                width: 50%;
 
-                #map_canvas {
-                    width: 100%;
-                    height: 500px;
+                h4 {
+                    padding: 10px;
+                    line-height: 16px;
+                    font-size: 16px;
+                    background-color: $x-light-grey;
+                    text-transform: uppercase;
+                }
+
+                li {
+                    line-height: 30px;
+                    padding: 5px;
+                    border-bottom: 1px solid #333;
+
+                    .user_name {
+                        float: left;
+                    }
+
+                    .follow_btn_container {
+                        float: right;
+                        text-align: center;
+                        
+                        .btn {
+                            width: 100px;
+                            line-height: 25px;
+                        }
+                    }
+
                 }
             }
         }

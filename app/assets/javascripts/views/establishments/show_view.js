@@ -14,8 +14,8 @@ EstablishmentsShowView = Backbone.View.extend({
             model: this.model
         });
 
-        this.establishments_show_establishment_info_view = new EstablishmentsShowEstablishmentInfoView({
-            el: '#establishment_info_container',
+        this.establishments_show_endorsers_list_view = new EstablishmentsShowEndorsersListView({
+            el: '#endorsers_list',
             model: this.model
         });
 
