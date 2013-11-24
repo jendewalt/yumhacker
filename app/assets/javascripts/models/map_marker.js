@@ -12,7 +12,7 @@ MapMarker = Backbone.Model.extend({
             icon: {
                 origin: new google.maps.Point(marker_sprite_offset, 0),
                 size: new google.maps.Size(marker_width, marker_height),
-                url: 'http://i1324.photobucket.com/albums/u608/jenniferdewalt/dev/map_markers_zps2c35262d.png'
+                url: 'http://i1324.photobucket.com/albums/u608/jenniferdewalt/dev/map_markers_zpsdd19adfe.png'
             }
         });
 

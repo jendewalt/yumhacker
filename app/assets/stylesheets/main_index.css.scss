@@ -6,7 +6,7 @@ body.yumhacker {
     $dark-grey: #19191c;
     $mid-grey: #737378;
     $light-grey: #c1c1c3;
-    $x-light-grey: #f2f2f5;
+    $x-light-grey: #F1F1F3;
     
     $red: #df353d;
     $orange: #fd8c08;
@@ -18,6 +18,7 @@ body.yumhacker {
     text-align: center;
     color: $dark-grey;
     overflow-y: scroll;
+    background-color: $x-light-grey;
 
     h1 {
         padding: 10px;
@@ -137,7 +138,14 @@ body.yumhacker {
             color: #000;
             box-shadow: 0 3px 3px rgba(0,0,0,0.1) inset;
         }
+    }
 
+    .card {
+        background-color: white;
+        padding: 30px;
+        border-top: 3px solid #E91367;
+        border-radius: 2px;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
     }
 
     .endorse_btn_container {
@@ -187,7 +195,6 @@ body.yumhacker {
             padding : 10px;
             text-align: left;
             background: $x-light-grey;
-            border-bottom: 1px solid $light-grey;
 
             #filter_container {
 
@@ -260,7 +267,6 @@ body.yumhacker {
             #establishment_info_container {
                 width: 100%;
                 margin-bottom: 20px; 
-                padding: 10px;
                 text-align: left;
 
                 h3 {
@@ -322,6 +328,10 @@ body.yumhacker {
                     text-transform: uppercase;
                 }
 
+                .card {
+                    padding-top: 10px;
+                }
+
                 li {
                     line-height: 30px;
                     padding: 5px 10px;
@@ -358,7 +368,7 @@ body.yumhacker {
 
                 #map_canvas {
                     width: 100%;
-                    height: 300px;
+                    height: 272px;
                 }
             }
         }

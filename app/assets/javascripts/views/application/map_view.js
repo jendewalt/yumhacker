@@ -69,8 +69,8 @@ MapView = new (Backbone.View.extend({
 		google.maps.event.trigger(this.map, 'resize');
 
 		this.map.setCenter(new google.maps.LatLng(this.model.get('lat'), this.model.get('lng')));
-		this.map.setZoom(15);
+		this.map.setZoom(17);
 
-		this.renderMarker(this.model, 1);
+		this.renderMarker(this.model, 10);
 	}
 }))();
