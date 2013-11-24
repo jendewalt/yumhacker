@@ -251,8 +251,14 @@ body.yumhacker {
         #establishment_show_container {
             text-align: left;
 
-            #establishment_info_container {
+            .left_column, .right_column {
+                float: left;
                 width: 50%;
+                padding: 20px 10px;
+            }
+
+            #establishment_info_container {
+                width: 100%;
                 margin-bottom: 20px; 
                 padding: 10px;
                 text-align: left;
@@ -306,7 +312,7 @@ body.yumhacker {
             }
 
             #endorsers_list_container {
-                width: 50%;
+                width: 100%;
 
                 h4 {
                     padding: 10px;
@@ -318,11 +324,17 @@ body.yumhacker {
 
                 li {
                     line-height: 30px;
-                    padding: 5px;
+                    padding: 5px 10px;
                     border-bottom: 1px solid #333;
 
                     .user_name {
                         float: left;
+                        cursor: pointer;
+
+                        &:hover {
+                            text-decoration: underline;
+                            color: $blue;
+                        }
                     }
 
                     .follow_btn_container {
@@ -335,6 +347,18 @@ body.yumhacker {
                         }
                     }
 
+                }
+            }
+
+            #map_canvas_container {
+                
+                display: inline-block;
+                vertical-align: top;
+                width: 100%;
+
+                #map_canvas {
+                    width: 100%;
+                    height: 300px;
                 }
             }
         }

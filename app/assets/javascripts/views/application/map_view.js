@@ -61,5 +61,16 @@ MapView = new (Backbone.View.extend({
 		this.bounds.extend(myLatLng);
 
 		this.markers.push(marker);
+	},
+
+	renderEstablishmentMap: function () {
+		this.clearMarkers();
+		this.mapCanvas.appendTo(this.el);
+		google.maps.event.trigger(this.map, 'resize');
+
+		this.map.setCenter(new google.maps.LatLng(this.model.get('lat'), this.model.get('lng')));
+		this.map.setZoom(15);
+
+		this.renderMarker(this.model, 1);
 	}
 }))();
