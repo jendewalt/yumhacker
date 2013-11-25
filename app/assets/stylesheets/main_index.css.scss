@@ -434,9 +434,21 @@ body.yumhacker {
 
 
                     .tab {
-                        display: inline-block;
+                        float: left;
+                        width: 33.333%;
                         padding: 10px;
+                        font-size: 13px;
+                        color: $mid-grey;
                         border-right: 1px solid $light-grey;
+                        
+                        &:last-of-type {
+                            border-right: none;
+                        }
+                    }
+
+                    .current_tab {
+                        background-color: $magenta;
+                        color: white;
                     }
                 }
 
@@ -492,75 +504,6 @@ body.yumhacker {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-    // .follow_btn_container {
-    //     line-height: 30px;
-    // }
-
-    // .main_btn_container {
-    //     a {
-    //         margin: 5px;
-    //         line-height: 36px;
-    //         font-size: 18px;
-    //     }
-    // } 
-
-    //     .user_name {
-    //         display: inline-block;
-    //         cursor: pointer;
-    //     }
-
-    //     .follow_btn_container {
-    //         display: inline-block;
-    //         vertical-align: middle;
-    //         text-align: center;
-            
-    //     }
-
-    // .user_model_container {
-    //     margin-bottom: 10px;
-
-    //     .btn {
-    //         margin: 0 5px;
-    //         width: 70px;
-    //         line-height: 25px;
-    //         font-size: 15px;
-    //     }
-    // }
-
-    // .following_container {
-
-    //     .follow_tabs_container {
-    //         margin-bottom: 10px;
-    //         padding: 5px;
-    //         text-align: left;
-
-    //         .tab {
-    //             display: inline-block;
-    //             width: 150px;
-    //             line-height: 28px;
-    //             font-size: 16px;
-    //             background-color: $mid-grey;
-    //             color: #222;
-    //             text-align: center;
-
-    //             &.current_tab {
-    //                 background-color: #ff8f17; 
-    //             }
-    //         }
-    //     }
-    // }
 
     .clear {
         clear: both;

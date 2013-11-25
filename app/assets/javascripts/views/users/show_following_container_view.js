@@ -15,8 +15,7 @@ UsersShowFollowingContainerView = Backbone.View.extend({
     },
 
     renderFollowers: function (e) {
-        // $('.followers_tab').addClass('current_tab');
-        // $('.followed_users_tab').removeClass('current_tab');
+        this.changeCurrentTab(e);
         this.followersIndexListView = new FollowersIndexListView({
             el: '.following_list_container',
             model: this.model
@@ -24,8 +23,7 @@ UsersShowFollowingContainerView = Backbone.View.extend({
     },
 
     renderFollowedUsers: function (e) {
-        // $('.followed_users_tab').addClass('current_tab');
-        // $('.followers_tab').removeClass('current_tab');
+        this.changeCurrentTab(e);
         this.followedUsersIndexListView = new FollowedUsersIndexListView({
             el: '.following_list_container',
             model: this.model
@@ -33,11 +31,17 @@ UsersShowFollowingContainerView = Backbone.View.extend({
     },
 
     renderEndorsements: function (e) {
-        // $('.followed_users_tab').addClass('current_tab');
-        // $('.followers_tab').removeClass('current_tab');
+        this.changeCurrentTab(e);
         this.endorsementsIndexListView = new EndorsementsIndexListView({
             el: '.following_list_container',
             model: this.model
         });     
+    },
+
+    changeCurrentTab: function (e) {
+        if (e.target) {
+            $('.tab').removeClass('current_tab');
+            $(e.target).addClass('current_tab');
+        }
     }
 });
