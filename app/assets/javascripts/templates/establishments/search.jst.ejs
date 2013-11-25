@@ -1,13 +1,15 @@
-<h3>Search for a Restaurant</h3>
+<div id="find_establishment_container">
+    <h3>Search for a Restaurant</h3>
 
-<form id='establishment_search_form'>
-    <label>Restaurant Name:</label>
-    <input id='query' type='text' placeholder="Brickhouse">
-    <label>Near:</label>
-    <input id='location' type='text' value="San Francisco">
-    <input class='btn' type='submit' value='Submit'>
-</form>
+    <form id='establishment_search_form'>
+        <label>Restaurant Name:
+        <input id='query' class="textbox" type='text' autocomplete='off' placeholder="Delancey Street Restaurant"></label>
+        <label>Near:
+        <input id='location' class="textbox" type='text' autocomplete='off' value="San Francisco"></label>
+        <input class='btn' type='submit' value='Submit'>
+    </form>
+</div>
 
-<div class="search_results_container">
-    <ul class="search_results"></ul>
+<div id="find_establishment_results_container">
+    <ul id="find_establishment_results"></ul>
 </div>

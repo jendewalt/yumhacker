@@ -160,12 +160,16 @@ body.yumhacker {
 
     ol, ul {
 
+
         li {
             padding: 10px;            
             line-height: 30px;
             border-bottom: 1px solid $light-grey;
+            
+            &:last-child {
+                border-bottom: none;
+            }
         }
-        
     }
 
     ol {
@@ -501,6 +505,71 @@ body.yumhacker {
                     }
                 }
             }            
+        }
+
+        #find_establishment_container {
+            padding: 20px;
+
+            h3 {
+                color: $magenta;
+                line-height: 20px;
+            }
+
+            form {  
+                margin: 20px;
+
+                label {
+                    vertical-align: bottom;
+                    font-size: 13px;
+                    color: $mid-grey;
+                }
+
+                .textbox {
+                    width: 200px;
+                    height: 26px;
+                    line-height: 26px;
+                    vertical-align: bottom;
+                    font-size: 13px;
+                    color: $dark-grey;
+
+                    &#query {
+                        margin-right: 30px;
+                    }
+                }
+
+                .btn {
+                    margin: 0;
+                    height: 26px;
+                    line-height: 22px;
+                }
+            }
+        }
+
+        #find_establishment_results {
+            width: 70%;
+            margin: auto;
+            margin-bottom: 20px;
+            text-align: left;
+            background-color: white;
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+
+            .establishment {
+                float: left;
+
+                .biz_name {
+                    font-weight: bold;
+                }
+
+                .address {
+                    line-height: 20px;
+                    font-size: 13px;
+                    color: $mid-grey;
+                }
+            }
+
+            .endorse_btn_container {
+                float: right;
+            }
         }
     }
 

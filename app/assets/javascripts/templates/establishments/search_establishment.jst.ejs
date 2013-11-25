@@ -1,9 +1,15 @@
-<div>
-    <%= get('name') %>
+<div class='establishment'>
+    <div class='biz_name'>
+        <%= get('name') %>
+    </div>
+
+    <div class='address'>
+        <%= get('formatted_address') %>
+    </div>
 </div>
-<div>
-    <%= get('formatted_address') %>
-</div>
+
 <div class="endorse_btn_container">
     <a class="create_btn btn">Endorse</a>
 </div>
+
+<br class='clear'>
