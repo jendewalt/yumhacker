@@ -142,7 +142,7 @@ body.yumhacker {
 
     .card {
         background-color: white;
-        padding: 30px;
+        padding: 10px 30px;
         border-top: 3px solid #E91367;
         border-radius: 2px;
         box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
@@ -158,6 +158,16 @@ body.yumhacker {
         }
     }
 
+    ol, ul {
+
+        li {
+            padding: 10px;            
+            line-height: 30px;
+            border-bottom: 1px solid $light-grey;
+        }
+        
+    }
+
     ol {
         padding-right: 30px;
         text-align: left;
@@ -165,9 +175,6 @@ body.yumhacker {
         list-style-position:inside;
 
         li {
-            line-height: 30px;
-            padding: 10px;
-            border-bottom: 1px solid #333;
 
             a {
                 cursor: pointer;
@@ -253,6 +260,10 @@ body.yumhacker {
                     height: 500px;
                 }
             }
+
+            .main_btn_container {
+                margin-top: 20px;
+            }
         }
 
         #establishment_show_container {
@@ -266,6 +277,7 @@ body.yumhacker {
 
             #establishment_info_container {
                 width: 100%;
+                padding: 30px;
                 margin-bottom: 20px; 
                 text-align: left;
 
@@ -333,9 +345,7 @@ body.yumhacker {
                 }
 
                 li {
-                    line-height: 30px;
                     padding: 5px 10px;
-                    border-bottom: 1px solid #333;
 
                     .user_name {
                         float: left;
@@ -361,7 +371,6 @@ body.yumhacker {
             }
 
             #map_canvas_container {
-                
                 display: inline-block;
                 vertical-align: top;
                 width: 100%;
@@ -371,6 +380,115 @@ body.yumhacker {
                     height: 272px;
                 }
             }
+        }
+
+        #user_show_container {
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+
+            .btn {
+                width: 100px;
+                line-height: 25px;
+            }
+
+            .user_model_container {
+                float: left;
+                width: 35%;
+
+                #profile_container {
+                    padding-top: 30px;
+                                
+                    .photo_container {
+                        display: inline-block;
+                        height: 90px;
+                        width: 90px;
+                        background-color: $mid-grey;
+                        border-radius: 50%;
+
+                        img {
+                            height: 90px;
+                            border-radius: 50%;
+                        }
+                    }
+
+                    .user_name {
+                    }
+
+                    .follow_btn_container {
+                        text-align: center;
+                        
+                    }
+                }
+            }
+
+            .following_container {
+                float: right;
+                width: 65%;
+                padding-left: 20px;
+
+                .follow_tabs_container {
+                    margin-bottom: 10px;
+                    padding: 0;
+                    text-align: left;
+
+
+                    .tab {
+                        display: inline-block;
+                        padding: 10px;
+                        border-right: 1px solid $light-grey;
+                    }
+                }
+
+                .following_list_container {
+                    border: none;
+
+                    .endorsements {
+                        display: inline-block;
+                        width: 100%;
+                        vertical-align: top;
+                        padding: 0;
+
+                        .details {
+                            color: $mid-grey;
+                            font-size: 13px;
+                            line-height: 20px;
+                        }
+
+                        .website {
+                            line-height: 16px; 
+                            font-weight: normal;
+                        }
+                    }
+
+                    .followers, .followed_users {
+                        
+                        li {
+                            padding: 5px 10px;
+
+                            .user_name {
+                                float: left;
+                                cursor: pointer;
+
+                                &:hover {
+                                    text-decoration: underline;
+                                    color: $blue;
+                                }
+                            }
+
+                            .follow_btn_container {
+                                float: right;
+                                text-align: center;
+                                
+                                .btn {
+                                    width: 100px;
+                                    line-height: 25px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }            
         }
     }
 

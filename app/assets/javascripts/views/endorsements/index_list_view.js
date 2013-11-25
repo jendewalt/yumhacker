@@ -11,18 +11,27 @@ EndorsementsIndexListView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(render('endorsements/index_endorsement_list'));
-        this.collection.each(function (endorsement){
-            this.renderEndorsement(endorsement);
-        }, this);
+        this.$el.html(render('endorsements/index_endorsement_list', this.model));
+
+        if (this.collection.length > 0) {
+            this.$('ol.endorsements').html('');
+
+            this.collection.each(function (endorsement){
+                this.renderEndorsement(endorsement);
+            }, this);
+        }
     },
 
     renderEndorsement: function (endorsement) {
-        var endorsement_view = new EndorsementsIndexEndorsementView({
+        var endorsement_view = new EstablishmentsIndexEstablishmentView({
             tagName: 'li',
             model: endorsement
         });
+        // var endorsement_view = new EndorsementsIndexEndorsementView({
+        //     tagName: 'li',
+        //     model: endorsement
+        // });
 
-        this.$('ul.endorsements').append(endorsement_view.el);
+        this.$('ol.endorsements').append(endorsement_view.el);
     }
 });

@@ -7,6 +7,9 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @num_followers = @user.followers.count
+    @num_followed_users = @user.followed_users.count
+    @num_endorsements = @user.endorsements.count
   end
 
   def unfollow

@@ -1,7 +1,7 @@
 UsersShowView = Backbone.View.extend({
     
     initialize: function () {
-        this.render()
+        this.render();
 
         this.users_show_user_view = new UsersShowUserView({
             el: '.user_model_container',
@@ -10,7 +10,7 @@ UsersShowView = Backbone.View.extend({
 
         this.users_show_following_container = new UsersShowFollowingContainerView({
             el: '.following_container',
-            model: this.model            
+            model: this.model
         });      
     },
 

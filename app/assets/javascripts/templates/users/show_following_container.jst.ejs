@@ -1,7 +1,7 @@
-<div class="follow_tabs_container">
-    <div class="followers_tab tab">Followers</div>
-    <div class="followed_users_tab tab">Following</div>
-    <div class="endorsements_tab tab">Endorsements</div>
+<div class="follow_tabs_container card">
+    <div class="endorsements_tab tab"><%= get('num_endorsements') %> Endorsements</div>
+    <div class="followers_tab tab"><%= get('num_followers') - 1 %> Followers</div>
+    <div class="followed_users_tab tab"><%= get('num_followed_users') - 1 %> Following</div>
 </div>
 
-<div class="following_list_container"></div>
+<div class="following_list_container card"></div>
