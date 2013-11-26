@@ -573,6 +573,49 @@ body.yumhacker {
         }
     }
 
+    .devise_form {
+
+        #logo {
+            padding: 30px;
+            font-size: 30px;
+            font-weight: bold;
+            color: $magenta;
+        }
+
+        .form_container {
+            width: 400px;
+            margin: auto;
+
+            .inputs_container {
+                padding: 30px;
+                text-align: left;
+
+                .field {
+                    padding-bottom: 10px;
+
+                    label {
+                        font-size: 13px;
+                    }
+                    
+                    input {
+                        width: 100%;
+                        height: 30px;
+                        margin-top: 5px;
+                        padding: 0 5px;
+                        line-height: 20px;
+                        font-size: 16px;
+                        color: $dark-grey;
+                        border-radius: 3px;
+                        box-shadow: none;
+                        border: 1px solid $light-grey;
+                    }
+                }
+
+            }
+
+        }
+    }
+
 
     .clear {
         clear: both;
