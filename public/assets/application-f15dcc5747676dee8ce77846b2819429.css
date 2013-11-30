@@ -1,0 +1,453 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+body.yumhacker {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #19191c;
+  overflow-y: scroll;
+  background-color: #f1f1f3; }
+  body.yumhacker h1 {
+    padding: 10px;
+    line-height: 30px;
+    font-size: 30px;
+    color: #19191c; }
+  body.yumhacker h3 {
+    font-size: 20px;
+    line-height: 20px; }
+  body.yumhacker nav {
+    padding: 10px 30px;
+    background-color: white;
+    border-bottom: 1px solid #e91367; }
+    body.yumhacker nav .logo {
+      float: left;
+      padding: 0;
+      line-height: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #e91367; }
+    body.yumhacker nav .nav_links_container {
+      float: right;
+      padding: 0 10px; }
+    body.yumhacker nav a {
+      margin-left: 14px;
+      line-height: 30px;
+      font-size: 16px;
+      color: #19191c;
+      text-decoration: none; }
+    body.yumhacker nav #establishment_search_container fieldset {
+      float: left;
+      width: 55%;
+      padding-left: 30px;
+      text-align: left; }
+      body.yumhacker nav #establishment_search_container fieldset img {
+        vertical-align: middle;
+        height: 20px; }
+      body.yumhacker nav #establishment_search_container fieldset #inputs_container {
+        vertical-align: top; }
+        body.yumhacker nav #establishment_search_container fieldset #inputs_container #location_container {
+          float: left;
+          width: 88%;
+          margin: 5px 0;
+          padding: 0 5px;
+          border: 1px solid #c1c1c3; }
+          body.yumhacker nav #establishment_search_container fieldset #inputs_container #location_container #location {
+            width: 90%;
+            height: 30px;
+            border: none;
+            padding: 0;
+            line-height: 30px;
+            font-size: 18px;
+            color: #19191c; }
+          body.yumhacker nav #establishment_search_container fieldset #inputs_container #location_container #nearby_btn {
+            float: right;
+            margin: 0; }
+        body.yumhacker nav #establishment_search_container fieldset #inputs_container #submit_container {
+          float: right;
+          margin: 5px 0;
+          padding: 0;
+          height: 30px;
+          width: 10%; }
+          body.yumhacker nav #establishment_search_container fieldset #inputs_container #submit_container .btn {
+            height: 32px;
+            width: 50px; }
+        body.yumhacker nav #establishment_search_container fieldset #inputs_container #from_followed_container {
+          margin: 0; }
+  body.yumhacker .btn {
+    border: none;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #e91367;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer; }
+    body.yumhacker .btn:active {
+      background-color: #d9114a;
+      color: #000;
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1) inset; }
+  body.yumhacker .card {
+    background-color: white;
+    padding: 10px 30px;
+    border-top: 3px solid #E91367;
+    border-radius: 2px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); }
+  body.yumhacker .endorse_btn_container .btn {
+    width: 100px;
+    line-height: 25px;
+    height: 25px;
+    text-align: center; }
+  body.yumhacker ol li, body.yumhacker ul li {
+    padding: 10px;
+    line-height: 30px;
+    border-bottom: 1px solid #c1c1c3; }
+    body.yumhacker ol li:last-child, body.yumhacker ul li:last-child {
+      border-bottom: none; }
+  body.yumhacker ol {
+    padding-right: 30px;
+    text-align: left;
+    list-style-type: decimal;
+    list-style-position: inside; }
+    body.yumhacker ol li a {
+      cursor: pointer;
+      color: #0d70eb;
+      font-weight: bold; }
+      body.yumhacker ol li a:hover {
+        text-decoration: underline; }
+    body.yumhacker ol li .btn {
+      margin: 0 5px;
+      width: 70px;
+      line-height: 25px; }
+  body.yumhacker #main_container {
+    display: inline-block;
+    width: 1000px; }
+    body.yumhacker #main_container #main_filter_container {
+      padding: 10px;
+      text-align: left;
+      background: #f1f1f3; }
+      body.yumhacker #main_container #main_filter_container #filter_container label {
+        color: #737378;
+        font-size: 13px; }
+      body.yumhacker #main_container #main_filter_container #filter_container #from_followed_container {
+        margin-top: 8px; }
+      body.yumhacker #main_container #main_filter_container #filter_container #radius_container label {
+        font-size: 16px; }
+      body.yumhacker #main_container #main_filter_container #filter_container #radius_container select {
+        border: 1px solid #c1c1c3;
+        height: 20px;
+        width: 110px;
+        color: #19191c; }
+    body.yumhacker #main_container .establishments_container {
+      width: 100%; }
+      body.yumhacker #main_container .establishments_container .establishments_list {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%; }
+        body.yumhacker #main_container .establishments_container .establishments_list .details {
+          color: #737378;
+          font-size: 13px;
+          line-height: 20px; }
+        body.yumhacker #main_container .establishments_container .establishments_list .website {
+          line-height: 16px;
+          font-weight: normal; }
+      body.yumhacker #main_container .establishments_container .map_canvas_container {
+        display: inline-block;
+        vertical-align: top;
+        width: 49%; }
+        body.yumhacker #main_container .establishments_container .map_canvas_container #map_canvas {
+          width: 100%;
+          height: 500px; }
+      body.yumhacker #main_container .establishments_container .main_btn_container {
+        margin-top: 20px; }
+    body.yumhacker #main_container #establishment_show_container {
+      text-align: left; }
+      body.yumhacker #main_container #establishment_show_container .left_column, body.yumhacker #main_container #establishment_show_container .right_column {
+        float: left;
+        width: 50%;
+        padding: 20px 10px; }
+      body.yumhacker #main_container #establishment_show_container #establishment_info_container {
+        width: 100%;
+        padding: 30px;
+        margin-bottom: 20px;
+        text-align: left; }
+        body.yumhacker #main_container #establishment_show_container #establishment_info_container h3 {
+          margin-bottom: 5px;
+          line-height: 20px;
+          font-weight: bold;
+          color: #0d70eb; }
+        body.yumhacker #main_container #establishment_show_container #establishment_info_container .details {
+          font-size: 16px;
+          line-height: 20px; }
+          body.yumhacker #main_container #establishment_show_container #establishment_info_container .details.small {
+            padding: 5px 0 20px;
+            line-height: 13px;
+            font-size: 13px;
+            color: #737378; }
+        body.yumhacker #main_container #establishment_show_container #establishment_info_container #contact_info {
+          padding: 0 10px; }
+          body.yumhacker #main_container #establishment_show_container #establishment_info_container #contact_info .phone {
+            padding-top: 20px;
+            padding-bottom: 5px; }
+          body.yumhacker #main_container #establishment_show_container #establishment_info_container #contact_info .website {
+            line-height: 16px;
+            font-weight: normal;
+            color: #737378; }
+            body.yumhacker #main_container #establishment_show_container #establishment_info_container #contact_info .website:hover {
+              color: #e91367; }
+        body.yumhacker #main_container #establishment_show_container #establishment_info_container .endorse_btn_container {
+          padding: 20px 0 0 10px; }
+      body.yumhacker #main_container #establishment_show_container #endorsers_list_container {
+        width: 100%; }
+        body.yumhacker #main_container #establishment_show_container #endorsers_list_container h4 {
+          padding: 10px;
+          line-height: 16px;
+          font-size: 16px;
+          background-color: #f1f1f3;
+          text-transform: uppercase; }
+        body.yumhacker #main_container #establishment_show_container #endorsers_list_container .card {
+          padding-top: 10px; }
+        body.yumhacker #main_container #establishment_show_container #endorsers_list_container li {
+          padding: 5px 10px; }
+          body.yumhacker #main_container #establishment_show_container #endorsers_list_container li .user_name {
+            float: left;
+            cursor: pointer; }
+            body.yumhacker #main_container #establishment_show_container #endorsers_list_container li .user_name:hover {
+              text-decoration: underline;
+              color: #0d70eb; }
+          body.yumhacker #main_container #establishment_show_container #endorsers_list_container li .follow_btn_container {
+            float: right;
+            text-align: center; }
+            body.yumhacker #main_container #establishment_show_container #endorsers_list_container li .follow_btn_container .btn {
+              width: 100px;
+              line-height: 25px; }
+      body.yumhacker #main_container #establishment_show_container #map_canvas_container {
+        display: inline-block;
+        vertical-align: top;
+        width: 100%; }
+        body.yumhacker #main_container #establishment_show_container #map_canvas_container #map_canvas {
+          width: 100%;
+          height: 272px; }
+    body.yumhacker #main_container #user_show_container {
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 20px; }
+      body.yumhacker #main_container #user_show_container .btn {
+        width: 100px;
+        line-height: 25px; }
+      body.yumhacker #main_container #user_show_container .user_model_container {
+        float: left;
+        width: 35%; }
+        body.yumhacker #main_container #user_show_container .user_model_container #profile_container {
+          padding-top: 30px; }
+          body.yumhacker #main_container #user_show_container .user_model_container #profile_container .photo_container {
+            display: inline-block;
+            height: 90px;
+            width: 90px;
+            background-color: #737378;
+            border-radius: 50%; }
+            body.yumhacker #main_container #user_show_container .user_model_container #profile_container .photo_container img {
+              height: 90px;
+              border-radius: 50%; }
+          body.yumhacker #main_container #user_show_container .user_model_container #profile_container .follow_btn_container {
+            text-align: center; }
+      body.yumhacker #main_container #user_show_container .following_container {
+        float: right;
+        width: 65%;
+        padding-left: 20px; }
+        body.yumhacker #main_container #user_show_container .following_container .follow_tabs_container {
+          margin-bottom: 10px;
+          padding: 0;
+          text-align: left; }
+          body.yumhacker #main_container #user_show_container .following_container .follow_tabs_container .tab {
+            float: left;
+            width: 33.333%;
+            padding: 10px;
+            font-size: 13px;
+            color: #737378;
+            border-right: 1px solid #c1c1c3; }
+            body.yumhacker #main_container #user_show_container .following_container .follow_tabs_container .tab:last-of-type {
+              border-right: none; }
+          body.yumhacker #main_container #user_show_container .following_container .follow_tabs_container .current_tab {
+            background-color: #e91367;
+            color: white; }
+        body.yumhacker #main_container #user_show_container .following_container .following_list_container {
+          border: none; }
+          body.yumhacker #main_container #user_show_container .following_container .following_list_container .endorsements {
+            display: inline-block;
+            width: 100%;
+            vertical-align: top;
+            padding: 0; }
+            body.yumhacker #main_container #user_show_container .following_container .following_list_container .endorsements .details {
+              color: #737378;
+              font-size: 13px;
+              line-height: 20px; }
+            body.yumhacker #main_container #user_show_container .following_container .following_list_container .endorsements .website {
+              line-height: 16px;
+              font-weight: normal; }
+          body.yumhacker #main_container #user_show_container .following_container .following_list_container .followers li, body.yumhacker #main_container #user_show_container .following_container .following_list_container .followed_users li {
+            padding: 5px 10px; }
+            body.yumhacker #main_container #user_show_container .following_container .following_list_container .followers li .user_name, body.yumhacker #main_container #user_show_container .following_container .following_list_container .followed_users li .user_name {
+              float: left;
+              cursor: pointer; }
+              body.yumhacker #main_container #user_show_container .following_container .following_list_container .followers li .user_name:hover, body.yumhacker #main_container #user_show_container .following_container .following_list_container .followed_users li .user_name:hover {
+                text-decoration: underline;
+                color: #0d70eb; }
+            body.yumhacker #main_container #user_show_container .following_container .following_list_container .followers li .follow_btn_container, body.yumhacker #main_container #user_show_container .following_container .following_list_container .followed_users li .follow_btn_container {
+              float: right;
+              text-align: center; }
+              body.yumhacker #main_container #user_show_container .following_container .following_list_container .followers li .follow_btn_container .btn, body.yumhacker #main_container #user_show_container .following_container .following_list_container .followed_users li .follow_btn_container .btn {
+                width: 100px;
+                line-height: 25px; }
+    body.yumhacker #main_container #find_establishment_container {
+      padding: 20px; }
+      body.yumhacker #main_container #find_establishment_container h3 {
+        color: #e91367;
+        line-height: 20px; }
+      body.yumhacker #main_container #find_establishment_container form {
+        margin: 20px; }
+        body.yumhacker #main_container #find_establishment_container form label {
+          vertical-align: bottom;
+          font-size: 13px;
+          color: #737378; }
+        body.yumhacker #main_container #find_establishment_container form .textbox {
+          width: 200px;
+          height: 26px;
+          line-height: 26px;
+          vertical-align: bottom;
+          font-size: 13px;
+          color: #19191c; }
+          body.yumhacker #main_container #find_establishment_container form .textbox#query {
+            margin-right: 30px; }
+        body.yumhacker #main_container #find_establishment_container form .btn {
+          margin: 0;
+          height: 26px;
+          line-height: 22px; }
+    body.yumhacker #main_container #find_establishment_results {
+      width: 70%;
+      margin: auto;
+      margin-bottom: 20px;
+      text-align: left;
+      background-color: white;
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); }
+      body.yumhacker #main_container #find_establishment_results .establishment {
+        float: left; }
+        body.yumhacker #main_container #find_establishment_results .establishment .biz_name {
+          font-weight: bold; }
+        body.yumhacker #main_container #find_establishment_results .establishment .address {
+          line-height: 20px;
+          font-size: 13px;
+          color: #737378; }
+      body.yumhacker #main_container #find_establishment_results .endorse_btn_container {
+        float: right; }
+  body.yumhacker .devise_form #logo {
+    padding: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #e91367; }
+  body.yumhacker .devise_form .form_container {
+    width: 400px;
+    margin: auto; }
+    body.yumhacker .devise_form .form_container h3 {
+      color: #737378;
+      padding: 10px; }
+    body.yumhacker .devise_form .form_container .inputs_container {
+      padding: 10px 30px;
+      text-align: left; }
+      body.yumhacker .devise_form .form_container .inputs_container .field {
+        padding-bottom: 10px; }
+        body.yumhacker .devise_form .form_container .inputs_container .field label {
+          font-size: 13px; }
+        body.yumhacker .devise_form .form_container .inputs_container .field input {
+          width: 100%;
+          height: 30px;
+          margin-top: 5px;
+          padding: 0 5px;
+          line-height: 20px;
+          font-size: 16px;
+          color: #19191c;
+          border-radius: 3px;
+          box-shadow: none;
+          border: 1px solid #c1c1c3; }
+        body.yumhacker .devise_form .form_container .inputs_container .field .btn {
+          height: 30px;
+          width: 100%;
+          margin: 10px 0; }
+  body.yumhacker .clear {
+    clear: both; }
+/* A basic reset */
+
+
+*, *:before, *:after {
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+html {
+	position: relative;
+	height: 100%;
+}
+body {
+	position: relative;
+	min-height: 100%;
+	line-height: 1;
+	color: black;
+	background: white;
+}
+ol, ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
