@@ -76,6 +76,7 @@ GEM
       hashie (>= 1.2, < 3)
       rack
     orm_adapter (0.4.0)
+    pg (0.17.0)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -150,6 +151,7 @@ DEPENDENCIES
   jquery-rails
   oj
   omniauth
+  pg
   rails (= 4.0.0)
   rest-client
   rgeo
