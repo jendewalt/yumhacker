@@ -31,6 +31,12 @@ GEM
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
     builder (3.1.4)
+    capistrano (2.14.2)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     devise (3.1.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -41,6 +47,7 @@ GEM
     erubis (2.7.0)
     execjs (2.0.2)
     hashie (2.0.5)
+    highline (1.6.15)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.2)
@@ -57,6 +64,13 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.2)
+    net-scp (1.1.0)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.6.6)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     oj (2.1.7)
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
@@ -130,6 +144,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-postgis-adapter
+  capistrano
   devise (~> 3.1.1)
   ejs
   jbuilder (~> 1.2)

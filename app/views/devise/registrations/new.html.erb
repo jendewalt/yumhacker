@@ -2,7 +2,7 @@
     <div id='logo'>YumHacker</div>
 
     <div class='form_container card'>
-        <h2>Sign up</h2>
+        <h3>Sign up</h3>
 
         <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
@@ -22,9 +22,8 @@
 
               <div class='field'><%= f.label :password_confirmation %><br />
               <%= f.password_field :password_confirmation %></div>
+            <div><%= f.submit "Sign up", :class => 'btn' %></div>
           </div>
-
-          <div><%= f.submit "Sign up" %></div>
         <% end %>
     </div>
     <%= render "devise/shared/links" %>

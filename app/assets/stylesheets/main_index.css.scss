@@ -28,7 +28,8 @@ body.yumhacker {
     }
 
     h3 {
-        font-size: 20px;        
+        font-size: 20px;
+        line-height: 20px;        
     }
 
     nav {
@@ -586,9 +587,15 @@ body.yumhacker {
             width: 400px;
             margin: auto;
 
+            h3 {
+                color: $mid-grey;
+                padding: 10px;
+            }
+
             .inputs_container {
-                padding: 30px;
+                padding: 10px 30px;
                 text-align: left;
+
 
                 .field {
                     padding-bottom: 10px;
@@ -609,10 +616,14 @@ body.yumhacker {
                         box-shadow: none;
                         border: 1px solid $light-grey;
                     }
+                    
+                    .btn {
+                        height: 30px;
+                        width: 100%;
+                        margin: 10px 0;
+                    }
                 }
-
             }
-
         }
     }
 
