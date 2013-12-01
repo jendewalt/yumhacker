@@ -2,18 +2,18 @@
     <div id='radius_container'>
         <label>Distance: </label>
         <select id='radius_select'>
-            <option class='radius_opt' value='0.1' <%= Filter.get('radius') == '0.1' ? 'selected' : '' %>>4 Blocks</option>
-            <option class='radius_opt' value='1' <%= Filter.get('radius') == '1' ? 'selected' : '' %>>1 Mile</option>
-            <option class='radius_opt' value='5' <%= Filter.get('radius') == '5' ? 'selected' : '' %>>5 Miles</option>
-            <option class='radius_opt' value='10' <%= Filter.get('radius') == '10' ? 'selected' : '' %>>10 Miles</option>
-            <option class='radius_opt' value='20' <%= Filter.get('radius') == '20' ? 'selected' : '' %>>20 Miles</option>
+            <option class='radius_opt' value='0.1' [[= Filter.get('radius') == '0.1' ? 'selected' : '' ]]>4 Blocks</option>
+            <option class='radius_opt' value='1' [[= Filter.get('radius') == '1' ? 'selected' : '' ]]>1 Mile</option>
+            <option class='radius_opt' value='5' [[= Filter.get('radius') == '5' ? 'selected' : '' ]]>5 Miles</option>
+            <option class='radius_opt' value='10' [[= Filter.get('radius') == '10' ? 'selected' : '' ]]>10 Miles</option>
+            <option class='radius_opt' value='20' [[= Filter.get('radius') == '20' ? 'selected' : '' ]]>20 Miles</option>
         </select>
     </div>
 
-    <% if (CurrentUser.logged_in()) { %>
+    [[ if (CurrentUser.logged_in()) { ]]
         <div id='from_followed_container'>
-            <input id='from_followed' type='checkbox' <%= Filter.get('from_followed') ? 'checked' : '' %> >
+            <input id='from_followed' type='checkbox' [[= Filter.get('from_followed') ? 'checked' : '' ]] >
             <label class='small' for='from_followed'>Show only people I'm following</label>
         </div>
-    <% } %>
+    [[ } ]]
 </div>

@@ -2,14 +2,14 @@
     <fieldset>        
         <div id='inputs_container'>
             <div id='location_container'>
-                <input id='location' type='text' value="<%= MainSearch.get('location_name') %>">
-                <a id='nearby_btn'><img  src="/assets/current_location.svg"></a>
+                <input id='location' type='text' value="[[= MainSearch.get('location_name') ]]">
+                <a id='nearby_btn'><%= image_tag "current_location.svg" %></a>
                 <br class="clear">
             </div>
             
             <div id='submit_container'>
                 <button class='btn' type='submit' value='submit'>
-                    <span><img src="/assets/search_icon.svg"></span>
+                    <span><%= image_tag "search_icon.svg" %></span>
                 </button>
             </div>
             <br class="clear">
