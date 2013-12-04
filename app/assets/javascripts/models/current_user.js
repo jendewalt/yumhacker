@@ -10,5 +10,4 @@ CurrentUser = new (Backbone.Model.extend({
     logged_in: function () {
         return $.cookie('current_user') ? true : false;
     }
-
 }))();
