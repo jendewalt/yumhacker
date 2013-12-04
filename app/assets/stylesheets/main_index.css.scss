@@ -444,6 +444,11 @@ body.yumhacker {
 
                     .follow_btn_container {
                         text-align: center;
+
+                        .edit {
+                            background-color: $light-grey;
+                            width: 110px; 
+                        }
                         
                     }
                 }

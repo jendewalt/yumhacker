@@ -10,7 +10,7 @@ ApplicationFollowButtonView = Backbone.View.extend({
             this.listenTo(this.model, 'change', this.render);
             this.model.set('user_id', options.user_id);
             this.model.fetch({ data: { user_id: this.model.get('user_id') }});            
-        }
+        }    
     },
 
     render: function () {
