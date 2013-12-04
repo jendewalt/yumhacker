@@ -1,5 +1,5 @@
 <div class='devise_form sign_up_container'>
-    <div id='logo'>YumHacker</div>
+    <a id='logo' href="/">YumHacker</a>
 
     <div class='form_container card'>
         <h3>Sign up</h3>
@@ -9,10 +9,10 @@
 
           <div class='inputs_container'>
               <div class='field'><%= f.label :first_name %><br />
-              <%= f.email_field :first_name, :autofocus => true %></div>
+              <%= f.text_field :first_name, :autofocus => true %></div>
 
               <div class='field'><%= f.label :last_name %><br />
-              <%= f.email_field :last_name %></div>
+              <%= f.text_field :last_name %></div>
 
               <div class='field'><%= f.label :email %><br />
               <%= f.email_field :email %></div>
@@ -22,9 +22,13 @@
 
               <div class='field'><%= f.label :password_confirmation %><br />
               <%= f.password_field :password_confirmation %></div>
-            <div><%= f.submit "Sign up", :class => 'btn' %></div>
+              
+              <div class='center'><%= f.submit "Sign up", :class => 'btn' %></div>
           </div>
         <% end %>
     </div>
-    <%= render "devise/shared/links" %>
+
+    <div class='devise_links'>
+      <%= render "devise/shared/links" %>
+    </div>
 </div>

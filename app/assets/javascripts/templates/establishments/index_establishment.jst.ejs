@@ -1,4 +1,10 @@
-<a class='biz_name'>[[= get('name') ]]</a>
+<div class="establishment_info_container">
+    <a class='biz_name'>[[= get('name') ]]</a>
+</div>
+
+<div class='endorse_btn_container'></div>
+<br class='clear'>
+
 <p class="details">[[= get('street_number') ]] [[= get('street') ]]</p>
 
 <p class="details phone">[[= get('phone') ]]</p>
@@ -7,3 +13,4 @@
 <p class="details price">
 [[ for (var i = 0; i < get('price'); i++) { ]]$[[ } ]]
 </p>
+

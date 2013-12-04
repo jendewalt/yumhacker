@@ -5,6 +5,7 @@ FilterView = Backbone.View.extend({
     },
 
     initialize: function () {
+        console.log(Filter.get('from_followed'));
         this.render();
     },
 

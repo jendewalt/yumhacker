@@ -12,7 +12,13 @@
 
     [[ if (CurrentUser.logged_in()) { ]]
         <div id='from_followed_container'>
-            <input id='from_followed' type='checkbox' [[= Filter.get('from_followed') ? 'checked' : '' ]] >
+                                                <!-- Ternary does not evaluate correctly here -->
+            <input id='from_followed' type='checkbox' [[ if (Filter.get('from_followed')) { ]]
+                                                            [[= 'checked' ]] 
+                                                      [[ } else { ]]
+                                                            [[ '' ]]
+                                                      [[ } ]]>            
+
             <label class='small' for='from_followed'>Show only people I'm following</label>
         </div>
     [[ } ]]

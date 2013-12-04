@@ -3,7 +3,7 @@ body.yumhacker {
     $dark-magenta: #d9114a;
     $blue: #0d70eb;
     $dark-blue: #094da1;
-    $dark-grey: #19191c;
+    $dark-grey: #313136;
     $mid-grey: #737378;
     $light-grey: #c1c1c3;
     $x-light-grey: #F1F1F3;
@@ -30,6 +30,14 @@ body.yumhacker {
     h3 {
         font-size: 20px;
         line-height: 20px;        
+    }
+
+    input[type='text'] {
+        color: $dark-grey;
+    }
+
+    .center {
+        text-align: center;
     }
 
     nav {
@@ -143,7 +151,7 @@ body.yumhacker {
 
     .card {
         background-color: white;
-        padding: 10px 30px;
+        padding: 10px 20px;
         border-top: 3px solid #E91367;
         border-radius: 2px;
         box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
@@ -156,6 +164,8 @@ body.yumhacker {
             line-height: 25px;
             height: 25px;
             text-align: center;
+            font-weight: normal;
+            text-decoration: none;
         }
     }
 
@@ -235,6 +245,18 @@ body.yumhacker {
             }
         }
 
+        .establishment_info_container {
+            display: inline-table;
+            width: 65%;
+            word-wrap: break-word;
+            word-break: break-word;
+        }
+
+        .endorse_btn_container {
+            float: right;
+            display: inline;
+        }
+
         .establishments_container {
             width: 100%;
 
@@ -242,6 +264,15 @@ body.yumhacker {
                 display: inline-block;
                 vertical-align: top;
                 width: 50%;
+
+                li {
+
+                    .establishment_info_container {
+                    }
+
+                    .endorse_btn_container {
+                    }
+                }
 
                 .details {
                     color: $mid-grey;
@@ -280,7 +311,7 @@ body.yumhacker {
                 padding: 20px 10px;
             }
 
-            #establishment_info_container {
+            #establishment_container {
                 width: 100%;
                 padding: 30px;
                 margin-bottom: 20px; 
@@ -307,8 +338,7 @@ body.yumhacker {
                 }
 
                 #contact_info {
-                    padding: 0 10px;
-
+                    
                     .phone {
                         padding-top: 20px;
                         padding-bottom: 5px;
@@ -322,14 +352,6 @@ body.yumhacker {
                         &:hover {
                             color: $magenta;
                         }
-                    }
-                }
-
-                .endorse_btn_container {
-                    padding: 20px 0 0 10px;
-
-                    .btn {
-
                     }
                 }
             }
@@ -445,6 +467,7 @@ body.yumhacker {
                         font-size: 13px;
                         color: $mid-grey;
                         border-right: 1px solid $light-grey;
+                        cursor: pointer;
                         
                         &:last-of-type {
                             border-right: none;
@@ -512,8 +535,8 @@ body.yumhacker {
             padding: 20px;
 
             h3 {
-                color: $magenta;
-                line-height: 20px;
+                color: $dark-grey;
+                line-height: 26px;
             }
 
             form {  
@@ -575,16 +598,24 @@ body.yumhacker {
     }
 
     .devise_form {
+        width: 400px;
+        margin: auto;
+
+        &.edit_profile_container {
+            margin: 20px auto;
+        }
 
         #logo {
+            display: inline-block;
             padding: 30px;
             font-size: 30px;
             font-weight: bold;
             color: $magenta;
+            text-decoration: none;
         }
 
         .form_container {
-            width: 400px;
+            width: 100%;
             margin: auto;
 
             h3 {
@@ -615,13 +646,81 @@ body.yumhacker {
                         border-radius: 3px;
                         box-shadow: none;
                         border: 1px solid $light-grey;
+
+                        &[type='checkbox'] {
+                            width: initial;
+                            height: 12px;
+                            padding: 0;
+                            margin: 0;
+                        }
+                    }
+
+                    &.check {
+                        label {
+                            padding: 0;
+                        }
                     }
                     
-                    .btn {
-                        height: 30px;
-                        width: 100%;
-                        margin: 10px 0;
+                }
+                
+                .btn {
+                    height: 30px;
+                    width: 100%;
+                    margin: 10px 0;
+                }
+            }
+        }
+
+        .devise_links {
+            margin: 20px 0;
+            line-height: 20px;
+            text-align: right;
+            color: $mid-grey;
+
+            div {
+                margin-bottom: 5px;
+            }
+
+            a {
+                color: $blue;
+
+                &.small {
+                    font-size: 11px;
+                    color: $mid-grey;
+
+                    &:hover {
+                        color: $blue;
                     }
+                }
+            }
+        }
+
+        .cancel_container {
+            padding: 20px;
+
+            a {
+                display: block;
+                margin-bottom: 20px;
+                color: $blue;
+            }
+        }
+
+        #error_explanation {
+            background-color: $x-light-grey;
+            padding: 10px;
+            font-size: 13px;
+
+            h2 {
+                font-weight: bold;
+                font-size: 16px;
+            }
+
+            ul {
+                padding: 5px;
+
+                li {
+                    padding: 3px;
+                    line-height: 16px;
                 }
             }
         }

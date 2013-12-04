@@ -10,7 +10,7 @@ EstablishmentsShowView = Backbone.View.extend({
         this.$el.html(render('establishments/show', this.model));
 
         this.establishments_show_establishment_info_view = new EstablishmentsShowEstablishmentInfoView({
-            el: '#establishment_info_container',
+            el: '#establishment_container',
             model: this.model
         });
 
@@ -22,7 +22,5 @@ EstablishmentsShowView = Backbone.View.extend({
         MapView.el = '#map_canvas_container';
         MapView.model = this.model;
         MapView.renderEstablishmentMap();
-        // this.listenTo(this.collection, 'reset', function () { MapView.resetMap(); });
-
 	}
 });

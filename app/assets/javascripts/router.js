@@ -8,6 +8,7 @@ Router = Backbone.Router.extend({
         'users/sign_in': 'nothing',
         'users/sign_out': 'nothing',
         'users/sign_up': 'nothing',
+        'users/edit': 'nothing',
         'users/:id': 'usersShow'
     },
 

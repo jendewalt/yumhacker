@@ -28,8 +28,6 @@ FollowersIndexListView = Backbone.View.extend({
             model: user
         });
         
-        if (this.model.get('id') != user.id) {
-            this.$('ul.followers').append(user_view.el);
-        }
+        this.$('ul.followers').append(user_view.el);
     }
 });
