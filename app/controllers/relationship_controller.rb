@@ -3,12 +3,6 @@ class RelationshipsController < ApplicationController
 
   def create
     @user = User.find(params[:relationship][:followed_id])
-    logger.debug('$$$$$$$$$$$$$$$$$$')
-    logger.debug(@user)
-    # current_user.follow!(@user)
-    # respond_to do |format|
-    #   format.json { render :json => 'Created!' }
-    # end
   end
 
   def destroy

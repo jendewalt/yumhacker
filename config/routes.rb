@@ -11,6 +11,7 @@ Yumhacker::Application.routes.draw do
   namespace :api do
     get 'establishments/search', to: 'establishments#search'
     get 'establishments/endorsers', to: 'establishments#endorsers'
+    get 'establishments/comments', to: 'establishments#comments'
     resources :establishments
 
     get 'users/endorsing', to: 'users#endorsing'
@@ -23,6 +24,9 @@ Yumhacker::Application.routes.draw do
     delete 'users/follow', to: 'users#unfollow'
     get 'users/followers', to: 'users#followers'
     get 'users/followed_users', to: 'users#followed_users'
+
+    post 'users/comment', to: 'users#create_comment'
+    delete 'users/comment', to: 'users#destroy_comment'
     resources :users
 
     get 'geolocations', to: 'geolocations#index'

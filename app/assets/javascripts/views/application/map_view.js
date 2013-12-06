@@ -12,22 +12,17 @@ MapView = new (Backbone.View.extend({
 	},
 
 	render: function () {
-		console.log('render map')
 		this.clearMarkers();
 		this.mapCanvas.appendTo(this.el);
 		google.maps.event.trigger(this.map, 'resize');
 	},
 
 	resetMap: function () {
-		console.log('reset map')
-
 		this.map.setCenter(new google.maps.LatLng(MainSearch.get('lat'), MainSearch.get('lng')));
 		this.resetMarkers();
 	},
 
 	resetMarkers: function () {
-		console.log('reset markers map')
-
 		// Set the minimum bounds for the map
 		var c = 1.0/(60 * 1.15078); // Convert miles to degrees
 		var center_lat = MainSearch.get('lat');
@@ -60,8 +55,6 @@ MapView = new (Backbone.View.extend({
 	},
 
 	renderMarker: function (establishment, i) {
-		console.log('render marker')
-
 		var myLatLng = new google.maps.LatLng(establishment.get('lat'), establishment.get('lng'));
 		marker = new MapMarker(establishment, this.map, i);
 
@@ -73,8 +66,6 @@ MapView = new (Backbone.View.extend({
 	},
 
 	renderEstablishmentMap: function () {
-		console.log('render establishment map')
-
 		this.clearMarkers();
 		this.mapCanvas.appendTo(this.el);
 		google.maps.event.trigger(this.map, 'resize');

@@ -52,4 +52,15 @@ class Api::UsersController < ApplicationController
     @establishments = User.find(params[:user_id]).establishments
     render 'api/establishments/index'
   end
+
+  def create_comment 
+    comment = current_user.create_comment!(params[:establishment_id], params[:body])
+    render :json => comment.to_json 
+  end
+
+  def destroy_comment 
+    current_user.destroy_comment!(params[:id])
+    # render :json => { success: true }
+    render :nothing => true
+  end
 end

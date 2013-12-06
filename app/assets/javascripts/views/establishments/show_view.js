@@ -3,7 +3,6 @@ EstablishmentsShowView = Backbone.View.extend({
 	initialize: function () {
 		this.listenTo(this.model, 'sync', this.render);
         this.model.fetch();
-
     },
 
     render: function () {
@@ -16,6 +15,11 @@ EstablishmentsShowView = Backbone.View.extend({
 
         this.establishments_show_endorsers_list_view = new EstablishmentsShowEndorsersListView({
             el: '#endorsers_list',
+            model: this.model
+        });
+
+        this.comments_index_view = new CommentsIndexView({
+            el: '#establishment_comments_container',
             model: this.model
         });
 

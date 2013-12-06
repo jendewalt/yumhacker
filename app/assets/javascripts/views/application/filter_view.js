@@ -5,7 +5,6 @@ FilterView = Backbone.View.extend({
     },
 
     initialize: function () {
-        console.log(Filter.get('from_followed'));
         this.render();
     },
 
@@ -19,8 +18,6 @@ FilterView = Backbone.View.extend({
     },
 
     changeRadius: function (e) {
-        console.log(e)
-        console.log('Hello!')
         Filter.set('radius', e.target.value);
     }
 

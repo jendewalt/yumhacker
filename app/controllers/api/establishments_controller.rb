@@ -90,9 +90,9 @@ class Api::EstablishmentsController < ApplicationController
 
   def endorsers
     @endorsers = Establishment.find(params[:establishment_id]).users
+  end
 
-    # @endorsers = Establishment.find(params[:establishment_id]).endorsements.to_json
-    logger.debug('@@@@@@@@@@@@@@@@@@@@@@')
-    logger.debug(@endorsers)
+  def comments
+    @comments = Establishment.find(params[:establishment_id]).comments
   end
 end

@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :endorsements, :dependent => :destroy
   has_many :establishments, :through => :endorsements
 
+  has_many :comments, :dependent => :destroy
+
   def following?(id)
     relationships.where(:followed_id => id).count > 0
   end
@@ -33,5 +35,18 @@ class User < ActiveRecord::Base
 
   def unendorse!(id)
     endorsements.where(:establishment_id => id).first.try(:destroy)
+  end
+
+  def create_comment!(id, body)
+    if body && !body.blank?
+      body.strip!
+      comments.create!(:establishment_id => id, :body => body)
+    end
+  end
+
+  def destroy_comment!(id)
+    logger.debug('############################')
+    logger.debug(id)
+    comments.where(:id => id).first.try(:destroy)
   end
 end
