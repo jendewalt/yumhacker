@@ -26,7 +26,7 @@ Yumhacker::Application.routes.draw do
     get 'users/followed_users', to: 'users#followed_users'
 
     post 'users/comment', to: 'users#create_comment'
-    delete 'users/comment', to: 'users#destroy_comment'
+    delete 'users/comment/:id', to: 'users#destroy_comment'
     resources :users
 
     get 'geolocations', to: 'geolocations#index'

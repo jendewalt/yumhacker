@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131206041505) do
+ActiveRecord::Schema.define(version: 20131205213401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,15 +22,11 @@ ActiveRecord::Schema.define(version: 20131206041505) do
     t.string   "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "establishment_name"
-    t.string   "username"
   end
 
   add_index "comments", ["establishment_id"], :name => "index_comments_on_establishment_id"
-  add_index "comments", ["establishment_name"], :name => "index_comments_on_establishment_name"
   add_index "comments", ["user_id", "establishment_id"], :name => "index_comments_on_user_id_and_establishment_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
-  add_index "comments", ["username"], :name => "index_comments_on_username"
 
   create_table "endorsements", force: true do |t|
     t.integer  "user_id"

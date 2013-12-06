@@ -54,8 +54,8 @@ class Api::UsersController < ApplicationController
   end
 
   def create_comment 
-    comment = current_user.create_comment!(params[:establishment_id], params[:body], params[:establishment_name], params[:username])
-    render :json => comment.to_json 
+    @comment = current_user.create_comment!(params[:establishment_id], params[:body], current_user.id)
+    # render :json => comment.to_json 
   end
 
   def destroy_comment 
