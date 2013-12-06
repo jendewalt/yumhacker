@@ -37,16 +37,14 @@ class User < ActiveRecord::Base
     endorsements.where(:establishment_id => id).first.try(:destroy)
   end
 
-  def create_comment!(id, body)
+  def create_comment!(id, body, establishment_name, username)
     if body && !body.blank?
       body.strip!
-      comments.create!(:establishment_id => id, :body => body)
+      comments.create!(:establishment_id => id, :body => body, :establishment_name => establishment_name, :username => username)
     end
   end
 
   def destroy_comment!(id)
-    logger.debug('############################')
-    logger.debug(id)
     comments.where(:id => id).first.try(:destroy)
   end
 end

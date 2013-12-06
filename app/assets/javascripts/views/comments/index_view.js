@@ -19,19 +19,6 @@ CommentsIndexView = Backbone.View.extend({
 	},
 
 	render: function () {
-		this.$el.html('');	
-
-  //   	this.collection.each(function (comment) {
-		// 	this.renderComment(comment);
-		// }, this);	
-	},
-
-	// renderComment: function (comment) {
-	// 	var comment_view = new CommentsIndexCommentView({
-	// 		tagName: 'li',
-	// 		model: comment
-	// 	});
-
-	// 	this.$el.append(comment_view.el);
-	// }
+		this.$el.html('');		
+	}
 });

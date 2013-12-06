@@ -93,6 +93,6 @@ class Api::EstablishmentsController < ApplicationController
   end
 
   def comments
-    @comments = Establishment.find(params[:establishment_id]).comments
+    @comments = Establishment.find(params[:establishment_id]).comments.order(created_at: :desc)
   end
 end

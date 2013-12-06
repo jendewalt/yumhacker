@@ -54,13 +54,14 @@ class Api::UsersController < ApplicationController
   end
 
   def create_comment 
-    comment = current_user.create_comment!(params[:establishment_id], params[:body])
+    comment = current_user.create_comment!(params[:establishment_id], params[:body], params[:establishment_name], params[:username])
     render :json => comment.to_json 
   end
 
   def destroy_comment 
-    current_user.destroy_comment!(params[:id])
-    # render :json => { success: true }
-    render :nothing => true
+    unless current_user.id != Comment.find(params[:id]).user_id
+      current_user.destroy_comment!(params[:id])
+      render :json => { success: true }
+    end
   end
 end

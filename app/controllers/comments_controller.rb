@@ -9,6 +9,6 @@ class CommentsController < ApplicationController
 
   private
     def establishment_params
-      params.permit(:body, :establishment_id)
+      params.permit(:body, :establishment_id, :username, :establishment_name)
     end
 end

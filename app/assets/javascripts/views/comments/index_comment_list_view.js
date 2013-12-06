@@ -3,9 +3,8 @@ CommentsIndexCommentListView = Backbone.View.extend({
 	},
 
 	initialize: function () {
-        // this.collection = new CommentCollection();
-
         this.listenTo(this.collection, 'reset', this.render);
+        this.listenTo(this.collection, 'remove', this.render);
         this.listenTo(this.collection, 'add', this.addNewComment);
         this.collection.fetch({ reset: true, data: { establishment_id: this.model.get('id') } });
 	},
