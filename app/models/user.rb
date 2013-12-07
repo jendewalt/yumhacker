@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
   has_many :comments, :dependent => :destroy
 
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/missing.png"
+
   def following?(id)
     relationships.where(:followed_id => id).count > 0
   end
