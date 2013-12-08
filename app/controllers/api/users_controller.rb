@@ -54,14 +54,28 @@ class Api::UsersController < ApplicationController
   end
 
   def create_comment 
-    @comment = current_user.create_comment!(params[:establishment_id], params[:body], current_user.id)
-    # render :json => comment.to_json 
+    body = params[:body]
+    id = params[:establishment_id]
+    @comment = if body && !body.blank?
+      body.strip!
+      current_user.comments.create!(establishment_id: id, body: body)
+    end
   end
 
   def destroy_comment 
-    unless current_user.id != Comment.find(params[:id]).user_id
-      current_user.destroy_comment!(params[:id])
-      render :json => { success: true }
+    comment = Comment.find(params[:id])
+    if current_user.id == comment.user_id
+      if comment.destroy
+        render :json => { success: true }
+      end
     end
   end
+
+  def create_photo 
+    # :content_type, :original_filename, :image_data
+    photo = current_user.photos.create(establishment_id: params[:establishment_id], content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
+    # redirect_to :back
+    render json: photo
+  end
+
 end

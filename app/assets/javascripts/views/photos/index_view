@@ -1,0 +1,2 @@
+PhotoIndexView = Backbone.View.extend({
+})

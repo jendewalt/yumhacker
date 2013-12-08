@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :establishments, :through => :endorsements
 
   has_many :comments, :dependent => :destroy
+  has_many :photos, :dependent => :destroy
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/missing.png"
 
@@ -37,16 +38,5 @@ class User < ActiveRecord::Base
 
   def unendorse!(id)
     endorsements.where(:establishment_id => id).first.try(:destroy)
-  end
-
-  def create_comment!(id, body, user_id)
-    if body && !body.blank?
-      body.strip!
-      comments.create!(:establishment_id => id, :body => body, :user_id => user_id)
-    end
-  end
-
-  def destroy_comment!(id)
-    comments.where(:id => id).first.try(:destroy)
   end
 end

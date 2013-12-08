@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131207225628) do
+ActiveRecord::Schema.define(version: 20131207234857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,20 @@ ActiveRecord::Schema.define(version: 20131207225628) do
   end
 
   add_index "hours", ["establishment_id"], :name => "index_hours_on_establishment_id"
+
+  create_table "photos", force: true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "caption"
+    t.integer  "user_id"
+    t.integer  "establishment_id"
+  end
+
+  add_index "photos", ["establishment_id"], :name => "index_photos_on_establishment_id"
+  add_index "photos", ["user_id", "establishment_id"], :name => "index_photos_on_user_id_and_establishment_id"
+  add_index "photos", ["user_id"], :name => "index_photos_on_user_id"
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"

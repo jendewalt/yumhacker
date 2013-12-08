@@ -27,6 +27,9 @@ Yumhacker::Application.routes.draw do
 
     post 'users/comment', to: 'users#create_comment'
     delete 'users/comment/:id', to: 'users#destroy_comment'
+    
+    post 'users/photos', to: 'users#create_photo'
+    delete 'users/photos/:id', to: 'users#destroy_photo'
     resources :users
 
     get 'geolocations', to: 'geolocations#index'
