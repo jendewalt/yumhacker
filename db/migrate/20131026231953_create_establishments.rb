@@ -14,7 +14,8 @@ class CreateEstablishments < ActiveRecord::Migration
       t.string :phone
       t.integer :price
       t.string :website
-
+      t.string :google_id
+      
       t.timestamps
     end
     add_index :establishments, :name 
@@ -22,5 +23,6 @@ class CreateEstablishments < ActiveRecord::Migration
     add_index :establishments, :formatted_address
     add_index :establishments, :neighborhood
     add_index :establishments, :price
+    add_index :establishments, :google_id, :unique => true
   end
 end

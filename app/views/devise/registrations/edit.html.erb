@@ -9,8 +9,8 @@
     <div class='inputs_container'>
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true } ) do |f| %>
 
-        <div class='field'><%= f.label :name %><br />
-        <%= f.text_field :name %></div>
+        <div class='field'><%= f.label :username %><br />
+        <%= f.text_field :username %></div>
 
         <div class='field'><%= f.label :first_name %><br />
         <%= f.text_field :first_name %></div>

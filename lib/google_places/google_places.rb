@@ -54,10 +54,27 @@ module GooglePlaces
         result[:hours] = []
         unless location[:opening_hours].nil?
             location[:opening_hours][:periods].each do |period|
-                result[:hours].push({ event_type: 'close', day: period[:close][:day], time: period[:close][:time] })
-                result[:hours].push({ event_type: 'open', day: period[:open][:day], time: period[:open][:time] })
+                open_day = period[:open][:day]
+                close_day = period[:close][:day]
+                open_time = period[:open][:time]
+                close_time = period[:close][:time]
+
+                open_in_minutes = to_minutes(open_day, open_time)
+                close_in_minutes = to_minutes(close_day, close_time)
+
+                close_in_minutes += 60 * 24 * 7 if close_in_minutes < open_in_minutes
+
+                result[:hours].push({ open_day: open_day, open_time: open_time, close_day: close_day, close_time: close_time, open_in_minutes: open_in_minutes, close_in_minutes: close_in_minutes})
             end
         end
         result
+    end
+
+    def to_minutes(day, time)
+        day = day.to_i
+        time = time.to_i
+        day_in_minutes = day * 60 * 24
+        time_in_minutes = time / 100 * 60 + time % 100
+        day_in_minutes + time_in_minutes
     end
 end

@@ -53,9 +53,9 @@ ActiveRecord::Schema.define(version: 20131207234857) do
     t.string   "phone"
     t.integer  "price"
     t.string   "website"
+    t.string   "google_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "google_id"
   end
 
   add_index "establishments", ["formatted_address"], :name => "index_establishments_on_formatted_address"
@@ -66,15 +66,22 @@ ActiveRecord::Schema.define(version: 20131207234857) do
   add_index "establishments", ["price"], :name => "index_establishments_on_price"
 
   create_table "hours", force: true do |t|
-    t.string   "event_type"
-    t.integer  "day"
-    t.integer  "time"
+    t.integer  "open_day"
+    t.integer  "close_day"
+    t.integer  "open_time"
+    t.integer  "close_time"
     t.integer  "establishment_id"
+    t.integer  "open_in_minutes"
+    t.integer  "close_in_minutes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "hours", ["close_in_minutes"], :name => "index_hours_on_close_in_minutes"
+  add_index "hours", ["establishment_id", "close_in_minutes"], :name => "index_hours_on_establishment_id_and_close_in_minutes", :unique => true
+  add_index "hours", ["establishment_id", "open_in_minutes"], :name => "index_hours_on_establishment_id_and_open_in_minutes", :unique => true
   add_index "hours", ["establishment_id"], :name => "index_hours_on_establishment_id"
+  add_index "hours", ["open_in_minutes"], :name => "index_hours_on_open_in_minutes"
 
   create_table "photos", force: true do |t|
     t.string   "image_file_name"
@@ -84,6 +91,8 @@ ActiveRecord::Schema.define(version: 20131207234857) do
     t.string   "caption"
     t.integer  "user_id"
     t.integer  "establishment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "photos", ["establishment_id"], :name => "index_photos_on_establishment_id"
@@ -102,8 +111,14 @@ ActiveRecord::Schema.define(version: 20131207234857) do
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
   create_table "users", force: true do |t|
-    t.string   "name"
+    t.string   "username"
     t.string   "slug"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.boolean  "admin",                  default: false
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -124,21 +139,15 @@ ActiveRecord::Schema.define(version: 20131207234857) do
     t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["first_name"], :name => "index_users_on_first_name"
   add_index "users", ["last_name"], :name => "index_users_on_last_name"
-  add_index "users", ["name"], :name => "index_users_on_name", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end

@@ -5,15 +5,10 @@ class Api::EstablishmentsController < ApplicationController
   include GooglePlaces
 
 	def index
-    params[:lat] ||= 37.7749295
-    params[:lng] ||= -122.4194155
-    params[:from_followed] ||= false
-    params[:radius] ||= 5 # Radius in miles
-
-    lat = params[:lat]
-    lng = params[:lng]
-    radius = params[:radius]
-    from_followed = params[:from_followed]
+    lat = params[:lat] || 37.7749295
+    lng = params[:lng] || -122.4194155
+    from_followed = params[:from_followed] || false
+    radius = params[:radius] || 5 # Radius in miles
 
     if from_followed == 'true' && current_user
       # convert miles to degrees = 1.0/(60 * 1.15078)
@@ -23,9 +18,6 @@ class Api::EstablishmentsController < ApplicationController
       @establishments = Establishment.from_users_followed_by(current_user).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry")
     else
       @establishments = Establishment.where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry")
-
-      # Old DB call.
-      # @establishments = Establishment.where("ST_DWithin(latlng, ST_geomFromText('POINT (? ?)', 4326), ?)", lng.to_f, lat.to_f, radius.to_f).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry")
     end
 	end
 
@@ -34,7 +26,7 @@ class Api::EstablishmentsController < ApplicationController
   end
 
   def create
-    @establishment = Establishment.find_by(:google_id => params[:google_id])
+    @establishment = Establishment.find_by(google_id: params[:google_id])
 
     unless @establishment
       @establishment = Establishment.create(name: params[:name], formatted_address: params[:formatted_address], price: params[:price], google_id: params[:google_id])
@@ -42,9 +34,7 @@ class Api::EstablishmentsController < ApplicationController
       @establishment.save
     end
 
-    unless current_user.endorsing?(@establishment.id)
-      current_user.endorse!(@establishment.id)
-    end
+    current_user.endorse!(@establishment.id) unless current_user.endorsing?(@establishment.id)
 
     unless params[:reference].nil?
       details = google_places_details(params[:reference])

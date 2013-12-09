@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
     def check_if_user
       if current_user
-        user = {id: current_user.id, first_name: current_user.first_name, last_name: current_user.last_name, followed_users: current_user.followed_users }
+        user = { id: current_user.id, first_name: current_user.first_name, last_name: current_user.last_name }
         cookies[:current_user] = user.to_json
       else 
         cookies.delete(:current_user)
@@ -20,9 +20,9 @@ class ApplicationController < ActionController::Base
   protected
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:name, :email) }
-      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :first_name, :last_name, :password, :password_confirmation) }
+      devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email) }
+      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :first_name, :last_name, :password, :password_confirmation) }
 
-      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :first_name, :last_name, :password, :password_confirmation, :current_password, :avatar) }
+      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :first_name, :last_name, :password, :password_confirmation, :current_password, :avatar) }
     end     
 end

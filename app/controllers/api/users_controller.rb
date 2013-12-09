@@ -7,9 +7,6 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @num_followers = @user.followers.count
-    @num_followed_users = @user.followed_users.count
-    @num_endorsements = @user.endorsements.count
   end
 
   def unfollow
@@ -72,10 +69,7 @@ class Api::UsersController < ApplicationController
   end
 
   def create_photo 
-    # :content_type, :original_filename, :image_data
     photo = current_user.photos.create(establishment_id: params[:establishment_id], content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
-    # redirect_to :back
     render json: photo
   end
-
 end
