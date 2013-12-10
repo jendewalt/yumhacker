@@ -28,7 +28,7 @@ module GooglePlaces
         location = data[:result]
         result = {}
         result[:formatted_address] = location[:formatted_address] if location[:formatted_address]
-        result[:phone] = location[:international_phone_number] if location[:international_phone_number]
+        result[:phone] = location[:formatted_phone_number] if location[:formatted_phone_number]
         result[:website] = location[:website] if location[:website]
         location[:address_components].each do |component|
             types = component[:types]

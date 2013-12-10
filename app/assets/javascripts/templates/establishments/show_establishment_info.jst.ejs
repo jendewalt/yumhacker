@@ -1,19 +1,21 @@
-<div class='establishment_info_container'>
+<div class='establishment_info left_column'>
     <h3 class='biz_name'>[[= get('name') ]]</h3>
+
+    <p class='details small'>[[= get('neighborhood') ]][[ get('price') ]]</p>
+
+    <div id='contact_info'>
+        <p class='details'>[[= get('street_number') ]] [[= get('street') ]]</p>
+        <p class='details'>[[= get('city') ]], [[= get('state') ]] [[= get('zip_code') ]]</p>
+
+        <p class='details phone'>[[= get('phone') ]]</p>
+        <a class='details website' href='[[= get('website') ]]' target='_blank'>[[= get('website') ]]</a>
+    </div>
+    
+    <div class="endorse_btn_container"></div>
 </div>
 
-<div class="endorse_btn_container"></div>
+<div class='right_column'>
+    <div id='establishment_photos_container'></div>
+</div>
+
 <br class='clear'>
-
-<p class='details small'>[[= get('neighborhood') ]] - [[ for (var i = 0; i < get('price'); i++) { ]]$[[ } ]]</p>
-
-<div id='contact_info'>
-    <p class='details'>[[= get('street_number') ]] [[= get('street') ]]</p>
-    <p class='details'>[[= get('city') ]], [[= get('state') ]] [[= get('zipcode') ]]</p>
-
-    <p class='details phone'>[[= get('phone') ]]</p>
-    <a class='details website' href='[[= get('website') ]]' target='_blank'>[[= get('website') ]]</a>
-</div>
-
-<div id='establishment_photos_container'></div>
-

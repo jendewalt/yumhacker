@@ -305,13 +305,21 @@ body.yumhacker {
         #establishment_show_container {
             text-align: left;
 
-            .left_column, .right_column {
-                float: left;
-                width: 50%;
+            .column {
                 padding: 20px 10px;
             }
 
-            #establishment_container {
+            .left_column {
+                float: left;
+                width: 60%;
+            }
+
+            .right_column {
+                float: right;
+                width: 40%;
+            }
+
+            #establishment_info_container {
                 width: 100%;
                 padding: 30px;
                 margin-bottom: 20px; 
@@ -324,9 +332,8 @@ body.yumhacker {
                     color: $blue;
                 }
 
-
                 .details {
-                    font-size: 16px;
+                    font-size: 13px;
                     line-height: 20px;
       
                     &.small {
@@ -351,6 +358,32 @@ body.yumhacker {
 
                         &:hover {
                             color: $magenta;
+                        }
+                    }
+                }
+
+                .endorse_btn_container {
+                    float: none;
+                    margin-top: 10px;
+                }
+
+                .right_column {
+                    text-align: right;
+
+                    #photo_upload_form_container {
+                        button {
+                            background-color: transparent;
+                            border: none;
+                            cursor: pointer;
+
+                            img {
+                                height: 20px;
+                            }
+                        }
+
+                        input[type="file"] {
+                            position:absolute;
+                            display:none;
                         }
                     }
                 }

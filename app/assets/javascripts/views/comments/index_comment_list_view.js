@@ -10,8 +10,6 @@ CommentsIndexCommentListView = Backbone.View.extend({
 	},
 
 	render: function () {
-		console.log('Comments render!')
-
 		this.$el.html('');	
 
     	this.collection.each(function (comment) {

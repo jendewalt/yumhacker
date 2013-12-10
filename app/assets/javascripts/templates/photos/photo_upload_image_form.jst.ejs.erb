@@ -1,0 +1,9 @@
+<div id='photo_upload_form_container'>
+    <button><%= image_tag "camera_icon.svg" %></button>
+
+    <form id='photo_upload_form' method="post" enctype="multipart/form-data" action='/api/users/photo'>
+        <input name="authenticity_token" value="[[= $('meta[name="csrf-token"]')[0].content ]]" type="hidden">
+        <input name="establishment_id" value="[[= get('id') ]]" type="hidden">
+        <input type='file' name='image' capture='camera'>
+    </form>
+</div>

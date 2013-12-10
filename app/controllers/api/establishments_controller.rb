@@ -85,4 +85,8 @@ class Api::EstablishmentsController < ApplicationController
   def comments
     @comments = Establishment.find(params[:establishment_id]).comments.order(created_at: :desc)
   end
+
+  def preview_photos
+    @photos = Establishment.find(params[:establishment_id]).photos.order(created_at: :desc).limit(4)
+  end
 end

@@ -1,10 +1,9 @@
 Photo = Backbone.Model.extend({
     urlRoot: '/api/users/photos',
 
-    readFile: function(file) {
+    readFile: function(file, callback) {
         var reader = new FileReader();
-        console.log(file)
-        // closure to capture the file information.
+
         reader.onload = $.proxy(function (e) {
             console.log('reader loaded')
             var file_data = e.target.result;
@@ -15,9 +14,11 @@ Photo = Backbone.Model.extend({
                 content_type: content_type,
                 image_data: image_data
             });
-            this.save();
+            console.log('saving')
+            this.save({}, {success: callback});
         }, this);
 
         reader.readAsDataURL(file);
     }
 });
+

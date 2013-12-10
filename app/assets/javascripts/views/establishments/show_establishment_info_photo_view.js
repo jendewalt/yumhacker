@@ -3,15 +3,18 @@ EstablishmentShowEstablishmentInfoPhotoView = Backbone.View.extend({
 
     initialize: function () {
         this.render(); 
+        this.collection = new PreviewPhotoCollection();
 
-        // this.photos_preview_view = new PhotosPreviewView({
-        //     model: this.model,
-        //     el: '#photos_preview_container'
-        // });  
+        this.establishment_show_photos_preview_view = new EstablishmentShowPhotosPreviewView({
+            model: this.model,
+            el: '#photos_preview_container',
+            collection: this.collection
+        });  
 
         this.photos_upload_image_form_view = new PhotosUploadImageFormView({
             model: this.model,
-            el: '#photos_form_container'
+            el: '#photos_form_container',
+            collection: this.collection
         });     
     },
 

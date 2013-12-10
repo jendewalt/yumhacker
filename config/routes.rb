@@ -12,6 +12,7 @@ Yumhacker::Application.routes.draw do
     get 'establishments/search', to: 'establishments#search'
     get 'establishments/endorsers', to: 'establishments#endorsers'
     get 'establishments/comments', to: 'establishments#comments'
+    get 'establishments/preview_photos', to: 'establishments#preview_photos'
     resources :establishments
 
     get 'users/endorsing', to: 'users#endorsing'

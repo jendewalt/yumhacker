@@ -27,11 +27,6 @@ EndorsementsIndexListView = Backbone.View.extend({
             tagName: 'li',
             model: endorsement
         });
-        // var endorsement_view = new EndorsementsIndexEndorsementView({
-        //     tagName: 'li',
-        //     model: endorsement
-        // });
-
         this.$('ol.endorsements').append(endorsement_view.el);
     }
 });

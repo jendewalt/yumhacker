@@ -9,7 +9,7 @@ EstablishmentsShowView = Backbone.View.extend({
         this.$el.html(render('establishments/show', this.model));
 
         this.establishments_show_establishment_info_view = new EstablishmentsShowEstablishmentInfoView({
-            el: '#establishment_container',
+            el: '#establishment_info_container',
             model: this.model
         });
 
