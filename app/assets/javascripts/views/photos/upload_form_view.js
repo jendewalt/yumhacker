@@ -6,7 +6,7 @@ PhotosUploadImageFormView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
-
+        xxx = this.collection
     },
 
     render: function () {
@@ -32,8 +32,18 @@ PhotosUploadImageFormView = Backbone.View.extend({
         }
         
         var that = this;
-        function updateCollection (model) {
-            that.collection.fetch({ reset: true, data: { establishment_id: that.model.get('id') } });
+        function updateCollection (model, response) {
+            that.collection.fetch({ reset: true, data: { establishment_id: model.get('establishment_id') } });
+            that.showCaptionForm(model, response)
         }
+    },
+
+    showCaptionForm: function (model, response, options) {
+        console.log(response)
+        console.log(model)
+        this.photos_upload_photo_caption_form = new PhotosUploadCaptionFormView({
+            model: model,
+            el: '#upload_caption_form_container'
+        });
     }
 });

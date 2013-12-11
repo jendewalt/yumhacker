@@ -12,7 +12,6 @@ Yumhacker::Application.routes.draw do
     get 'establishments/search', to: 'establishments#search'
     get 'establishments/endorsers', to: 'establishments#endorsers'
     get 'establishments/comments', to: 'establishments#comments'
-    get 'establishments/preview_photos', to: 'establishments#preview_photos'
     resources :establishments
 
     get 'users/endorsing', to: 'users#endorsing'
@@ -26,12 +25,13 @@ Yumhacker::Application.routes.draw do
     get 'users/followers', to: 'users#followers'
     get 'users/followed_users', to: 'users#followed_users'
 
-    post 'users/comment', to: 'users#create_comment'
-    delete 'users/comment/:id', to: 'users#destroy_comment'
+    resources :comments
     
-    post 'users/photos', to: 'users#create_photo'
-    delete 'users/photos/:id', to: 'users#destroy_photo'
-    resources :users
+    # post 'users/photos', to: 'users#create_photo'
+    # post 'users/photos/:id', to: 'users#edit_photo_caption'
+    # delete 'users/photos/:id', to: 'users#destroy_photo'
+    get 'photos/preview_photos', to: 'photos#preview_photos'
+    resources :photos
 
     get 'geolocations', to: 'geolocations#index'
     get 'geolocations/details', to: 'geolocations#details'

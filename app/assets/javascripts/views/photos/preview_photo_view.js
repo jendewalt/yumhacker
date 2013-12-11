@@ -1,4 +1,4 @@
-PhotoPreviewPhotoView = Backbone.View.extend({
+PhotosPreviewPhotoView = Backbone.View.extend({
     events:{
         'click .preview_photo': 'goToPhotoIndex'
     },

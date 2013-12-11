@@ -1,7 +1,7 @@
 CommentCollection = Backbone.Collection.extend({
     model: Comment,
 
-    url: '/api/establishments/comments',
+    url: '/api/comments',
 
     parse: function (response) {
         return response.comments;

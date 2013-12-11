@@ -50,26 +50,22 @@ class Api::UsersController < ApplicationController
     render 'api/establishments/index'
   end
 
-  def create_comment 
-    body = params[:body]
-    id = params[:establishment_id]
-    @comment = if body && !body.blank?
-      body.strip!
-      current_user.comments.create!(establishment_id: id, body: body)
-    end
-  end
+  # def create_photo
+  #   if current_user 
+  #     @photo = current_user.photos.create(establishment_id: params[:establishment_id], content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
+  #   else
+  #     render json: {error: 'You must be logged in to add photos.'}
+  #   end
+  # end
 
-  def destroy_comment 
-    comment = Comment.find(params[:id])
-    if current_user.id == comment.user_id
-      if comment.destroy
-        render :json => { success: true }
-      end
-    end
-  end
-
-  def create_photo 
-    photo = current_user.photos.create(establishment_id: params[:establishment_id], content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
-    render json: photo
-  end
+  # def edit_photo_caption
+  #   if current_user
+  #     caption = params[:caption]
+  #     if caption && !caption.blank?
+  #       caption.strip!
+  #       update_attributes(caption: caption)
+  #       render json: { success: true }
+  #     end
+  #   end
+  # end
 end

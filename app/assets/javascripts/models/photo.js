@@ -1,5 +1,5 @@
 Photo = Backbone.Model.extend({
-    urlRoot: '/api/users/photos',
+    urlRoot: '/api/photos',
 
     readFile: function(file, callback) {
         var reader = new FileReader();

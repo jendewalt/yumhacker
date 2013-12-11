@@ -1,7 +1,7 @@
 PreviewPhotoCollection = Backbone.Collection.extend({
     model: Photo,
 
-    url: '/api/establishments/preview_photos',
+    url: '/api/photos/preview_photos',
 
     parse: function (response) {
         return response.photos;
