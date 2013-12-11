@@ -4,6 +4,7 @@ Router = Backbone.Router.extend({
         'establishments': 'establishmentsIndex',
         'establishments/search': 'establishmentsSearch',
         'establishments/:id': 'establishmentsShow',
+        'establishments/:id/photos': 'establishmentsPhotosIndex',
         'users': 'usersIndex',
         'users/sign_in': 'nothing',
         'users/sign_out': 'nothing',
@@ -35,6 +36,14 @@ Router = Backbone.Router.extend({
     establishmentsShow: function (id) {
         this.setup();
         this.currentView = new EstablishmentsShowView({ 
+            el: '#main_container',
+            model: new Establishment({ id: id })
+        });
+    },
+
+    establishmentsPhotosIndex: function (id) {
+        this.setup();
+        this.currentView = new EstablishmentsPhotosIndexView({ 
             el: '#main_container',
             model: new Establishment({ id: id })
         });

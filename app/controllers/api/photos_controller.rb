@@ -1,5 +1,12 @@
 class Api::PhotosController < ApplicationController
   respond_to :json
+
+  def index
+    if params[:type] == 'establishment'
+      @photos = Establishment.find(params[:id]).photos
+    end
+    logger.debug(@photos)
+  end
   
   def create
     if current_user 

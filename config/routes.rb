@@ -5,6 +5,7 @@ Yumhacker::Application.routes.draw do
 
   get 'establishments', to: 'main#index'
   get 'establishments/:id', to: 'main#index'
+  get 'establishments/:id/photos', to: 'main#index'
   get 'users', to: 'main#index'
   get 'users/:id', to: 'main#index'
 
@@ -12,6 +13,7 @@ Yumhacker::Application.routes.draw do
     get 'establishments/search', to: 'establishments#search'
     get 'establishments/endorsers', to: 'establishments#endorsers'
     get 'establishments/comments', to: 'establishments#comments'
+    get 'establishments/:id/photos', to: 'establishments#photos'
     resources :establishments
 
     get 'users/endorsing', to: 'users#endorsing'
@@ -24,6 +26,7 @@ Yumhacker::Application.routes.draw do
     delete 'users/follow', to: 'users#unfollow'
     get 'users/followers', to: 'users#followers'
     get 'users/followed_users', to: 'users#followed_users'
+    resources :users
 
     resources :comments
     

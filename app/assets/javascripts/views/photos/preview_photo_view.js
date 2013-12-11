@@ -4,6 +4,7 @@ PhotosPreviewPhotoView = Backbone.View.extend({
     },
 
     initialize: function () {
+        xxx = this
         this.render();
     },
 
@@ -11,7 +12,7 @@ PhotosPreviewPhotoView = Backbone.View.extend({
         this.$el.html(render('photos/preview_photo', this.model));
     },
 
-    goToEstablishmentShow: function () {
-        // App.navigate('photos/' + this.model.get('id'), { trigger: true });
+    goToPhotoIndex: function () {
+        App.navigate('establishments/' + this.model.get('establishment_id') + '/photos', { trigger: true });
     }
 });
