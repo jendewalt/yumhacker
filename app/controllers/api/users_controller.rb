@@ -49,23 +49,4 @@ class Api::UsersController < ApplicationController
     @establishments = User.find(params[:user_id]).establishments
     render 'api/establishments/index'
   end
-
-  # def create_photo
-  #   if current_user 
-  #     @photo = current_user.photos.create(establishment_id: params[:establishment_id], content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
-  #   else
-  #     render json: {error: 'You must be logged in to add photos.'}
-  #   end
-  # end
-
-  # def edit_photo_caption
-  #   if current_user
-  #     caption = params[:caption]
-  #     if caption && !caption.blank?
-  #       caption.strip!
-  #       update_attributes(caption: caption)
-  #       render json: { success: true }
-  #     end
-  #   end
-  # end
 end

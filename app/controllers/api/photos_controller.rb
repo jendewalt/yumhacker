@@ -9,7 +9,7 @@ class Api::PhotosController < ApplicationController
     end
   end
 
-  def edit
+  def update
     if current_user
       caption = params[:caption]
       if caption && !caption.blank?

@@ -27,9 +27,6 @@ Yumhacker::Application.routes.draw do
 
     resources :comments
     
-    # post 'users/photos', to: 'users#create_photo'
-    # post 'users/photos/:id', to: 'users#edit_photo_caption'
-    # delete 'users/photos/:id', to: 'users#destroy_photo'
     get 'photos/preview_photos', to: 'photos#preview_photos'
     resources :photos
 
