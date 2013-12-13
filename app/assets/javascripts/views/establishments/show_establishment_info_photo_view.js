@@ -11,9 +11,9 @@ EstablishmentShowEstablishmentInfoPhotoView = Backbone.View.extend({
             collection: this.collection
         });  
 
-        this.photos_upload_image_form_view = new PhotosUploadImageFormView({
+        this.photos_upload_forms_view = new PhotosUploadFormsView({
             model: this.model,
-            el: '#photos_form_container',
+            el: '#photos_upload_forms_container',
             collection: this.collection
         });     
     },

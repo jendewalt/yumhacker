@@ -128,6 +128,23 @@ body.yumhacker {
         }
     } 
 
+    #photo_upload_form_container {
+        button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+
+            img {
+                height: 20px;
+            }
+        }
+
+        input[type="file"] {
+            position:absolute;
+            display:none;
+        }
+    }
+
     .btn {
         border: none;
         display: inline-block;
@@ -369,23 +386,6 @@ body.yumhacker {
 
                 .right_column {
                     text-align: right;
-
-                    #photo_upload_form_container {
-                        button {
-                            background-color: transparent;
-                            border: none;
-                            cursor: pointer;
-
-                            img {
-                                height: 20px;
-                            }
-                        }
-
-                        input[type="file"] {
-                            position:absolute;
-                            display:none;
-                        }
-                    }
                 }
             }
 
@@ -438,6 +438,31 @@ body.yumhacker {
                 #map_canvas {
                     width: 100%;
                     height: 272px;
+                }
+            }
+        }
+
+        #photos_index_container {
+
+            #photos_gallery_container {
+
+                #main_image_container {
+                    padding: 20px;
+                    height: 420px;
+                }
+
+                #thumbs_list_container {
+
+                    li {
+                        display: inline-block;
+                        padding: 14px;
+                        border: none;
+
+                        img {
+                            border-radius: 3px;
+                            box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+                        }
+                    }
                 }
             }
         }

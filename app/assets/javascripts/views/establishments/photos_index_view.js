@@ -1,36 +1,42 @@
 EstablishmentsPhotosIndexView = Backbone.View.extend({
-	events: {
+	events:{
+        'click #biz_name': 'goToEstablishmentShow'
 	},
 
 	initialize: function () {
-		this.render();
-
         this.collection = new PhotoCollection({
             establishment_id: this.model.get('id')
         });
 
-        // this.photos_index_main_image_view = new PhotosIndexMainImageView({
-        //     collection: this.collection,
-        //     model: this.model,
-        //     el: '#main_image_container'
-        // });
+        this.listenTo(this.model, 'sync', this.render);
+        this.model.fetch({ reset: true });       
+    },
 
-        this.photos_index_list_view = new PhotosIndexListView({
+    render: function () {
+        this.$el.html(render('establishments/photos_index', this.model)); 
+
+        this.photos_gallery_view = new PhotosGalleryView({
             collection: this.collection,
             model: this.model,
-            el: '#index_photos_container'
+            el: '#photos_gallery_container'
         });
+          
+        // this.photos_upload_forms_view = new PhotosUploadFormsView({
+        //     model: this.model,
+        //     collection: this.collection,
+        //     el: '#photos_upload_forms_container'
+        // });   
 
-        this.listenTo(this.model, 'sync', this.getPhotos)
-        this.model.fetch({ reset: true });       
-	},
+        this.collection.fetch({ 
+            reset: true, 
+            data: { 
+                id: this.model.get('id'), 
+                type: 'establishment' 
+            } 
+        });
+    },
 
-	render: function () {
-
-		this.$el.html(render('establishments/photos_index', this.model));	
-	},
-
-    getPhotos: function () {
-        this.collection.fetch({ reset: true, data: { id: this.model.get('id'), type: 'establishment' } });
+    goToEstablishmentShow: function () {
+        App.navigate('establishments/' + this.model.get('id'), { trigger: true });
     }
 });
