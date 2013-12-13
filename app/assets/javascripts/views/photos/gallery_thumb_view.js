@@ -1,6 +1,7 @@
 PhotosGalleryThumbView = Backbone.View.extend({
     events:{
-        'click': 'selectPhoto'
+        'click img': 'selectPhoto',
+        'click .username': 'goToUserShow'
     },
 
     initialize: function () {
@@ -8,12 +9,20 @@ PhotosGalleryThumbView = Backbone.View.extend({
     },
 
     render: function () {
+        if (!this.model.get('caption')) {
+            this.model.set('caption', '');
+        }
+
         this.$el.html(render('photos/gallery_thumb', this.model));
     },
 
     selectPhoto: function () {
-        console.log('Thumb selected: ' + this.model.get('medium_url'));
-        console.log(this.model);
+        console.log(this.model.get('caption'))
+
         this.collection.trigger('new_selection', this.model);
+    },
+
+    goToUserShow: function () {
+        App.navigate('users/' + this.model.get('user_id'), { trigger: true });
     }
 });

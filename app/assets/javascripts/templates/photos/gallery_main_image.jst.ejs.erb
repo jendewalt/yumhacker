@@ -1,4 +1,11 @@
-<img class='main_image' src="[[= get('medium_url') ]]">
+<div class='main_image'>
+    <img src="[[= get('medium_url') ]]">
+</div>
 
-<p>[[= get('caption') ]]</p>
+<div id='main_image_info'>
+    <a class='username'>[[= get('username') ]]</a>
+    <p class='caption'>[[= get('caption') ]]</p>
+    <p class='timestamp'>[[= get('created_at') ]]</p>
+</div>
 
+<br class='clear'>

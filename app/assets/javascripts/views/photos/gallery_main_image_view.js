@@ -6,7 +6,8 @@ PhotosGalleryMainImageView = Backbone.View.extend({
         this.render();
   
         this.listenTo(this.collection, 'new_selection', function (new_model) {
-            this.model.clear();
+            console.log(this.model.get('caption'))
+
             this.model.set(new_model.toJSON());
             this.render();
         });

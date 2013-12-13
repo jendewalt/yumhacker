@@ -449,18 +449,59 @@ body.yumhacker {
                 #main_image_container {
                     padding: 20px;
                     height: 420px;
+                    width: 100%;
+                    margin-bottom: 20px;
+                    background-color: white;
+
+                    .main_image {
+                        float: left;
+                        width: 70%;
+                        background-color: $x-light-grey;
+                    } 
+
+                    #main_image_info {
+                        float: right;
+                        text-align: left;
+                        width: 30%;
+                    }
                 }
 
                 #thumbs_list_container {
+                    background-color: white;
+                    border-radius: 3px;
+                    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+                    text-align: left;
 
                     li {
                         display: inline-block;
-                        padding: 14px;
+                        vertical-align: top;
+                        padding: 20px;
                         border: none;
+                        width: 200px;
+                        height: 300px;
 
                         img {
+                            margin-bottom: -10px;
                             border-radius: 3px;
                             box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+                        }
+
+                        p, a {
+                            font-size: 11px; 
+                            line-height: 11px;                           
+                        }
+
+                        a {
+                            color: $blue;
+                            cursor: pointer;
+                        }
+
+                        p {
+                            color: $light-grey;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            word-wrap: break-word;
+                            text-overflow:ellipsis;
                         }
                     }
                 }

@@ -8,4 +8,5 @@ json.photos @photos do |photo|
     json.thumb_url photo.image.url(:thumb)
     json.small_url photo.image.url(:small)
     json.medium_url photo.image.url(:medium)
+    json.created_at photo.created_at
 end

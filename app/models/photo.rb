@@ -1,7 +1,7 @@
 class Photo < ActiveRecord::Base
   attr_accessor :content_type, :original_filename, :image_data
   
-  has_attached_file :image, :styles => { :medium => "x400>", :small => "150x150#", :thumb => "50x50#" }
+  has_attached_file :image, :styles => { :medium => "x400>", :small => "160x160#", :thumb => "50x50#" }
 
   belongs_to :user
   belongs_to :establishment

@@ -10,9 +10,13 @@ PhotosGalleryView = Backbone.View.extend({
         this.$el.html('');
         this.$el.html(render('photos/gallery'));
 
+        var obj = $.extend(true, {}, this.collection.models[0]);
+        var myModel = new Photo().set(obj.toJSON());
+        console.log(myModel)
+
         this.gallery_main_image_view = new PhotosGalleryMainImageView({
             collection: this.collection,
-            model: this.collection.models[0],
+            model: myModel,
             el: '#main_image_container'
         });
 
