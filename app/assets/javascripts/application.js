@@ -16,8 +16,9 @@
 //= require json2
 //= require backbone
 //= require ext/backbone
-//= require jquery_cookie
+//= require jquery.cookie
 //= require moment
+//= require jquery.flexslider
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./templates
