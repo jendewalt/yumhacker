@@ -6,6 +6,7 @@ Router = Backbone.Router.extend({
         'establishments/:id': 'establishmentsShow',
         'establishments/:id/photos': 'establishmentsPhotosIndex',
         'users': 'usersIndex',
+        'users/search': 'usersSearch',
         'users/sign_in': 'nothing',
         'users/sign_out': 'nothing',
         'users/sign_up': 'nothing',
@@ -60,6 +61,11 @@ Router = Backbone.Router.extend({
             el: '#main_container', 
             model: new User({ id: id })
         });
+    },
+
+    usersSearch: function () {
+        this.setup();
+        this.currentView = new UsersSearchView({ el: '#main_container' });
     },
 
     nothing: function () {

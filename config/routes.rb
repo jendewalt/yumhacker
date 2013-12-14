@@ -7,6 +7,7 @@ Yumhacker::Application.routes.draw do
   get 'establishments/:id', to: 'main#index'
   get 'establishments/:id/photos', to: 'main#index'
   get 'users', to: 'main#index'
+  get 'users/search', to: 'main#index'
   get 'users/:id', to: 'main#index'
 
   namespace :api do
@@ -16,6 +17,7 @@ Yumhacker::Application.routes.draw do
     get 'establishments/:id/photos', to: 'establishments#photos'
     resources :establishments
 
+    get 'users/search', to: 'users#search'
     get 'users/endorsing', to: 'users#endorsing'
     get 'users/endorsements', to: 'users#endorsements'
     post 'users/endorse', to: 'users#endorse'

@@ -4,14 +4,13 @@
     <div id='establishment_search_container'></div>
 
     <div id="user_navigation_links_container">
+        <div id='search_nav_links_container'></div>
         [[ if (CurrentUser.logged_in()) { ]]
-            <!-- TEMPORARY PLACEMENT! -->
-            <div id='search_nav_links_container'></div>
 
             <a class="nav" href="/users/[[= CurrentUser.id ]]"><img src="[[= CurrentUser.get('thumb_url') ]]">
                     [[= CurrentUser.get('first_name') ]]</a>
             
-            <!-- <a data-method="delete" href="/users/sign_out" rel="nofollow">Sign Out</a> -->
+            <a data-method="delete" href="/users/sign_out" rel="nofollow">Sign Out</a>
         [[ } else { ]]
             <a href="/users/sign_in" >Sign In</a>
             <a href="/users/sign_up" >Sign Up</a>
