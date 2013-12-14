@@ -184,9 +184,12 @@ body.yumhacker {
     .card {
         background-color: white;
         padding: 10px 20px;
-        border-top: 3px solid #E91367;
         border-radius: 2px;
         box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    }
+
+    .borderless {
+        border: none;        
     }
 
     .endorse_btn_container {
@@ -412,6 +415,62 @@ body.yumhacker {
                 }
 
                 .right_column {
+                    text-align: right;
+                }
+            }
+
+            #establishment_comments_container {
+
+                li {
+                    position: relative;
+                    
+                    .delete_comment {
+                        position: absolute;
+                        top: 5px;
+                        right: 10px;
+                        color: $light-grey;
+                        font-size: 9px;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: $dark-grey;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .comment_container {
+                
+                    .avatar {
+                        display: inline-block;
+                        vertical-align: top;
+                        cursor: pointer;
+                    }
+
+                    .content_container {
+                        display: inline-block;
+                        vertical-align: top;
+                        width: 80%;
+                        margin-left: 5px;
+                        font-size: 13px;
+                        word-break: break-all;
+                    }
+
+                    .user_name {
+                        font-weight: bold;
+                        color: $blue;
+                        cursor: pointer;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                    
+                }
+
+                .date {
+                    font-size: 11px;
+                    color: $mid-grey;
                     text-align: right;
                 }
             }
@@ -722,7 +781,7 @@ body.yumhacker {
                 .biz_name, .user_name {
                     font-weight: bold;
                 }
-                
+
                 .user_name {
                     color: $blue;
                     cursor: pointer;

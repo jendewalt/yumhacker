@@ -17,6 +17,7 @@
 //= require backbone
 //= require ext/backbone
 //= require jquery_cookie
+//= require moment
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./templates

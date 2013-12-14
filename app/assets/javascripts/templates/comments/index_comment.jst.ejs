@@ -1,9 +1,16 @@
 [[ if (CurrentUser.get('id') == get('user_id')) { ]]
-    <div class='delete_comment'>X</div>
+    <div class='delete_comment'>delete</div>
 [[ } ]]
 
-<div>
-    <div class='name'>[[= get('first_name') ]] [[= get('last_name') ]]</div>
-    <div class='comment_body'>[[= get('body') ]]</div>
-    <div class='date'>[[= new Date(get('created_at')) ]]</div>
+<div class='comment_container'>
+    <img class='avatar' src="[[= get('thumb_url') ]]">
+    
+    <div class='content_container'>
+
+        <a class='user_name'>[[= get('first_name') ]] [[= get('last_name') ]]</a>
+
+        <span class='comment_body'>[[= get('body') ]]</span>
+
+    </div>
+    <div class='date'>[[= get('formatted_time') ]]</div>
 </div>
