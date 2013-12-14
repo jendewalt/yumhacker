@@ -8,6 +8,8 @@ PhotosGalleryThumbsListView = Backbone.View.extend({
     },
 
     render: function () {
+        console.log('Gallery Thumb list render')
+        console.log(this.collection)
         this.$el.html('');
 
         this.collection.each(function (photo) {

@@ -1,12 +1,13 @@
 MainSearchView = Backbone.View.extend({
     events: {
         'submit': 'checkForRedirect',
-        // 'click #from_followed': 'toggleFromFollowed',
-        'click #nearby_btn': 'getUserLocation'
+        'click #nearby_btn': 'getUserLocation',
+        'click .nav': 'goToSubIndex'
     },
 
     initialize: function () {
         this.render();
+
         this.geolocations = new GeolocationCollection();
 
         this.listenTo(this.geolocations, 'reset', this.updateLatLng);
@@ -55,6 +56,10 @@ MainSearchView = Backbone.View.extend({
                 location_name: 'Current Location'
             });
         });
-    }
+    },
 
+    goToSubIndex: function (e) {
+        e.preventDefault();
+        App.navigate(e.target.pathname, { trigger: true });
+    }
 });

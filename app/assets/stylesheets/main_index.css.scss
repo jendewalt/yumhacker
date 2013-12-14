@@ -47,30 +47,32 @@ body.yumhacker {
 
         .logo {
             float: left;
+            height: 34px;
             padding: 0;
-            line-height: 30px;
+            line-height: 34px;
             font-size: 20px;
             font-weight: bold;
             color: $magenta;
         }
 
-        .nav_links_container {
+        #user_navigation_links_container {
             float: right;
             padding: 0 10px;
         }
 
         a {
             margin-left: 14px;
-            line-height: 30px;
-            font-size: 16px;
+            line-height: 12px;
+            font-size: 12px;
             color: $dark-grey;
             text-decoration: none;
         }
 
         #establishment_search_container {
+            float: left;
+            width: 45%;
+
             fieldset {
-                float: left;
-                width: 55%;
                 padding-left: 30px;
                 text-align: left;
 
@@ -85,7 +87,6 @@ body.yumhacker {
                     #location_container {
                         float: left;
                         width: 88%;
-                        margin: 5px 0;
                         padding: 0 5px;
                         border: 1px solid $light-grey;
 
@@ -94,7 +95,7 @@ body.yumhacker {
                             height: 30px;
                             border: none;
                             padding: 0;
-                            line-height: 30px;
+                            line-height: 18px;
                             font-size: 18px;
                             color: $dark-grey;
                         }
@@ -102,13 +103,13 @@ body.yumhacker {
                         #nearby_btn {
                             float: right;
                             margin: 0;
+                            line-height: 30px;
                         }
 
                     }
 
                     #submit_container {
                         float: right;
-                        margin: 5px 0;
                         padding: 0;
                         height: 30px;
                         width: 10%;
@@ -127,6 +128,18 @@ body.yumhacker {
             }
         }
     } 
+
+    #search_nav_links_container {
+        text-align: right;
+        display: inline-block;
+
+        a {
+            line-height: 12px;
+            font-size: 12px;
+            color: $blue;
+            text-decoration: none;
+        }
+    }
 
     #photo_upload_form_container {
         button {

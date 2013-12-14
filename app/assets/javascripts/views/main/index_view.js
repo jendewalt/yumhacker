@@ -27,10 +27,6 @@ MainIndexView = Backbone.View.extend({
 			el: '.establishments_list',
 			collection: this.collection
 		});
-
-		this.main_btn_container_view = new MainBtnContainerView({
-			el: '.main_btn_container'
-		});
     },
 
 	render: function () {

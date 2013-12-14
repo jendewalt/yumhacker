@@ -1,4 +1,4 @@
-MainBtnContainerView = Backbone.View.extend({
+SearchNavigationLinksView = Backbone.View.extend({
 	events: {
 		'click .nav': 'goToSubIndex'
 	},
@@ -8,7 +8,7 @@ MainBtnContainerView = Backbone.View.extend({
 	},
 
 	render: function () {
-		this.$el.html(render('main/btn_container'));	
+		this.$el.html(render('application/search_navigation_links'));	
 	},
 
 	goToSubIndex: function (e) {

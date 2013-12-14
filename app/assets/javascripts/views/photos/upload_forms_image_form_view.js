@@ -38,8 +38,6 @@ PhotosUploadFormsImageFormView = Backbone.View.extend({
     },
 
     showCaptionForm: function (model, response, options) {
-        console.log(response)
-        console.log(model)
         this.photos_upload_photo_caption_form = new PhotosUploadCaptionFormView({
             model: model,
             el: '#upload_caption_form_container'

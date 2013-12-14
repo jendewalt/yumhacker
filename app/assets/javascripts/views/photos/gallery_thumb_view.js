@@ -17,8 +17,6 @@ PhotosGalleryThumbView = Backbone.View.extend({
     },
 
     selectPhoto: function () {
-        console.log(this.model.get('caption'))
-
         this.collection.trigger('new_selection', this.model);
     },
 

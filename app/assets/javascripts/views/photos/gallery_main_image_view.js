@@ -4,10 +4,9 @@ PhotosGalleryMainImageView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
-  
+    
+        // Listening for newly selected photos to update it's own Photo model with
         this.listenTo(this.collection, 'new_selection', function (new_model) {
-            console.log(this.model.get('caption'))
-
             this.model.set(new_model.toJSON());
             this.render();
         });
