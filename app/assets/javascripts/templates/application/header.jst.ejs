@@ -3,8 +3,7 @@
     
     <div id='establishment_search_container'></div>
 
-    <div id="user_navigation_links_container">
-        <div id='search_nav_links_container'></div>
+    <div id="navigation_links_container">
         [[ if (CurrentUser.logged_in()) { ]]
 
             <a class="nav" href="/users/[[= CurrentUser.id ]]"><img src="[[= CurrentUser.get('thumb_url') ]]">

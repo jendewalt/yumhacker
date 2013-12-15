@@ -2,7 +2,7 @@ class Api::CommentsController < ApplicationController
   respond_to :json
   
   def index
-    @comments = Establishment.find(params[:establishment_id]).comments.order(created_at: :desc).page(params[:page]).per(2)
+    @comments = Establishment.find(params[:establishment_id]).comments.order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def show

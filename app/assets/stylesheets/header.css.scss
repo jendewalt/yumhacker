@@ -1,0 +1,112 @@
+body.yumhacker {
+    $magenta: #e91367;
+    $dark-magenta: #d9114a;
+    $blue: #0d70eb;
+    $dark-blue: #094da1;
+    $dark-grey: #313136;
+    $mid-grey: #737378;
+    $light-grey: #c1c1c3;
+    $x-light-grey: #F1F1F3;
+
+    nav {
+        min-width: 1000px;
+        height: 72px;
+        padding: 10px;
+        background-color: white;
+        border-bottom: 1px solid $magenta;
+
+        a.logo {
+            float: left;
+            height: 52px;
+            line-height: 52px;
+            font-size: 26px;
+            font-weight: bold;
+            color: $magenta;
+            text-decoration: none;
+        }
+
+        #establishment_search_container {
+            float: left;
+            width: 45%;
+            height: 52px;
+            padding-left: 40px;
+            text-align: left;
+
+            #establishment_search_form {
+                
+                img {
+                    height: 20px;
+                    vertical-align: middle;
+                }
+
+                #location_container {
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 85%;
+                    border: 1px solid $light-grey;
+                    padding: 0 5px;
+
+                    #location_input {
+                        width: 90%;
+                        height: 30px;
+                        padding: 0;
+                        line-height: 16px;
+                        font-size: 16px;
+                        color: $dark-grey;
+                        border: none;
+                    }
+
+                    #nearby_btn {
+                        float: right;
+                        margin: 0;
+                        line-height: 30px;
+                        cursor: pointer;
+                    }
+                }
+
+                #submit_container {
+                    display: inline-block;
+                    padding: 0;
+                    margin: 0;
+                    width: 10%;
+
+                    .btn {
+                        height: 32px;
+                    }
+                }
+            }
+
+            #other_search_links_container {
+                padding-top: 6px;
+
+                a { 
+                    margin-right: 20px;
+                    font-size: 13px;
+                    text-decoration: none;
+                    color: $blue;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
+        #navigation_links_container {
+            text-align: right;
+            height: 52px;
+            line-height: 52px;
+
+            a {
+                margin-left: 10px;
+                text-decoration: none;
+                color: $mid-grey;
+
+                img {
+                    margin-right: 5px;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}

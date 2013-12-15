@@ -1,6 +1,6 @@
-<div id='filter_container'>
-    <div id='radius_container'>
-        <label>Distance: </label>
+<div id='main_filter'>
+    <div id='radius_container' class='option'>
+        <label for='radius_select'>Distance: </label>
         <select id='radius_select'>
             <option class='radius_opt' value='0.1' [[= Filter.get('radius') == '0.1' ? 'selected' : '' ]]>4 Blocks</option>
             <option class='radius_opt' value='1' [[= Filter.get('radius') == '1' ? 'selected' : '' ]]>1 Mile</option>
@@ -11,7 +11,7 @@
     </div>
 
     [[ if (CurrentUser.logged_in()) { ]]
-        <div id='from_followed_container'>
+        <div id='from_followed_container' class='option'>
             <input id='from_followed' type='checkbox' [[= (Filter.get('from_followed') ? 'checked' : '') ]] >
                      
             <label class='small' for='from_followed'>Show only people I'm following</label>

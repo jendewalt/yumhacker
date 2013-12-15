@@ -1,0 +1,79 @@
+body.yumhacker {
+    $magenta: #e91367;
+    $dark-magenta: #d9114a;
+    $blue: #0d70eb;
+    $dark-blue: #094da1;
+    $dark-grey: #313136;
+    $mid-grey: #737378;
+    $light-grey: #c1c1c3;
+    $x-light-grey: #F1F1F3;
+
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+    color: $dark-grey;
+    overflow-y: scroll;
+    background-color: $x-light-grey;
+
+    ol {
+        display: inline-block;
+        vertical-align: top;
+        text-align: left;
+        list-style-type: decimal;
+        list-style-position:inside;
+    }
+
+    #main_container {
+        display: inline-block;
+        width: 1000px;
+        padding: 10px 0;
+    }
+
+    .btn {
+        border: none;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 11px;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background-color: $magenta;
+        color: white;
+        border-radius: 2px;
+        cursor: pointer;
+
+        &.text {
+            width: 92px;
+            line-height: 22px;
+            text-align: center;
+        }
+
+        &:active {
+            background-color: $dark-magenta;
+            color: #000;
+            box-shadow: 0 3px 3px rgba(0,0,0,0.1) inset;
+        }
+    }
+
+    .card {
+        background-color: white;
+        padding: 10px 20px;
+        border-radius: 2px;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+        
+        &.border {
+            border-top: 3px solid $magenta;
+        }
+    }
+
+    .endorse_btn_container {
+        float: right;
+        display: inline;
+    }
+
+    .clear {
+        clear: both;
+    }
+}
