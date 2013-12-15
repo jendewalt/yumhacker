@@ -26,6 +26,7 @@ CommentsIndexCommentFormView = Backbone.View.extend({
         var that = this;
 
         function updateCollection (model, response, options) {
+            model.set('created_at', moment().utc().format());
             that.collection.add(model);
         }
 

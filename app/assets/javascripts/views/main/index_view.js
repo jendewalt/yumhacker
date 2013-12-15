@@ -29,7 +29,7 @@ MainIndexView = Backbone.View.extend({
 			collection: this.collection
 		});
 
-		this.pagination_view = new PaginationView({
+		this.pagination_view = new EstablishmentsIndexPaginationView({
 			el: '#pagination_container',
 			collection: this.collection
 		});

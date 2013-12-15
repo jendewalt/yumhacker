@@ -3,7 +3,7 @@
         <a class='page prev' disabled>Prev</a>
     [[ } else { ]]
         [[ var prev_page = Number(current_page) - 1 ]]
-        <a class='page prev' rel='[[= prev_page ]]'>Prev</a>
+        <a class='page prev' href='[[= window.location.pathname + '?' + $.param(_.extend(MainSearch.predicate(), Filter.predicate(), { page: prev_page })) ]]' rel='[[= prev_page ]]'>Prev</a>
     [[ } ]]
 </div>
 
@@ -16,6 +16,6 @@
         <a class='page next' disabled>Next</a>
     [[ } else { ]]
         [[ var next_page = Number(current_page) + 1 ]]
-        <a class='page next' rel='[[= next_page ]]'>Next</a>
+        <a class='page next' href='[[= window.location.pathname + '?' + $.param(_.extend(MainSearch.predicate(), Filter.predicate(), { page: next_page })) ]]' rel='[[= next_page ]]'>Next</a>
     [[ } ]]
 </div>

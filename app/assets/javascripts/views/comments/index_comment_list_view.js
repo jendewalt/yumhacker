@@ -5,7 +5,8 @@ CommentsIndexCommentListView = Backbone.View.extend({
 	initialize: function () {
         this.listenTo(this.collection, 'reset', this.render);
         this.listenTo(this.collection, 'remove', this.render);
-        this.listenTo(this.collection, 'add', this.addNewComment);
+        this.listenTo(this.collection, 'add', this.newComment);
+        this.listenTo(this.collection, 'paginate', this.paginate);
         this.collection.fetch({ reset: true, data: { establishment_id: this.model.get('id') } });
 	},
 
@@ -26,12 +27,13 @@ CommentsIndexCommentListView = Backbone.View.extend({
 		this.$el.append(comment_view.el);
 	},
 
-	addNewComment: function (comment) {
-		var comment_view = new CommentsIndexCommentView({
-			tagName: 'li',
-			model: comment
-		});
+	newComment: function (comment) {
+		this.collection.pop();
+	},
 
-		this.$el.prepend(comment_view.el);
+	paginate: function (e) {
+		console.log('Change my page bitch!')
+		console.log(e);
+		this.collection.fetch({ reset: true, data: { establishment_id: this.model.get('id'), page: e } });
 	}
 });

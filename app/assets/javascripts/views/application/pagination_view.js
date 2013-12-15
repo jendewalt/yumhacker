@@ -1,6 +1,6 @@
 PaginationView = Backbone.View.extend({
 	events: {
-		'click a.page': 'goToPage'
+		'click a.page': 'pageChange'
 	},
 
 	initialize: function () {
@@ -11,8 +11,8 @@ PaginationView = Backbone.View.extend({
 		this.$el.html(render('application/pagination', this.collection));	
 	},
 
-	goToPage: function (e) {
+	pageChange: function (e) {
 		e.preventDefault();
-		App.navigate(e.target.pathname + e.target.search, { trigger: true });
+		if (e.target.rel) this.collection.trigger('paginate', Number(e.target.rel));
 	}
 });

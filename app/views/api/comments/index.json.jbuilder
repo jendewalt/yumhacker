@@ -1,3 +1,9 @@
+json.current_page @comments.current_page
+json.per_page @comments.limit_value
+json.total_pages @comments.total_pages
+json.offset @comments.offset_value
+json.total @comments.total_count
+
 json.comments @comments do |comment|
     json.id comment.id
     json.body comment.body
