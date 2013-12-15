@@ -1,3 +1,9 @@
+json.current_page @establishments.current_page
+json.per_page @establishments.limit_value
+json.total_pages @establishments.total_pages
+json.offset @establishments.offset_value
+json.total @establishments.total_count
+
 json.establishments @establishments do |establishment|
 	json.id establishment.id
 	json.name establishment.name

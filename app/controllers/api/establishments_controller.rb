@@ -19,6 +19,8 @@ class Api::EstablishmentsController < ApplicationController
     else
       @establishments = Establishment.where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry")
     end
+
+    @establishments = @establishments.page(params[:page]).per(2)
 	end
 
   def show

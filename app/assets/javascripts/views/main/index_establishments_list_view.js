@@ -3,8 +3,6 @@ MainIndexEstablishmentsListView = Backbone.View.extend({
 	},
 
 	initialize: function () {
-		this.render();
-
         this.listenTo(this.collection, 'reset', this.render);
 	},
 

@@ -15,8 +15,10 @@
 //= require underscore
 //= require json2
 //= require backbone
-//= require ext/backbone
+//= require ext/backbone.view.remove
+//= require ext/backbone.history
 //= require jquery.cookie
+//= require jquery.deparam
 //= require moment
 //= require jquery.flexslider
 //= require_tree ./models
