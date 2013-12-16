@@ -5,6 +5,9 @@ PaginationView = Backbone.View.extend({
 
 	initialize: function () {
         this.listenTo(this.collection, 'reset', this.render);
+        this.listenTo(this.collection, 'all', function (e) {
+        	console.log(e)
+        });
 	},
 
 	render: function () {

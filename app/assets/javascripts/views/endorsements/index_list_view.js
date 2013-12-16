@@ -3,18 +3,14 @@ EndorsementsIndexListView = Backbone.View.extend({
     },
 
     initialize: function () {
-        this.collection = new EndorsementCollection();
-
         this.listenTo(this.collection, 'reset', this.render);
-
+        this.listenTo(this.collection, 'paginate', this.paginate);
         this.collection.fetch({ reset: true, data: { user_id: this.model.get('id') }});
     },
 
     render: function () {
-        this.$el.html(render('endorsements/index_endorsement_list', this.model));
-
         if (this.collection.length > 0) {
-            this.$('ol.endorsements').html('');
+            this.$el.html('');
 
             this.collection.each(function (endorsement){
                 this.renderEndorsement(endorsement);
@@ -23,12 +19,14 @@ EndorsementsIndexListView = Backbone.View.extend({
     },
 
     renderEndorsement: function (endorsement) {
-        console.log('rendering endorsements in list view')
-
         var endorsement_view = new EstablishmentsIndexEstablishmentView({
             tagName: 'li',
             model: endorsement
         });
-        this.$('ol.endorsements').append(endorsement_view.el);
+        this.$el.append(endorsement_view.el);
+    },
+
+    paginate: function (e) {
+        this.collection.fetch({ reset: true, data: { user_id: this.model.get('id'), page: e } });
     }
 });

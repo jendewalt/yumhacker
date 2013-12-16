@@ -1,0 +1,162 @@
+body.yumhacker {
+    $magenta: #e91367;
+    $dark-magenta: #d9114a;
+    $blue: #0d70eb;
+    $dark-blue: #094da1;
+    $dark-grey: #313136;
+    $mid-grey: #737378;
+    $light-grey: #c1c1c3;
+    $x-light-grey: #F1F1F3;
+
+    #establishment_show_container {
+        text-align: left;
+
+        .left_column {
+            float: left;
+            width: 60%;
+        }
+
+        .right_column {
+            float: right;
+            width: 40%;
+        }
+
+        #establishment_info_container {
+            width: 100%;
+            height: 200px;
+            padding: 20px;
+            margin-bottom: 20px;
+
+            .endorse_btn_container {
+                float: none;
+                display: inline-block;
+                margin-top: 20px;
+            }
+
+            .right_column {
+                width: 30%;
+            }
+            
+            #establishment_photos_container {
+                width: 112px;
+                margin: auto;
+                text-align: right;
+
+                #photos_preview_container {
+
+                    .preview {
+                        display: inline-block;
+                        height: 50px;
+                        margin: 3px;
+
+                        img {
+                            height: inherit;
+                        }
+                    }
+                }
+
+                #photo_upload_form_container {
+                    label {
+                        font-size: 11px;
+                        color: $mid-grey;
+                    }
+
+                    button {
+                        margin: 3px 0 0 6px;
+                        padding: 0;
+                        background-color: transparent;
+                        border: none;
+                        cursor: pointer;
+                        vertical-align: bottom;
+
+                        img {
+                            height: 20px;
+                        }
+                    }
+
+                    input[type="file"] {
+                        position:absolute;
+                        display:none;
+                    }
+
+                    #upload_caption_form_container {
+                        display: none;
+                        position: absolute;
+                        z-index: 100;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                        right: 0;
+                        text-align: center;
+                        background-color: rgba(255, 255, 255, 0.96);
+
+                        #caption_form_container {
+                            margin: 50px auto;
+                        
+                            h1 {
+                                margin-bottom: 20px;
+                                line-height: 20px;
+                                font-size: 20px;
+                                text-transform: uppercase;
+                            }
+
+                            img {
+                                border: 10px solid $mid-grey;
+                            }
+
+
+                            #caption_form {
+
+                                input {
+                                    display: block;
+                                    margin: auto;
+                                    margin-bottom: 20px;
+
+                                    &[type='text'] {
+                                        width: 400px;
+                                        margin-top: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #comments_form_container {
+            width: 100%;
+
+            #comment_form {
+                width: 100%;
+                padding: 10px;
+                border-bottom: 1px solid $light-grey;
+
+                #comment_input {
+                    float: left;
+                    width: 80%;
+                }
+
+                .btn {
+                    float: right;
+                }
+            }
+            
+        }
+
+        .comment_container {
+        }
+
+        .map_canvas_container {
+            display: inline-block;
+            vertical-align: top;
+            width: 100%;
+            margin-bottom: 20px;
+
+            #map_canvas {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    }
+}

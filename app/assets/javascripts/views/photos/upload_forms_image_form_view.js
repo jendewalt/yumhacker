@@ -29,11 +29,13 @@ PhotosUploadFormsImageFormView = Backbone.View.extend({
                 this.new_photo.readFile(e.target.files[0], updateCollection);
             }  
         }
-        
+            
+        e.target.value = '';
+
         var that = this;
         function updateCollection (model, response) {
             that.collection.fetch({ reset: true, data: { establishment_id: model.get('establishment_id') } });
-            that.showCaptionForm(model, response)
+            that.showCaptionForm(model, response);
         }
     },
 

@@ -23,7 +23,7 @@ EstablishmentsShowView = Backbone.View.extend({
             model: this.model
         });
 
-        MapView.el = '#map_canvas_container';
+        MapView.el = '.map_canvas_container';
         MapView.model = this.model;
         MapView.renderEstablishmentMap();
 	}

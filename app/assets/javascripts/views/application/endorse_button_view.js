@@ -8,7 +8,7 @@ ApplicationEndorseButtonView = Backbone.View.extend({
             this.model = new EndorseButton();
             this.listenTo(this.model, 'sync', this.render);
             this.listenTo(this.model, 'change', this.render);
-            this.model.set('establishment_id', options.establishment_id);
+            this.model.set('establishment_id', options.establishment_id, { silent: true });
             this.model.fetch({ data: { establishment_id: this.model.get('establishment_id') }});            
         }
     },

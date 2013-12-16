@@ -1,9 +1,11 @@
-<div id='form_container'>
-    <img src="[[= get('small_url') ]]">
+<div id='caption_form_container'>
+    <h1>Add a Caption</h1>
+    
+    <img src="[[= get('medium_url') ]]">
 
     <form id='caption_form'>
-        <label>Add a Caption</label>
-        <input type='text'>
-        <input type='submit' class='btn'>
+        <input type='text' maxlength='255'>
+        <input type='submit' class='btn text'>
+        <a class='skip'>Skip</a>
     </form>
 </div>

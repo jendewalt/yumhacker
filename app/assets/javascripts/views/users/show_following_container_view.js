@@ -32,7 +32,7 @@ UsersShowFollowingContainerView = Backbone.View.extend({
 
     renderEndorsements: function (e) {
         this.changeCurrentTab(e);
-        this.endorsementsIndexListView = new EndorsementsIndexListView({
+        this.endorsementsIndexListContainerView = new EndorsementsIndexListContainerView({
             el: '.following_list_container',
             model: this.model
         });     

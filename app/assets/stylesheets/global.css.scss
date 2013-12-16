@@ -15,12 +15,29 @@ body.yumhacker {
     overflow-y: scroll;
     background-color: $x-light-grey;
 
+    a {
+        color: $blue;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
     ol {
         display: inline-block;
         vertical-align: top;
         text-align: left;
         list-style-type: decimal;
         list-style-position:inside;
+    }
+
+    input[type='text'] {
+        height: 22px;
+        padding: 0 5px;
+        line-height: 15px;
+        font-size: 13px;
+        color: $dark-grey;
+        border-radius: 3px;
+        box-shadow: none;
+        border: 1px solid $light-grey; 
     }
 
     #main_container {
@@ -40,43 +57,39 @@ body.yumhacker {
             &:last-child {
                 border-bottom: none;
             }
+        }
+    }
 
+    .establishment_info {
+        display: inline-table;
+        width: 65%;
+        word-wrap: break-word;
+        word-break: break-word;
 
-            .establishment_info {
-                display: inline-table;
-                width: 65%;
-                word-wrap: break-word;
-                word-break: break-word;
+        .biz_name {
+            cursor: pointer;
+            color: $blue;
+            font-weight: bold;
 
-                a.biz_name {
-                    cursor: pointer;
-                    color: $blue;
-                    font-weight: bold;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-
-                .details {
-                    font-size: 13px;
-                    color: $mid-grey;
-                    line-height: 20px;
-                }
-
-                a.website {
-                    display: inline-block;
-                    margin-top: 12px;
-                    line-height: 20px;
-                }
-
-                .website:hover {
-                    color: $blue;
-                }
+            &:hover {
+                text-decoration: underline;
             }
+        }
 
-            .endorse_btn_container {
-            }
+        .details {
+            font-size: 13px;
+            color: $mid-grey;
+            line-height: 20px;
+        }
+
+        a.website {
+            display: inline-block;
+            margin-top: 12px;
+            line-height: 20px;
+        }
+
+        .website:hover {
+            color: $blue;
         }
     }
 
@@ -152,6 +165,11 @@ body.yumhacker {
         }
     }
 
+    .column {
+        padding: 20px 10px;
+    }
+
+
     .endorse_btn_container {
         float: right;
         display: inline;
@@ -159,23 +177,35 @@ body.yumhacker {
 
     .pagination_container {
         padding: 10px;
+        padding-bottom: 0;
         border-top: 1px solid $light-grey;
 
-        .pagination {
-            display: inline-block;
-            vertical-align: bottom;
-            font-size: 11px;
+        .pagination_controls {
+            width: 50%; 
+            margin: auto;
 
-            &.prev {
-                margin-right: 20px;
-            }
+            .pagination {
+                display: inline-block;
+                vertical-align: bottom;
+                height: 30px;
+                line-height: 30px;
+                font-size: 11px;
 
-            &.next {
-                margin-left: 20px;
-            }
+                &.prev {
+                    float: left;
+                    width: 30%;
+                }
 
-            a {
-                color: $blue;
+                &.counter {
+                    float: left;
+                    text-align: center;
+                    width: 40%;
+                }
+
+                &.next {
+                    float: right;
+                    width: 30%;
+                }
             }
         }
     }

@@ -19,7 +19,8 @@ EstablishmentShowPhotosPreviewView = Backbone.View.extend({
     renderPhoto: function (photo) {
         var photo_view = new PhotosPreviewPhotoView({
             tagName: 'div',
-            model: photo
+            model: photo,
+            className: 'preview'
         });
 
         this.$el.append(photo_view.el);
