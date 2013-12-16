@@ -1,7 +1,7 @@
-<div class='devise_form sign_in_container'>
-    <a id='logo' href="/">YumHacker</a>
+<div class='devise_form' id='sign_in_container'>
+    <a class='logo' href="/">YumHacker</a>
 
-    <div class='form_container card'>
+    <div class='form_container card border'>
         <h3>Sign In</h3>
 
         <div class='inputs_container'>
@@ -16,7 +16,7 @@
                 <div class='field check'><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
               <% end -%>
 
-               <div class='center'><%= f.submit "Sign in", :class => 'btn' %></div>
+               <div class='center'><%= f.submit "Sign in", :class => 'btn text' %></div>
             <% end %>
         </div>
     </div>

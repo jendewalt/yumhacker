@@ -46,7 +46,9 @@ class Api::UsersController < ApplicationController
   end
 
   def endorsements
-    @establishments = User.find(params[:user_id]).establishments
+    page = params[:page] || 1
+
+    @establishments = User.find(params[:user_id]).establishments.page(page).per(2)
     render 'api/establishments/index'
   end
 

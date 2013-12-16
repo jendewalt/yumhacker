@@ -48,61 +48,19 @@ body.yumhacker {
             width: 50%;
             padding-right: 30px;
 
-            ol.establishments_list {
-                width: 100%;
+            #no_results_message {
+                list-style: none;
 
-                li {
-                    padding: 10px;
-                    line-height: 30px;
-                    border-bottom: 1px solid $light-grey;
-                
-                    &:last-child {
-                        border-bottom: none;
-                    }
-
-
-                    .establishment_info {
-                        display: inline-table;
-                        width: 65%;
-                        word-wrap: break-word;
-                        word-break: break-word;
-
-                        a.biz_name {
-                            cursor: pointer;
-                            color: $blue;
-                            font-weight: bold;
-
-                            &:hover {
-                                text-decoration: underline;
-                            }
-                        }
-
-                        .details {
-                            font-size: 13px;
-                            color: $mid-grey;
-                            line-height: 20px;
-                        }
-
-                        .website:hover {
-                            color: $blue;
-                        }
-                    }
-
-                    .endorse_btn_container {
-                    }
-                }
-            }
-
-            .pagination_container {
-                padding: 10px;
-                border-top: 1px solid $light-grey;
-
-                .pagination {
-                    display: inline-block;
-                    vertical-align: bottom;
-                    font-size: 11px;
+                p {
+                    font-size: 13px;
+                    color: $mid-grey;
                 }
 
+                a {
+                    display: block;
+                    font-size: 13px;
+                    color: $blue;
+                }
             }
         }
 

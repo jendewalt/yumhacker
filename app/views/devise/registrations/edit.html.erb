@@ -1,16 +1,13 @@
 <header></header>
 
-<div class='devise_form edit_profile_container'>
+<div class='devise_form' id='edit_profile_container'>
 
-  <div class='form_container card'>
+  <div class='form_container card border'>
     <h3>Edit Your Account</h3>
     <%= devise_error_messages! %>
 
     <div class='inputs_container'>
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true } ) do |f| %>
-
-        <div class='field'><%= f.label :username %><br />
-        <%= f.text_field :username %></div>
 
         <div class='field'><%= f.label :first_name %><br />
         <%= f.text_field :first_name %></div>
@@ -34,9 +31,10 @@
         <div class='field'><%= f.label :current_password %><br />
         <%= f.password_field :current_password %></div>
 
-        <%= f.file_field :avatar %>
+        <div class='field'><%= f.label :avatar, 'Profile photo' %><br />
+        <%= f.file_field :avatar %></div>
 
-        <div class='center'><%= f.submit "Update", :class => 'btn' %></div>
+        <div class='center'><%= f.submit "Update", :class => 'btn text' %></div>
       <% end %>
     </div>
   </div> 

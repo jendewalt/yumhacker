@@ -9,6 +9,7 @@ class Api::EstablishmentsController < ApplicationController
     lng = params[:lng] || -122.4194155
     from_followed = params[:from_followed] || false
     radius = params[:radius] || 5 # Radius in miles
+    page = params[:page] || 1
 
     if from_followed == 'true' && current_user
       # convert miles to degrees = 1.0/(60 * 1.15078)
@@ -20,7 +21,7 @@ class Api::EstablishmentsController < ApplicationController
       @establishments = Establishment.where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry")
     end
 
-    @establishments = @establishments.page(params[:page]).per(2)
+    @establishments = @establishments.page(page).per(2)
 	end
 
   def show

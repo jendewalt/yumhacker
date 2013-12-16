@@ -11,7 +11,7 @@ body.yumhacker {
     nav {
         min-width: 1000px;
         height: 72px;
-        padding: 10px;
+        padding: 10px 20px;
         background-color: white;
         border-bottom: 1px solid $magenta;
 
@@ -103,6 +103,7 @@ body.yumhacker {
                 color: $mid-grey;
 
                 img {
+                    height: 30px;
                     margin-right: 5px;
                     vertical-align: middle;
                 }

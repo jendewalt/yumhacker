@@ -15,11 +15,6 @@ UsersShowUserView = Backbone.View.extend({
                 el: this.$('.follow_btn_container'),
                 user_id: this.model.get('id') 
             });
-        // } else {
-        //     this.application_edit_profile_button_view = new ApplicationEditProfileButtonView({ 
-        //         el: this.$('.follow_btn_container'),
-        //         user_id: this.model.get('id') 
-        //     });
         }
     }
 });

@@ -11,7 +11,8 @@ FollowedUsersIndexListView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(render('followed_users/index_followed_user_list', this.model));
+        this.$el.html('');
+        this.$el.html(render('followed_users/index_followed_users_list', this.model));
 
         if (this.collection.length > 0) {
             this.$('ul.followed_users').html('');

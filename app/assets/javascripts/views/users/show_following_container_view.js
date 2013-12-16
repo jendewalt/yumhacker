@@ -1,8 +1,8 @@
 UsersShowFollowingContainerView = Backbone.View.extend({
     events: {
-        'click .followers_tab': 'renderFollowers',
-        'click .followed_users_tab': 'renderFollowedUsers',
-        'click .endorsements_tab': 'renderEndorsements'
+        'click #followers_tab': 'renderFollowers',
+        'click #followed_users_tab': 'renderFollowedUsers',
+        'click #endorsements_tab': 'renderEndorsements'
     },
 
     initialize: function () {

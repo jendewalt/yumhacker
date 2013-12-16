@@ -23,6 +23,8 @@ EndorsementsIndexListView = Backbone.View.extend({
     },
 
     renderEndorsement: function (endorsement) {
+        console.log('rendering endorsements in list view')
+
         var endorsement_view = new EstablishmentsIndexEstablishmentView({
             tagName: 'li',
             model: endorsement

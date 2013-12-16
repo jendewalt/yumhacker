@@ -26,7 +26,88 @@ body.yumhacker {
     #main_container {
         display: inline-block;
         width: 1000px;
-        padding: 10px 0;
+        padding: 20px 0 30px;
+    }
+
+    ol.establishments_list {
+        width: 100%;
+
+        li {
+            padding: 5px 10px;
+            line-height: 30px;
+            border-bottom: 1px solid $light-grey;
+        
+            &:last-child {
+                border-bottom: none;
+            }
+
+
+            .establishment_info {
+                display: inline-table;
+                width: 65%;
+                word-wrap: break-word;
+                word-break: break-word;
+
+                a.biz_name {
+                    cursor: pointer;
+                    color: $blue;
+                    font-weight: bold;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                .details {
+                    font-size: 13px;
+                    color: $mid-grey;
+                    line-height: 20px;
+                }
+
+                a.website {
+                    display: inline-block;
+                    margin-top: 12px;
+                    line-height: 20px;
+                }
+
+                .website:hover {
+                    color: $blue;
+                }
+            }
+
+            .endorse_btn_container {
+            }
+        }
+    }
+
+    ul.users_list {
+        width: 100%;
+
+        li {
+            padding: 5px 10px;
+            line-height: 30px;
+            border-bottom: 1px solid $light-grey;
+        
+            &:last-child {
+                border-bottom: none;
+            }
+
+
+            .user_name {
+                float: left;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                    color: $blue;
+                }
+            }
+
+            .follow_btn_container {
+                float: right;
+                text-align: center;
+            }
+        }
     }
 
     .btn {
@@ -46,7 +127,10 @@ body.yumhacker {
 
         &.text {
             width: 92px;
+            height: 22px;
             line-height: 22px;
+            padding-top: 0;
+            padding-bottom: 0;
             text-align: center;
         }
 
@@ -71,6 +155,33 @@ body.yumhacker {
     .endorse_btn_container {
         float: right;
         display: inline;
+    }
+
+    .pagination_container {
+        padding: 10px;
+        border-top: 1px solid $light-grey;
+
+        .pagination {
+            display: inline-block;
+            vertical-align: bottom;
+            font-size: 11px;
+
+            &.prev {
+                margin-right: 20px;
+            }
+
+            &.next {
+                margin-left: 20px;
+            }
+
+            a {
+                color: $blue;
+            }
+        }
+    }
+
+    .center {
+        text-align: center;
     }
 
     .clear {

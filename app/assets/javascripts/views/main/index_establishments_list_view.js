@@ -7,11 +7,16 @@ MainIndexEstablishmentsListView = Backbone.View.extend({
 	},
 
 	render: function () {
-		this.$el.html('');	
+		this.$el.html('');
 
-    	this.collection.each(function (establishment) {
-			this.renderEstablishment(establishment);
-		}, this);	
+		if (this.collection.length > 0) {
+	    	this.collection.each(function (establishment) {
+				this.renderEstablishment(establishment);
+			}, this);			
+		} else {
+			this.$el.html('');
+	        this.$el.html(render('establishments/no_results'));
+		}	
 	},
 
 	renderEstablishment: function (establishment) {

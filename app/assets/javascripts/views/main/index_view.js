@@ -1,18 +1,22 @@
 MainIndexView = Backbone.View.extend({
+	events: {
+		'click .nav': 'goToSubIndex'
+	},
 
 	initialize: function () {
 		this.render();
+		console.log('initialized')
 
 		this.collection = new EstablishmentCollection();
 
         this.collection.fetch({ reset: true, data: _.extend(MainSearch.predicate(), Filter.predicate(), this.collection.predicate()) });
 
 		this.listenTo(MainSearch, 'change', function () {
-        	this.collection.fetch({ reset: true, data: _.extend(MainSearch.predicate(), Filter.predicate(), this.collection.predicate()) });
+        	App.navigate(window.location.pathname + '?' + $.param(_.extend(MainSearch.predicate(), Filter.predicate() )), { trigger: true, replace: true });
 		});
 
 		this.listenTo(Filter, 'change', function () {
-        	this.collection.fetch({ reset: true, data: _.extend(MainSearch.predicate(), Filter.predicate(), this.collection.predicate()) });
+			App.navigate(window.location.pathname + '?' + $.param(_.extend(MainSearch.predicate(), Filter.predicate() )), { trigger: true, replace: true });
 		});
 
 		MapView.el = '.map_canvas_container';
@@ -37,5 +41,10 @@ MainIndexView = Backbone.View.extend({
 
 	render: function () {
 		this.$el.html(render('main/index'));
-	}
+	},
+
+	goToSubIndex: function (e) {
+        e.preventDefault();
+        App.navigate(e.target.pathname, { trigger: true });
+    }
 });
