@@ -1,1 +1,11 @@
 <img src="[[= get('medium_url') ]]">
+<div class='flex-caption'>
+    <a class='user_name'>[[= get('username') ]]</a>
+
+    [[ if (get('caption')) { ]]
+        <p class='caption'>[[= get('caption') ]]</p>
+    [[ } ]]
+
+    <p class='date'>[[= get('formatted_time') ]]</p>
+</div>
+<br class='clear'>

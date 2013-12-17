@@ -9,14 +9,11 @@ PhotosMediaViewerView = Backbone.View.extend({
 
         this.$el.flexslider({
             slideshow: false,
-            controlNav: 'thumbnails'
+            controlNav: 'thumbnails',
+            thumbCaptions: true,
+            controlsContainer: ".flex-container",
+            itemWidth: '30px'
         });
-       
-        // Listening for newly selected photos to update it's own Photo model with
-        // this.listenTo(this.collection, 'new_selection', function (new_model) {
-        //     this.model.set(new_model.toJSON());
-        //     this.render();
-        // });
     },
 
     render: function (model) {

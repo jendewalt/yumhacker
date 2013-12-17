@@ -1,0 +1,107 @@
+body.yumhacker {
+    $magenta: #e91367;
+    $dark-magenta: #d9114a;
+    $blue: #0d70eb;
+    $dark-blue: #094da1;
+    $dark-grey: #313136;
+    $mid-grey: #737378;
+    $light-grey: #c1c1c3;
+    $x-light-grey: #F1F1F3;
+
+    #photos_index_container {
+        width: 900px;
+        margin: auto;
+        text-align: left;
+
+        #no_results_message {
+            color: $mid-grey;
+            padding: 30px;
+        }
+
+        h1 {
+            padding: 20px 0 10px;
+
+            #biz_name {
+                display: inline-block;
+                text-decoration: none;
+                color: $blue;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        #flexslider_container {
+            width: 100%;
+
+            .flexslider {
+                box-shadow: 0 0 1px rgba(0,0,0,0.1);
+            }
+
+            ul.slides {
+                width: 100%;
+                padding: 20px;
+
+                li {
+                    width: 100%;
+
+                    img {
+                        float: left;
+                        width: 400px;
+                    }
+
+                    .flex-caption {
+                        padding: 10px 30px;
+                        float: right;
+                        width: 50%;
+                        line-height: 20px;
+
+                        a {
+                            display: block;
+                            margin-bottom: 10px;
+                            font-size: 13px;
+                            color: $blue;
+
+                            &:hover {
+                                text-decoration: underline; 
+                            }
+                        }
+
+                        .caption {
+                            padding: 0 30px 10px;
+                        }
+
+                        .date {
+                            text-align: right;
+                            font-size: 13px;
+                            color: $mid-grey;
+                        }
+                    }
+                }
+            }
+
+            ol.flex-control-thumbs {
+                padding: 20px 10px;
+
+                li {
+                    width: auto;
+                    img {
+                        width: 160px;
+                        margin: 10px;
+                    }
+                }
+            }
+
+            ul.flex-direction-nav {
+                a {
+                    color: $magenta;
+                    text-decoration: none;
+                    text-shadow: none;
+                    font-size: 30px;
+                }
+            }
+        }
+   }
+}

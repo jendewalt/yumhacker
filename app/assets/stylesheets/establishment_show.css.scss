@@ -47,7 +47,8 @@ body.yumhacker {
                     .preview {
                         display: inline-block;
                         height: 50px;
-                        margin: 3px;
+                        padding: 3px;
+                        cursor: pointer;
 
                         img {
                             height: inherit;
@@ -225,7 +226,6 @@ body.yumhacker {
 
         #endorsers_list_container {
             color: $mid-grey;
-            border-color: $light-grey;
 
             h3 {
                 padding: 0 0 5px;

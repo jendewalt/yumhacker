@@ -15,12 +15,6 @@ body.yumhacker {
     overflow-y: scroll;
     background-color: $x-light-grey;
 
-    a {
-        color: $blue;
-        text-decoration: underline;
-        cursor: pointer;
-    }
-
     ol {
         display: inline-block;
         vertical-align: top;
@@ -186,12 +180,17 @@ body.yumhacker {
             width: 50%; 
             margin: auto;
 
+            a {
+                color: $blue;
+            }
+
             .pagination {
                 display: inline-block;
                 vertical-align: bottom;
                 height: 30px;
                 line-height: 30px;
                 font-size: 11px;
+
 
                 &.prev {
                     float: left;

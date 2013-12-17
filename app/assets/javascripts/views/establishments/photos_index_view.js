@@ -1,6 +1,6 @@
 EstablishmentsPhotosIndexView = Backbone.View.extend({
 	events:{
-        'click #biz_name': 'goToEstablishmentShow'
+        'click #biz_name': 'goToEstablishmentShow',
 	},
 
 	initialize: function () {
@@ -27,7 +27,7 @@ EstablishmentsPhotosIndexView = Backbone.View.extend({
                 id: this.model.get('id'), 
                 type: 'establishment' 
             } 
-        });
+        });            
     },
 
     goToEstablishmentShow: function () {
