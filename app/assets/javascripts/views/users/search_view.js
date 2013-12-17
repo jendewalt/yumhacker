@@ -8,7 +8,7 @@ UsersSearchView = Backbone.View.extend({
 		this.collection = new UserSuggestionCollection();
 
 		this.user_search_suggestion_list_view = new UsersSearchSuggestionListView({
-			el: 'ul#find_user_results',
+			el: '#find_user_results_container',
 			collection: this.collection
 		});
 	},

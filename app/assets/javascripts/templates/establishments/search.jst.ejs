@@ -1,21 +1,23 @@
-<div id="find_establishment_container" class='search_container'>
-    <h3>Search for a Restaurant</h3>
+<div id='search_wrapper'>
+    <div id='find_establishment_container' class='search_container card border'>
+        <h3>Search for a Restaurant</h3>
 
-    <form id='establishment_search_form'>
-        <div class='field'>
-            <label for='query'>Restaurant Name:</label><br>
-            <input id='query' class="textbox" type='text' autocomplete='off' placeholder="Delancey Street Restaurant" autofocus>
-        </div>
+        <form id='establishment_search_form'>
+            <div class='field'>
+                <label for='query'>Restaurant Name:</label><br>
+                <input id='query' class='text_input' type='text' autocomplete='off' placeholder='Delancey Street Restaurant' autofocus>
+            </div>
 
-        <div class='field'>
-            <label for='location'>Near:</label><br>
-            <input id='location' class="textbox" type='text' autocomplete='off' value="San Francisco">
-        </div>
+            <div class='field'>
+                <label for='location'>Near:</label><br>
+                <input id='location' class='text_input' type='text' autocomplete='off' value='San Francisco'>
+            </div>
 
-        <input class='btn' type='submit' value='Submit'>
-    </form>
-</div>
+            <div class='center'>
+                <input class='btn text' type='submit' value='Submit'>
+            </div>
+        </form>
+    </div>
 
-<div id="find_establishment_results_container">
-    <ul id="find_establishment_results" class='search_results'></ul>
+    <div id='find_establishment_results_container'></div>
 </div>

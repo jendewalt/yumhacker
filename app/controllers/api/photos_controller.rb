@@ -6,7 +6,6 @@ class Api::PhotosController < ApplicationController
     if params[:type] == 'establishment'
       @photos = Establishment.find(params[:id]).photos
     end
-    logger.debug(@photos)
   end
   
   def create

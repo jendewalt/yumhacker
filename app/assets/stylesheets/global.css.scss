@@ -25,6 +25,7 @@ body.yumhacker {
 
     .text_input {
         height: 30px;
+        margin-top: 5px;
         padding: 0 5px;
         line-height: 20px;
         font-size: 16px;
@@ -40,7 +41,7 @@ body.yumhacker {
         padding: 20px 0 30px;
     }
 
-    ol.establishments_list {
+    ol.establishments_list, ul.establishments_list {
         width: 100%;
 
         li {
@@ -261,6 +262,50 @@ body.yumhacker {
                     font-size: 16px;
                 }
             }
+        }
+    }
+
+    #search_wrapper {
+        width: 500px;
+        margin: auto;
+        
+        .search_container {
+            margin: 20px auto;
+            padding: 20px;
+
+            h3 {
+                padding: 10px;
+                font-size: 20px;
+                color: $mid-grey;
+            }
+
+            form {  
+                margin: 10px auto;
+                text-align: left;
+                width: 380px;
+
+                .field {
+                    margin-bottom: 10px;
+                }
+
+                label {
+                    vertical-align: bottom;
+                    font-size: 13px;
+                    color: $mid-grey;
+                }
+
+                .text_input {
+                    width: 100%;
+                }
+
+                .btn {
+                    margin-top: 10px;
+                }
+            }
+
+        }
+        .establishment_info {
+            text-align: left;
         }
     }
 

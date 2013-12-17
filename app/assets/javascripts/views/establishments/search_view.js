@@ -7,7 +7,7 @@ EstablishmentsSearchView = Backbone.View.extend({
 		this.render();
 		this.collection = new EstablishmentSuggestionCollection();
 		this.establishment_search_suggestion_list_view = new EstablishmentsSearchSuggestionListView({
-			el: 'ul#find_establishment_results',
+			el: '#find_establishment_results_container',
 			collection: this.collection
 		});
 	},

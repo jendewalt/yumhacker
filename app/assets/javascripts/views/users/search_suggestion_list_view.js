@@ -7,19 +7,25 @@ UsersSearchSuggestionListView = Backbone.View.extend({
 	},
 
 	render: function () {
-		this.$el.html('');	
+		this.$el.html('');
 
-    	this.collection.each(function (user) {
-			this.renderUser(user);
-		}, this);	
+		if (!this.collection.isEmpty()) {
+			this.$el.html(render('users/search_suggestion_list'));
+
+	    	this.collection.each(function (user) {
+				this.renderUser(user);
+			}, this);			
+		} else {
+			this.$el.html(render('application/no_results'));			
+		}
 	},
 
 	renderUser: function (user) {
-		var user_view = new UsersSearchUserView({
+		var user_view = new UsersIndexUserView({
 			tagName: 'li',
 			model: user
 		});
 
-		this.$el.append(user_view.el);
+		this.$('ul').append(user_view.el);
 	}
 });

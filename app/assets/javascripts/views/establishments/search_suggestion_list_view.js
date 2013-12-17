@@ -9,9 +9,16 @@ EstablishmentsSearchSuggestionListView = Backbone.View.extend({
 	render: function () {
 		this.$el.html('');	
 
-    	this.collection.each(function (establishment) {
-			this.renderEstablishment(establishment);
-		}, this);	
+
+		if (!this.collection.isEmpty()) {
+			this.$el.html(render('establishments/search_suggestion_list'));
+
+	    	this.collection.each(function (establishment) {
+				this.renderEstablishment(establishment);
+			}, this);	
+		} else {
+			this.$el.html(render('application/no_results'));			
+		}
 	},
 
 	renderEstablishment: function (establishment) {
@@ -20,6 +27,6 @@ EstablishmentsSearchSuggestionListView = Backbone.View.extend({
 			model: establishment
 		});
 
-		this.$el.append(establishment_view.el);
+		this.$('ul').append(establishment_view.el);
 	}
 });
