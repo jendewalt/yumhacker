@@ -2,10 +2,14 @@ FollowButton = Backbone.Model.extend({
     urlRoot: '/api/users/following',
 
     toggle: function () {
-        if (this.get('following')) {
-            this.unfollow();
+        if (CurrentUser.get('id')) {
+            if (this.get('following')) {
+                this.unfollow();
+            } else {
+                this.follow();
+            }            
         } else {
-            this.follow();
+            this.showAuthenticationOpts();
         }
     },
 
@@ -39,5 +43,9 @@ FollowButton = Backbone.Model.extend({
                 console.log(status)
             }
         });
+    },
+
+    showAuthenticationOpts: function () {
+        $('#login_modal_container').fadeIn('200');
     }
 });

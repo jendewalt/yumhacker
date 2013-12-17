@@ -9,19 +9,19 @@
 
           <div class='inputs_container'>
               <div class='field'><%= f.label :first_name %><br />
-              <%= f.text_field :first_name, :autofocus => true %></div>
+              <%= f.text_field :first_name, :autofocus => true, :class=> 'text_input' %></div>
 
               <div class='field'><%= f.label :last_name %><br />
-              <%= f.text_field :last_name %></div>
+              <%= f.text_field :last_name, :class=> 'text_input' %></div>
 
               <div class='field'><%= f.label :email %><br />
-              <%= f.email_field :email %></div>
+              <%= f.email_field :email, :class=> 'text_input' %></div>
 
               <div class='field'><%= f.label :password %><br />
-              <%= f.password_field :password %></div>
+              <%= f.password_field :password, :class=> 'text_input' %></div>
 
               <div class='field'><%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation %></div>
+              <%= f.password_field :password_confirmation, :class=> 'text_input' %></div>
               
               <div class='center'><%= f.submit "Sign up", :class => 'btn text' %></div>
           </div>

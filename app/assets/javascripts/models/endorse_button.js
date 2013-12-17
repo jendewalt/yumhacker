@@ -2,10 +2,14 @@ EndorseButton = Backbone.Model.extend({
     urlRoot: '/api/users/endorsing',
 
     toggle: function () {
-        if (this.get('endorsing')) {
-            this.unendorse();
+        if (CurrentUser.get('id')) {
+            if (this.get('endorsing')) {
+                this.unendorse();
+            } else {
+                this.endorse();
+            }            
         } else {
-            this.endorse();
+            this.showAuthenticationOpts();
         }
     },
 
@@ -39,5 +43,9 @@ EndorseButton = Backbone.Model.extend({
                 console.log(status)
             }
         });
+    },
+
+    showAuthenticationOpts: function () {
+        $('#login_modal_container').fadeIn('200');
     }
 });

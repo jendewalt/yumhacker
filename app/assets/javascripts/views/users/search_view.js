@@ -23,8 +23,6 @@ UsersSearchView = Backbone.View.extend({
 		var first_name = e.target[1].value;
 		var last_name = e.target[2].value;
 
-		console.log(email, first_name, last_name)
-		
 		this.collection.fetch({ reset: true, data: { email: email, first_name: first_name, last_name: last_name } });
 	}
 });

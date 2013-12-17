@@ -26,5 +26,9 @@ EstablishmentsShowView = Backbone.View.extend({
         MapView.el = '.map_canvas_container';
         MapView.model = this.model;
         MapView.renderEstablishmentMap();
+
+        this.authentication_options_view = new AuthenticationOptionsView({
+            el: '#login_modal_container'
+        });
 	}
 });

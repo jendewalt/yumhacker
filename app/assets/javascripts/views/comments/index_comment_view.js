@@ -18,7 +18,6 @@ CommentsIndexCommentView = Backbone.View.extend({
 
     deleteComment: function () {
         if (CurrentUser.get('id') == this.model.get('user_id')) {
-            console.log('Delete the comment');
             this.model.destroy();
         }
     },

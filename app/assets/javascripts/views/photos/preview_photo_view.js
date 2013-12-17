@@ -4,7 +4,6 @@ PhotosPreviewPhotoView = Backbone.View.extend({
     },
 
     initialize: function () {
-        xxx = this
         this.render();
     },
 

@@ -28,8 +28,6 @@ EstablishmentsShowEndorsersListView = Backbone.View.extend({
             this.$el.prepend(user_view.el);
         } else {
             this.$el.append(user_view.el);
-
         }
-
     }
 });

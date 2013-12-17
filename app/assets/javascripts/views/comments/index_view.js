@@ -17,7 +17,6 @@ CommentsIndexView = Backbone.View.extend({
             collection: this.collection
         });
 
-
         this.pagination_view = new PaginationView({
             el: '.pagination_container',
             collection: this.collection

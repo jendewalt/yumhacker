@@ -16,12 +16,24 @@ CommentsIndexCommentFormView = Backbone.View.extend({
         e.preventDefault();
         var body = e.target[0].value;
 
-        this.new_comment = new Comment({
-            body: body,
-            establishment_id: this.model.get('id')
-        });
-        
-        this.new_comment.save({}, {success: updateCollection});
+        $.trim(body);
+
+        if (CurrentUser.get('id')) {
+            if (body && body.length <= 255) {
+                this.new_comment = new Comment({
+                    body: body,
+                    establishment_id: this.model.get('id')
+                });
+                
+                this.new_comment.save({}, {success: updateCollection});
+
+                $('#comment_input').val('');            
+            } else {
+                alert('Comments cannot be blank and must be fewer than 255 characters.');
+            }
+        } else {
+            this.showAuthenticationOpts();
+        }
 
         var that = this;
 
@@ -29,6 +41,9 @@ CommentsIndexCommentFormView = Backbone.View.extend({
             model.set('created_at', moment().utc().format());
             that.collection.add(model);
         }
+    },
 
+    showAuthenticationOpts: function () {
+        $('#login_modal_container').fadeIn('200');
     }
 });

@@ -5,7 +5,6 @@ MainIndexView = Backbone.View.extend({
 
 	initialize: function () {
 		this.render();
-		console.log('initialized')
 
 		this.collection = new EstablishmentCollection();
 

@@ -1,20 +1,20 @@
 class Api::CommentsController < ApplicationController
   respond_to :json
-  
+  before_filter :authenticate_user!, :only => [:create, :destroy]
+
   def index
     @comments = Establishment.find(params[:establishment_id]).comments.order(created_at: :desc).page(params[:page]).per(20)
   end
-
-  def show
-    # @comment = Comment.find(params[:id])
-  end
-
+  
   def create 
     body = params[:body]
     id = params[:establishment_id]
-    @comment = if body && !body.blank?
-      body.strip!
-      current_user.comments.create!(establishment_id: id, body: body)
+
+    if current_user
+      @comment = if body && !body.blank? && body.length < 255
+        body.strip!
+        current_user.comments.create!(establishment_id: id, body: body)
+      end 
     end
   end
 

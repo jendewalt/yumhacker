@@ -1,5 +1,6 @@
 class Api::UsersController < ApplicationController
   respond_to :json
+  before_filter :authenticate_user!, :except => [:index, :show, :followed_users, :followers, :endorsements, :search, :following, :endorsing]
   
   def index
     @users = User.all
@@ -28,7 +29,11 @@ class Api::UsersController < ApplicationController
   end
 
   def following
-    render :json => { following: current_user.following?(params[:user_id]) }
+    if current_user
+      render :json => { following: current_user.following?(params[:user_id]) }
+    else
+      render :json => { following: false }
+    end
   end
 
   def unendorse
@@ -42,7 +47,11 @@ class Api::UsersController < ApplicationController
   end
 
   def endorsing
-    render :json => { endorsing: current_user.endorsing?(params[:establishment_id]) }
+    if current_user
+      render :json => { endorsing: current_user.endorsing?(params[:establishment_id]) }
+    else
+      render :json => { endorsing: false }
+    end
   end
 
   def endorsements
@@ -65,8 +74,5 @@ class Api::UsersController < ApplicationController
 
       @users = User.where('LOWER(email) LIKE ? or LOWER(first_name) LIKE ? or LOWER(last_name) LIKE ?', wild_email, wild_first_name, wild_last_name).limit(10)
     end
-
-
-    logger.debug(@users.inspect)
   end
 end

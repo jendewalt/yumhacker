@@ -28,7 +28,11 @@ CommentsIndexCommentListView = Backbone.View.extend({
 	},
 
 	newComment: function (comment) {
-		this.collection.pop();
+        if (this.collection.length > this.collection.per_page) {
+		  this.collection.pop();
+        } else {
+            this.render();
+        }
 	},
 
 	paginate: function (e) {

@@ -1,5 +1,6 @@
 class Api::PhotosController < ApplicationController
   respond_to :json
+  before_filter :authenticate_user!, :only => [:create, :update, :destroy]
 
   def index
     if params[:type] == 'establishment'
@@ -9,21 +10,15 @@ class Api::PhotosController < ApplicationController
   end
   
   def create
-    if current_user 
-      @photo = current_user.photos.create(establishment_id: params[:establishment_id], content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
-    else
-      render json: {error: 'You must be logged in to add photos.'}
-    end
+    @photo = current_user.photos.create(establishment_id: params[:establishment_id], content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
   end
 
   def update
-    if current_user
-      caption = params[:caption]
-      if caption && !caption.blank?
-        caption.strip!
-        Photo.find(params[:id]).update_attributes(caption: caption)
-        render json: { success: true }
-      end
+    caption = params[:caption]
+    if caption && !caption.blank?
+      caption.strip!
+      Photo.find(params[:id]).update_attributes(caption: caption)
+      render json: { success: true }
     end
   end
 

@@ -13,7 +13,11 @@ PhotosUploadFormsImageFormView = Backbone.View.extend({
     },
 
     showFileBrowser: function (e) {
-        $('input[type="file"]').click();
+        if (CurrentUser.get('id')) {
+            $('input[type="file"]').click();
+        } else {
+            this.showAuthenticationOpts();
+        }
     },
 
     submitPhoto: function (e) {
@@ -30,13 +34,13 @@ PhotosUploadFormsImageFormView = Backbone.View.extend({
             }  
         }
             
-        e.target.value = '';
-
+        $("input[type='file']").val('');
+        
         var that = this;
         function updateCollection (model, response) {
             that.collection.fetch({ reset: true, data: { establishment_id: model.get('establishment_id') } });
             that.showCaptionForm(model, response);
-        }
+        }            
     },
 
     showCaptionForm: function (model, response, options) {
@@ -44,5 +48,9 @@ PhotosUploadFormsImageFormView = Backbone.View.extend({
             model: model,
             el: '#upload_caption_form_container'
         });
+    },
+
+    showAuthenticationOpts: function () {
+        $('#login_modal_container').fadeIn('200');
     }
 });
