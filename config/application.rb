@@ -17,6 +17,12 @@ module Yumhacker
     config.autoload_paths += %W(#{config.root}/lib/geocoder)
     config.autoload_paths += %W(#{config.root}/lib/google_places)
 
+    config.assets.precompile << Proc.new do |path|
+        if path =~ /\.(svg|ttf|woff)\z/
+             true
+        end
+    end
+
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
