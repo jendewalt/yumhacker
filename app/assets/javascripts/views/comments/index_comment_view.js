@@ -1,7 +1,7 @@
 CommentsIndexCommentView = Backbone.View.extend({
     events:{
         'click .delete_comment': 'deleteComment',
-        'click .user_name .avatar': 'goToUserShow'
+        'click .user_name, .avatar': 'goToUserShow'
     },
 
     initialize: function () {

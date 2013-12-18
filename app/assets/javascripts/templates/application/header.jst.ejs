@@ -6,8 +6,8 @@
     <div id="navigation_links_container">
         [[ if (CurrentUser.logged_in()) { ]]
 
-            <a class="nav" href="/users/[[= CurrentUser.id ]]"><img src="[[= CurrentUser.get('thumb_url') ]]">
-                    [[= CurrentUser.get('first_name') ]]</a>
+            <img class="nav" src="[[= CurrentUser.get('thumb_url') ]]">
+            <a class="nav" href="/users/[[= CurrentUser.id ]]">[[= CurrentUser.get('first_name') ]]</a>
             
             <a data-method="delete" href="/users/sign_out" rel="nofollow">Sign Out</a>
         [[ } else { ]]

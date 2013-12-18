@@ -131,12 +131,12 @@ body.yumhacker {
             #comment_form {
                 width: 100%;
                 padding: 10px;
-                border-bottom: 1px solid $light-grey;
 
                 #comment_input {
                     float: left;
                     width: 85%;
                     vertical-align: middle;
+                    margin-top: 0;
                 }
 
                 .btn {
@@ -155,6 +155,9 @@ body.yumhacker {
             padding: 10px;
             border-bottom: 1px solid $light-grey;
         
+            &:first-child {
+                border-top: 1px solid $light-grey;
+            }        
             &:last-child {
                 border-bottom: none;
             }
@@ -191,7 +194,6 @@ body.yumhacker {
                     margin-bottom: 10px;
                     font-size: 13px;
                     line-height: 20px;
-                    word-break: break-all;
                 }
 
                 .user_name {

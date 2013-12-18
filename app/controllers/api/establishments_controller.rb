@@ -35,7 +35,7 @@ class Api::EstablishmentsController < ApplicationController
 
     unless @establishment
       @establishment = Establishment.create(name: params[:name], formatted_address: params[:formatted_address], price: params[:price], google_id: params[:google_id])
-      @establishment.latlng = Establishment.rgeo_factory_for_column(:latlng).point(params[:lng], params[:lat])
+      @establishment.latlng = Establishment.rgeo_factory_for_column(:latlng, {}).point(params[:lng], params[:lat])
       @establishment.save
     end
 

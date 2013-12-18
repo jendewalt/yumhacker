@@ -18,6 +18,12 @@ ApplicationHeaderView = Backbone.View.extend({
 
     goToSubIndex: function (e) {
         e.preventDefault();
-        App.navigate(e.target.pathname, { trigger: true });
+        var path = e.target.pathname
+        console.log(path)
+        if (path) {
+            App.navigate(e.target.pathname, { trigger: true });
+        } else if (CurrentUser.get('id')) {
+            App.navigate('users/' + CurrentUser.get('id'), { trigger: true });            
+        }
     }
 });

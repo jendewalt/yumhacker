@@ -97,17 +97,16 @@ body.yumhacker {
             height: 52px;
             line-height: 52px;
 
+            img {
+                height: 30px;
+                width: 30px;
+                vertical-align: middle;
+            }
+
             a {
-                margin-left: 10px;
+                margin: 0 8px 0 4px;
                 text-decoration: none;
                 color: $mid-grey;
-
-                img {
-                    height: 30px;
-                    width: 30px;
-                    margin-right: 5px;
-                    vertical-align: middle;
-                }
             }
         }
     }
