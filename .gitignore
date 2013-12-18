@@ -29,4 +29,3 @@
 /config/unicorn.rb
 /config/unicorn_local.rb
 /config/initializers
-/public/system
