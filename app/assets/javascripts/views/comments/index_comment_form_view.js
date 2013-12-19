@@ -44,6 +44,6 @@ CommentsIndexCommentFormView = Backbone.View.extend({
     },
 
     showAuthenticationOpts: function () {
-        $('#login_modal_container').fadeIn('200');
+        $('#login_modal_container').fadeIn('60');
     }
 });

@@ -8,7 +8,7 @@ EstablishmentsIndexEstablishmentView = Backbone.View.extend({
 
 		this.application_endorse_button_view = new ApplicationEndorseButtonView({ 
             el: this.$('.endorse_btn_container'),
-            establishment_id: this.model.get('id') 
+            establishment: this.model 
         });			
 	},
 

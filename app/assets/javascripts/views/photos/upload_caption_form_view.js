@@ -37,7 +37,7 @@ PhotosUploadCaptionFormView = Backbone.View.extend({
     },
 
     exitCaptionForm: function () {
-        this.$el.fadeOut('300');
+        this.$el.fadeOut('100');
         this.remove();
     }    
 });

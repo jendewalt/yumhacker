@@ -7,3 +7,5 @@ json.num_endorsements @user.endorsements.count
 json.avatar_url_medium @user.avatar.url(:medium)
 json.avatar_url_small @user.avatar.url(:small)
 json.avatar_url_thumb @user.avatar.url(:thumb)
+
+json.following current_user ? current_user.following?(@user) : false

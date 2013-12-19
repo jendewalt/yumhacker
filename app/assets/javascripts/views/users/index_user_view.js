@@ -8,7 +8,7 @@ UsersIndexUserView = Backbone.View.extend({
 
         this.application_follow_button_view = new ApplicationFollowButtonView({ 
             el: this.$('.follow_btn_container'),
-            user_id: this.model.get('id') 
+            user: this.model 
         });
         this.listenTo(this.model, 'remove', this.remove);
     },

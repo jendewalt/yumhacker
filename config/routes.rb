@@ -23,7 +23,6 @@ Yumhacker::Application.routes.draw do
     post 'users/endorse', to: 'users#endorse'
     delete 'users/endorse', to: 'users#unendorse'
     
-    get 'users/following', to: 'users#following'
     post 'users/follow', to: 'users#follow'
     delete 'users/follow', to: 'users#unfollow'
     get 'users/followers', to: 'users#followers'

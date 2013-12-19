@@ -13,3 +13,5 @@ json.neighborhood @establishment.neighborhood
 
 json.lat @establishment.latlng.lat
 json.lng @establishment.latlng.lon
+
+json.user_endorsing current_user ? current_user.endorsing?(@establishment) : false
