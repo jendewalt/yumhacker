@@ -47,6 +47,7 @@ body.yumhacker {
         width: 100%;
 
         li {
+            text-align: left;
             padding: 5px 10px;
             line-height: 30px;
             border-bottom: 1px solid $light-grey;
@@ -236,6 +237,7 @@ body.yumhacker {
                 right: 20px;
                 text-decoration: none;
                 color: $mid-grey;
+                cursor:pointer;
             }
 
             h1 {
@@ -304,8 +306,13 @@ body.yumhacker {
             }
 
         }
-        .establishment_info {
+        #find_establishment_results {
             text-align: left;
+
+            .biz_name:hover {
+                text-decoration: none;
+                cursor: auto;
+            }
         }
     }
 

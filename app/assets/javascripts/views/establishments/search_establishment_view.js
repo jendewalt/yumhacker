@@ -14,9 +14,5 @@ EstablishmentsSearchEstablishmentView = Backbone.View.extend({
 
 	create: function () {
 		this.model.save();
-	},
-
-	goToEstablishmentShow: function () {
-		App.navigate('establishments/' + this.model.get('id'), { trigger: true });		
 	}
 });

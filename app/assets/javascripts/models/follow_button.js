@@ -46,6 +46,6 @@ FollowButton = Backbone.Model.extend({
     },
 
     showAuthenticationOpts: function () {
-        $('#login_modal_container').fadeIn('200');
+        $('#login_modal_container').fadeIn('100');
     }
 });

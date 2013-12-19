@@ -83,7 +83,7 @@ body.yumhacker {
                     #upload_caption_form_container {
                         display: none;
                         position: absolute;
-                        z-index: 100;
+                        z-index: 10;
                         top: 0;
                         left: 0;
                         bottom: 0;
@@ -155,7 +155,7 @@ body.yumhacker {
             padding: 10px;
             border-bottom: 1px solid $light-grey;
         
-            &:first-child {
+            &.comment:first-child {
                 border-top: 1px solid $light-grey;
             }        
             &:last-child {

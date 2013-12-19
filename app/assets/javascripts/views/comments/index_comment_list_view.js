@@ -21,7 +21,8 @@ CommentsIndexCommentListView = Backbone.View.extend({
 	renderComment: function (comment) {
 		var comment_view = new CommentsIndexCommentView({
 			tagName: 'li',
-			model: comment
+			model: comment,
+            className: 'comment'
 		});
 
 		this.$el.append(comment_view.el);

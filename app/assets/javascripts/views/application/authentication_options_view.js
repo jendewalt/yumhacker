@@ -13,6 +13,6 @@ AuthenticationOptionsView = Backbone.View.extend({
     },
 
     hideModal: function () {
-        $('#login_modal_container').fadeOut('200');
+        $('#login_modal_container').fadeOut('100');
     }
 });
