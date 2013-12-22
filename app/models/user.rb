@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :photos, :dependent => :destroy
 
-  has_attached_file :avatar, :styles => { :medium => "300x300#", :small => "150x150#", :thumb => "30x30#" }, :default_url => "/missing.png"
+  has_attached_file :avatar, :styles => { :medium => "200x200#", :small => "100x100#", :thumb => "30x30#" }, :default_url => "/missing.png"
 
   def following?(id)
     relationships.where(:followed_id => id).count > 0
@@ -38,5 +38,24 @@ class User < ActiveRecord::Base
 
   def unendorse!(id)
     endorsements.where(:establishment_id => id).first.try(:destroy)
+  end
+
+  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    unless user
+      user = User.create( first_name:auth.info.first_name,
+                          last_name:auth.info.last_name,
+                          provider:auth.provider,
+                          uid:auth.uid,
+                          email:auth.info.email,
+                          password:Devise.friendly_token[0,20]
+                          )
+      begin
+        user.avatar = URI.parse(auth.info.image)
+        user.save
+      rescue
+      end
+    end
+    user
   end
 end

@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131207234857) do
+ActiveRecord::Schema.define(version: 20131222002852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authentications", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "token"
+    t.string   "token_secret"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "authentications", ["uid"], :name => "index_authentications_on_uid"
+  add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
@@ -139,14 +152,18 @@ ActiveRecord::Schema.define(version: 20131207234857) do
     t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["first_name"], :name => "index_users_on_first_name"
   add_index "users", ["last_name"], :name => "index_users_on_last_name"
+  add_index "users", ["provider"], :name => "index_users_on_provider"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
+  add_index "users", ["uid"], :name => "index_users_on_uid"
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 

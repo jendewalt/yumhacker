@@ -1,6 +1,7 @@
 Router = Backbone.Router.extend({
     routes: {
         '': 'mainIndex',
+        '_=_': 'redirectToHome',
         'establishments': 'establishmentsIndex',
         'establishments/search': 'establishmentsSearch',
         'establishments/:id': 'establishmentsShow',
@@ -22,6 +23,10 @@ Router = Backbone.Router.extend({
     mainIndex: function () {
         this.setup();
         this.currentView = new MainIndexView({ el: '#main_container' });
+    },
+
+    redirectToHome: function () {
+        App.navigate('');
     },
 
     establishmentsIndex: function () {
