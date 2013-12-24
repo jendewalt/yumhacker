@@ -5,6 +5,7 @@
         <h3>Sign In</h3>
 
         <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+        <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>
 
         <div class='inputs_container'>
             <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>

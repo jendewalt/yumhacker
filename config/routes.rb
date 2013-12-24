@@ -11,6 +11,7 @@ Yumhacker::Application.routes.draw do
   get 'users/search', to: 'main#index'
   get 'users/:id', to: 'main#index'
 
+
   namespace :api do
     get 'establishments/search', to: 'establishments#search'
     get 'establishments/endorsers', to: 'establishments#endorsers'
