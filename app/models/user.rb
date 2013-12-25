@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 
   def unendorse!(id)
     endorsements.where(:establishment_id => id).first.try(:destroy)
-  end
+    end
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
@@ -60,21 +60,6 @@ class User < ActiveRecord::Base
   end
 
   def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    unless user
-      user = User.create( first_name:auth.info.first_name,
-                          last_name:auth.info.last_name,
-                          provider:auth.provider,
-                          uid:auth.uid,
-                          # email:auth.info.email,
-                          password:Devise.friendly_token[0,20]
-                          )
-      begin
-        user.avatar = URI.parse(auth.info.image)
-        user.save
-      rescue
-      end
-    end
-    user
+    User.where(:provider => auth.provider, :uid => auth.uid).first
   end
 end

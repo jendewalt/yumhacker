@@ -1,4 +1,7 @@
 Yumhacker::Application.routes.draw do
+  get '/twitter/sign_up', to: 'twitter#sign_up'
+  post '/twitter', to: 'twitter#update'
+
   # devise_for must be above root
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
  

@@ -1,0 +1,15 @@
+<% if flash[:error] %>
+    <div class="error"><%= flash[:error] %></div>
+  <% end %>
+
+<%= form_for @user, :url => twitter_path do |f| %>
+    <%= f.hidden_field :first_name, :value => @user.first_name %>
+    <%= f.hidden_field :last_name, :value => @user.last_name %>
+    <%= f.hidden_field :avatar, :value => @avatar %>
+    <%= f.hidden_field :uid, :value => @user.uid %>
+    
+    <div>email:</div>
+    <%= f.text_field :email %>
+
+    <%= f.submit %>
+<% end %>
