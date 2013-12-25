@@ -1,10 +1,15 @@
 <div class='devise_form' id='sign_up_container'>
+    <% if flash[:error] %>
+        <div class="error"><%= flash[:error] %></div>
+    <% end %>
+
     <a class='logo' href="/">YumHacker</a>
 
     <div class='form_container card border'>
         <h3>Sign up</h3>
 
         <%= link_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook) %>
+        <%= link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter) %>
 
         <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>

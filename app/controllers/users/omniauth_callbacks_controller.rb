@@ -1,31 +1,61 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
-    @user = User.find_for_facebook_oauth(request.env["omniauth.auth"], current_user)
+    data = request.env["omniauth.auth"]
+    auth = { first_name: data.info.first_name,
+             last_name: data.info.last_name,
+             provider: data.provider,
+             uid: data.uid,
+             email: data.info.email,
+             image: data.info.image
+           }
 
-    if @user.persisted?
-      sign_in_and_redirect @user, :event => :authentication 
-      set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
+    @user = User.where(:provider => auth[:provider], :uid => auth[:uid]).first
+    
+    if @user
+      sign_in_and_redirect @user, :event => :authentication
     else
-      session["devise.facebook_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
+      if request.env['omniauth.origin'].include?('sign_up')
+        if User.exists?(:email => auth[:email])
+          flash[:error] = 'Sorry, an account with that email has already been created. Perhaps you\'ve already signed up?'
+          redirect_to new_user_session_path
+        else
+          user = User.create({ first_name: auth[:first_name],
+                               last_name: auth[:last_name],
+                               provider: auth[:provider],
+                               uid: auth[:uid],
+                               email: auth[:email],
+                               password: Devise.friendly_token[0,20]
+                             })
+          begin
+            user.avatar = URI.parse(auth[:image])
+            user.save
+          rescue
+          end
+          sign_in_and_redirect user, :event => :authentication
+        end
+      else
+        redirect_to new_user_registration_url
+      end
     end
   end
 
   def twitter
-    @user = User.find_for_twitter_oauth(request.env["omniauth.auth"], current_user)
     auth = request.env["omniauth.auth"]
+    @user = User.where(:provider => auth[:provider], :uid => auth[:uid]).first
 
     if @user
       sign_in_and_redirect @user, :event => :authentication 
-      set_flash_message(:notice, :success, :kind => "Twitter") if is_navigational_format?
     else
-      auth = { first_name: auth.info.name.split.first,
-               last_name: auth.info.name.split[1..-1].join(' '),
-               avatar: auth.info.image,
-               uid: auth.uid
-             }    
-      redirect_to twitter_sign_up_path(:auth => auth)
+      if request.env['omniauth.origin'].include?('sign_up')
+        auth = { first_name: auth.info.name.split.first,
+                 last_name: auth.info.name.split[1..-1].join(' '),
+                 avatar: auth.info.image,
+                 uid: auth.uid
+               }    
+        redirect_to twitter_sign_up_path(:auth => auth)
+      else
+        redirect_to new_user_registration_url
+      end
     end
   end
-
 end

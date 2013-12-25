@@ -1,4 +1,8 @@
 <div class='devise_form' id='sign_in_container'>
+    <% if flash[:error] %>
+        <div class="error"><%= flash[:error] %></div>
+    <% end %>
+
     <a class='logo' href="/">YumHacker</a>
 
     <div class='form_container card border'>
