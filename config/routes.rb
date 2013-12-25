@@ -3,7 +3,7 @@ Yumhacker::Application.routes.draw do
   post '/twitter', to: 'twitter#update'
 
   # devise_for must be above root
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations"  }
  
   root :to => "main#index"
 

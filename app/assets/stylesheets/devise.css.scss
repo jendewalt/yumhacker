@@ -16,6 +16,11 @@ body.yumhacker {
             margin: 20px auto;
         }
 
+        .error {
+            padding: 20px;
+            line-height: 20px;
+        }
+        
         .logo {
             display: inline-block;
             padding: 30px;
@@ -28,6 +33,16 @@ body.yumhacker {
         .form_container {
             width: 100%;
             margin: auto;
+
+            .social_link {
+                padding: 10px;
+            }
+
+            .or {
+                color: $mid-grey;
+                padding: 20px;
+            }
+
 
             h3 {
                 padding: 10px;

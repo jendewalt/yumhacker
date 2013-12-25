@@ -8,8 +8,10 @@
     <div class='form_container card border'>
         <h3>Sign In</h3>
 
-        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-        <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>
+        <div class='social_link'><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></div>
+        <div class='social_link'><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></div>
+
+        <div class='or'>- or -</div>
 
         <div class='inputs_container'>
             <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
