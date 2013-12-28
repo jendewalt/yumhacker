@@ -11,7 +11,7 @@ class Api::CommentsController < ApplicationController
     id = params[:establishment_id]
 
     if current_user
-      @comment = if body && !body.blank? && body.length < 255
+      @comment = if body && !body.blank? && body.length <= 100
         body.strip!
         current_user.comments.create!(establishment_id: id, body: body)
       end 

@@ -9,7 +9,15 @@ CommentsIndexCommentFormView = Backbone.View.extend({
 
     render: function () {
         this.$el.html('');
-        this.$el.html(render('comments/index_comment_form'));
+        this.$el.html(render('comments/index_comment_form', this.model));
+
+        $('#comment_input').on('focus', function () {
+            $('#comment_form').animate({ 'margin-bottom': 0 }, 200, function () {
+                $('#char_counter').animate({ 'opacity': '1' }, 0);
+            });
+        }).on('keyup', function () {
+            $('#char_counter span').html(100 - $(this).val().length);
+        });
     },
 
     handleSubmit: function (e) {
@@ -29,7 +37,7 @@ CommentsIndexCommentFormView = Backbone.View.extend({
 
                 $('#comment_input').val('');            
             } else {
-                alert('Comments cannot be blank and must be fewer than 255 characters.');
+                alert('Comments cannot be blank and have a character limit of 100 characters.');
             }
         } else {
             this.showAuthenticationOpts();

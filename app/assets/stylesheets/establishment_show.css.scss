@@ -2,11 +2,13 @@ body.yumhacker {
     $magenta: #e91367;
     $dark-magenta: #d9114a;
     $blue: #0d70eb;
+    $green: #2BA81C;
     $dark-blue: #094da1;
     $dark-grey: #313136;
     $mid-grey: #737378;
     $light-grey: #c1c1c3;
     $x-light-grey: #F1F1F3;
+    $input-glow: rgba(233, 19, 103, 0.2);
 
     #establishment_show_container {
         text-align: left;
@@ -130,13 +132,28 @@ body.yumhacker {
 
             #comment_form {
                 width: 100%;
+                margin-bottom: -15px;
                 padding: 10px;
+
+                h3 {
+                    font-size: 13px;
+                    line-height: 13px;
+                    padding: 0 5px 5px;
+                    color: $green;
+                }
 
                 #comment_input {
                     float: left;
                     width: 85%;
                     vertical-align: middle;
                     margin-top: 0;
+                    word-wrap: normal;
+                    word-break: normal;
+
+                    &:focus {
+                        box-shadow: 0 0 2px $input-glow;
+                        border-color: $input-glow;
+                    }
                 }
 
                 .btn {
@@ -145,6 +162,15 @@ body.yumhacker {
                     height: 30px;
                     line-height: 30px;
                     vertical-align: middle;
+                }
+
+                #char_counter {
+                    opacity: 0;
+                    margin-top: 8px;
+                    margin-left: 5px;
+                    line-height: 11px;
+                    font-size: 11px;
+                    color: $mid-grey;
                 }
             }
         }
