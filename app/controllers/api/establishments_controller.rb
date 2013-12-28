@@ -84,6 +84,6 @@ class Api::EstablishmentsController < ApplicationController
   end
 
   def endorsers
-    @endorsers = Establishment.find(params[:establishment_id]).users
+    @establishment = Establishment.includes(:users).find(params[:establishment_id])
   end
 end

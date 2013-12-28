@@ -22,6 +22,6 @@ class Api::PhotosController < ApplicationController
   end
 
   def preview_photos
-    @photos = Establishment.find(params[:establishment_id]).photos.order(created_at: :desc).limit(4)
+    @photos = Establishment.find(params[:establishment_id]).preview_photos
   end
 end

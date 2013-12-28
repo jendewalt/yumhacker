@@ -3,7 +3,7 @@ class Api::CommentsController < ApplicationController
   before_filter :authenticate_user!, :only => [:create, :destroy]
 
   def index
-    @comments = Establishment.find(params[:establishment_id]).comments.order(created_at: :desc).page(params[:page]).per(20)
+    @comments = Comment.where(establishment_id: params[:establishment_id]).order(created_at: :desc).page(params[:page]).per(20).includes(:user)
   end
   
   def create 

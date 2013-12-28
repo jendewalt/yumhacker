@@ -5,7 +5,8 @@ class Establishment < ActiveRecord::Base
   has_many :users, :through => :endorsements
   has_many :hours, :dependent => :destroy
   has_many :comments, :dependent => :destroy
-  has_many :photos, :dependent => :destroy
+  has_many :photos, :order => 'created_at DESC', :dependent => :destroy
+  has_many :preview_photos, :order => 'created_at DESC', :limit => 4, :class_name => 'Photo'
 
   def self.from_users_followed_by(user)
     joins(:endorsements).group('establishments.id').where(%{endorsements.user_id IN (#{Relationship.select(:followed_id).where(:follower_id => user.id).to_sql}) OR user_id = :user_id}, :user_id => user.id)
