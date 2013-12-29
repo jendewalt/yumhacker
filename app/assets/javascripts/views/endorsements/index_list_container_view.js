@@ -11,7 +11,7 @@ EndorsementsIndexListContainerView = Backbone.View.extend({
         this.$el.html(render('endorsements/index_endorsement_list_container', this.model));
 
         this.endorsementsIndexListView = new EndorsementsIndexListView({
-            el: 'ol',
+            el: 'ul',
             model: this.model,
             collection: this.collection
         });

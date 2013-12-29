@@ -25,9 +25,13 @@ body.yumhacker {
 
         #establishment_info_container {
             width: 100%;
-            height: 200px;
+            height: 210px;
             padding: 20px;
             margin-bottom: 20px;
+
+            .biz_name {
+                margin-bottom: 10px;
+            }
 
             .endorse_btn_container {
                 float: none;
@@ -219,7 +223,7 @@ body.yumhacker {
                     margin-left: 5px;
                     margin-bottom: 10px;
                     font-size: 13px;
-                    line-height: 20px;
+                    line-height: 18px;
                 }
 
                 .user_name {
@@ -248,7 +252,7 @@ body.yumhacker {
 
             #map_canvas {
                 width: 100%;
-                height: 200px;
+                height: 210px;
             }
         }
 
