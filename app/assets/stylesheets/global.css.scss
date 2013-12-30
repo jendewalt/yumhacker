@@ -64,10 +64,11 @@ body.yumhacker {
         display: inline-table;
         width: 65%;
 
-        .biz_name {
+        a.biz_name {
             cursor: pointer;
             color: $blue;
             font-weight: bold;
+            text-decoration: none;
 
             &:hover {
                 text-decoration: underline;

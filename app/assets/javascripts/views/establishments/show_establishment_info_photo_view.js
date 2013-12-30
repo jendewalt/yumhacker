@@ -24,7 +24,8 @@ EstablishmentShowEstablishmentInfoPhotoView = Backbone.View.extend({
         this.$el.html(render('establishments/show_establishment_info_photo', this.model));
     },
 
-    goToPhotoIndex: function () {
-        App.navigate(e.target.pathname, { trigger: true });
+    goToPhotoIndex: function (e) {
+        e.preventDefault();
+        App.navigate(e.currentTarget.pathname, { trigger: true });
     }
 });

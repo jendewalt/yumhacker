@@ -33,6 +33,10 @@ body.yumhacker {
                 margin-bottom: 10px;
                 cursor: auto;
                 color: $dark-grey;
+
+                &:hover {
+                    text-decoration: none;
+                }
             }
 
             .endorse_btn_container {
