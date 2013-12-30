@@ -6,7 +6,7 @@ MainIndexEstablishmentsListView = Backbone.View.extend({
         this.listenTo(this.collection, 'reset', this.render);
 	},
 
-	render: function () {
+	render: function (e) {
 		this.$el.html('');
 
 		if (this.collection.length > 0) {

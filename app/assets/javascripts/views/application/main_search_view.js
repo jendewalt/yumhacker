@@ -1,6 +1,6 @@
 MainSearchView = Backbone.View.extend({
     events: {
-        'submit': 'checkForRedirect',
+        'submit': 'getLatLng',
         'click #nearby_btn': 'getUserLocation',
         'click .nav': 'goToSubIndex'
     },
@@ -18,17 +18,9 @@ MainSearchView = Backbone.View.extend({
         this.$el.html(render('application/main_search'));
     },
 
-    checkForRedirect: function (e) {
+    getLatLng: function (e) {
         e.preventDefault();
-
-        if (Backbone.history.fragment) {
-            App.navigate('/', { trigger: true });
-        }
-        this.getLatLng(e.target[1].value);
-    },
-
-    getLatLng: function (query) {
-        this.geolocations.fetch({ reset: true, data: { query: query }});
+        this.geolocations.fetch({ reset: true, data: { query: e.target[1].value }});
     },
 
     updateLatLng: function () {
@@ -40,7 +32,10 @@ MainSearchView = Backbone.View.extend({
                 lng: result.get('lng'),
                 location_name: result.get('formatted_address')
             });
-        }        
+            if (Backbone.history.fragment !== '') {
+                App.navigate('/', { trigger: true });
+            }
+        }       
     },
 
     toggleFromFollowed: function (e) {
@@ -54,6 +49,9 @@ MainSearchView = Backbone.View.extend({
                 lng: position.coords.longitude,
                 location_name: 'Current Location'
             });
+            if (Backbone.history.fragment !== '') {
+                App.navigate('/', { trigger: true });
+            }
         });
     },
 

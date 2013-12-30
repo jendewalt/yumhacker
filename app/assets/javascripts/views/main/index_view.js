@@ -5,7 +5,7 @@ MainIndexView = Backbone.View.extend({
 
 	initialize: function () {
 		this.render();
-
+		
 		this.collection = new EstablishmentCollection();
 
         this.collection.fetch({ reset: true, data: _.extend(MainSearch.predicate(), Filter.predicate(), this.collection.predicate()) });

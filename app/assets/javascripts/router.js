@@ -9,7 +9,6 @@ Router = Backbone.Router.extend({
         '_=_': 'redirectToHome',
         'restaurants': 'establishmentsIndex',
         'restaurants/search': 'establishmentsSearch',
-        // 'restaurants/:id/photos': 'establishmentsPhotosIndex',
         'users': 'nothing',
         'users/search': 'usersSearch',
         'users/sign_in': 'nothing',

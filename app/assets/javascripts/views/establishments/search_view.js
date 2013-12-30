@@ -13,13 +13,18 @@ EstablishmentsSearchView = Backbone.View.extend({
 	},
 
 	render: function () {
-		this.$el.html(render('establishments/search'));	
+		this.$el.html(render('establishments/search'));
+		$('input#location').val(MainSearch.get('location_name'));	
 	},
 
 	searchForEstablishments: function (e) {
 		e.preventDefault();
 		var query = e.target[0].value;
 		var location = e.target[1].value;
+
+		if (location === 'Current Location') {
+			location = MainSearch.get('lat') + ',' + MainSearch.get('lng');
+		}
 		
 		this.collection.fetch({ reset: true, data: { query: query, location: location } });
 	}
