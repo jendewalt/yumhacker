@@ -30,7 +30,8 @@ EstablishmentsPhotosIndexView = Backbone.View.extend({
         });            
     },
 
-    goToEstablishmentShow: function () {
-        App.navigate('establishments/' + this.model.get('id'), { trigger: true });
+    goToEstablishmentShow: function (e) {
+        e.preventDefault();
+        App.navigate(e.target.pathname, { trigger: true });
     }
 });

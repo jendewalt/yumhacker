@@ -27,7 +27,7 @@ class Api::EstablishmentsController < ApplicationController
 	end
 
   def show
-    @establishment = Establishment.find(params[:id])
+    @establishment = Establishment.friendly.find(params[:id])
   end
 
   def create
@@ -52,8 +52,6 @@ class Api::EstablishmentsController < ApplicationController
       @establishment.slug = nil
       @establishment.save!
     end
-
-    render :json => @establishment.to_json
   end
 
   def search

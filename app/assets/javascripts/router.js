@@ -1,11 +1,15 @@
 Router = Backbone.Router.extend({
+    initialize: function () {
+        this.route(/^restaurants\/[a-z]{2}\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+$/, 'establishmentsShow');
+        this.route(/^restaurants\/[a-z]{2}\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+\/photos$/, 'establishmentsPhotosIndex');
+    },
+
     routes: {
         '': 'mainIndex',
         '_=_': 'redirectToHome',
-        'establishments': 'establishmentsIndex',
-        'establishments/search': 'establishmentsSearch',
-        'establishments/:id': 'establishmentsShow',
-        'establishments/:id/photos': 'establishmentsPhotosIndex',
+        'restaurants': 'establishmentsIndex',
+        'restaurants/search': 'establishmentsSearch',
+        // 'restaurants/:id/photos': 'establishmentsPhotosIndex',
         'users': 'nothing',
         'users/search': 'usersSearch',
         'users/sign_in': 'nothing',
@@ -39,19 +43,21 @@ Router = Backbone.Router.extend({
         this.currentView = new EstablishmentsSearchView({ el: '#main_container' });
     },
 
-    establishmentsShow: function (id) {
+    establishmentsShow: function (path) {
+        var slug = window.location.pathname.replace(/.*\//, '');
         this.setup();
         this.currentView = new EstablishmentsShowView({ 
             el: '#main_container',
-            model: new Establishment({ id: id })
+            model: new Establishment({ id: slug })
         });
     },
 
     establishmentsPhotosIndex: function (id) {
+        var slug = window.location.pathname.replace(/\/photos/, '').replace(/.*\//, '');
         this.setup();
         this.currentView = new EstablishmentsPhotosIndexView({ 
             el: '#main_container',
-            model: new Establishment({ id: id })
+            model: new Establishment({ id: slug })
         });
     },
 

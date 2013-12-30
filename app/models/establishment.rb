@@ -20,6 +20,14 @@ class Establishment < ActiveRecord::Base
       ]
   end
 
+  def path
+    if state && city
+      'restaurants/' + state.parameterize + '/' + city.parameterize + '/' + slug
+    else
+      'restaurants/na/na/' + slug
+    end
+  end
+
   def self.from_users_followed_by(user)
     joins(:endorsements).group('establishments.id').where(%{endorsements.user_id IN (#{Relationship.select(:followed_id).where(:follower_id => user.id).to_sql}) OR user_id = :user_id}, :user_id => user.id)
   end

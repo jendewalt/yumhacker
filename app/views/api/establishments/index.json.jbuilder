@@ -5,6 +5,7 @@ json.offset @establishments.offset_value
 json.total @establishments.total_count
 
 json.establishments @establishments do |establishment|
+    json.path establishment.path
 	json.id establishment.id
 	json.name establishment.name
     json.formatted_address establishment.formatted_address

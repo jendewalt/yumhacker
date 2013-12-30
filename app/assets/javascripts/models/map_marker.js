@@ -16,10 +16,11 @@ MapMarker = Backbone.Model.extend({
             }
         });
 
-        google.maps.event.addListener(this.marker, 'click', function () {
-            // Marker has same id as establishment...?
-            App.navigate('establishments/' + establishment.get('id'), { trigger: true });
-        });
+        if (number != 10) {
+            google.maps.event.addListener(this.marker, 'click', function () {
+                App.navigate(establishment.get('path'), { trigger: true });
+            });            
+        }
     },
 
     remove: function () {

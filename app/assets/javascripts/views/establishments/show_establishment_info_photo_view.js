@@ -1,5 +1,7 @@
 EstablishmentShowEstablishmentInfoPhotoView = Backbone.View.extend({
-    events: {},
+    events: {
+        'click #photos_preview_container': 'goToPhotoIndex'
+    },
 
     initialize: function () {
         this.render(); 
@@ -20,5 +22,9 @@ EstablishmentShowEstablishmentInfoPhotoView = Backbone.View.extend({
 
     render: function () {
         this.$el.html(render('establishments/show_establishment_info_photo', this.model));
+    },
+
+    goToPhotoIndex: function () {
+        App.navigate(e.target.pathname, { trigger: true });
     }
 });

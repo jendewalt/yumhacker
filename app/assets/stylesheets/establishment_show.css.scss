@@ -31,12 +31,18 @@ body.yumhacker {
 
             .biz_name {
                 margin-bottom: 10px;
+                cursor: auto;
+                color: $dark-grey;
             }
 
             .endorse_btn_container {
                 float: none;
                 display: inline-block;
                 margin-top: 20px;
+
+                &:hover {
+                    text-decoration: none;
+                }
             }
 
             .right_column {
@@ -49,6 +55,7 @@ body.yumhacker {
                 text-align: right;
 
                 #photos_preview_container {
+                    display: table-cell;
 
                     .preview {
                         display: inline-block;

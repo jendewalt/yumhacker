@@ -10,6 +10,8 @@ json.phone @establishment.phone
 json.website @establishment.website
 json.price @establishment.price
 json.neighborhood @establishment.neighborhood
+json.path @establishment.path
+json.photos_path '/' + @establishment.path + '/photos'
 
 json.lat @establishment.latlng.lat
 json.lng @establishment.latlng.lon
