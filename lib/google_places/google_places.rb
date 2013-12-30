@@ -4,7 +4,7 @@ module GooglePlaces
     def google_places(query, lat, lng)
 
         api_key = YAML.load_file('config/config.yml')['google_places_api_key']
-        raw_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=%s&location=%s,%s&radius=20000&types=restaurant|bakery|bar|cafe|food|meal_takeaway|meal_delivery|night_club&sensor=false&key=%s" % [CGI::escape(query), lat, lng, api_key]
+        raw_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?name=%s&location=%s,%s&radius=20000&types=restaurant|bakery|bar|cafe|food|meal_takeaway|meal_delivery|night_club&sensor=false&key=%s" % [CGI::escape(query), lat, lng, api_key]
         encoded_url = URI.encode(raw_url)  # raw_url is invalid due to pipes
         data = JSON.parse(RestClient.get encoded_url, :accept => :json).with_indifferent_access
         results = []

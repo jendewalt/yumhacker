@@ -49,6 +49,8 @@ class Api::EstablishmentsController < ApplicationController
         @establishment.hours.create!(hour)
       end
       @establishment.update_attributes(details)
+      @establishment.slug = nil
+      @establishment.save!
     end
 
     render :json => @establishment.to_json
