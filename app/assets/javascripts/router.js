@@ -19,7 +19,6 @@ Router = Backbone.Router.extend({
     },
 
     setup: function () {
-        console.log('setup')
         if (this.currentView) { 
             this.currentView.remove(); 
         } else {
