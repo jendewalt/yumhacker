@@ -104,13 +104,27 @@ body.yumhacker {
                 border-bottom: none;
             }
 
-            .user_name {
+            .user_container {
                 float: left;
+                height: 100%;
+            }
+
+            a.user_name {
+                float: left;
+                text-decoration: none;
+                color: $mid-grey;
                 cursor: pointer;
 
                 &:hover {
                     text-decoration: underline;
                     color: $blue;
+                }
+
+                img {
+                    height: 30px;
+                    width: 30px;
+                    margin-right: 5px;
+                    vertical-align: bottom;
                 }
             }
 

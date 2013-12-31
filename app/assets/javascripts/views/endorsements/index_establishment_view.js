@@ -13,15 +13,6 @@ EndorsementsIndexEstablishmentView = Backbone.View.extend({
 	},
 
 	render: function () {
-        if (this.model.get('price')) {
-            var price_symbol = '';
-            _.each(_.range(this.model.get('price')), function (num) {
-                price_symbol += '$';
-            });
-
-            this.model.set('price_symbol', price_symbol);
-        }
-
 		this.$el.html(render('endorsements/index_establishment', this.model));	
 	},
 

@@ -4,6 +4,10 @@
     [[ if (get('street_number') && get('street')) { ]]
         <p class="details">[[= get('street_number') ]] [[= get('street') ]]</p>
     [[ } ]]
+
+    [[ if (get('city') && get('state') && get('zip_code')) { ]]
+        <p class='details'>[[=  get('city') ]], [[= get('state') ]] [[= get('zip_code') ]]</p>
+    [[ } ]]
     
     [[ if (get('phone')) { ]]
         <p class="details phone">[[= get('phone') ]]</p>

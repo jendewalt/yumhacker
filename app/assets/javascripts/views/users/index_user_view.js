@@ -1,6 +1,6 @@
 UsersIndexUserView = Backbone.View.extend({
     events:{
-        'click .user_name': 'goToUserShow'
+        'click a.user_name': 'goToUserShow'
     },
 
     initialize: function () {
@@ -17,7 +17,8 @@ UsersIndexUserView = Backbone.View.extend({
         this.$el.html(render('users/index_user', this.model));
     },
 
-    goToUserShow: function () {
-        App.navigate('users/' + this.model.get('id'), { trigger: true });
+    goToUserShow: function (e) {
+        e.preventDefault();
+        App.navigate(e.currentTarget.pathname, { trigger: true });
     }
 });

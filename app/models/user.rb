@@ -39,4 +39,8 @@ class User < ActiveRecord::Base
   def unendorse!(id)
     endorsements.where(:establishment_id => id).first.try(:destroy)
   end
+
+  def path
+    'users/' + id.to_s.parameterize
+  end
 end

@@ -15,7 +15,7 @@ MainIndexEstablishmentsListView = Backbone.View.extend({
 			}, this);			
 		} else {
 			this.$el.html('');
-	        this.$el.html(render('establishments/no_results'));
+	        this.$el.html(render('establishments/index_no_results'));
 		}	
 	},
 

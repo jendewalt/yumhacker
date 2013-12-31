@@ -92,21 +92,70 @@ body.yumhacker {
             }
         }
 
+        // #navigation_links_container {
+        //     text-align: right;
+        //     height: 52px;
+        //     line-height: 52px;
+
+        //     img {
+        //         height: 30px;
+        //         width: 30px;
+        //         vertical-align: middle;
+        //     }
+
+        //     a {
+        //         margin: 0 8px 0 4px;
+        //         text-decoration: none;
+        //         color: $mid-grey;
+        //     }
+
+        //     a.user {
+        //         display: table-cell;
+        //     }
+        // }
+
         #navigation_links_container {
-            text-align: right;
-            height: 52px;
-            line-height: 52px;
+            float: right;
+            display: block;
 
-            img {
-                height: 30px;
-                width: 30px;
-                vertical-align: middle;
-            }
+            ul.user_nav {
+                display: table-cell;
 
-            a {
-                margin: 0 8px 0 4px;
-                text-decoration: none;
-                color: $mid-grey;
+                li {
+                    display: block;
+                    float: left;
+                    height: 100%;
+                    padding-left: 10px;
+                    margin: 10px 0;
+
+                    a {
+                        display: block;
+                        vertical-align: middle;
+                        line-height: 32px;
+                        color: $mid-grey;
+                        text-decoration: none;
+                        font-size: 13px;
+                    }
+
+                    a.name {
+                        padding-right: 10px;
+                        border-right: 1px solid $light-grey;
+                    }
+
+                    a.img {
+                        display: table-cell;
+
+                        img {
+                            height: 30px;
+                            width: 30px;
+                            vertical-align: middle;
+                        }
+                    }
+
+                    a.name {
+
+                    }
+                }
             }
         }
     }

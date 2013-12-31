@@ -1,13 +1,13 @@
 [[ if (CurrentUser.get('id') == get('user_id')) { ]]
-    <div class='delete_comment'>delete</div>
+    <a class='delete_comment'>delete</a>
 [[ } ]]
 
 <div class='comment_container'>
-    <img class='avatar' src="[[= get('thumb_url') ]]">
+    <a href='/users/[[= get("user_id") ]]' class='avatar'><img class='avatar' src="[[= get('thumb_url') ]]"></a>
     
     <div class='content_container'>
 
-        <a class='user_name'>[[= get('full_name') ]]</a>
+        <a href='/users/[[= get("user_id") ]]' class='user_name'>[[= get('full_name') ]]</a>
 
         <span class='comment_body'>[[= get('body') ]]</span>
     </div>

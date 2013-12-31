@@ -4,18 +4,33 @@
     <div id='establishment_search_container'></div>
 
     <div id="navigation_links_container">
-        [[ if (CurrentUser.logged_in()) { ]]
+        <ul class='user_nav'>
+            [[ if (CurrentUser.logged_in()) { ]]
 
-            <img class="nav" src="[[= CurrentUser.get('thumb_url') ]]">
-            <a class="nav" href="/users/[[= CurrentUser.id ]]">[[= CurrentUser.get('first_name') ]]</a>
-            
-            <a data-method="delete" href="/users/sign_out" rel="nofollow">Sign Out</a>
-        [[ } else { ]]
-            <a href="/users/sign_in" >Sign In</a>
-            <a href="/users/sign_up" >Sign Up</a>
-        [[ } ]]
+                <li>
+                    <a class="nav user img" href="/[[= CurrentUser.get('path') ]]"><img src="[[= CurrentUser.get('thumb_url') ]]"></a>
+                </li>
+
+                <li>
+                    <a class="nav user name" href="/[[= CurrentUser.get('path') ]]">[[= CurrentUser.get('first_name') ]]</a>
+                </li>
+
+                <li>
+                    <a data-method="delete" href="/users/sign_out" rel="nofollow">Sign Out</a>
+                </li>
+
+            [[ } else { ]]
+                
+                <li>
+                    <a href="/users/sign_in" >Sign In</a>
+                </li>
+                <li>
+                    <a href="/users/sign_up" >Sign Up</a>
+                </li>
+                
+            [[ } ]]            
+        </ul>
     </div>
     <br class="clear">
-    
 </nav>
 
