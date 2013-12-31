@@ -92,28 +92,6 @@ body.yumhacker {
             }
         }
 
-        // #navigation_links_container {
-        //     text-align: right;
-        //     height: 52px;
-        //     line-height: 52px;
-
-        //     img {
-        //         height: 30px;
-        //         width: 30px;
-        //         vertical-align: middle;
-        //     }
-
-        //     a {
-        //         margin: 0 8px 0 4px;
-        //         text-decoration: none;
-        //         color: $mid-grey;
-        //     }
-
-        //     a.user {
-        //         display: table-cell;
-        //     }
-        // }
-
         #navigation_links_container {
             float: right;
             display: block;
@@ -140,6 +118,10 @@ body.yumhacker {
                     a.name {
                         padding-right: 10px;
                         border-right: 1px solid $light-grey;
+                        max-width: 200px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                     }
 
                     a.img {

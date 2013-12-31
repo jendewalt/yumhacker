@@ -1,36 +1,43 @@
-<div class='devise_form' id='sign_in_container'>
-    <% if flash[:error] %>
-        <div class="error"><%= flash[:error] %></div>
-    <% end %>
+<header></header>
+<section>
+  <div class='devise_form' id='sign_in_container'>
+      <% if flash[:error] %>
+          <div class="error"><%= flash[:error] %></div>
+      <% end %>
 
-    <a class='logo' href="/">YumHacker</a>
+      <a class='logo' href="/">YumHacker</a>
 
-    <div class='form_container card border'>
-        <h3>Sign In</h3>
+      <div class='form_container card border'>
+          <h3>Sign In</h3>
 
-        <div class='social_link'><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></div>
-        <div class='social_link'><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></div>
+          <div class='social_link'>
+            <%= link_to image_tag('fb_signin.svg'), user_omniauth_authorize_path(:facebook), :class => 'facebook' %>
+          </div>
+          <div class='social_link'>
+            <%= link_to image_tag('twitter_signin.svg'), user_omniauth_authorize_path(:twitter), :class => 'twitter' %>
+          </div>
 
-        <div class='or'>- or -</div>
+          <div class='or'>- or -</div>
 
-        <div class='inputs_container'>
-            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-              <div class='field'><%= f.label :email %><br />
-              <%= f.email_field :email, :autofocus => true, :class => 'text_input' %></div>
+          <div class='inputs_container'>
+              <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+                <div class='field'><%= f.label :email %><br />
+                <%= f.email_field :email, :autofocus => true, :class => 'text_input' %></div>
 
-              <div class='field'><%= f.label :password %><br />
-              <%= f.password_field :password, :class => 'text_input' %></div>
+                <div class='field'><%= f.label :password %><br />
+                <%= f.password_field :password, :class => 'text_input' %></div>
 
-              <% if devise_mapping.rememberable? -%>
-                <div class='field check'><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-              <% end -%>
+                <% if devise_mapping.rememberable? -%>
+                  <div class='field check'><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+                <% end -%>
 
-               <div class='center'><%= f.submit "Sign in", :class => 'btn text' %></div>
-            <% end %>
-        </div>
-    </div>
+                 <div class='center'><%= f.submit "Sign in", :class => 'btn text' %></div>
+              <% end %>
+          </div>
+      </div>
 
-    <div class='devise_links'>
-      <%= render "devise/shared/links" %>
-    </div>
-</div>
+      <div class='devise_links'>
+        <%= render "devise/shared/links" %>
+      </div>
+  </div>
+</section>

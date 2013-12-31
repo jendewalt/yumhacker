@@ -69,6 +69,7 @@ body.yumhacker {
             color: $blue;
             font-weight: bold;
             text-decoration: none;
+            line-height: 26px;
 
             &:hover {
                 text-decoration: underline;
@@ -109,7 +110,7 @@ body.yumhacker {
                 height: 100%;
             }
 
-            a.user_name {
+            a.user {
                 float: left;
                 text-decoration: none;
                 color: $mid-grey;
@@ -123,7 +124,7 @@ body.yumhacker {
                 img {
                     height: 30px;
                     width: 30px;
-                    margin-right: 5px;
+                    margin-right: 10px;
                     vertical-align: bottom;
                 }
             }
@@ -332,7 +333,7 @@ body.yumhacker {
             }
         }
     }
-
+    
     .center {
         text-align: center;
     }

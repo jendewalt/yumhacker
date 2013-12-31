@@ -1,44 +1,45 @@
 <header></header>
+<section>
+  <div class='devise_form' id='edit_profile_container'>
 
-<div class='devise_form' id='edit_profile_container'>
+    <div class='form_container card border'>
+      <h3>Edit Your Account</h3>
+      <%= devise_error_messages! %>
 
-  <div class='form_container card border'>
-    <h3>Edit Your Account</h3>
-    <%= devise_error_messages! %>
+      <div class='inputs_container'>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true } ) do |f| %>
 
-    <div class='inputs_container'>
-      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true } ) do |f| %>
+          <div class='field'><%= f.label :first_name %><br />
+          <%= f.text_field :first_name, :class => 'text_input' %></div>
 
-        <div class='field'><%= f.label :first_name %><br />
-        <%= f.text_field :first_name, :class => 'text_input' %></div>
+          <div class='field'><%= f.label :last_name %><br />
+          <%= f.text_field :last_name, :class => 'text_input' %></div>
 
-        <div class='field'><%= f.label :last_name %><br />
-        <%= f.text_field :last_name, :class => 'text_input' %></div>
+          <div class='field'><%= f.label :email %><br />
+          <%= f.email_field :email, :autofocus => true, :class => 'text_input' %></div>
 
-        <div class='field'><%= f.label :email %><br />
-        <%= f.email_field :email, :autofocus => true, :class => 'text_input' %></div>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div class='field'>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div class='field'>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <div class='field'><%= f.label :new_password %><br />
+          <%= f.password_field :password, :autocomplete => "off", :class => 'text_input' %></div>
+
+          <div class='field'><%= f.label :new_password_confirmation %><br />
+          <%= f.password_field :password_confirmation, :class => 'text_input' %></div>
+
+          <div class='field'><%= f.label :avatar, 'Profile photo' %><br />
+          <%= f.file_field :avatar, :class => 'text_input' %></div>
+
+          <div class='center'><%= f.submit "Update", :class => 'btn text' %></div>
         <% end %>
+      </div>
+    </div> 
 
-        <div class='field'><%= f.label :new_password %><br />
-        <%= f.password_field :password, :autocomplete => "off", :class => 'text_input' %></div>
-
-        <div class='field'><%= f.label :new_password_confirmation %><br />
-        <%= f.password_field :password_confirmation, :class => 'text_input' %></div>
-
-        <div class='field'><%= f.label :avatar, 'Profile photo' %><br />
-        <%= f.file_field :avatar, :class => 'text_input' %></div>
-
-        <div class='center'><%= f.submit "Update", :class => 'btn text' %></div>
-      <% end %>
+    <div class='cancel_container'>
+      <%= link_to "Cancel", :back %>
     </div>
-  </div> 
 
-  <div class='cancel_container'>
-    <%= link_to "Cancel", :back %>
   </div>
-
-</div>
+</section>
 <!-- :html => { :method => :put } -->

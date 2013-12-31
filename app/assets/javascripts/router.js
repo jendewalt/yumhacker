@@ -19,7 +19,12 @@ Router = Backbone.Router.extend({
     },
 
     setup: function () {
-        if (this.currentView) { this.currentView.remove(); }
+        console.log('setup')
+        if (this.currentView) { 
+            this.currentView.remove(); 
+        } else {
+            $('section').html('');
+        }
         $('<div>', { id: 'main_container' }).appendTo('section');
     },
 

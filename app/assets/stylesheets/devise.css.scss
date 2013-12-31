@@ -35,17 +35,18 @@ body.yumhacker {
             margin: auto;
 
             .social_link {
-                padding: 10px;
+                display: block;
+                margin: 20px auto;
             }
 
             .or {
                 color: $mid-grey;
-                padding: 20px;
+                padding: 10px;
             }
 
 
             h3 {
-                padding: 10px;
+                padding: 10px 0 20px;
                 font-size: 20px;
                 color: $mid-grey;
             }

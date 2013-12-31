@@ -1,6 +1,6 @@
 UsersIndexUserView = Backbone.View.extend({
     events:{
-        'click a.user_name': 'goToUserShow'
+        'click a.user': 'goToUserShow'
     },
 
     initialize: function () {

@@ -1,43 +1,50 @@
-<div class='devise_form' id='sign_up_container'>
-    <% if flash[:error] %>
-        <div class="error"><%= flash[:error] %></div>
-    <% end %>
+<header></header>
+<section>
+  <div class='devise_form' id='sign_up_container'>
+      <% if flash[:error] %>
+          <div class="error"><%= flash[:error] %></div>
+      <% end %>
 
-    <a class='logo' href="/">YumHacker</a>
+      <a class='logo' href="/">YumHacker</a>
 
-    <div class='form_container card border'>
-        <h3>Sign up</h3>
+      <div class='form_container card border'>
+          <h3>Sign up</h3>
 
-        <div class='social_link'><%= link_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook) %></div>
-        <div class='social_link'><%= link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter) %></div>
-
-        <div class='or'>- or -</div>
-
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-          <%= devise_error_messages! %>
-
-          <div class='inputs_container'>
-              <div class='field'><%= f.label :first_name %><br />
-              <%= f.text_field :first_name, :autofocus => true, :class=> 'text_input' %></div>
-
-              <div class='field'><%= f.label :last_name %><br />
-              <%= f.text_field :last_name, :class=> 'text_input' %></div>
-
-              <div class='field'><%= f.label :email %><br />
-              <%= f.email_field :email, :class=> 'text_input' %></div>
-
-              <div class='field'><%= f.label :password %><br />
-              <%= f.password_field :password, :class=> 'text_input' %></div>
-
-              <div class='field'><%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, :class=> 'text_input' %></div>
-              
-              <div class='center'><%= f.submit "Sign up", :class => 'btn text' %></div>
+          <div class='social_link'>
+            <%= link_to image_tag('fb_signup.svg'), user_omniauth_authorize_path(:facebook), :class => 'facebook' %>
           </div>
-        <% end %>
-    </div>
+          <div class='social_link'>
+            <%= link_to image_tag('twitter_signup.svg'), user_omniauth_authorize_path(:twitter), :class => 'twitter' %>
+          </div>
 
-    <div class='devise_links'>
-      <%= render "devise/shared/links" %>
-    </div>
-</div>
+          <div class='or'>- or -</div>
+
+          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div class='inputs_container'>
+                <div class='field'><%= f.label :first_name %><br />
+                <%= f.text_field :first_name, :autofocus => true, :class=> 'text_input' %></div>
+
+                <div class='field'><%= f.label :last_name %><br />
+                <%= f.text_field :last_name, :class=> 'text_input' %></div>
+
+                <div class='field'><%= f.label :email %><br />
+                <%= f.email_field :email, :class=> 'text_input' %></div>
+
+                <div class='field'><%= f.label :password %><br />
+                <%= f.password_field :password, :class=> 'text_input' %></div>
+
+                <div class='field'><%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, :class=> 'text_input' %></div>
+                
+                <div class='center'><%= f.submit "Sign up", :class => 'btn text' %></div>
+            </div>
+          <% end %>
+      </div>
+
+      <div class='devise_links'>
+        <%= render "devise/shared/links" %>
+      </div>
+  </div>
+</section>
