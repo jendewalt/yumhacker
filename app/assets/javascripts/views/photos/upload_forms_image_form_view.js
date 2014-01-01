@@ -10,6 +10,10 @@ PhotosUploadFormsImageFormView = Backbone.View.extend({
 
     render: function () {
         this.$el.html(render('photos/photo_upload_image_form', this.model));
+
+        this.upload_throbber_view = new UploadThrobberView({
+            el: '.upload_throbber_container',
+        });
     },
 
     showFileBrowser: function (e) {
@@ -21,6 +25,8 @@ PhotosUploadFormsImageFormView = Backbone.View.extend({
     },
 
     submitPhoto: function (e) {
+        this.upload_throbber_view.$el.show();
+
         if(window.File && window.FileList && window.FileReader) {
             if ($.trim(e.target.value)) {
                 var that = this;
@@ -44,6 +50,8 @@ PhotosUploadFormsImageFormView = Backbone.View.extend({
     },
 
     showCaptionForm: function (model, response, options) {
+        this.upload_throbber_view.$el.hide();
+        
         this.photos_upload_photo_caption_form = new PhotosUploadCaptionFormView({
             model: model,
             el: '#upload_caption_form_container'

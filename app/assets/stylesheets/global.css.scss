@@ -182,6 +182,18 @@ body.yumhacker {
         }
     }
 
+    .throbber {
+        text-align: center;
+        padding: 10px;
+
+        &.upload {
+            margin-top: 5px;
+            padding: 5px;
+            font-size: 11px;
+            border-top: 1px solid $magenta;
+        }
+    }
+
     .column {
         padding: 20px 10px;
     }

@@ -4,7 +4,9 @@
     <img src="[[= get('medium_url') ]]">
 
     <form id='caption_form'>
-        <input type='text' maxlength='255'>
+        <input id='caption_input' class='text_input' type='text' maxlength='100'>
+        <div id='char_counter'>Characters remaining: <span>100</span></div>
+
         <input type='submit' class='btn text'>
         <a class='skip'>Skip</a>
     </form>

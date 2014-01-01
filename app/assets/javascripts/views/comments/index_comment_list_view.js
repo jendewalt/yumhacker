@@ -7,6 +7,7 @@ CommentsIndexCommentListView = Backbone.View.extend({
         this.listenTo(this.collection, 'remove', this.render);
         this.listenTo(this.collection, 'add', this.newComment);
         this.listenTo(this.collection, 'paginate', this.paginate);
+        this.listenTo(this.collection, 'request', this.showThrobber);
         this.collection.fetch({ reset: true, data: { establishment_id: this.model.get('id') } });
 	},
 
@@ -38,5 +39,9 @@ CommentsIndexCommentListView = Backbone.View.extend({
 
 	paginate: function (e) {
 		this.collection.fetch({ reset: true, data: { establishment_id: this.model.get('id'), page: e } });
-	}
+	}, 
+
+    showThrobber: function () {
+        this.$el.html(render('application/throbber_small'));
+    }
 });

@@ -4,11 +4,12 @@ UsersSearchSuggestionListView = Backbone.View.extend({
 
 	initialize: function () {
 		this.listenTo(this.collection, 'reset', this.render);
+		this.listenTo(this.collection, 'request', this.showThrobber);
 	},
 
 	render: function () {
 		this.$el.html('');
-
+		
 		if (!this.collection.isEmpty()) {
 			this.$el.html(render('users/search_suggestion_list'));
 
@@ -27,5 +28,9 @@ UsersSearchSuggestionListView = Backbone.View.extend({
 		});
 
 		this.$('ul').append(user_view.el);
+	},
+
+	showThrobber: function () {
+		this.$el.html(render('application/throbber_small'));
 	}
 });

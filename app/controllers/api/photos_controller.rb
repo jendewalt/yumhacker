@@ -18,6 +18,8 @@ class Api::PhotosController < ApplicationController
       caption.strip!
       Photo.find(params[:id]).update_attributes(caption: caption)
       render json: { success: true }
+    else
+      render json: { success: 'Empty caption. Photo not updated' }      
     end
   end
 

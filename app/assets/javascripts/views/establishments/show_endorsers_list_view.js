@@ -4,8 +4,7 @@ EstablishmentsShowEndorsersListView = Backbone.View.extend({
 		this.collection = new EndorsersCollection();
 
         this.listenTo(this.collection, 'reset', this.render);
-        this.listenTo(this.collection, 'all', function (e) {
-        });
+        this.listenTo(this.collection, 'request', this.showThrobber);
 
         this.collection.fetch({ reset: true, data: { establishment_id: this.model.get('id') }});
     },
@@ -29,5 +28,9 @@ EstablishmentsShowEndorsersListView = Backbone.View.extend({
         } else {
             this.$el.append(user_view.el);
         }
+    }, 
+
+    showThrobber: function () {
+        this.$el.html(render('application/throbber_small'));
     }
 });

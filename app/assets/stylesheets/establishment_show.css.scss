@@ -23,15 +23,24 @@ body.yumhacker {
             width: 40%;
         }
 
+        #char_counter {
+            margin-top: 8px;
+            margin-left: 5px;
+            line-height: 11px;
+            font-size: 11px;
+            color: $mid-grey;
+        }
+
         #establishment_info_container {
             width: 100%;
-            min-height: 210px;
+            min-height: 220px;
             padding: 20px;
             margin-bottom: 20px;
 
             .biz_name {
                 margin-bottom: 10px;
-                font-size: 20px;
+                font-size: 18px;
+                line-height: 20px;
             }
 
             .endorse_btn_container {
@@ -92,6 +101,10 @@ body.yumhacker {
                         display:none;
                     }
 
+                    .upload_throbber_container {
+                        display: none;
+                    }
+
                     #upload_caption_form_container {
                         display: none;
                         position: absolute;
@@ -123,11 +136,24 @@ body.yumhacker {
                                 input {
                                     display: block;
                                     margin: auto;
-                                    margin-bottom: 20px;
 
                                     &[type='text'] {
                                         width: 400px;
                                         margin-top: 20px;
+                                    }
+
+                                    &[type='submit'] {
+                                        margin: 20px auto;
+                                    }
+                                }
+
+                                .skip {
+                                    font-size: 13px;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        color: $blue;
+                                        text-decoration: underline;
                                     }
                                 }
                             }
@@ -176,11 +202,11 @@ body.yumhacker {
 
                 #char_counter {
                     opacity: 0;
-                    margin-top: 8px;
-                    margin-left: 5px;
-                    line-height: 11px;
-                    font-size: 11px;
-                    color: $mid-grey;
+                    // margin-top: 8px;
+                    // margin-left: 5px;
+                    // line-height: 11px;
+                    // font-size: 11px;
+                    // color: $mid-grey;
                 }
             }
         }

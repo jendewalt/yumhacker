@@ -5,6 +5,7 @@ EndorsementsIndexListView = Backbone.View.extend({
     initialize: function () {
         this.listenTo(this.collection, 'reset', this.render);
         this.listenTo(this.collection, 'paginate', this.paginate);
+        this.listenTo(this.collection, 'request', this.showThrobber);
         this.collection.fetch({ reset: true, data: { user_id: this.model.get('id') }});
     },
 
@@ -28,5 +29,10 @@ EndorsementsIndexListView = Backbone.View.extend({
 
     paginate: function (e) {
         this.collection.fetch({ reset: true, data: { user_id: this.model.get('id'), page: e } });
+    }, 
+
+    showThrobber: function () {
+        console.log('hi')
+        this.$el.html(render('application/throbber_small'));
     }
 });

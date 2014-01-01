@@ -45,5 +45,6 @@ MainIndexView = Backbone.View.extend({
 
 	render: function () {
 		this.$el.html(render('main/index'));
+		this.$('.establishments_list').html(render('application/throbber_small'));
 	}
 });
