@@ -17,4 +17,12 @@ json.hours @establishment.hours
 json.lat @establishment.latlng.lat
 json.lng @establishment.latlng.lon
 
+json.hours @establishment.hours do |hour|
+    json.open_day hour.open_day
+    json.open_time hour.formatted_open_time
+    json.close_day hour.close_day
+    json.close_time hour.formatted_close_time
+    json.open_in_minutes hour.open_in_minutes
+end
+
 json.user_endorsing current_user ? current_user.endorsing?(@establishment) : false

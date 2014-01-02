@@ -10,6 +10,11 @@ Establishment = Backbone.Model.extend({
 
             this.set('price_symbol', price_symbol);
         }
+        this.assignHours();
+        this.on('sync', this.assignHours);
+    },
+
+    assignHours: function () {
         this.hours = new HoursCollection(this.get('hours'));
     }
 });

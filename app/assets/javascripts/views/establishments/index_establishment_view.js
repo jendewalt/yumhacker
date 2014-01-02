@@ -11,10 +11,11 @@ EstablishmentsIndexEstablishmentView = Backbone.View.extend({
             establishment: this.model 
         });	
 
-		this.hours_view = new EstablishmentsIndexEstablishmentHoursView({ 
+        this.hours_view = new EstablishmentsIndexEstablishmentHoursView({ 
             el: this.$('.hours_container'),
             collection: this.model.hours 
-        });			
+        }); 
+
 	},
 
 	render: function () {

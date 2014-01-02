@@ -43,6 +43,10 @@ body.yumhacker {
                 line-height: 20px;
             }
 
+            .small {
+                line-height: 30px;
+            }
+
             .endorse_btn_container {
                 float: none;
                 display: inline-block;
@@ -55,6 +59,9 @@ body.yumhacker {
 
             .right_column {
                 width: 30%;
+            }
+            .left_column {
+                width: 70%;
             }
             
             #establishment_photos_container {

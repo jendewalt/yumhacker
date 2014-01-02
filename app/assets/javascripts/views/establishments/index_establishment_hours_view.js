@@ -12,15 +12,19 @@ EstablishmentsIndexEstablishmentHoursView = Backbone.View.extend({
     }, 
 
     renderTodaysHours: function () {
-        var hours = this.collection.where({ open_day: Number(moment().format('d')) });
+        var day = {};
+        var open_day = Number(moment().format('d'));
+        var hours = this.collection.where({ open_day: open_day });
 
-        _.each(hours, function (hour) {
+        if (hours.length > 0) {
+            day.day = open_day;
+            day.hours = hours;
             this.hour_view = new EstablishmentHourView({
-                model: hour,
-                tagName: 'li'
+                model: day,
+                tagName: 'tr'
             });
 
-            this.$('ul').append(this.hour_view.el);
-        }, this);
+            this.$('table').append(this.hour_view.el);
+        }
     }
 });

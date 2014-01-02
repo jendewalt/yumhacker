@@ -13,6 +13,11 @@ EstablishmentsShowEstablishmentInfoView = Backbone.View.extend({
             el: '#establishment_photos_container',
             model: this.model
         });
+        
+        this.hours_view = new EstablishmentsShowEstablishmentHoursView({ 
+            el: this.$('.hours_container'),
+            collection: this.model.hours 
+        });     
     },
 
     render: function () {
