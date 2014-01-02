@@ -1,0 +1,1 @@
+Hours = Backbone.Model;

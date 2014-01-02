@@ -32,7 +32,6 @@ EndorsementsIndexListView = Backbone.View.extend({
     }, 
 
     showThrobber: function () {
-        console.log('hi')
         this.$el.html(render('application/throbber_small'));
     }
 });
