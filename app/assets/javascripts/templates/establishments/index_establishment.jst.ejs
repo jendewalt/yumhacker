@@ -15,7 +15,6 @@
 
     [[ if (get('website')) { 
         var formatted_url = get('website').replace(/\/$/, '').replace(/^http.*\//, '').replace(/^www[.]/, '');
-        console.log(formatted_url)
     ]]
         <a class="details website" href="[[= get('website') ]]" target='_blank'>[[= formatted_url ]]</a>
     [[ } ]]
