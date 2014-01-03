@@ -219,6 +219,11 @@ body.yumhacker {
 
             a {
                 color: $blue;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
 
             .pagination {
