@@ -57,14 +57,20 @@ body.yumhacker {
 
                 p {
                     font-size: 13px;
+                    line-height: 20px;
                     color: $mid-grey;
                 }
 
-                a {
-                    display: block;
-                    font-size: 13px;
-                    color: $blue;
+                #links_container {
+                    margin-top: 10px;
+                    
+                    a {
+                        display: block;
+                        font-size: 13px;
+                        color: $blue;
+                    }
                 }
+
             }
         }
 

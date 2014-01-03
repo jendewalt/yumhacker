@@ -14,7 +14,7 @@ Router = Backbone.Router.extend({
         'users/sign_in': 'nothing',
         'users/sign_out': 'nothing',
         'users/sign_up': 'nothing',
-        'users/edit': 'nothing',
+        'users/edit': 'editProfile',
         'users/:id': 'usersShow'
     },
 
@@ -75,6 +75,10 @@ Router = Backbone.Router.extend({
     usersSearch: function () {
         this.setup();
         this.currentView = new UsersSearchView({ el: '#main_container' });
+    },
+
+    editProfile: function () {
+        attachEditProfileEvents();
     },
 
     nothing: function () {

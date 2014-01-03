@@ -81,10 +81,29 @@ body.yumhacker {
                     }
                 }
 
+                .change_password {
+                    display: block;
+                    padding: 10px 0;
+                    font-size: 13px;
+                    color: $blue;
+                    cursor: pointer;
+                }
+
+                #password_fields {
+                    display: none;
+                }
+
                 .btn {
                     margin-top: 10px;
                 }
+
+                .throbber {
+                    display: none;
+                    padding-bottom: 0;
+                }
+
             }
+
         }
 
         .devise_links {

@@ -22,14 +22,10 @@ PhotosUploadCaptionFormView = Backbone.View.extend({
         var caption = $.trim(e.target[0].value);
 
         if (caption.length <= 100) {
-            this.model.save({ 'caption': caption }, { success: removeCaptionForm });
+            this.model.save({ 'caption': caption });
+            this.exitCaptionForm();
         } else {
             alert('Captions must be fewer than 255 characters');
-        }
-
-        var that = this;
-        function removeCaptionForm (model) {
-            that.exitCaptionForm();
         }
     },
 

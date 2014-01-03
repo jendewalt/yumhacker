@@ -18,20 +18,24 @@
           <div class='field'><%= f.label :email %><br />
           <%= f.email_field :email, :autofocus => true, :class => 'text_input' %></div>
 
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div class='field'>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-          <% end %>
-
-          <div class='field'><%= f.label :new_password %><br />
-          <%= f.password_field :password, :autocomplete => "off", :class => 'text_input' %></div>
-
-          <div class='field'><%= f.label :new_password_confirmation %><br />
-          <%= f.password_field :password_confirmation, :class => 'text_input' %></div>
-
           <div class='field'><%= f.label :avatar, 'Profile photo' %><br />
           <%= f.file_field :avatar, :class => 'text_input' %></div>
 
+          <a class='change_password'>Change your password</a>
+
+          <div id='password_fields'>
+            <div class='field'><%= f.label :new_password %><br />
+            <%= f.password_field :password, :autocomplete => "off", :class => 'text_input' %></div>
+
+            <div class='field'><%= f.label :new_password_confirmation %><br />
+            <%= f.password_field :password_confirmation, :class => 'text_input' %></div>
+          </div>
+
           <div class='center'><%= f.submit "Update", :class => 'btn text' %></div>
+
+          <div class='throbber'>
+            <%= image_tag "throbber_sm.gif", :class => 'center' %>
+          </div>
         <% end %>
       </div>
     </div> 
