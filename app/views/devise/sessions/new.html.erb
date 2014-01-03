@@ -1,10 +1,6 @@
 <header></header>
 <section>
   <div class='devise_form' id='sign_in_container'>
-      <% if flash[:error] %>
-          <div class="error"><%= flash[:error] %></div>
-      <% end %>
-
       <a class='logo' href="/">YumHacker</a>
 
       <div class='form_container card border'>
@@ -21,22 +17,42 @@
           </div>
 
           <div class='or'>- or -</div>
+    
+          <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+         
+            <% if flash[:alert] %>
+              <div class='message'>
+                <h2>Uh oh...</h2>
+                <div class="alert"><%= flash[:alert] %></div>
+              </div>
+            <% end %>
+            <% if flash[:error] %>
+              <div class='message'>
+                <h2>Uh oh...</h2>
+                <div class="error"><%= flash[:error] %></div>
+              </div>
+            <% end %>
+            <% if flash[:notice] %>
+              <div class='message'>
+                <h2>Uh oh...</h2>
+                <div class="notice"><%= flash[:notice] %></div>
+              </div>
+            <% end %>
 
-          <div class='inputs_container'>
-              <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-                <div class='field'><%= f.label :email %><br />
-                <%= f.email_field :email, :autofocus => true, :class => 'text_input' %></div>
+            <div class='inputs_container'>
+              <div class='field'><%= f.label :email %><br />
+              <%= f.email_field :email, :autofocus => true, :class => 'text_input' %></div>
 
-                <div class='field'><%= f.label :password %><br />
-                <%= f.password_field :password, :class => 'text_input' %></div>
+              <div class='field'><%= f.label :password %><br />
+              <%= f.password_field :password, :class => 'text_input' %></div>
 
-                <% if devise_mapping.rememberable? -%>
-                  <div class='field check'><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-                <% end -%>
+              <% if devise_mapping.rememberable? -%>
+                <div class='field check'><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+              <% end -%>
 
-                 <div class='center'><%= f.submit "Sign in", :class => 'btn text' %></div>
-              <% end %>
-          </div>
+               <div class='center'><%= f.submit "Sign in", :class => 'btn text' %></div>
+            </div>
+        <% end %>
       </div>
 
       <div class='devise_links'>

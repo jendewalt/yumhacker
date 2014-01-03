@@ -152,7 +152,7 @@ body.yumhacker {
             }
         }
 
-        #error_explanation {
+        #error_explanation, .message {
             background-color: $x-light-grey;
             padding: 10px;
             font-size: 13px;
@@ -160,6 +160,11 @@ body.yumhacker {
             h2 {
                 font-weight: bold;
                 font-size: 16px;
+            }
+
+            div {
+                padding: 5px;
+                line-height: 16px;
             }
 
             ul {
