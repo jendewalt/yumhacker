@@ -10,11 +10,14 @@
       <div class='form_container card border'>
           <h3>Sign In</h3>
 
-          <div class='social_link'>
-            <%= link_to image_tag('fb_signin.svg'), user_omniauth_authorize_path(:facebook), :class => 'facebook' %>
-          </div>
-          <div class='social_link'>
-            <%= link_to image_tag('twitter_signin.svg'), user_omniauth_authorize_path(:twitter), :class => 'twitter' %>
+          <div id='social_links_container'>
+            <div class='social_link'>
+              <%= link_to image_tag('fb_signin.svg'), user_omniauth_authorize_path(:facebook), :class => 'facebook' %>
+            </div>
+            <div class='social_link'>
+              <%= link_to image_tag('twitter_signin.svg'), user_omniauth_authorize_path(:twitter), :class => 'twitter' %>
+            </div>
+            <p>We'll never post anything to your account.</p>
           </div>
 
           <div class='or'>- or -</div>
