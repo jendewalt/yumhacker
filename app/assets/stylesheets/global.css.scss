@@ -137,6 +137,11 @@ body.yumhacker {
             .follow_btn_container {
                 float: right;
                 text-align: center;
+
+                .following {
+                    background-color: #C1C1C3;
+                    color: #737378;
+                }
             }
         }
     }
@@ -206,6 +211,11 @@ body.yumhacker {
     .endorse_btn_container {
         float: right;
         display: inline;
+
+        .endorsing {
+            background-color: #C1C1C3;
+            color: #737378;
+        }
     }
 
     .pagination_container {

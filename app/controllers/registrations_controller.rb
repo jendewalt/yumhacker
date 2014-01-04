@@ -18,4 +18,12 @@ class RegistrationsController < Devise::RegistrationsController
       render "edit"
     end
   end
+
+  def after_sign_up_path_for(resource)
+    jen = User.find(1);
+    current_user.follow!(jen.id);
+    jen.follow!(current_user.id)
+    root_path
+  end
+
 end
