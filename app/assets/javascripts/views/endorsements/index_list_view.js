@@ -33,5 +33,6 @@ EndorsementsIndexListView = Backbone.View.extend({
 
     paginate: function (e) {
         this.collection.fetch({ reset: true, data: { user_id: this.model.get('id'), page: e } });
+        window.scrollTo(0,0);
     }
 });
