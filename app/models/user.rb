@@ -43,4 +43,5 @@ class User < ActiveRecord::Base
   def path
     'users/' + id.to_s.parameterize
   end
+
 end

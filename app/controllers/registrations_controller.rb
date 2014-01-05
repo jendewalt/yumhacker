@@ -20,9 +20,9 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
-    jen = User.find(1);
-    current_user.follow!(jen.id);
-    jen.follow!(current_user.id)
+    jen = User.first
+    resource.follow!(jen.id);
+    jen.follow!(resource.id)
     root_path
   end
 
