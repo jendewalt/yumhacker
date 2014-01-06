@@ -71,12 +71,13 @@ Yumhacker::Application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
 
+  mandrill = YAML.load_file('config/config.yml')['mandrill']
   config.action_mailer.smtp_settings = {
     :address   => "smtp.mandrillapp.com",
     :port      => 587,
     :enable_starttls_auto => true,
-    :user_name => ENV["MANDRILL_USERNAME"],
-    :password  => ENV["MANDRILL_API_KEY"],
+    :user_name => mandrill['username'],
+    :password  => mandrill['api_key'],
     :authentication => 'login',
     :domain => 'yumhacker.com'
   }
