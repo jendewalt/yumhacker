@@ -1,9 +1,7 @@
 Router = Backbone.Router.extend({
     initialize: function () {
         this.route(/^restaurants\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+$/, 'establishmentsShow');
-        // this.route(/^restaurants\/[a-z]{2}\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+$/, 'establishmentsShow');
         this.route(/^restaurants\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+\/photos$/, 'establishmentsPhotosIndex');
-        // this.route(/^restaurants\/[a-z]{2}\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+\/photos$/, 'establishmentsPhotosIndex');
     },
 
     routes: {
@@ -17,7 +15,7 @@ Router = Backbone.Router.extend({
         'users/sign_out': 'nothing',
         'users/sign_up': 'nothing',
         'users/edit': 'editProfile',
-        'users/:id': 'usersShow'
+        'users/:id(/:section)': 'usersShow'
     },
 
     setup: function () {
@@ -66,11 +64,12 @@ Router = Backbone.Router.extend({
         });
     },
 
-    usersShow: function (id) {
+    usersShow: function (id, section) {
         this.setup();
         this.currentView = new UsersShowView({
             el: '#main_container', 
-            model: new User({ id: id })
+            model: new User({ id: id }),
+            section: section
         });
     },
 

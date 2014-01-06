@@ -1,47 +1,54 @@
 UsersShowFollowingContainerView = Backbone.View.extend({
     events: {
-        'click #followers_tab': 'renderFollowers',
-        'click #followed_users_tab': 'renderFollowedUsers',
-        'click #endorsements_tab': 'renderEndorsements'
+        'click a.tab': 'goToSection'
     },
 
-    initialize: function () {
+    initialize: function (options) {
         this.listenTo(this.model, 'sync', this.render);
-        this.listenTo(this.model, 'sync', this.renderEndorsements);
+
+        if (options.section === 'following') {
+            this.listenTo(this.model, 'sync', this.renderFollowedUsers);                
+        } else if (options.section === 'followers') {
+            this.listenTo(this.model, 'sync', this.renderFollowers);
+        } else {
+            this.listenTo(this.model, 'sync', this.renderEndorsements);                
+        }
+        
     },
 
     render: function () {
         this.$el.html(render('users/show_following_container', this.model));
     },
 
-    renderFollowers: function (e) {
-        this.changeCurrentTab(e);
-        this.followersIndexListView = new FollowersIndexListView({
-            el: '.following_list_container',
-            model: this.model
-        });
-    },
-
-    renderFollowedUsers: function (e) {
-        this.changeCurrentTab(e);
-        this.followedUsersIndexListView = new FollowedUsersIndexListView({
-            el: '.following_list_container',
-            model: this.model
-        });        
-    },
-
     renderEndorsements: function (e) {
-        this.changeCurrentTab(e);
         this.endorsementsIndexListContainerView = new EndorsementsIndexListContainerView({
             el: '.following_list_container',
             model: this.model
         });     
+        
+        $('#endorsements_tab').addClass('current_tab');
     },
 
-    changeCurrentTab: function (e) {
-        if (e.target) {
-            $('.tab').removeClass('current_tab');
-            $(e.target).addClass('current_tab');
-        }
+    renderFollowedUsers: function (e) {
+        this.followedUsersIndexListView = new FollowedUsersIndexListView({
+            el: '.following_list_container',
+            model: this.model
+        });        
+
+        $('#followed_users_tab').addClass('current_tab');
+    },
+
+    renderFollowers: function (e) {
+        this.followersIndexListView = new FollowersIndexListView({
+            el: '.following_list_container',
+            model: this.model
+        });
+
+        $('#followers_tab').addClass('current_tab');
+    },
+
+    goToSection: function (e) {
+        e.preventDefault();
+        App.navigate(e.target.pathname, { trigger: true });
     }
 });

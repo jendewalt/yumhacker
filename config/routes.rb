@@ -9,14 +9,13 @@ Yumhacker::Application.routes.draw do
 
   get 'restaurants', to: 'main#index'
   get 'restaurants/:id', to: 'main#index'
-  # get 'restaurants/:state/:city/:id' => 'main#index', :constraints => { :state => /[a-z]{2}/, :city => /[A-Za-z0-9\-_]+/, :id => /[A-Za-z0-9\-_]+/ }
   get 'restaurants/:state/:city/:id' => 'main#index', :constraints => { :state => /[A-Za-z0-9\-_]+/, :city => /[A-Za-z0-9\-_]+/, :id => /[A-Za-z0-9\-_]+/ }
   get 'restaurants/:id/photos', to: 'main#index'
-  # get 'restaurants/:state/:city/:id/photos' => 'main#index', :constraints => { :state => /[a-z]{2}/, :city => /[A-Za-z0-9\-_]+/, :id => /[A-Za-z0-9\-_]+/ }
   get 'restaurants/:state/:city/:id/photos' => 'main#index', :constraints => { :state => /[A-Za-z0-9\-_]+/, :city => /[A-Za-z0-9\-_]+/, :id => /[A-Za-z0-9\-_]+/ }
   get 'users', to: 'main#index'
   get 'users/search', to: 'main#index'
   get 'users/:id', to: 'main#index'
+  get 'users/:id/:section', to: 'main#index'
 
   namespace :api do
     get 'establishments/search', to: 'establishments#search'
