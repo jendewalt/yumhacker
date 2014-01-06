@@ -10,7 +10,7 @@ namespace :email do
     users = $mongo['users']
     users.find.each do |user| 
       UserMailer.new_followers(user['user_id'], user['new_followers']).deliver
+      users.remove('user_id' => user['user_id'])
     end
   end
 end
-

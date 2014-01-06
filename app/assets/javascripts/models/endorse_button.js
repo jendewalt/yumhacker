@@ -5,10 +5,8 @@ EndorseButton = Backbone.Model.extend({
         if (CurrentUser.get('id')) {
             if (this.get('user_endorsing')) {
                 this.unendorse();
-                console.log(this)
             } else {
                 this.endorse();
-                console.log(this)
             } 
         } else {
             this.showAuthenticationOpts();
