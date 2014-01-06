@@ -1,3 +1,9 @@
+require 'mongo'
+include Mongo
+
+mongo_client = MongoClient.new
+$mongo = mongo_client.db('yumhacker')
+
 namespace :email do 
   desc 'Send daily email to users with new followers'
   task :new_followers => :environment do
