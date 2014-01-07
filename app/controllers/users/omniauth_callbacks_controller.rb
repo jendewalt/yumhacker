@@ -19,11 +19,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           flash[:error] = 'Sorry, an account with that email has already been created. Perhaps you\'ve already signed up?'
           redirect_to new_user_session_path
         else
+          email = ''
+          email = auth[:email] if auth[:email] && auth[:email].include?('@')
           user = User.create({ first_name: auth[:first_name],
                                last_name: auth[:last_name],
                                provider: auth[:provider],
                                uid: auth[:uid],
-                               email: auth[:email],
+                               email: email,
                                password: Devise.friendly_token[0,20]
                              })
           begin
@@ -31,7 +33,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             user.save
           rescue
           end
-          sign_in_and_redirect user, :event => :authentication
+
+          if email == ''
+            redirect_to facebook_sign_up_path(:uid => auth[:uid])
+          else
+            sign_in_and_redirect user, :event => :authentication
+          end
         end
       else
         redirect_to new_user_registration_url

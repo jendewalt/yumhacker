@@ -1,0 +1,21 @@
+<div class='devise_form' id='sign_up_container'>
+
+    <% if flash[:error] %>
+        <div class="error"><%= flash[:error] %></div>
+    <% end %>
+
+    <a class='logo' href="/">YumHacker</a>
+
+    <div class='form_container card border'>
+        <h3>Almost Done!</h3>
+        <p>Enter your email</p>
+
+        <div class='inputs_container'>
+            <%= form_for @user, :url => facebook_path do |f| %>
+                <div class='field'><%= f.email_field :email, :autofocus => true, :class=> 'text_input'%></div>
+
+                <div class='center'><%= f.submit "Finish", :class => 'btn text' %></div>
+            <% end %>
+        </div>
+    </div>
+</div>

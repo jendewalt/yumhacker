@@ -1,6 +1,8 @@
 Yumhacker::Application.routes.draw do
   get '/twitter/sign_up', to: 'twitter#sign_up'
   post '/twitter', to: 'twitter#update'
+  get '/facebook/sign_up', to: 'facebook#sign_up'
+  post '/facebook', to: 'facebook#update'
 
   # devise_for must be above root
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations"  }
