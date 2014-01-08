@@ -9,6 +9,7 @@ Yumhacker::Application.routes.draw do
  
   root :to => "main#index"
 
+  get '/users/find_facebook_friends/:id', to: 'main#index'
   get 'restaurants', to: 'main#index'
   get 'restaurants/:id', to: 'main#index'
   get 'restaurants/:state/:city/:id' => 'main#index', :constraints => { :state => /[A-Za-z0-9\-_]+/, :city => /[A-Za-z0-9\-_]+/, :id => /[A-Za-z0-9\-_]+/ }
@@ -20,12 +21,14 @@ Yumhacker::Application.routes.draw do
   get 'users/:id/:section', to: 'main#index'
 
   namespace :api do
+
     get 'establishments/search', to: 'establishments#search'
     get 'establishments/endorsers', to: 'establishments#endorsers'
     get 'establishments/comments', to: 'establishments#comments'
     get 'establishments/:id/photos', to: 'establishments#photos'
     resources :establishments
 
+    get '/users/find_facebook_friends', to: 'users#find_facebook_friends'
     get 'users/search', to: 'users#search'
     get 'users/endorsing', to: 'users#endorsing'
     get 'users/endorsements', to: 'users#endorsements'
@@ -35,6 +38,7 @@ Yumhacker::Application.routes.draw do
     post 'users/follow', to: 'users#follow'
     delete 'users/follow', to: 'users#unfollow'
     get 'users/followers', to: 'users#followers'
+    get 'users/followed_users', to: 'users#followed_users'
     get 'users/followed_users', to: 'users#followed_users'
     resources :users
 

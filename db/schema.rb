@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131230004816) do
+ActiveRecord::Schema.define(version: 20140108002150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -169,6 +169,7 @@ ActiveRecord::Schema.define(version: 20131230004816) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
+    t.string   "token"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
@@ -178,6 +179,7 @@ ActiveRecord::Schema.define(version: 20131230004816) do
   add_index "users", ["provider"], :name => "index_users_on_provider"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
+  add_index "users", ["token"], :name => "index_users_on_token"
   add_index "users", ["uid"], :name => "index_users_on_uid"
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true

@@ -1,10 +1,12 @@
-UsersSearchSuggestionListView = Backbone.View.extend({
+UsersFacebookFriendsListView = Backbone.View.extend({
 	events: {
 	},
 
 	initialize: function () {
 		this.listenTo(this.collection, 'reset', this.render);
 		this.listenTo(this.collection, 'request', this.showThrobber);
+		this.collection.fetch({ reset: true })
+
 		console.log('Find Friend View')
 	},
 

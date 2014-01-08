@@ -7,7 +7,7 @@ class FacebookController < ApplicationController
     user = User.new(provider:'facebook', uid: params[:user][:uid])    
     
     if user.update(email: params[:user][:email])
-      sign_in_and_redirect user, :event => :authentication
+      # sign_in_and_redirect user, :event => :authentication
     else
       flash[:error] = 'Sorry, that email is already taken.'
       redirect_to :back

@@ -55,3 +55,4 @@ gem 'kaminari', '~> 0.14.1'
 gem 'friendly_id', '~> 5.0.2'
 gem 'mongo', '~> 1.9.2'
 gem 'bson_ext', '~> 1.9.2'
+gem 'koala', "~> 1.8.0rc1"

@@ -62,4 +62,24 @@ class Api::UsersController < ApplicationController
       @users = User.where('LOWER(email) LIKE ? or LOWER(first_name) LIKE ? or LOWER(last_name) LIKE ?', wild_email, wild_first_name, wild_last_name).limit(10)
     end
   end
+
+   def find_facebook_friends
+    logger.debug('@@@@@@@@@@@@@@@@@@@@@@@@@')
+    @user = current_user
+
+    unless @user.token.nil?
+      token = @user.token
+
+      @graph = Koala::Facebook::API.new(token)
+      fb_friends = @graph.get_connections("me", "friends")
+      ids = []
+
+      fb_friends.each do |friend| 
+        ids.push(friend['id'])
+      end
+
+      @friends = User.where(:uid => ids, :provider => 'facebook')
+      logger.debug(@friends.inspect)
+    end
+  end
 end

@@ -6,7 +6,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
              provider: data.provider,
              uid: data.uid,
              email: data.info.email,
-             image: data.info.image
+             image: data.info.image,
+             token: data.credentials.token
            }
 
     @user = User.where(:provider => auth[:provider], :uid => auth[:uid]).first
@@ -19,6 +20,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           flash[:error] = 'Sorry, an account with that email has already been created. Perhaps you\'ve already signed up?'
           redirect_to new_user_session_path
         else
+          token = auth[:token]
           email = ''
           email = auth[:email] if auth[:email] && auth[:email].include?('@')
           user = User.create({ first_name: auth[:first_name],
@@ -26,7 +28,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
                                provider: auth[:provider],
                                uid: auth[:uid],
                                email: email,
-                               password: Devise.friendly_token[0,20]
+                               password: Devise.friendly_token[0,20],
+                               token: auth[:token]
                              })
           begin
             user.avatar = URI.parse(auth[:image])
@@ -35,9 +38,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           end
 
           if email == ''
-            redirect_to facebook_sign_up_path(:uid => auth[:uid])
+            # redirect_to facebook_sign_up_path(:uid => auth[:uid])
           else
-            sign_in_and_redirect user, :event => :authentication
+            sign_in user, :event => :authentication     
+            redirect_to '/users/find_facebook_friends/' + current_user.id.to_s
           end
         end
       else
