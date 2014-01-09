@@ -26,7 +26,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
           @graph = Koala::Facebook::API.new(token)
           fb_friends = @graph.get_connections("me", "friends")
-          session[:fb_friends] = fb_friends
 
           if email
             user = User.create({ first_name: auth[:first_name],
@@ -43,7 +42,15 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             rescue
             end
 
-            if fb_friends.length > 0
+            uids = []
+            friend_uids = []
+            fb_friends.each { |friend| uids.push(friend['id']) }
+
+            friends = User.where(:uid => uids, :provider => 'facebook')
+            friends.each { |friend|  friend_uids.push(friend[:uid]) }
+            session[:friend_uids] = friend_uids
+
+            if friends.length > 0
               sign_in user, :event => :authentication     
               redirect_to users_find_facebook_friends_path            
             else

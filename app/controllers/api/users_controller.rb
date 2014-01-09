@@ -76,26 +76,24 @@ class Api::UsersController < ApplicationController
       end
     end
 
-    if session[:fb_friends]
-      fb_friends = session[:fb_friends]
+    if session[:friend_uids]
+      uids = session[:friend_uids]
+      @friends = User.where(:uid => uids, :provider => 'facebook')
     else
       begin
         @graph = Koala::Facebook::API.new(current_user.token)
         fb_friends = @graph.get_connections("me", "friends")
+        uids = []
+        fb_friends.each { |friend| uids.push(friend['id']) }
+        @friends = User.where(:uid => uids, :provider => 'facebook')
+
+        session[:friend_uids] = nil
       rescue
         url = oauth.url_for_oauth_code
 
         @error = {error: { message: 'Invalid access token.', renew_url: url }}
       end
-    end
-
-    if fb_friends
-      ids = []
-      fb_friends.each { |friend| ids.push(friend['id']) }
-
-      @friends = User.where(:uid => ids, :provider => 'facebook')
-      session[:fb_friends] = nil
-    end
+    end   
   end
 
 end
