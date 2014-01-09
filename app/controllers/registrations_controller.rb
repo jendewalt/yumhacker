@@ -24,5 +24,4 @@ class RegistrationsController < Devise::RegistrationsController
     resource.follow!(jen.id);
     jen.follow!(resource.id)
   end
-
 end

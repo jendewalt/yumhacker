@@ -63,23 +63,39 @@ class Api::UsersController < ApplicationController
     end
   end
 
-   def find_facebook_friends
-    logger.debug('@@@@@@@@@@@@@@@@@@@@@@@@@')
-    @user = current_user
+  def find_facebook_friends
+    oauth ||= Koala::Facebook::OAuth.new(FACEBOOK['app_id'], FACEBOOK['secret'], 'http://localhost:3000/users/find_facebook_friends')
 
-    unless @user.token.nil?
-      token = @user.token
+    @friends = {}
 
-      @graph = Koala::Facebook::API.new(token)
-      fb_friends = @graph.get_connections("me", "friends")
-      ids = []
-
-      fb_friends.each do |friend| 
-        ids.push(friend['id'])
+    if params[:code] 
+      begin
+        token = oauth.get_access_token(params[:code])
+        current_user.update(token: token)
+      rescue
       end
+    end
+
+    if session[:fb_friends]
+      fb_friends = session[:fb_friends]
+    else
+      begin
+        @graph = Koala::Facebook::API.new(current_user.token)
+        fb_friends = @graph.get_connections("me", "friends")
+      rescue
+        url = oauth.url_for_oauth_code
+
+        @error = {error: { message: 'Invalid access token.', renew_url: url }}
+      end
+    end
+
+    if fb_friends
+      ids = []
+      fb_friends.each { |friend| ids.push(friend['id']) }
 
       @friends = User.where(:uid => ids, :provider => 'facebook')
-      logger.debug(@friends.inspect)
+      session[:fb_friends] = nil
     end
   end
+
 end

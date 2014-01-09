@@ -5,13 +5,10 @@ UsersSearchSuggestionListView = Backbone.View.extend({
 	initialize: function () {
 		this.listenTo(this.collection, 'reset', this.render);
 		this.listenTo(this.collection, 'request', this.showThrobber);
-		console.log('Find Friend View')
 	},
 
 	render: function () {
 		this.$el.html('');
-
-		console.log(this.collection)
 		
 		if (!this.collection.isEmpty()) {
 			this.$el.html(render('users/search_suggestion_list'));

@@ -21,6 +21,7 @@
 **.orig
 /config/database.yml
 /config/config.yml
+/config/facebook.yml
 /config/deploy.rb
 /config/nginx.god
 /config/redis.god
