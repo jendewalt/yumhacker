@@ -23,5 +23,6 @@ class RegistrationsController < Devise::RegistrationsController
     jen = User.first
     resource.follow!(jen.id);
     jen.follow!(resource.id)
+    root_path
   end
 end

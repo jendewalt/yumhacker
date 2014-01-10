@@ -21,11 +21,13 @@ class Api::UsersController < ApplicationController
   end
 
   def followers
-    @followers = User.find(params[:user_id]).followers.order("last_name ASC")
+    page = params[:page] || 1
+    @followers = User.find(params[:user_id]).followers.order("last_name ASC").page(page).per(20)
   end
 
   def followed_users
-    @followed_users = User.find(params[:user_id]).followed_users.order("last_name ASC")
+    page = params[:page] || 1
+    @followed_users = User.find(params[:user_id]).followed_users.order("last_name ASC").page(page).per(20)
   end
 
   def unendorse

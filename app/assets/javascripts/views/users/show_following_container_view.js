@@ -30,7 +30,7 @@ UsersShowFollowingContainerView = Backbone.View.extend({
     },
 
     renderFollowedUsers: function (e) {
-        this.followedUsersIndexListView = new FollowedUsersIndexListView({
+        this.followedUsersIndexListContainerView = new FollowedUsersIndexListContainerView({
             el: '.following_list_container',
             model: this.model
         });        
@@ -39,7 +39,7 @@ UsersShowFollowingContainerView = Backbone.View.extend({
     },
 
     renderFollowers: function (e) {
-        this.followersIndexListView = new FollowersIndexListView({
+        this.followersIndexListContainerView = new FollowersIndexListContainerView({
             el: '.following_list_container',
             model: this.model
         });

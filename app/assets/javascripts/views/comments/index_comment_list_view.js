@@ -17,29 +17,29 @@ CommentsIndexCommentListView = Backbone.View.extend({
     	this.collection.each(function (comment) {
 			this.renderComment(comment);
 		}, this);	
-	},
+        window.scrollTo(0,0);
+    },
 
-	renderComment: function (comment) {
-		var comment_view = new CommentsIndexCommentView({
-			tagName: 'li',
-			model: comment,
+    renderComment: function (comment) {
+        var comment_view = new CommentsIndexCommentView({
+            tagName: 'li',
+            model: comment,
             className: 'comment'
-		});
+        });
 
-		this.$el.append(comment_view.el);
-	},
+        this.$el.append(comment_view.el);
+    },
 
-	newComment: function (comment) {
+    newComment: function (comment) {
         if (this.collection.length > this.collection.per_page) {
-		  this.collection.pop();
+          this.collection.pop();
         } else {
             this.render();
         }
-	},
+    },
 
-	paginate: function (e) {
-		this.collection.fetch({ reset: true, data: { establishment_id: this.model.get('id'), page: e } });
-        window.scrollTo(0,0);
+    paginate: function (e) {
+        this.collection.fetch({ reset: true, data: { establishment_id: this.model.get('id'), page: e } });
 	}, 
 
     showThrobber: function () {

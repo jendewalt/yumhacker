@@ -3,16 +3,14 @@ FollowersIndexListView = Backbone.View.extend({
     },
 
     initialize: function () {
-        this.collection = new FollowersCollection();
-
         this.listenTo(this.collection, 'reset', this.render);
+        this.listenTo(this.collection, 'paginate', this.paginate);
 
         this.collection.fetch({ reset: true, data: { user_id: this.model.get('id') }});
     },
 
     render: function () {
         this.$el.html('');
-        this.$el.html(render('followers/index_followers_list', this.model));
 
         if (this.collection.length > 0) {
             this.$('ul.followers').html('');
@@ -20,6 +18,7 @@ FollowersIndexListView = Backbone.View.extend({
             this.collection.each(function (user){
                 this.renderUser(user);
             }, this);
+            window.scrollTo(0,0);
         } else {
             this.$el.html(render('followers/index_no_results', this.model));
         }
@@ -31,6 +30,10 @@ FollowersIndexListView = Backbone.View.extend({
             model: user
         });
         
-        this.$('ul.followers').append(user_view.el);
+        this.$el.append(user_view.el);        
+    },
+
+    paginate: function (e) {
+        this.collection.fetch({ reset: true, data: { user_id: this.model.get('id'), page: e } });
     }
 });

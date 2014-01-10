@@ -1,3 +1,9 @@
+json.current_page @followers.current_page
+json.per_page @followers.limit_value
+json.total_pages @followers.total_pages
+json.offset @followers.offset_value
+json.total @followers.total_count
+
 json.followers @followers do |follower|
     json.id follower.id
     json.first_name follower.first_name

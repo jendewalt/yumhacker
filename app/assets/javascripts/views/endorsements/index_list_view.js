@@ -18,6 +18,7 @@ EndorsementsIndexListView = Backbone.View.extend({
             this.collection.each(function (endorsement){
                 this.renderEndorsement(endorsement);
             }, this);
+            window.scrollTo(0,0);
         } else {
             this.$el.html(render('endorsements/index_no_results', this.model));
         }
@@ -33,6 +34,5 @@ EndorsementsIndexListView = Backbone.View.extend({
 
     paginate: function (e) {
         this.collection.fetch({ reset: true, data: { user_id: this.model.get('id'), page: e } });
-        window.scrollTo(0,0);
     }
 });
