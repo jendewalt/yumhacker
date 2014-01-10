@@ -66,7 +66,7 @@ class Api::UsersController < ApplicationController
   def find_facebook_friends
     oauth ||= Koala::Facebook::OAuth.new(FACEBOOK['app_id'], FACEBOOK['secret'], 'http://localhost:3000/users/find_facebook_friends')
 
-    @friends = {}
+    friend_ids = current_user.get_fb_friends_from_mongo
 
     if params[:code] 
       begin
@@ -76,18 +76,12 @@ class Api::UsersController < ApplicationController
       end
     end
 
-    if session[:friend_uids]
-      uids = session[:friend_uids]
-      @friends = User.where(:uid => uids, :provider => 'facebook')
+    if friend_ids
+      @friends = User.where(:id => friend_ids)
+      current_user.remove_fb_friends_from_mongo
     else
       begin
-        @graph = Koala::Facebook::API.new(current_user.token)
-        fb_friends = @graph.get_connections("me", "friends")
-        uids = []
-        fb_friends.each { |friend| uids.push(friend['id']) }
-        @friends = User.where(:uid => uids, :provider => 'facebook')
-
-        session[:friend_uids] = nil
+        @friends = current_user.get_fb_friends_on_yumhacker
       rescue
         url = oauth.url_for_oauth_code
 

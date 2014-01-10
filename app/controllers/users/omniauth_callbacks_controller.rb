@@ -24,9 +24,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           token = auth[:token]
           email = auth[:email] if auth[:email] && auth[:email].include?('@')
 
-          @graph = Koala::Facebook::API.new(token)
-          fb_friends = @graph.get_connections("me", "friends")
-
           if email
             user = User.create({ first_name: auth[:first_name],
                                  last_name: auth[:last_name],
@@ -42,15 +39,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             rescue
             end
 
-            uids = []
-            friend_uids = []
-            fb_friends.each { |friend| uids.push(friend['id']) }
-
-            friends = User.where(:uid => uids, :provider => 'facebook')
-            friends.each { |friend|  friend_uids.push(friend[:uid]) }
-            session[:friend_uids] = friend_uids
+            friends = user.get_fb_friends_on_yumhacker
+            friend_ids = friends.map { |f| f.id }
 
             if friends.length > 0
+              user.store_fb_friends_in_mongo(friend_ids)
               sign_in user, :event => :authentication     
               redirect_to users_find_facebook_friends_path            
             else
