@@ -80,7 +80,7 @@ Router = Backbone.Router.extend({
     },
 
     editProfile: function () {
-        attachEditProfileEvents();
+        this.currentView = new UsersEditView({ el: 'section' });
     },
 
     findFacebookFriends: function () {

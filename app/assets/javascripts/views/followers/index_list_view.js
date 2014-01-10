@@ -20,6 +20,8 @@ FollowersIndexListView = Backbone.View.extend({
             this.collection.each(function (user){
                 this.renderUser(user);
             }, this);
+        } else {
+            this.$el.html(render('followers/index_no_results', this.model));
         }
     },
 

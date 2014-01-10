@@ -24,13 +24,3 @@ function getCurrentLocation (callback) {
         alert('Current location not supported.');
     }
 }
-
-function attachEditProfileEvents () {
-    $('.change_password').on('click', function () {
-        $('#password_fields').show();
-    });
-
-    $('form').on('submit', function () {
-        $('.throbber').show();
-    });
-}
