@@ -1,0 +1,28 @@
+<div id='search_wrapper'>
+    <div id='find_user_container' class='search_container card border'>
+        <h3>Search for Friends</h3>
+
+        [[ if (CurrentUser.get('provider') === 'facebook') { ]]
+            <a id='find_friends_button' href="/users/find_facebook_friends">
+                <%= image_tag 'fb_find_friends.svg', :class => 'facebook' %>
+            </a>
+            <p class='or'>- or -</p>
+        [[ } ]]
+
+        <form id='user_search_form'>
+
+            <div class='field'>
+                <label for='query'>Search by first name, last name, or email:</label><br>
+                <input id='query' type='text' autocomplete='off' placeholder='bob.smith@example.com' autofocus class='text_input'>
+            </div>
+
+            <div class='center'>
+                <input class='btn text' type='submit' value='Submit'>
+            </div>
+        </form>
+    </div>
+        
+    <div id='find_user_results_container'></div>
+    
+    <div id='login_modal_container'></div>
+</div>

@@ -18,8 +18,6 @@ UsersFacebookFriendsListView = Backbone.View.extend({
 	render: function () {
 		this.$el.html('');
 
-		xxx = this.collection
-
 		if (this.collection.models.length > 0 && this.collection.models[0].get('error')) {
 			this.$el.html(render('users/access_token_login', this.collection.models[0].get('error')));
 		} else if (!this.collection.isEmpty()) {

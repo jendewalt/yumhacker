@@ -1,0 +1,23 @@
+body.yumhacker {
+    $magenta: #e91367;
+    $dark-magenta: #d9114a;
+    $blue: #0d70eb;
+    $dark-blue: #094da1;
+    $dark-grey: #313136;
+    $mid-grey: #737378;
+    $light-grey: #c1c1c3;
+    $x-light-grey: #F1F1F3;
+
+    #search_wrapper {
+
+        a#find_friends_button {
+            display: block;
+            margin-top: 16px;
+        }
+        
+        .or {
+            color: $mid-grey;
+            padding: 14px 0 4px;
+        }
+    }
+}

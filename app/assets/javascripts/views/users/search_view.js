@@ -1,6 +1,7 @@
 UsersSearchView = Backbone.View.extend({
 	events: {
-		'submit': 'searchForUsers'
+		'submit': 'searchForUsers',
+		'click #find_friends_button': 'goToFindFbFriends'
 	},
 
 	initialize: function () {
@@ -25,10 +26,12 @@ UsersSearchView = Backbone.View.extend({
 
 	searchForUsers: function (e) {
 		e.preventDefault();
-		var email = e.target[0].value;
-		var first_name = e.target[1].value;
-		var last_name = e.target[2].value;
+		var query = e.target[0].value;
+		this.collection.fetch({ reset: true, data: { query: query } });
+	},
 
-		this.collection.fetch({ reset: true, data: { email: email, first_name: first_name, last_name: last_name } });
+	goToFindFbFriends: function (e) {
+		e.preventDefault();
+		App.navigate(e.currentTarget.pathname, { trigger: true });
 	}
 });
