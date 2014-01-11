@@ -1,15 +1,18 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     data = request.env["omniauth.auth"]
+
     auth = { first_name: data.info.first_name,
              last_name: data.info.last_name,
              provider: data.provider,
              uid: data.uid,
              email: data.info.email,
              image: data.info.image,
+             location: data.info.location,
              token: data.credentials.token
            }
 
+    logger.debug(auth[:location])
     @user = User.where(:provider => auth[:provider], :uid => auth[:uid]).first
     
     if @user
@@ -30,6 +33,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
                                  provider: auth[:provider],
                                  uid: auth[:uid],
                                  email: email,
+                                 location: auth[:location],
                                  password: Devise.friendly_token[0,20],
                                  token: token
                                })
