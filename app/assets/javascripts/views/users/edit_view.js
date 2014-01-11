@@ -5,11 +5,9 @@ UsersEditView = Backbone.View.extend({
     },
 
     initialize: function () {
-        console.log('init')
     },
 
     openChangePasswordFields: function () {
-        console.log('open!')
         $('#password_fields').show();
     },
 
