@@ -37,6 +37,8 @@ body.yumhacker {
         border-radius: 3px;
         box-shadow: none;
         border: 1px solid $light-grey;
+        word-break: normal;
+        word-wrap: normal;
     }
 
     #main_container {

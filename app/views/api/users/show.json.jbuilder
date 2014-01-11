@@ -2,6 +2,7 @@ json.id @user.id
 json.full_name @user.first_name + ' ' + @user.last_name
 json.first_name @user.first_name 
 json.last_name @user.last_name
+json.location @user.location
 json.num_followers @user.followers.count
 json.num_followed_users @user.followed_users.count
 json.num_endorsements @user.endorsements.count

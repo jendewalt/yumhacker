@@ -5,6 +5,10 @@
 
     <h1 class='user_name'>[[= get('full_name') ]]</h1>
 
+    [[ if (get('location')) { ]]
+        <p class='location'>[[= get('location') ]]</p>
+    [[ } ]]
+
     <div class='follow_btn_container'>
         <a href='/users/edit' class='edit btn text'>Edit Profile</a>
     </div>
