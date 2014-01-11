@@ -1,7 +1,10 @@
 <td>[[= moment(day, 'd').format('ddd') ]]</td>
 [[ _.each(hours, function (hour, i) { ]]
-    <td>
-        [[= moment(hour.get('open_time'), 'HHmm').format('h:mm a') + ' - ' +  moment(hour.get('close_time'), 'HHmm').format('h:mm a') +  (i < hours.length - 1 ? ',' : '') ]]
-
-    </td>
+    [[ if ( Number(hour.get('open_time')) === Number(hour.get('close_time')) ) { ]]
+        <td>Open 24 hours</td>
+    [[ } else { ]]
+        <td>
+            [[= moment(hour.get('open_time'), 'HHmm').format('h:mm a') + ' - ' +  moment(hour.get('close_time'), 'HHmm').format('h:mm a') +  (i < hours.length - 1 ? ',' : '') ]]
+        </td>
+    [[ } ]]
 [[ }) ]]

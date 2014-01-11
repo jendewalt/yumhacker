@@ -3,6 +3,7 @@ class FacebookController < ApplicationController
     @user = User.new({
       first_name: params[:auth][:first_name],
       last_name: params[:auth][:last_name],
+      location: params[:auth][:location],
       uid: params[:auth][:uid]
     })
     @avatar = params[:auth][:avatar]
@@ -11,6 +12,7 @@ class FacebookController < ApplicationController
   def update
     user = User.new({ first_name: params[:user][:first_name],
                       last_name: params[:user][:last_name],
+                      location: params[:user][:location],
                       provider:'facebook',
                       uid: params[:user][:uid],
                       email: params[:user][:email],

@@ -14,6 +14,7 @@
             <%= form_for @user, :url => twitter_path do |f| %>
                 <%= f.hidden_field :first_name, :value => @user.first_name %>
                 <%= f.hidden_field :last_name, :value => @user.last_name %>
+                <%= f.hidden_field :location, :value => @user.location %>
                 <%= f.hidden_field :avatar, :value => @avatar %>
                 <%= f.hidden_field :uid, :value => @user.uid %>
                 

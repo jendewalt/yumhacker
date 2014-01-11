@@ -12,7 +12,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
              token: data.credentials.token
            }
 
-    logger.debug(auth[:location])
     @user = User.where(:provider => auth[:provider], :uid => auth[:uid]).first
     
     if @user
@@ -73,6 +72,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       if request.env['omniauth.origin'].include?('sign_up')
         auth = { first_name: auth.info.name.split.first,
                  last_name: auth.info.name.split[1..-1].join(' '),
+                 location: auth.info.location,
                  avatar: auth.info.image,
                  uid: auth.uid
                }    
