@@ -9,7 +9,7 @@ body.yumhacker {
     $x-light-grey: #F1F1F3;
 
     #photos_index_container {
-        width: 900px;
+        width: 920px;
         margin: auto;
         text-align: left;
 
@@ -38,11 +38,13 @@ body.yumhacker {
 
             .flexslider {
                 box-shadow: 0 0 1px rgba(0,0,0,0.1);
+                border: none;
             }
 
             ul.slides {
                 width: 100%;
                 padding: 20px;
+                border-bottom: 3px solid $x-light-grey;
 
                 li {
                     width: 100%;
@@ -95,7 +97,9 @@ body.yumhacker {
             }
 
             ul.flex-direction-nav {
+
                 a {
+                    top: 200px;
                     color: $magenta;
                     text-decoration: none;
                     text-shadow: none;

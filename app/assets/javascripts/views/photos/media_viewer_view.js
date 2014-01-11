@@ -10,7 +10,7 @@ PhotosMediaViewerView = Backbone.View.extend({
         this.$el.flexslider({
             slideshow: false,
             controlNav: 'thumbnails',
-            thumbCaptions: true,
+            thumbCaptions: false,
             controlsContainer: ".flex-container",
             itemWidth: '30px'
         });
