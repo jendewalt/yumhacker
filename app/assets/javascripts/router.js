@@ -16,7 +16,11 @@ Router = Backbone.Router.extend({
         'users/sign_out': 'nothing',
         'users/sign_up': 'nothing',
         'users/edit': 'editProfile',
-        'users/:id(/:section)': 'usersShow'
+        'users/:id(/:section)': 'usersShow',
+        'contact': 'contactPage',
+        'terms': 'termsPage',
+        'privacy': 'privacyPage',
+        // 'neighborhoods': 'neighborhoodsPage',
     },
 
     setup: function () {
@@ -91,6 +95,26 @@ Router = Backbone.Router.extend({
         });
     },
 
+    contactPage: function () {
+        this.setup();
+        this.currentView = new ContactView({ el: '#main_container' })
+    },
+
+    termsPage: function () {
+        this.setup();
+        this.currentView = new TermsView({ el: '#main_container' })
+    },
+
+    privacyPage: function () {
+        this.setup();
+        this.currentView = new PrivacyView({ el: '#main_container' })
+    },
+
+    // neighborhoodsPage: function () {
+    //     this.setup();
+    //     this.currentView = new NeighborhoodView({ el: '#main_container' })
+    // },
+
     nothing: function () {
     }
 });
@@ -105,7 +129,8 @@ $(window).on("popstate", function(e) {
 });
 
 $(document).ready(function () {
-    new ApplicationHeaderView({ el: 'header' });
+    new HeaderView({ el: 'header' });
+    new FooterView({ el: 'footer' });
 
     Backbone.history.start({ pushState: true });
     // Backbone.history.start({ pushState: true, hashChange: false }); enable when you start worrying about IE 9 and under

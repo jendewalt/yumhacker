@@ -1,4 +1,4 @@
-ApplicationHeaderView = Backbone.View.extend({
+HeaderView = Backbone.View.extend({
     events: {
         'click .nav': 'goToSubIndex'
     },
@@ -18,12 +18,6 @@ ApplicationHeaderView = Backbone.View.extend({
 
     goToSubIndex: function (e) {
         e.preventDefault();
-        var path = e.target.pathname
-
-        if (path) {
-            App.navigate(e.target.pathname, { trigger: true });
-        } else if (CurrentUser.get('id')) {
-            App.navigate('users/' + CurrentUser.get('id'), { trigger: true });            
-        }
+        App.navigate(e.currentTarget.pathname, { trigger: true });
     }
 });

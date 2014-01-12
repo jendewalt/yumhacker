@@ -19,6 +19,10 @@ Yumhacker::Application.routes.draw do
   get 'users/search', to: 'main#index'
   get 'users/:id', to: 'main#index'
   get 'users/:id/:section', to: 'main#index'
+  get 'contact', to: 'main#index'
+  get 'terms', to: 'main#index'
+  get 'privacy', to: 'main#index'
+  # get 'neighborhoods', to: 'main#index'
 
   namespace :api do
 

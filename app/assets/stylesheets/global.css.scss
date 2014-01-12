@@ -44,7 +44,7 @@ body.yumhacker {
     #main_container {
         display: inline-block;
         width: 1000px;
-        padding: 20px 0 30px;
+        padding: 20px 0 60px;
     }
 
     ol.establishments_list, ul.establishments_list {
@@ -139,11 +139,6 @@ body.yumhacker {
             .follow_btn_container {
                 float: right;
                 text-align: center;
-
-                .following {
-                    background-color: #C1C1C3;
-                    color: #737378;
-                }
             }
         }
     }
@@ -214,9 +209,17 @@ body.yumhacker {
         float: right;
         display: inline;
 
-        .endorsing {
+    }
+    
+    .endorsing, .following {
+        color: $light-grey;
+        background-color: white;
+        border: 1px solid $x-light-grey;
+
+        &:hover {
+            font-weight: normal;
             background-color: #C1C1C3;
-            color: white;
+            color: #737378;
         }
     }
 
