@@ -21,6 +21,7 @@ class TwitterController < ApplicationController
     begin
       user.avatar = URI.parse(params[:user][:avatar])
       user.save
+      user.automatic_relationships!
     rescue
     end
 

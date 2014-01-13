@@ -1,19 +1,19 @@
 <p>Hi <%= @user.first_name %>,</p>
 
-<% if @followers.length > 1 %>
+<% if @user.followers.length > 1 %>
     <p>You've got new followers on <a href='<%= "http://yumhacker.com/users/" + @user.id.to_s + '/followers' %>' >YumHacker</a>!</p>
     
     <ul>    
-        <% @followers.each do |follower| %>
+        <% @user.followers.each do |follower| %>
             <li>
                 <img src="<%= 'http://yumhacker.com' + follower.avatar.url(:thumb) %>"> <%= follower.first_name + ' ' + follower.last_name %>
             </li>
         <% end %>
     </ul>
 <% else %>
-    <p><%= @followers.first.first_name + ' ' + @followers.first.last_name %> is now following you on <a href='<%= "http://yumhacker.com/users/" + @user.id.to_s + '/followers' %>' >YumHacker</a>!</p>
+    <p><%= @user.followers.first.first_name + ' ' + @user.followers.first.last_name %> is now following you on <a href='<%= "http://yumhacker.com/users/" + @user.id.to_s + '/followers' %>' >YumHacker</a>!</p>
 
-    <img src="<%= 'http://yumhacker.com' + @followers.first.avatar.url(:thumb) %>"> <%= @followers.first.first_name + ' ' + @followers.first.last_name %>
+    <img src="<%= 'http://yumhacker.com' + @user.followers.first.avatar.url(:thumb) %>"> <%= @user.followers.first.first_name + ' ' + @user.followers.first.last_name %>
 <% end %>
 
 View all of your followers on <a href='<%= "http://yumhacker.com/users/" + @user.id.to_s + '/followers' %>' >YumHacker</a>.

@@ -53,22 +53,22 @@ class User < ActiveRecord::Base
     return User.where(:uid => uids, :provider => 'facebook')
   end
 
-  def store_fb_friends_in_mongo(friends)
-    collection = $mongo['fb_friends']
-    doc = { 'user_id' => id, 'friend_ids' => friends }
-    collection.insert(doc)
+  def store_fb_friends_in_redis(friends)
+    $redis.sadd('user:' + id.to_s, friends)
   end
 
-  def get_fb_friends_from_mongo
-    collection = $mongo['fb_friends']
-    doc = collection.find('user_id' => id).to_a[0]
-    friend_ids = doc['friend_ids'] unless doc.nil?
-    friend_ids
+  def get_fb_friends_from_redis
+    $redis.smembers('user:' + id.to_s)
   end
 
-  def remove_fb_friends_from_mongo
-    collection = $mongo['fb_friends']
-    collection.remove('user_id' => id)  # without args this will delete the whole collection!
+  def remove_fb_friends_from_redis
+    $redis.del('user:' + id.to_s)
+  end
+
+  def automatic_relationships!
+    jen = User.first
+    follow!(jen.id);
+    jen.follow!(id)
   end
 
 end

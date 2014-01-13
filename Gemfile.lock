@@ -31,9 +31,6 @@ GEM
     arel (4.0.1)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
-    bson (1.9.2)
-    bson_ext (1.9.2)
-      bson (~> 1.9.2)
     builder (3.1.4)
     capistrano (2.14.2)
       highline
@@ -85,8 +82,6 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     minitest (4.7.5)
-    mongo (1.9.2)
-      bson (~> 1.9.2)
     multi_json (1.8.2)
     multipart-post (1.2.0)
     net-scp (1.1.2)
@@ -145,6 +140,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redis (3.0.3)
     ref (1.0.5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
@@ -192,7 +188,6 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-postgis-adapter
-  bson_ext (~> 1.9.2)
   capistrano (= 2.14.2)
   devise (~> 3.1.1)
   ejs
@@ -201,7 +196,6 @@ DEPENDENCIES
   jquery-rails
   kaminari (~> 0.14.1)
   koala (~> 1.8.0rc1)
-  mongo (~> 1.9.2)
   oj
   omniauth
   omniauth-facebook
@@ -209,6 +203,7 @@ DEPENDENCIES
   paperclip (~> 3.0)
   pg
   rails (= 4.0.2)
+  redis (~> 3.0.3)
   rest-client
   rgeo
   sass-rails (~> 4.0.0)

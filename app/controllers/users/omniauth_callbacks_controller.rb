@@ -23,6 +23,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           flash[:error] = 'Sorry, an account with that email has already been created. Perhaps you\'ve already signed up?'
           redirect_to new_user_session_path
         else
+
+
           token = auth[:token]
           email = auth[:email] if auth[:email] && auth[:email].include?('@')
 
@@ -39,6 +41,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             begin
               user.avatar = URI.parse(auth[:image])
               user.save
+              user.automatic_relationships!
             rescue
             end
 
@@ -46,7 +49,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             friend_ids = friends.map { |f| f.id }
 
             if friends.length > 0
-              user.store_fb_friends_in_mongo(friend_ids)
+              user.store_fb_friends_in_redis(friend_ids)
               sign_in user, :event => :authentication     
               redirect_to users_find_facebook_friends_path            
             else

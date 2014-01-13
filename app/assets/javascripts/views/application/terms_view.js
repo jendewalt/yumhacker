@@ -10,6 +10,7 @@ TermsView = Backbone.View.extend({
     render: function () {
         this.$el.html('')
         this.$el.html(render('application/terms'));
+        window.scrollTo(0,0);
         this.startStream();
     },
 

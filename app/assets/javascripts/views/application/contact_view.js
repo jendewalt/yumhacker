@@ -10,6 +10,7 @@ ContactView = Backbone.View.extend({
     render: function () {
         this.$el.html('')
         this.$el.html(render('application/contact'));
+        window.scrollTo(0,0);
     },
 
     goToSubIndex: function (e) {

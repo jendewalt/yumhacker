@@ -9,5 +9,6 @@ PrivacyView = Backbone.View.extend({
     render: function () {
         this.$el.html('')
         this.$el.html(render('application/privacy'));
+        window.scrollTo(0,0);
     }
 });
