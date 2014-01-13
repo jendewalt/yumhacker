@@ -20,8 +20,14 @@ class User < ActiveRecord::Base
     relationships.where(:followed_id => id).count > 0
   end
 
-  def follow!(id)
-    relationships.create!(:followed_id => id)
+  def follow!(ids)
+    relationships.create!(:followed_id => ids)
+  end
+
+  def follow_all!(ids)
+    ids -= [User.first.id]
+    ids.map!{ |id| { followed_id: id }}
+    relationships.create!(ids)
   end
 
   def unfollow!(id)

@@ -19,5 +19,15 @@ body.yumhacker {
             color: $mid-grey;
             padding: 14px 0 4px;
         }
+
+        h4 {
+            font-size: 13px;
+            line-height: 13px;
+            color: $mid-grey;
+        }
+
+        .done {
+            margin-top: 20px;
+        }
     }
 }

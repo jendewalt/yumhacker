@@ -51,7 +51,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             if friends.length > 0
               user.store_fb_friends_in_redis(friend_ids)
               sign_in user, :event => :authentication     
-              redirect_to users_find_facebook_friends_path            
+              redirect_to users_sign_up_find_facebook_friends_path            
             else
               sign_in_and_redirect user, :event => :authentication
             end

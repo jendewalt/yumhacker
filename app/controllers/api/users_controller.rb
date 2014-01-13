@@ -76,6 +76,8 @@ class Api::UsersController < ApplicationController
 
     if friend_ids && friend_ids.length > 0
       @friends = User.where(:id => friend_ids)
+      current_user.follow_all!(friend_ids)
+
       current_user.remove_fb_friends_from_redis
     else
       begin

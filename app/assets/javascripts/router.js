@@ -10,6 +10,7 @@ Router = Backbone.Router.extend({
         'restaurants': 'establishmentsIndex',
         'restaurants/search': 'establishmentsSearch',
         'users': 'nothing',
+        'users/sign_up/find_facebook_friends': 'signUpFindFacebookFriends',
         'users/find_facebook_friends': 'findFacebookFriends',
         'users/search': 'usersSearch',
         'users/sign_in': 'nothing',
@@ -85,6 +86,14 @@ Router = Backbone.Router.extend({
 
     editProfile: function () {
         this.currentView = new UsersEditView({ el: 'section' });
+    },
+
+    signUpFindFacebookFriends: function () {
+        this.setup();
+        this.currentView = new UsersSignUpFindFacebookFriendsView({ 
+            el: '#main_container',
+            model: new User({ id: CurrentUser.get('id') }) 
+        });
     },
 
     findFacebookFriends: function () {

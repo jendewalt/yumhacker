@@ -1,4 +1,4 @@
-UsersFindFacebookFriendsView = Backbone.View.extend({
+UsersSignUpFindFacebookFriendsView = Backbone.View.extend({
 	events: {
 		'click .nav': 'goToHome'
 	},
@@ -20,7 +20,7 @@ UsersFindFacebookFriendsView = Backbone.View.extend({
 	},
 
 	render: function () {
-		this.$el.html(render('users/find_facebook_friends'));	
+		this.$el.html(render('users/sign_up_find_facebook_friends'));	
 	},
 
 	goToHome: function (e) {
