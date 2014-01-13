@@ -16,6 +16,7 @@
 //= require underscore
 //= require json2
 //= require backbone
+//= require ua-parser
 //= require ext/backbone.view.remove
 //= require ext/backbone.history
 //= require jquery.cookie

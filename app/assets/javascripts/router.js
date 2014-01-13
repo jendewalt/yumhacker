@@ -39,7 +39,12 @@ Router = Backbone.Router.extend({
     },
 
     redirectToHome: function () {
-        App.navigate('');
+        var browser = $.ua.browser.name
+        if (browser && browser.toLowerCase() == 'firefox') {
+            window.location = '/';
+        } else {
+            App.navigate('');
+        }
     },
 
     establishmentsIndex: function () {
