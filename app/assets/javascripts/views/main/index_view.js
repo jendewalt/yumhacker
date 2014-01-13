@@ -19,7 +19,6 @@ MainIndexView = Backbone.View.extend({
 
 		MapView.el = '.map_canvas_container';
 		MapView.collection = this.collection;
-		MapView.render();
 		this.listenTo(this.collection, 'reset', function () { MapView.resetMap(); });
 		
 		this.filter_view = new FilterView({

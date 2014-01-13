@@ -18,6 +18,7 @@ MapView = new (Backbone.View.extend({
 	},
 
 	resetMap: function () {
+		this.render();
 		this.map.setCenter(new google.maps.LatLng(MainSearch.get('lat'), MainSearch.get('lng')));
 		this.resetMarkers();
 	},
