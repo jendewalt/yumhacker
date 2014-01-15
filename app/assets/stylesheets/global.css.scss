@@ -327,10 +327,11 @@ body.yumhacker {
                 cursor:pointer;
             }
 
-            h1 {
-                line-height: 40px;
-                font-size: 40px;
-                color: $magenta;
+            .logo {
+                margin-bottom: 20px; 
+                img {
+                    height: 40px;
+                }
             }
 
             p {
