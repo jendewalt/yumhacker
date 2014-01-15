@@ -19,7 +19,6 @@ FollowedEndorsersListView = Backbone.View.extend({
     },
 
     renderUser: function (user) {
-        console.log('rendering users!')
         var user_view = new FollowedEndorserView({
             tagName: 'li',
             model: user

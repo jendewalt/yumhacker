@@ -18,16 +18,17 @@ class Api::EstablishmentsController < ApplicationController
 
       # Find estabs in bouding box area ... get center and radius from params to expand center point to radius to give bounding box.
 
-      @establishments = Establishment.from_users_followed_by(current_user).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").page(page).per(10)
+      @establishments = Establishment.from_users_followed_by(current_user).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)
     else
-      @establishments = Establishment.includes(:hours).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").page(page).per(10)
+      @establishments = Establishment.includes(:hours).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)
     end
 
     @endorsing_users = []
     if user_signed_in?
       estab_ids = @establishments.map(&:id)
+
       # get all users you're following that are endorsing those establisments
-      @endorsing_users = User.includes(:establishments).where('endorsements.establishment_id IN (?)', estab_ids).joins(:reverse_relationships).where(relationships: {follower_id: current_user.id}).limit(5)
+      @endorsing_users = User.includes(:establishments).where('endorsements.establishment_id IN (?)', estab_ids).references(:endorsements).joins(:reverse_relationships).where(relationships: {follower_id: current_user.id}).limit(10).order('relationships.created_at DESC')
     end
       # @endorsers = establishment.users.joins(:reverse_relationships).where(relationships: { follower_id: current_user.id })
 	end
@@ -91,6 +92,7 @@ class Api::EstablishmentsController < ApplicationController
   end
 
   def endorsers
-    @establishment = Establishment.includes(:users).find(params[:establishment_id])
+    page = params[:page] || 1
+    @endorsers = Establishment.find(params[:establishment_id]).users.page(page).per(30)
   end
 end

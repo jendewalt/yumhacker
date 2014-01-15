@@ -18,12 +18,11 @@ CommentsIndexView = Backbone.View.extend({
         });
 
         this.pagination_view = new PaginationView({
-            el: '.pagination_container',
+            el: '.pagination_container.comments',
             collection: this.collection
         });
 	},
 
 	render: function () {
-		this.$el.html('');		
 	}
 });

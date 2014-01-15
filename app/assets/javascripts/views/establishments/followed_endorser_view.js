@@ -9,7 +9,6 @@ FollowedEndorserView = Backbone.View.extend({
     },
     
     render: function () {
-        console.log('rendered my user')
         this.$el.html(render('establishments/followed_endorser', this.model));
     },
 

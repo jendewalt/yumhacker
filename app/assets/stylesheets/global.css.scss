@@ -237,7 +237,8 @@ body.yumhacker {
         border-top: 1px solid $light-grey;
 
         .pagination_controls {
-            width: 50%; 
+            width: 80%; 
+            text-align: center;
             margin: auto;
 
             a {

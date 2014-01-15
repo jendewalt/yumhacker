@@ -1,10 +1,9 @@
 EstablishmentsShowEndorsersListView = Backbone.View.extend({
 	
 	initialize: function () {
-		this.collection = new EndorsersCollection();
-
         this.listenTo(this.collection, 'reset', this.render);
         this.listenTo(this.collection, 'request', this.showThrobber);
+        this.listenTo(this.collection, 'paginate', this.paginate);
 
         this.collection.fetch({ reset: true, data: { establishment_id: this.model.get('id') }});
     },
@@ -15,6 +14,7 @@ EstablishmentsShowEndorsersListView = Backbone.View.extend({
         this.collection.each(function (user) {
             this.renderUser(user);
         }, this);
+        window.scrollTo(0,0);
     },
 
     renderUser: function (user) {
@@ -28,6 +28,10 @@ EstablishmentsShowEndorsersListView = Backbone.View.extend({
         } else {
             this.$el.append(user_view.el);
         }
+    }, 
+
+    paginate: function (e) {
+        this.collection.fetch({ reset: true, data: { establishment_id: this.model.get('id'), page: e } });
     }, 
 
     showThrobber: function () {

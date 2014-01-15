@@ -29,6 +29,6 @@ class Establishment < ActiveRecord::Base
   end
 
   def self.from_users_followed_by(user)
-    joins(:endorsements).group('establishments.id').where(%{endorsements.user_id IN (#{Relationship.select(:followed_id).where(:follower_id => user.id).to_sql}) OR user_id = :user_id}, :user_id => user.id)
+    joins(:endorsements).group('establishments.id').where(%{endorsements.user_id IN (#{Relationship.select(:followed_id).where(:follower_id => user.id).to_sql}) OR user_id = :user_id}, :user_id => user.id).references(:relationships)
   end
 end
