@@ -70,7 +70,22 @@ body.yumhacker {
                         color: $blue;
                     }
                 }
+            }
 
+            .endorsers_container {
+                border-top: 1px solid $x-light-grey;
+                padding-top: 5px;
+                margin-top: 5px;
+
+                p {
+                    font-size: 9px;
+                    line-height: 9px;
+                    color: $mid-grey;
+                }
+
+                li {
+                    line-height: 0;
+                }
             }
         }
 

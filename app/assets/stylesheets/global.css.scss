@@ -83,14 +83,22 @@ body.yumhacker {
             font-size: 13px;
             color: $mid-grey;
             line-height: 18px;
+
+            &.extra {
+                padding-top: 8px;
+            }
+        }
+
+        .price {
+            float: left;
+            margin-right: 10px;
         }
 
         a.website {
-            display: inline-block;
-            margin-top: 12px;
+            float: left;
             line-height: 18px;
             text-overflow: ellipsis;
-            width: 100%;
+            max-width: 190px;
             white-space: nowrap;
             overflow: hidden;
         }
@@ -218,8 +226,8 @@ body.yumhacker {
 
         &:hover {
             font-weight: normal;
-            background-color: #C1C1C3;
-            color: #737378;
+            background-color: $light-grey;
+            color: #59595e;
         }
     }
 

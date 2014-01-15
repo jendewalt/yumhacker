@@ -46,8 +46,6 @@ class Api::UsersController < ApplicationController
     lng = params[:lng] || -122.4194155
 
     @establishments = User.find(params[:user_id]).establishments.order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").page(page).per(10)
-
-    render 'api/establishments/index'
   end
 
   def search

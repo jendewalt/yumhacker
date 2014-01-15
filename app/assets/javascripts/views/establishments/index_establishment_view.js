@@ -16,6 +16,13 @@ EstablishmentsIndexEstablishmentView = Backbone.View.extend({
             collection: this.model.hours 
         }); 
 
+        if (CurrentUser.get('id')) {
+            this.followed_endorsers_list = new FollowedEndorsersListView({ 
+                el: this.$('.endorsers_wrapper'),
+                model: this.model
+            });              
+        }
+
 	},
 
 	render: function () {

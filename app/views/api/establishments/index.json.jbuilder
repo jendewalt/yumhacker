@@ -27,5 +27,13 @@ json.establishments @establishments do |establishment|
         json.close_time hour.formatted_close_time
     end
 
+    users = @endorsing_users.select{ |u| u.establishments.include?(establishment) }
+
+    json.endorsing_users users.each do |user|
+        json.full_name user.first_name + ' ' + user.last_name
+        json.path user.path
+        json.avatar_url_thumb user.avatar.url(:thumb)
+    end
+
     json.user_endorsing current_user ? current_user.endorsing?(establishment) : false
 end

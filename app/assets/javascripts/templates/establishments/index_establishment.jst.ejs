@@ -13,17 +13,21 @@
         <p class="details phone">[[= get('phone') ]]</p>
     [[ } ]]
 
-    [[ if (get('website')) { 
-        var formatted_url = get('website').replace(/\/$/, '').replace(/^http.*\//, '').replace(/^www[.]/, '');
-    ]]
-        <a class="details website" href="[[= get('website') ]]" target='_blank'>[[= formatted_url ]]</a>
-    [[ } ]]
+    <div class='details extra'>
+        <p class='price'>[[- get('price_symbol') ? get('price_symbol') : '' ]]</p>
+        [[ if (get('website')) { ]]
+            <a class="details website" href="[[= get('website') ]]" target='_blank'>[[= get('formatted_url') ]]</a>
+        [[ } ]]
+        <br class='clear'>
+    </div>
 
-    <p class='details small'>
-        [[- get('price_symbol') ? get('price_symbol') : '' ]]
-    </p>
     <div class='hours_container'></div>
+
 </div>
 
 <div class='endorse_btn_container'></div>
 <br class='clear'>
+
+[[ if (CurrentUser.get('id')  ) { ]]
+    <div class='endorsers_wrapper'></div>
+[[ } ]]
