@@ -1,0 +1,1 @@
+FollowedEndorser = Backbone.Model;
