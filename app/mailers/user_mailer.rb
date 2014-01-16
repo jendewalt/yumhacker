@@ -1,10 +1,6 @@
 class UserMailer < ActionMailer::Base
   default from: 'jen@yumhacker.com'
 
-  def registration_confirmation(user)
-    mail(to: user.email, subject: 'Email is Awesome!')
-  end
-
   def new_followers(user)
     @user = user
 

@@ -1,19 +1,68 @@
-<p>Hi <%= @user.first_name %>,</p>
+<table id="main" style="margin: 0;padding: 10px;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;background-color: #F1F1F3;">
+    <tbody style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+        <tr class="width" style="margin: auto;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;width: 600px;"><td class="magenta border top" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;height: 5px;background-color: #e91367;"></td></tr>
+        <tr class="width" style="margin: auto;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;width: 600px;">
+            <td style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                <table id="heading_content" style="margin: 0;padding: 10px;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #e91367;background-color: white;text-align: right;">
+                    <tbody style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                        <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                            <td class="logo" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                                <a href="http://yumhacker.com" style="color: #0d70eb;text-decoration: none;">
+                                    <%= image_tag 'email_logo.png' %>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                            <td class="grey border thin" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;height: 1px;background-color: #d1d1d6;margin-top: 10px;"></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-<% if @user.followers.length > 1 %>
-    <p>You've got new followers on <a href='<%= "http://yumhacker.com/users/" + @user.id.to_s + '/followers' %>' >YumHacker</a>!</p>
-    
-    <ul>    
-        <% @user.followers.each do |follower| %>
-            <li>
-                <img src="<%= 'http://yumhacker.com' + follower.avatar.url(:thumb) %>"> <%= follower.first_name + ' ' + follower.last_name %>
-            </li>
-        <% end %>
-    </ul>
-<% else %>
-    <p><%= @user.followers.first.first_name + ' ' + @user.followers.first.last_name %> is now following you on <a href='<%= "http://yumhacker.com/users/" + @user.id.to_s + '/followers' %>' >YumHacker</a>!</p>
-
-    <img src="<%= 'http://yumhacker.com' + @user.followers.first.avatar.url(:thumb) %>"> <%= @user.followers.first.first_name + ' ' + @user.followers.first.last_name %>
-<% end %>
-
-View all of your followers on <a href='<%= "http://yumhacker.com/users/" + @user.id.to_s + '/followers' %>' >YumHacker</a>.
+                <table id="message_content" style="margin: 0;padding: 0px 30px 20px;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;background-color: white;">
+                    <tbody style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                        <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                            <td class="greeting message" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;line-height: 40px;">Hi <%= @user.first_name %>!</td>
+                        </tr>
+                        
+                        <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                            <td class="message" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;line-height: 40px;">
+                                <% if @user.followers.length > 1 %>
+                                    You've got new followers on <a href='<%= "http://yumhacker.com/users/" + @user.id.to_s + '/followers' %>'>YumHacker</a>.
+                                <% else %>
+                                    <%= @user.followers.first.first_name + ' ' + @user.followers.first.last_name %> is now following you on <a href='<%= "http://yumhacker.com/users/" + @user.id.to_s + '/followers' %>' >YumHacker</a>.
+                                <% end %>
+                            </td>
+                        </tr>
+                        <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                            <td class="message" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;line-height: 40px;">
+                                <table id="followers_container" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                                    <tbody style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                                        <% @user.followers.each do |follower| %>
+                                            <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                                                <td class="follower" style="margin: 10px -2px;padding: 0;display: inline-block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;width: 150px;vertical-align: top;word-break: break-word;line-height: 18px;word-wrap: break-word;text-align: center;">
+                                                    <a href="<%= "http://yumhacker.com/" + follower.path %>" style="color: #0d70eb;text-decoration: none;font-size: 13px;line-height: 18px;display: block;">
+                                                        <img alt='<%= follower.first_name + " " + follower.last_name %>' src="<%= 'http://yumhacker.com' + @user.followers.first.avatar.url(:small) %>">
+                                                    </a>
+                                
+                                                    <a href="<%= "http://yumhacker.com/" + follower.path %>" style="color: #0d70eb;text-decoration: none;font-size: 13px;line-height: 18px;display: block;"><%= follower.first_name + " " + follower.last_name %></a>
+                                                </td>
+                                            </tr>
+                                        <% end %>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                            <td class="message" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;line-height: 40px;">
+                                View all of your followers on <a href="<%= "http://yumhacker.com/users/" + @user.id.to_s + '/followers' %>" style="color: #0d70eb;text-decoration: none;">YumHacker</a>.
+                            </td>
+                        </tr>
+                        <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                            <td class="message valediction" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;line-height: 40px;">Cheers!</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
