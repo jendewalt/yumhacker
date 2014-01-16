@@ -64,6 +64,7 @@ Yumhacker::Application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.default_url_options = { :host => 'yumhacker.com' }
+  config.action_mailer.asset_host = 'http://yumhacker.com'
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp

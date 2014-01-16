@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: 'jen@yumhacker.com'
+  default from: 'YumHacker <jen@yumhacker.com>'
 
   def new_followers(user)
     @user = user

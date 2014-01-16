@@ -14,6 +14,8 @@ Yumhacker::Application.configure do
   config.action_controller.perform_caching = false
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.asset_host = 'http://yumhacker.com'
+  
 
   # A dummy setup for development - no deliveries, but logged
   config.action_mailer.delivery_method = :smtp
