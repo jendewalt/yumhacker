@@ -53,7 +53,7 @@ class Api::EstablishmentsController < ApplicationController
       hours = details[:hours]
       details.delete(:hours)
       hours.each do |hour|
-        @establishment.hours.create!(hour)
+        @establishment.hours.create(hour)
       end
       @establishment.update_attributes(details)
       @establishment.slug = nil
