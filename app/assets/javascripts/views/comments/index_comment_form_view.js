@@ -27,7 +27,7 @@ CommentsIndexCommentFormView = Backbone.View.extend({
         $.trim(body);
 
         if (CurrentUser.get('id')) {
-            if (body && body.length <= 255) {
+            if (body && body.length <= 100) {
                 this.new_comment = new Comment({
                     body: body,
                     establishment_id: this.model.get('id')
@@ -35,7 +35,8 @@ CommentsIndexCommentFormView = Backbone.View.extend({
                 
                 this.new_comment.save({}, {success: updateCollection});
 
-                $('#comment_input').val('');            
+                $('#comment_input').val('');
+                $('#char_counter span').html(100)            
             } else {
                 alert('Comments cannot be blank and have a character limit of 100 characters.');
             }

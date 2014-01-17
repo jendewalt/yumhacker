@@ -23,7 +23,7 @@ Establishment = Backbone.Model.extend({
         }
 
         if (this.get('website')) {
-            var formatted_url = this.get('website').replace(/\/$/, '').replace(/^http.*\//, '').replace(/^www[.]/, '');
+            var formatted_url = this.get('website').replace(/\/$/, '').replace(/^http.*\/\//, '').replace(/^www[.]/, '');
             this.set('formatted_url', formatted_url);
         } else {
             this.set('formatted_url', '');

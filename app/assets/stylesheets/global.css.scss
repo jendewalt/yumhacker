@@ -83,6 +83,7 @@ body.yumhacker {
             font-size: 13px;
             color: $mid-grey;
             line-height: 18px;
+            max-width: 400px;
 
             &.extra {
                 padding-top: 8px;
@@ -98,7 +99,7 @@ body.yumhacker {
             float: left;
             line-height: 18px;
             text-overflow: ellipsis;
-            max-width: 190px;
+            max-width: 80%;
             white-space: nowrap;
             overflow: hidden;
         }
