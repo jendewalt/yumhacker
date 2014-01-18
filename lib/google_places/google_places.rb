@@ -3,7 +3,7 @@ module GooglePlaces
 
     def google_places(query, lat, lng)
         articles = ['the', 'a', 'and', 'an', 'at', 'of', 'or', 'are', 'in', 'by']
-        query = query.gsub(/[^0-9a-z ]/i, '')
+        query = query.gsub(/[^0-9a-z ]/i, ' ')
         query = (query.downcase.split - articles).join(' ')
         api_key = YAML.load_file('config/config.yml')['google_places_api_key']
         raw_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?name=%s&location=%s,%s&radius=20000&types=restaurant|bakery|bar|cafe|food|meal_takeaway|meal_delivery|night_club&sensor=false&key=%s" % [CGI::escape(query), lat, lng, api_key]
