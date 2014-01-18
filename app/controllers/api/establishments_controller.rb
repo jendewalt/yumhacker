@@ -30,7 +30,6 @@ class Api::EstablishmentsController < ApplicationController
       # get all users you're following that are endorsing those establisments
       @endorsing_users = User.includes(:establishments).where('endorsements.establishment_id IN (?)', estab_ids).references(:endorsements).joins(:reverse_relationships).where(relationships: {follower_id: current_user.id}).limit(10).order('relationships.created_at DESC')
     end
-      # @endorsers = establishment.users.joins(:reverse_relationships).where(relationships: { follower_id: current_user.id })
 	end
 
   def show
@@ -48,7 +47,8 @@ class Api::EstablishmentsController < ApplicationController
 
     current_user.endorse!(@establishment.id) unless current_user.endorsing?(@establishment.id)
 
-    unless params[:reference].nil?
+    # Occasionally search will return a Google result that is already in the DB
+    if params[:reference] && @establishment.hours.empty?
       details = google_places_details(params[:reference])
       hours = details[:hours]
       details.delete(:hours)
@@ -75,14 +75,15 @@ class Api::EstablishmentsController < ApplicationController
       lat = geocoded_location[:lat]
       lng = geocoded_location[:lng]
       radius = 100
-      @establishments = google_places(query, lat, lng)
+      # TO DO: Manage non-alpha-num characters for DB search i.e. 'sallys' v 'sally's'
 
+      @establishments = google_places(query, lat, lng)
       wild_query = "%#{query.downcase.gsub(/\s+/, '%')}%"
 
       database_establishments = Establishment.where('LOWER(name) LIKE ?', wild_query).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").limit(3)
-      
-      @establishments = database_establishments + @establishments unless database_establishments.empty?
 
+      @establishments = database_establishments + @establishments unless database_establishments.empty?
+      
       @establishments.uniq!{ |estab| estab[:google_id] }
 
       @establishments
