@@ -2,7 +2,7 @@ module GooglePlaces
     require 'rest_client'
 
     def google_places(query, lat, lng)
-        articles = ['the', 'a', 'and', 'an', 'at', 'of', 'or', 'are', 'in', 'by']
+        articles = ['the', 'a', 'and', 'an', 'at', 'of', 'or', 'are', 'in', 'by', 'restaurant', 'cafe']
         query = query.gsub(/[']/i, '')
         query = query.gsub(/[^0-9a-z ]/i, ' ')
         query = (query.downcase.split - articles).join(' ')
