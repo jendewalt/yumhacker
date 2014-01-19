@@ -57,30 +57,32 @@ module GooglePlaces
 
         result[:hours] = []
         unless location[:opening_hours].nil?
-            location[:opening_hours][:periods].each do |period|
-                hours = {}
+            if location[:opening_hours][:periods]
+                location[:opening_hours][:periods].each do |period|
+                    hours = {}
 
-                unless period[:open].nil?
-                    open_day = period[:open][:day]
-                    open_time = period[:open][:time]
-                    @open_in_minutes = to_minutes(open_day, open_time)
-                    hours[:open_in_minutes] = @open_in_minutes
+                    unless period[:open].nil?
+                        open_day = period[:open][:day]
+                        open_time = period[:open][:time]
+                        @open_in_minutes = to_minutes(open_day, open_time)
+                        hours[:open_in_minutes] = @open_in_minutes
 
-                    hours[:open_day] = open_day
-                    hours[:open_time] = open_time
+                        hours[:open_day] = open_day
+                        hours[:open_time] = open_time
+                    end
+
+                    unless period[:close].nil?
+                        close_day = period[:close][:day]
+                        close_time = period[:close][:time]
+                        close_in_minutes = to_minutes(close_day, close_time)
+                        close_in_minutes += 60 * 24 * 7 if @open_in_minutes && close_in_minutes < @open_in_minutes
+                        hours[:close_in_minutes] = close_in_minutes
+
+                        hours[:close_day] = close_day
+                        hours[:close_time] = close_time
+                    end
+                    result[:hours].push(hours)
                 end
-
-                unless period[:close].nil?
-                    close_day = period[:close][:day]
-                    close_time = period[:close][:time]
-                    close_in_minutes = to_minutes(close_day, close_time)
-                    close_in_minutes += 60 * 24 * 7 if @open_in_minutes && close_in_minutes < @open_in_minutes
-                    hours[:close_in_minutes] = close_in_minutes
-
-                    hours[:close_day] = close_day
-                    hours[:close_time] = close_time
-                end
-                result[:hours].push(hours)
             end
         end
         result
