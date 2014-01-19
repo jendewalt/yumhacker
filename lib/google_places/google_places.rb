@@ -3,6 +3,7 @@ module GooglePlaces
 
     def google_places(query, lat, lng)
         articles = ['the', 'a', 'and', 'an', 'at', 'of', 'or', 'are', 'in', 'by']
+        query = query.gsub(/[']/i, '')
         query = query.gsub(/[^0-9a-z ]/i, ' ')
         query = (query.downcase.split - articles).join(' ')
         api_key = YAML.load_file('config/config.yml')['google_places_api_key']
