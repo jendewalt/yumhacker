@@ -23,7 +23,7 @@ TermsView = Backbone.View.extend({
     startStream: function () {
         var canvas = $('canvas')[0];
         var ctx = canvas.getContext('2d');
-        var height = 700;
+        var height = window.innerHeight - 300;
         var width = 800;
         var words = [];
         var acceleration = 0.0001;

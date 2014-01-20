@@ -9,16 +9,18 @@ class Api::EstablishmentsController < ApplicationController
 	def index
     lat = params[:lat] || 37.7749295
     lng = params[:lng] || -122.4194155
-    from_followed = params[:from_followed] || false
+    following_filter = params[:following_filter] || 'all'
     radius = params[:radius] || 5 # Radius in miles
     page = params[:page] || 1
 
-    if from_followed == 'true' && current_user
+    if following_filter == 'following' && current_user
       # convert miles to degrees = 1.0/(60 * 1.15078)
 
       # Find estabs in bouding box area ... get center and radius from params to expand center point to radius to give bounding box.
 
       @establishments = Establishment.from_users_followed_by(current_user).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)
+    elsif following_filter == 'me' && current_user
+      @establishments = current_user.establishments.where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)      
     else
       @establishments = Establishment.includes(:hours).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)
     end

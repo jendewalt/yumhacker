@@ -2,7 +2,7 @@
     <fieldset>        
         <div id='location_container'>
             <input id='location_input' type='text' value="[[= MainSearch.get('location_name') ]]">
-            <a id='nearby_btn'><%= image_tag "current_location.svg" %></a>
+            <button id='nearby_btn'><%= image_tag "current_location.svg" %></button>
             <br class="clear">
         </div>
         
@@ -15,7 +15,7 @@
 </form>
 
 <div id='other_search_links_container'>
-    <a href='/users/search' class='nav'>Find Friends</a>
     <a href='/restaurants/search' class='nav'>Find a Restaurant</a>    
+    <a href='/users/search' class='nav'>Find Friends</a>
 </div>
 

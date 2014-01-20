@@ -1,4 +1,24 @@
 <div id='main_filter'>
+    [[ if (CurrentUser.logged_in()) { ]]
+        <div id='following_filter_container' class='option'>
+            <p>Show:</p>
+            <div class='radio_container'>
+                <input type='radio' name='following_filter' id='from_all' value='all' [[= (Filter.get('following_filter') == 'all' ? 'checked' : '') ]]>        
+                <label class='small' for='from_all'>From All</label>
+            </div>
+            
+            <div class='radio_container'>
+                <input type='radio' name='following_filter' id='from_followed' value='followed' [[= (Filter.get('following_filter') == 'followed' ? 'checked' : '') ]]>        
+                <label class='small' for='from_followed'>From Following</label>
+            </div>
+
+            <div class='radio_container'>
+                <input type='radio' name='following_filter' id='from_me' value='me' [[= (Filter.get('following_filter') == 'me' ? 'checked' : '') ]]>        
+                <label class='small' for='from_me'>Just Mine</label>                     
+            </div>
+        </div>
+    [[ } ]]
+
     <div id='radius_container' class='option'>
         <label for='radius_select'>Distance: </label>
         <select id='radius_select'>
@@ -9,12 +29,5 @@
             <option class='radius_opt' value='20' [[= Filter.get('radius') == '20' ? 'selected' : '' ]]>20 Miles</option>
         </select>
     </div>
-
-    [[ if (CurrentUser.logged_in()) { ]]
-        <div id='from_followed_container' class='option'>
-            <input id='from_followed' type='checkbox' [[= (Filter.get('from_followed') ? 'checked' : '') ]] >
-                     
-            <label class='small' for='from_followed'>Show only people I'm following</label>
-        </div>
-    [[ } ]]
+    <br class='clear'>
 </div>

@@ -3,6 +3,19 @@
   <div class='devise_form' id='sign_in_container'>
       <div class='form_container card border'>
           <h3>Sign In</h3>
+       
+          <% if flash[:alert] %>
+            <div class='message'>
+              <h2>Uh oh...</h2>
+              <div class="alert"><%= flash[:alert] %></div>
+            </div>
+          <% end %>
+          <% if flash[:error] %>
+            <div class='message'>
+              <h2>Uh oh...</h2>
+              <div class="error"><%= flash[:error] %></div>
+            </div>
+          <% end %>
 
           <div id='social_links_container'>
             <div class='social_link'>
@@ -17,24 +30,6 @@
           <div class='or'>- or -</div>
     
           <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-         
-            <% if flash[:alert] %>
-              <div class='message'>
-                <h2>Uh oh...</h2>
-                <div class="alert"><%= flash[:alert] %></div>
-              </div>
-            <% end %>
-            <% if flash[:error] %>
-              <div class='message'>
-                <h2>Uh oh...</h2>
-                <div class="error"><%= flash[:error] %></div>
-              </div>
-            <% end %>
-            <% if flash[:notice] %>
-              <div class='message'>
-                <div class="notice"><%= flash[:notice] %></div>
-              </div>
-            <% end %>
 
             <div class='inputs_container'>
               <div class='field'><%= f.label :email %><br />

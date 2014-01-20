@@ -1,12 +1,14 @@
 <header></header>
 <section>
   <div class='devise_form' id='sign_up_container'>
-      <% if flash[:error] %>
-          <div class="error"><%= flash[:error] %></div>
-      <% end %>
 
       <div class='form_container card border'>
           <h3>Sign up</h3>
+        
+            <% if flash[:error] %>
+                <div class="error"><%= flash[:error] %></div>
+            <% end %>
+            <%= devise_error_messages! %>
 
           <div id='social_links_container'>
             <div class='social_link'>
@@ -21,7 +23,6 @@
           <div class='or'>- or -</div>
 
           <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-            <%= devise_error_messages! %>
 
             <div class='inputs_container'>
                 <div class='field'><%= f.label :first_name %><br />

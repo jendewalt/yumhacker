@@ -1,6 +1,6 @@
 FilterView = Backbone.View.extend({
     events: {
-        'click #from_followed': 'toggleFromFollowed',
+        'click input:radio': 'toggleFollowingFilter',
         'change #radius_select': 'changeRadius'
     },
 
@@ -13,8 +13,8 @@ FilterView = Backbone.View.extend({
         this.$el.html(render('application/filter'));
     },
 
-    toggleFromFollowed: function (e) {
-        Filter.set('from_followed', $(e.target).prop('checked'));
+    toggleFollowingFilter: function (e) {
+        Filter.set('following_filter', $(e.target).val());
     },
 
     changeRadius: function (e) {

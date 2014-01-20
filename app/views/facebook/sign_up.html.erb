@@ -6,7 +6,7 @@
 
     <div class='form_container card border'>
         <h3>Almost Done!</h3>
-        <p>Enter your email</p>
+        <p>Please enter your email</p>
 
         <div class='inputs_container'>
             <%= form_for @user, :url => facebook_path do |f| %>
@@ -16,7 +16,7 @@
                 <%= f.hidden_field :avatar, :value => @avatar %>
                 <%= f.hidden_field :uid, :value => @user.uid %>
                 
-                <div class='field'><%= f.email_field :email, :autofocus => true, :class=> 'text_input'%></div>
+                <div class='field'><%= f.email_field :email, :autofocus => true, :class=> 'text_input', :placehlder => 'joe@example.com' %></div>
 
                 <div class='center'><%= f.submit "Finish", :class => 'btn text' %></div>
             <% end %>

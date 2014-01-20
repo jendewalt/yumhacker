@@ -1,7 +1,7 @@
 Filter = new (Backbone.Model.extend({
     defaults: {
         radius: 5,
-        from_followed: false   
+        following_filter: 'all'   
     },
 
     initialize: function () {
@@ -11,10 +11,8 @@ Filter = new (Backbone.Model.extend({
         var params = $.deparam(window.location.search.slice(1));
 
         if (typeof params.radius != 'undefined') this.set('radius', params.radius);
-        if (typeof params.from_followed != 'undefined') {
-            var from_followed = params.from_followed;
-            var bool = !(from_followed !== 'true' && from_followed != true);
-            this.set('from_followed', bool);
+        if (typeof params.following_filter != 'undefined') {
+               this.set('following_filter', params.following_filter);
         }
 
         this.on('change', this.writeCookie, this);
@@ -27,7 +25,7 @@ Filter = new (Backbone.Model.extend({
     predicate: function () {
         var data = {
             radius: this.get('radius'),
-            from_followed: this.get('from_followed')
+            following_filter: this.get('following_filter')
         };
         return data;
     }

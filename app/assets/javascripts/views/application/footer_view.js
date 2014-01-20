@@ -1,6 +1,6 @@
 FooterView = Backbone.View.extend({
     events: {
-        'click a': 'goToSubIndex'
+        'click .nav': 'goToSubIndex'
     },
 
     initialize: function () {
