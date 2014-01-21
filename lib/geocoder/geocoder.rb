@@ -2,7 +2,8 @@ module Geocoder
     require 'rest_client'
 
     def geocode(query)
-        url = "http://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false" % CGI::escape(query)
+        url = "http://www.datasciencetoolkit.org/maps/api/geocode/json?address=%s&sensor=false" % CGI::escape(query)
+        # url = "http://maps.googleapis.com/maps/api/geocode/json?address=%s&sensor=false" % CGI::escape(query)
         data = JSON.parse(RestClient.get url, :accept => :json).with_indifferent_access
         results = []
         data[:results].each do |address|

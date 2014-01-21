@@ -10,6 +10,8 @@ EstablishmentsSearchView = Backbone.View.extend({
 			el: '#find_establishment_results_container',
 			collection: this.collection
 		});
+
+		this.listenTo(EstablishmentSearch, 'change', this.fetchResults);
 	},
 
 	render: function () {
@@ -18,11 +20,15 @@ EstablishmentsSearchView = Backbone.View.extend({
 
 	searchForEstablishments: function (e) {
 		e.preventDefault();
-		var query = e.target[0].value;
+		this.query = e.target[0].value;
 		var location = e.target[1].value;
+		EstablishmentSearch.geocode(e.target[1].value);
+	},
 
-		EstablishmentSearch.set('location_name', location);
-		
-		this.collection.fetch({ reset: true, data: { query: query, location: location } });
+	fetchResults: function () {
+		this.collection.fetch({
+			reset: true,
+			data: _.extend(EstablishmentSearch.predicate(), { query: this.query })
+		});
 	}
 });

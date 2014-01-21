@@ -2,8 +2,6 @@ class Api::EstablishmentsController < ApplicationController
   respond_to :json
   before_filter :authenticate_user!, :only => [:create]
 
-  
-  include Geocoder
   include GooglePlaces
 
 	def index
@@ -65,19 +63,11 @@ class Api::EstablishmentsController < ApplicationController
 
   def search
     query = params[:query]    
-    location = params[:location]
-
-    if location && !location.strip.empty?
-      geocoded_location = geocode(location)[0]
-    else
-      render :json => [] and return
-    end
+    lat = params[:lat]
+    lng = params[:lng]
 
     if query && !query.strip.empty?
-      lat = geocoded_location[:lat]
-      lng = geocoded_location[:lng]
       radius = 100
-      # TO DO: Manage non-alpha-num characters for DB search i.e. 'sallys' v 'sally's'
 
       @establishments = google_places(query, lat, lng)
       wild_query = "%#{query.downcase.gsub(/\s+/, '%')}%"

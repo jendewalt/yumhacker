@@ -14,11 +14,33 @@ MainSearch = new (Backbone.Model.extend({
         if (typeof params.lat != 'undefined') this.set('lat', Number(params.lat));
         if (typeof params.lng != 'undefined') this.set('lng', Number(params.lng));
 
+        this.googleGeocoder = new google.maps.Geocoder();
+
         this.on('change', this.writeCookie, this);
     },
 
     writeCookie: function () {
         $.cookie('main_search', JSON.stringify(this.attributes), { path: '/' });
+    },
+
+    geocode: function (query) {
+        this.googleGeocoder.geocode( { 'address': query}, $.proxy(this.updateFromGeocoder, this));
+    },
+
+    updateFromGeocoder: function (result) {
+        var latlng = result[0].geometry.location;
+        var lat = latlng.lat();
+        var lng = latlng.lng();
+        var formatted_address = result[0].formatted_address; 
+        this.set({
+            lat: lat,
+            lng: lng,
+            location_name: formatted_address
+        });
+
+        if (Backbone.history.fragment !== '') {
+            App.navigate('/', { trigger: true });
+        }
     },
 
     predicate: function () {
@@ -30,3 +52,4 @@ MainSearch = new (Backbone.Model.extend({
     }
 
 }))();
+    
