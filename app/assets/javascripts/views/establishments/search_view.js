@@ -11,7 +11,7 @@ EstablishmentsSearchView = Backbone.View.extend({
 			collection: this.collection
 		});
 
-		this.listenTo(EstablishmentSearch, 'change', this.fetchResults);
+		this.listenTo(EstablishmentSearch, 'geocode', this.fetchResults);
 	},
 
 	render: function () {

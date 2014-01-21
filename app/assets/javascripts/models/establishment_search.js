@@ -37,6 +37,8 @@ EstablishmentSearch = new (Backbone.Model.extend({
             lng: lng,
             location_name: formatted_address
         });
+
+        this.trigger('geocode');
     },
 
     predicate: function () {
