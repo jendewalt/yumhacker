@@ -11,7 +11,7 @@ class Api::EstablishmentsController < ApplicationController
     radius = params[:radius] || 5 # Radius in miles
     page = params[:page] || 1
 
-    if following_filter == 'following' && current_user
+    if following_filter == 'followed' && current_user
       # convert miles to degrees = 1.0/(60 * 1.15078)
 
       # Find estabs in bouding box area ... get center and radius from params to expand center point to radius to give bounding box.
