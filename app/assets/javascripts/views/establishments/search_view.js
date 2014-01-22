@@ -12,6 +12,7 @@ EstablishmentsSearchView = Backbone.View.extend({
 		});
 
 		this.listenTo(EstablishmentSearch, 'geocode', this.fetchResults);
+		this.listenTo(EstablishmentSearch, 'error', this.showError);
 	},
 
 	render: function () {
@@ -23,6 +24,7 @@ EstablishmentsSearchView = Backbone.View.extend({
 		this.query = e.target[0].value;
 		var location = e.target[1].value;
 		EstablishmentSearch.geocode(e.target[1].value);
+		this.$('#find_establishment_results_container').html(render('application/throbber_small'));
 	},
 
 	fetchResults: function () {
@@ -30,5 +32,9 @@ EstablishmentsSearchView = Backbone.View.extend({
 			reset: true,
 			data: _.extend(EstablishmentSearch.predicate(), { query: this.query })
 		});
+	},
+
+	showError: function () {
+		this.$('#find_establishment_results_container').html(render('application/geocode_error'));
 	}
 });

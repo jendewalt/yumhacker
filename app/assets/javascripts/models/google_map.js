@@ -1,4 +1,4 @@
-GoogleMap = Backbone.Model.extend({
+GoogleMapModel = Backbone.Model.extend({
 	defaults: {
         
         options: {

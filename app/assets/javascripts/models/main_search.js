@@ -24,19 +24,24 @@ MainSearch = new (Backbone.Model.extend({
     },
 
     geocode: function (query) {
-        this.googleGeocoder.geocode( { 'address': query}, $.proxy(this.updateFromGeocoder, this));
+        this.googleGeocoder.geocode( { 'address': query }, $.proxy(this.updateFromGeocoder, this));
     },
 
-    updateFromGeocoder: function (result) {
-        var latlng = result[0].geometry.location;
-        var lat = latlng.lat();
-        var lng = latlng.lng();
-        var formatted_address = result[0].formatted_address; 
-        this.set({
-            lat: lat,
-            lng: lng,
-            location_name: formatted_address
-        });
+    updateFromGeocoder: function (result, status) {
+        console.log(result)
+        if (status == 'OK') {
+            var latlng = result[0].geometry.location;
+            var lat = latlng.lat();
+            var lng = latlng.lng();
+            var formatted_address = result[0].formatted_address; 
+            this.set({
+                lat: lat,
+                lng: lng,
+                location_name: formatted_address
+            });
+        }
+        
+        this.trigger('geocode');            
 
         if (Backbone.history.fragment !== '') {
             App.navigate('/', { trigger: true });

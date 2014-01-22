@@ -54,6 +54,7 @@ body.yumhacker {
                         font-size: 16px;
                         color: $dark-grey;
                         border: none;
+                        word-break: initial;
                     }
 
                     #nearby_btn {

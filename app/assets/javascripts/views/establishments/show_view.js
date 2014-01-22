@@ -23,9 +23,14 @@ EstablishmentsShowView = Backbone.View.extend({
             model: this.model
         });
 
-        MapView.el = '.map_canvas_container';
-        MapView.model = this.model;
-        MapView.renderEstablishmentMap();
+        if (typeof GoogleMap === 'undefined') {
+            GoogleMap = new MapView({
+                el: '#map_canvas'
+            })
+        } 
+
+        GoogleMap.model = this.model;
+        GoogleMap.renderEstablishmentMap();
 
         if (!CurrentUser.get('id')) {
             this.authentication_options_view = new AuthenticationOptionsView({

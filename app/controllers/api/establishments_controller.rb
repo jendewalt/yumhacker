@@ -11,16 +11,38 @@ class Api::EstablishmentsController < ApplicationController
     radius = params[:radius] || 5 # Radius in miles
     page = params[:page] || 1
 
-    if following_filter == 'following' && current_user
-      # convert miles to degrees = 1.0/(60 * 1.15078)
+    if params[:redo_search] && params[:bounds]
+      bounds = params[:bounds]
+      ne_bound = bounds[:ne]
+      sw_bound = bounds[:sw]
+      xmin = sw_bound[:lng]
+      ymin = sw_bound[:lat]
+      xmax = ne_bound[:lng]
+      ymax = ne_bound[:lat]
 
-      # Find estabs in bouding box area ... get center and radius from params to expand center point to radius to give bounding box.
+      if following_filter == 'followed' && current_user
+        # convert miles to degrees = 1.0/(60 * 1.15078)
 
-      @establishments = Establishment.from_users_followed_by(current_user).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)
-    elsif following_filter == 'me' && current_user
-      @establishments = current_user.establishments.where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)      
+        # Find estabs in bouding box area ... get center and radius from params to expand center point to radius to give bounding box.
+
+        @establishments = Establishment.from_users_followed_by(current_user).where("ST_Contains(ST_MakeEnvelope(?, ?, ?, ?, 4326), establishments.latlng :: geometry)", xmin, ymin, xmax, ymax).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)
+      elsif following_filter == 'me' && current_user
+        @establishments = current_user.establishments.where("ST_Contains(ST_MakeEnvelope(?, ?, ?, ?, 4326), establishments.latlng :: geometry)", xmin, ymin, xmax, ymax).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)      
+      elsif following_filter == 'all'
+        @establishments = Establishment.includes(:hours).where("ST_Contains(ST_MakeEnvelope(?, ?, ?, ?, 4326), establishments.latlng :: geometry)", xmin, ymin, xmax, ymax).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)
+      end
     else
-      @establishments = Establishment.includes(:hours).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)
+      if following_filter == 'followed' && current_user
+        # convert miles to degrees = 1.0/(60 * 1.15078)
+
+        # Find estabs in bouding box area ... get center and radius from params to expand center point to radius to give bounding box.
+
+        @establishments = Establishment.from_users_followed_by(current_user).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)
+      elsif following_filter == 'me' && current_user
+        @establishments = current_user.establishments.where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)      
+      elsif following_filter == 'all'
+        @establishments = Establishment.includes(:hours).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)
+      end
     end
 
     @endorsing_users = []

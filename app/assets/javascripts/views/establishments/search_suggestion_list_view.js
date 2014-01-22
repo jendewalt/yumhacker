@@ -4,7 +4,6 @@ EstablishmentsSearchSuggestionListView = Backbone.View.extend({
 
 	initialize: function () {
 		this.listenTo(this.collection, 'reset', this.render);
-		this.listenTo(this.collection, 'request', this.showThrobber);
 	},
 
 	render: function () {
@@ -29,9 +28,5 @@ EstablishmentsSearchSuggestionListView = Backbone.View.extend({
 		});
 
 		this.$('ul').append(establishment_view.el);
-	},
-
-	showThrobber: function () {
-		this.$el.html(render('application/throbber_small'));
 	}
 });

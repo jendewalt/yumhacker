@@ -8,7 +8,7 @@ MainSearchView = Backbone.View.extend({
     initialize: function () {
         this.render();
 
-        this.listenTo(MainSearch, 'change', this.render);
+        this.listenTo(MainSearch, 'geocode', this.render);
     },
 
     render: function () {

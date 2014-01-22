@@ -1,5 +1,6 @@
 MainIndexView = Backbone.View.extend({
 	events: {
+		'change #redo_search': 'toggleRedoSearch'
 	},
 
 	initialize: function () {
@@ -9,17 +10,25 @@ MainIndexView = Backbone.View.extend({
 
         this.collection.fetch({ reset: true, data: _.extend(MainSearch.predicate(), Filter.predicate(), this.collection.predicate()) });
 
-		this.listenTo(MainSearch, 'change', function () {
-        	App.navigate(window.location.pathname + '?' + $.param(_.extend(MainSearch.predicate(), Filter.predicate() )), { trigger: true, replace: true });
-		});
+		this.listenTo(MainSearch, 'change', this.updateCollection);
 
-		this.listenTo(Filter, 'change', function () {
-			App.navigate(window.location.pathname + '?' + $.param(_.extend(MainSearch.predicate(), Filter.predicate() )), { trigger: true, replace: true });
-		});
+		this.listenTo(MainSearch, 'geocode', this.updateCollection);
 
-		MapView.el = '.map_canvas_container';
-		MapView.collection = this.collection;
-		this.listenTo(this.collection, 'reset', function () { MapView.resetMap(); });
+		this.listenTo(Filter, 'change', this.updateCollection);
+
+		if (typeof GoogleMap === 'undefined') {
+			GoogleMap = new MapView({
+				el: '#map_canvas'
+			})
+		} 
+
+		GoogleMap.collection = this.collection;
+		this.listenTo(this.collection, 'reset', function () { GoogleMap.resetMap(); });
+
+		this.listenTo(GoogleMap, 'bounds_changed', function (position) {
+			console.log(position)
+			Filter.setPosition(position);
+		});
 		
 		this.filter_view = new FilterView({
 			el: '#main_filter_container',
@@ -45,5 +54,13 @@ MainIndexView = Backbone.View.extend({
 	render: function () {
 		this.$el.html(render('main/index'));
 		this.$('.establishments_list').html(render('application/throbber_small'));
+	},
+
+	updateCollection: function () {
+		App.navigate(window.location.pathname + '?' + $.param(_.extend(MainSearch.predicate(), Filter.predicate() )), { trigger: true, replace: true });
+	},
+
+	toggleRedoSearch: function (e) {
+		Filter.set('redo_search', e.target.checked);
 	}
 });
