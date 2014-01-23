@@ -25,6 +25,16 @@ Router = Backbone.Router.extend({
     },
 
     setup: function () {
+        var params = $.deparam(window.location.search.slice(1));
+        if (params && params.bounds && params.zoom) {
+            console.log(Filter.get('bounds'))
+            Filter.set({ bounds: params.bounds, zoom: Number(params.zoom) }, { silent: true });
+            console.log(Filter.get('bounds'))
+        }
+        if (params && params.lat && params.lng && params.location_name) {
+            MainSearch.set({ lat: Number(params.lat), lng: Number(params.lng), location_name: params.location_name }, { silent: true });
+        }
+
         if (this.currentView) { 
             this.currentView.remove(); 
         } else {
@@ -90,7 +100,7 @@ Router = Backbone.Router.extend({
     },
 
     editProfile: function () {
-        this.currentView = new UsersEditView({ el: 'section' });
+        this.currentView = new UsersEditView({ el: 'section div' });
     },
 
     signUpFindFacebookFriends: function () {

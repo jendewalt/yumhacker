@@ -1,66 +1,74 @@
 MainIndexView = Backbone.View.extend({
-	events: {
-		'change #redo_search': 'toggleRedoSearch'
-	},
+    events: {
+        'change #redo_search': 'toggleRedoSearch'
+    },
 
-	initialize: function () {
-		this.render();
-		
-		this.collection = new EstablishmentCollection();
+    initialize: function () {
+        this.render();
+        
+        this.collection = new EstablishmentCollection();
 
         this.collection.fetch({ reset: true, data: _.extend(MainSearch.predicate(), Filter.predicate(), this.collection.predicate()) });
 
-		this.listenTo(MainSearch, 'change', this.updateCollection);
+        if (typeof GoogleMap === 'undefined') {
+            GoogleMap = new MapView({
+                el: '#map_canvas',
+                collection: this.collection
+            });
+        } else {
+            $('.map_canvas_container').html('');
+            GoogleMap.mapCanvas.appendTo($('.map_canvas_container'));
+        }
+        // This needs to be here if GoogleMap already exists becuase new collection is created above
+        GoogleMap.collection = this.collection;
+        this.listenTo(this.collection, 'reset', function () { GoogleMap.render(); });
 
-		this.listenTo(MainSearch, 'geocode', this.updateCollection);
+        this.listenTo(MainSearch, 'geocode', this.updateCollection);
+        this.listenTo(MainSearch, 'change', this.updateCollection);
 
-		this.listenTo(Filter, 'change', this.updateCollection);
+        this.listenTo(Filter, 'change', this.updateCollection);
+        this.listenTo(Filter, 'map_change', this.updateCollectionReset);
+        
+        // this.filter_view = new FilterView({
+        //  el: '#main_filter_container',
+        // });
 
-		if (typeof GoogleMap === 'undefined') {
-			GoogleMap = new MapView({
-				el: '#map_canvas'
-			})
-		} 
+        this.main_index_establishments_list_view = new MainIndexEstablishmentsListView({
+            el: '.establishments_list',
+            collection: this.collection
+        });
 
-		GoogleMap.collection = this.collection;
-		this.listenTo(this.collection, 'reset', function () { GoogleMap.resetMap(); });
+        this.pagination_view = new EstablishmentsIndexPaginationView({
+            el: '.pagination_container',
+            collection: this.collection
+        });
 
-		this.listenTo(GoogleMap, 'bounds_changed', function (position) {
-			console.log(position)
-			Filter.setPosition(position);
-		});
-		
-		this.filter_view = new FilterView({
-			el: '#main_filter_container',
-		});
-
-		this.main_index_establishments_list_view = new MainIndexEstablishmentsListView({
-			el: '.establishments_list',
-			collection: this.collection
-		});
-
-		this.pagination_view = new EstablishmentsIndexPaginationView({
-			el: '.pagination_container',
-			collection: this.collection
-		});
-
-		if (!CurrentUser.get('id')) {
-			this.authentication_options_view = new AuthenticationOptionsView({
-	            el: '#login_modal_container'
-	        });			
-		}
+        if (!CurrentUser.get('id')) {
+            this.authentication_options_view = new AuthenticationOptionsView({
+                el: '#login_modal_container'
+            });         
+        }
     },
 
-	render: function () {
-		this.$el.html(render('main/index'));
-		this.$('.establishments_list').html(render('application/throbber_small'));
-	},
+    render: function () {
+        this.$el.html(render('main/index'));
+        this.$('.establishments_list').html(render('application/throbber_small'));
+    },
 
-	updateCollection: function () {
-		App.navigate(window.location.pathname + '?' + $.param(_.extend(MainSearch.predicate(), Filter.predicate() )), { trigger: true, replace: true });
-	},
+    updateCollection: function () {
+        App.navigate(window.location.pathname + '?' + $.param(_.extend(MainSearch.predicate(), Filter.predicate() )), { trigger: true, replace: false });
+    },
 
-	toggleRedoSearch: function (e) {
-		Filter.set('redo_search', e.target.checked);
-	}
+    updateCollectionReset: function () {
+
+        console.log('update collection reset ')
+        // Collection fetch instead of navigate to prevent map from flashing on move or zoom
+        this.collection.fetch({ reset: true, data: _.extend(MainSearch.predicate(), Filter.predicate()) });
+
+        App.navigate(window.location.pathname + '?' + $.param(_.extend(MainSearch.predicate(), Filter.predicate() )), { trigger: false, replace: false });
+    },
+
+    toggleRedoSearch: function (e) {
+        Filter.set('redo_search', e.target.checked, { silent: true });
+    }
 });

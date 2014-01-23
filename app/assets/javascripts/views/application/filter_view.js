@@ -1,7 +1,6 @@
 FilterView = Backbone.View.extend({
     events: {
         'click input:radio': 'toggleFollowingFilter',
-        'change #radius_select': 'changeRadius'
     },
 
     initialize: function () {
@@ -15,10 +14,6 @@ FilterView = Backbone.View.extend({
 
     toggleFollowingFilter: function (e) {
         Filter.set('following_filter', $(e.target).val());
-    },
-
-    changeRadius: function (e) {
-        Filter.set('radius', e.target.value);
     }
 
 });

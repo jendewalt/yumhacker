@@ -1,7 +1,5 @@
 MainSearch = new (Backbone.Model.extend({
     defaults: {
-        lat: 37.7749295,
-        lng: -122.4194155,
         location_name: 'San Francisco, CA'        
     },
 
@@ -16,7 +14,7 @@ MainSearch = new (Backbone.Model.extend({
 
         this.googleGeocoder = new google.maps.Geocoder();
 
-        this.on('change', this.writeCookie, this);
+        // this.on('change', this.writeCookie, this);
     },
 
     writeCookie: function () {
@@ -28,7 +26,6 @@ MainSearch = new (Backbone.Model.extend({
     },
 
     updateFromGeocoder: function (result, status) {
-        console.log(result)
         if (status == 'OK') {
             var latlng = result[0].geometry.location;
             var lat = latlng.lat();
@@ -51,7 +48,8 @@ MainSearch = new (Backbone.Model.extend({
     predicate: function () {
         var data = {
             lat: this.get('lat'),
-            lng: this.get('lng')
+            lng: this.get('lng'),
+            location_name: this.get('location_name')
         };
         return data;
     }

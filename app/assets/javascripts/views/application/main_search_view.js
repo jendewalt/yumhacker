@@ -9,6 +9,7 @@ MainSearchView = Backbone.View.extend({
         this.render();
 
         this.listenTo(MainSearch, 'geocode', this.render);
+        this.listenTo(MainSearch, 'change', this.render);
     },
 
     render: function () {
@@ -17,6 +18,7 @@ MainSearchView = Backbone.View.extend({
 
     getLatLng: function (e) {
         e.preventDefault();
+        Filter.set({ bounds: null }, { silent: true });
         MainSearch.geocode(e.target[1].value);
     },
 
@@ -27,6 +29,7 @@ MainSearchView = Backbone.View.extend({
     getUserLocation: function (e) {
         e.preventDefault();
         getCurrentLocation(function (position) {
+            Filter.set({ bounds: null }, { silent: true });
             MainSearch.set({
                 lat: position.coords.latitude,
                 lng: position.coords.longitude,

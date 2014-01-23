@@ -1,9 +1,6 @@
 Filter = new (Backbone.Model.extend({
     defaults: {
-        radius: 5,
         following_filter: 'all',
-        bounds: null,
-        zoom: 13,
         redo_search: true 
     },
 
@@ -18,7 +15,7 @@ Filter = new (Backbone.Model.extend({
                this.set('following_filter', params.following_filter);
         }
 
-        this.on('change', this.writeCookie, this);
+        // this.on('change', this.writeCookie, this);
     },
 
     writeCookie: function () {
@@ -44,15 +41,15 @@ Filter = new (Backbone.Model.extend({
                 }
             },
             zoom: zoom
-        });
+        }, { silent: true });
+        this.trigger('map_change');
     },
 
     predicate: function () {
         var data = {
-            radius: this.get('radius'),
             following_filter: this.get('following_filter'),
             bounds: this.get('bounds'),
-            redo_search: this.get('redo_search')
+            zoom: this.get('zoom')
         };
         return data;
     }

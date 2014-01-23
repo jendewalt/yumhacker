@@ -3,33 +3,44 @@ MapView = Backbone.View.extend({
 	},
 
 	initialize: function () {
+		console.log('map initialized')
 		this.markers = [];
-		this.mapOptions = new GoogleMapModel().get('options');
+		this.mapOptions = {
+            scrollwheel: false,
+            center: new google.maps.LatLng(37.7749295, -122.4194155),
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
 		this.mapCanvas = this.$el;
 		this.map = new google.maps.Map(this.mapCanvas[0], this.mapOptions);
+		this.addGoogleListeners();
+		xxx = this.map;
 	},
 
 	render: function () {
 		console.log('render the map')
-		// this.clearMarkers();
-		this.removeGoogleListeners();
-		xxx = this.map;
+
+		this.listen_to_map = false;
+		this.resetMarkers();
+
 		if (Filter.get('bounds') && Filter.get('redo_search')) {
+			console.log('fit map to bounds')
 			var center = Filter.get('bounds').center;
 
 			this.map.setZoom(Filter.get('zoom'));
 			this.map.setCenter(new google.maps.LatLng(center.lat, center.lng));
 		} else {
-			this.map.setCenter(new google.maps.LatLng(MainSearch.get('lat'), MainSearch.get('lng')));			
-		}
-		this.addGoogleListeners();
-		this.resetMarkers();
-	},
+			markerBounds = new google.maps.LatLngBounds();
 
-	resetMap: function () {
-		$('.map_canvas_container').html('');
-		this.mapCanvas.appendTo($('.map_canvas_container'));
-		this.render();
+			_.each(this.markers, function (marker) {
+				console.log(marker.marker.position)
+				markerBounds.extend(marker.marker.position)
+			});
+
+		 	console.log('fitting to markers')
+			this.map.fitBounds(markerBounds);
+		}
+		this.listen_to_map = true;
 	},
 
 	resetMarkers: function () {
@@ -57,40 +68,44 @@ MapView = Backbone.View.extend({
 		this.markers.push(marker);
 	},
 
-	renderEstablishmentMap: function () {
-		// this.clearMarkers();
-		$('.map_canvas_container').html('');
-		this.mapCanvas.appendTo($('.map_canvas_container'));
+	// renderEstablishmentMap: function () {
+	// 	// this.clearMarkers();
+	// 	$('.map_canvas_container').html('');
+	// 	this.mapCanvas.appendTo($('.map_canvas_container'));
 		
-		this.map.setCenter(new google.maps.LatLng(this.model.get('lat'), this.model.get('lng')));
-		this.map.setZoom(17);
+	// 	this.map.setCenter(new google.maps.LatLng(this.model.get('lat'), this.model.get('lng')));
+	// 	this.map.setZoom(17);
 
-		this.renderMarker(this.model, 10);
-	},
+	// 	this.renderMarker(this.model, 10);
+	// },
 
 	addGoogleListeners: function () {
 		var that = this;
-		this.map.addListener('dragend', function (e) {
-			console.log('Map dragend')
-			var position = { 
-				bounds: that.map.getBounds(), 
-				zoom: that.map.getZoom()
-			};
-			that.trigger('bounds_changed', position);
+		this.map.addListener('dragstart', function (e) {
+			if (Filter.get('redo_search') && that.listen_to_map) {
+				google.maps.event.addListenerOnce(that.map, 'idle', function (e) {
+					console.log('Map dragend and idle');
+
+					var position = { 
+						bounds: that.map.getBounds(), 
+						zoom: that.map.getZoom()
+					};
+
+					Filter.setPosition(position);
+				});
+			}
 		});
 
 		this.map.addListener('zoom_changed', function (e) {
-			console.log('Map zoom change')
-			var position = { 
-				bounds: that.map.getBounds(), 
-				zoom: that.map.getZoom()
-			};
-			that.trigger('bounds_changed', position);
-		}); 
-	},
+			if (Filter.get('redo_search') && that.listen_to_map) {	
+				console.log('Map zoom change');
 
-	removeGoogleListeners: function () {
-		google.maps.event.clearListeners(this.map, 'dragend');
-		google.maps.event.clearListeners(this.map, 'zoom_changed'); 
+				var position = { 
+					bounds: that.map.getBounds(), 
+					zoom: that.map.getZoom()
+				};
+				Filter.setPosition(position);
+			}
+		}); 
 	}
 });
