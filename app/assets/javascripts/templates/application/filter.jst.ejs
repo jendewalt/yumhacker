@@ -9,7 +9,7 @@
             
             <div class='radio_container'>
                 <input type='radio' name='following_filter' id='from_followed' value='followed' [[= (Filter.get('relation') == 'followed' ? 'checked' : '') ]]>        
-                <label class='small' for='from_followed'>From Following</label>
+                <label class='small' for='from_followed'>From Friends</label>
             </div>
 
             <div class='radio_container'>
@@ -18,6 +18,13 @@
             </div>
         </div>
     [[ } ]]
+
+    <div id='redo_search_wrapper'>
+        <div id='redo_search_container'>
+            <input type='checkbox' name='redo_search' id='redo_search' [[- Client.get('redo_search') ? 'checked' : '' ]]>
+            <label for='redo_search'>Redo search when map moved</label>
+        </div>
+    </div>
 
     <br class='clear'>
 </div>

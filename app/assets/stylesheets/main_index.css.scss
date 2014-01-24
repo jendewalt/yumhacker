@@ -57,14 +57,14 @@ body.yumhacker {
                     }
                 }
 
-                #radius_container {
+                #redo_search_wrapper {
                     float: right;
 
-                    select {
-                        border: 1px solid $light-grey;
-                        height: 20px;
-                        width: 110px;
-                        color: $dark-grey;
+                    #redo_search_container {
+                        // border: 1px solid $light-grey;
+                        // height: 20px;
+                        // width: 110px;
+                        // color: $dark-grey;
                     }
                 }                
             }

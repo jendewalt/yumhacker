@@ -4,22 +4,11 @@ Location = new (Backbone.Model.extend({
             lat: 37.7749295,
             lng: -122.4194155
         },
-        radius: 100,
-        // bounds: {
-        //     ne: {
-        //         lat: 123,
-        //         lng: 1245
-        //     },
-        //     sw: {
-        //         lat: 454,
-        //         lng: 536
-        //     }
-        // },
+        radius: 2,
         contained_in: 'radius' // 'radius' for search, 'bounds' for map
     },
 
     parseParams: function () {
-        console.log('Location parseParams')
         var params = $.deparam(window.location.search.slice(1));
 
         if (params.location) {

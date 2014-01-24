@@ -1,4 +1,4 @@
-MapView = Backbone.View.extend({
+MainMapView = Backbone.View.extend({
 	events: {
 	},
 
@@ -18,7 +18,6 @@ MapView = Backbone.View.extend({
 	},
 
 	render: function () {
-		console.log(Location.get('contained_in'))
 		this.listen_to_map = false;
 		this.resetMarkers();
 
@@ -59,28 +58,16 @@ MapView = Backbone.View.extend({
 
 	renderMarker: function (establishment, i) {
 		var myLatLng = new google.maps.LatLng(establishment.get('lat'), establishment.get('lng'));
-		marker = new MapMarker(establishment, this.map, i);
+		var marker = new MapMarker(establishment, this.map, i);
 
 		this.markers.push(marker);
 	},
-
-	// renderEstablishmentMap: function () {
-	// 	// this.clearMarkers();
-	// 	$('.map_canvas_container').html('');
-	// 	this.mapCanvas.appendTo($('.map_canvas_container'));
-		
-	// 	this.map.setCenter(new google.maps.LatLng(this.model.get('lat'), this.model.get('lng')));
-	// 	this.map.setZoom(17);
-
-	// 	this.renderMarker(this.model, 10);
-	// },
 
 	addGoogleListeners: function () {
 		var that = this;
 		this.map.addListener('dragstart', function (e) {
 			if (Client.get('redo_search') && that.listen_to_map) {
 				google.maps.event.addListenerOnce(that.map, 'idle', function (e) {
-					console.log('Dragend');
 
 					var google_bounds = that.map.getBounds()
 					var bounds = {
@@ -106,7 +93,6 @@ MapView = Backbone.View.extend({
 
 		this.map.addListener('zoom_changed', function (e) {
 			if (Client.get('redo_search') && that.listen_to_map) {	
-				console.log('Zoom Changed');
 	
 				var google_bounds = that.map.getBounds()
 				var bounds = {

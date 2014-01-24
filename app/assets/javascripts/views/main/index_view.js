@@ -5,29 +5,29 @@ MainIndexView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
-        console.log('Main Index init');
         this.collection = new EstablishmentCollection();
 
         var params = _.extend(Location.predicate(), Filter.predicate(), Client.predicate(), this.collection.predicate());
         this.collection.fetch({ reset: true, data: params });
 
-        if (typeof GoogleMap === 'undefined') {
-            GoogleMap = new MapView({
+        if (typeof MainGoogleMap === 'undefined') {
+            MainGoogleMap = new MainMapView({
                 el: '#map_canvas',
                 collection: this.collection
             });
         } else {
+            MainGoogleMap.map.getStreetView().setVisible(false);
             $('.map_canvas_container').html('');
-            GoogleMap.mapCanvas.appendTo($('.map_canvas_container'));
+            MainGoogleMap.mapCanvas.appendTo($('.map_canvas_container'));
         }
-        // This needs to be here if GoogleMap already exists becuase new collection is created above
-        GoogleMap.collection = this.collection;
+        // This needs to be here if MainGoogleMap already exists becuase new collection is created above
+        MainGoogleMap.collection = this.collection;
         
         this.filter_view = new FilterView({
             el: '#main_filter_container',
         });
 
-        this.listenTo(this.collection, 'reset', function () { GoogleMap.render(); });
+        this.listenTo(this.collection, 'reset', function () { MainGoogleMap.render(); });
         this.listenTo(Location, 'change', this.updateCollection);
         this.listenTo(Filter, 'change', this.updateCollection);
 
@@ -41,11 +41,11 @@ MainIndexView = Backbone.View.extend({
             collection: this.collection
         });
 
-        // if (!CurrentUser.get('id')) {
-        //     this.authentication_options_view = new AuthenticationOptionsView({
-        //         el: '#login_modal_container'
-        //     });         
-        // }
+        if (!CurrentUser.get('id')) {
+            this.authentication_options_view = new AuthenticationOptionsView({
+                el: '#login_modal_container'
+            });         
+        }
     },
 
     render: function () {
@@ -54,7 +54,6 @@ MainIndexView = Backbone.View.extend({
     },
 
     updateCollection: function (e) {
-        console.log('update collection')
         var params = _.extend(Location.predicate(), Filter.predicate(), Client.predicate());
         this.collection.fetch({ reset: true, data: params });
         App.navigate(window.location.pathname + '?' + $.param(params), { trigger: false, replace: false });

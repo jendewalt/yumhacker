@@ -6,7 +6,6 @@ Client = new (Backbone.Model.extend({
     },
 
     parseParams: function () {
-        console.log('Client ParseParams')
         var params = $.deparam(window.location.search.slice(1));
         if (params.client) {
             if (params.client.zoom) {

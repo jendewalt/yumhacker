@@ -4,7 +4,6 @@ EstablishmentCollection = Backbone.Collection.extend({
 	url: '/api/establishments',
 
     initialize: function () {
-        console.log('EstablishmentCollection Init')
         var params = $.deparam(window.location.search.slice(1));
         this.requested_page = (params.page ? Number(params.page) : 1);
     },
