@@ -26,15 +26,16 @@ Router = Backbone.Router.extend({
 
     setup: function () {
         var params = $.deparam(window.location.search.slice(1));
-        if (params && params.bounds && params.zoom) {
-            console.log(Filter.get('bounds'))
-            Filter.set({ bounds: params.bounds, zoom: Number(params.zoom) }, { silent: true });
-            console.log(Filter.get('bounds'))
+        if (_.isEmpty(params)) {
+            Location.set(Location.defaults, { silent: true });
+            Filter.set(Filter.defaults, { silent: true });
+            Client.set(Client.defaults, { silent: true });
+        } else {
+            Location.parseParams();
+            Filter.parseParams();
+            Client.parseParams();
         }
-        if (params && params.lat && params.lng && params.location_name) {
-            MainSearch.set({ lat: Number(params.lat), lng: Number(params.lng), location_name: params.location_name }, { silent: true });
-        }
-
+            
         if (this.currentView) { 
             this.currentView.remove(); 
         } else {
@@ -144,13 +145,6 @@ Router = Backbone.Router.extend({
 });
 
 App = new Router();
-
-// why is this here
-$(window).on("popstate", function(e) { 
-    if (e.originalEvent.state !== null) { 
-        e.preventDefault(); 
-    } 
-});
 
 $(document).ready(function () {
     new HeaderView({ el: 'header' });

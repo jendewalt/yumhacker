@@ -7,9 +7,7 @@ MainSearchView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
-
-        this.listenTo(MainSearch, 'geocode', this.render);
-        this.listenTo(MainSearch, 'change', this.render);
+        this.listenTo(Client, 'change:formatted_address', this.render);
     },
 
     render: function () {
@@ -18,26 +16,22 @@ MainSearchView = Backbone.View.extend({
 
     getLatLng: function (e) {
         e.preventDefault();
-        Filter.set({ bounds: null }, { silent: true });
         MainSearch.geocode(e.target[1].value);
-    },
-
-    toggleFromFollowed: function (e) {
-        MainSearch.set('from_followed', $(e.target).prop('checked'));
     },
 
     getUserLocation: function (e) {
         e.preventDefault();
-        getCurrentLocation(function (position) {
-            Filter.set({ bounds: null }, { silent: true });
-            MainSearch.set({
+        window.getCurrentLocation(function (position) {
+            var center = {
                 lat: position.coords.latitude,
-                lng: position.coords.longitude,
-                location_name: 'Current Location'
-            });
-            if (Backbone.history.fragment !== '') {
-                App.navigate('/', { trigger: true });
+                lng: position.coords.longitude                
             }
+            Client.set('formatted_address', 'Current Location')
+            Location.set({ 'center': center, 'contained_in': 'radius' });
+
+            // if (Backbone.history.fragment !== '') {
+            //     App.navigate('/', { trigger: true });
+            // }
         });
     },
 

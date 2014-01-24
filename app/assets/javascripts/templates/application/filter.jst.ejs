@@ -3,17 +3,17 @@
         <div id='following_filter_container' class='option'>
             <p>Show:</p>
             <div class='radio_container'>
-                <input type='radio' name='following_filter' id='from_all' value='all' [[= (Filter.get('following_filter') == 'all' ? 'checked' : '') ]]>        
+                <input type='radio' name='following_filter' id='from_all' value='all' [[= (Filter.get('relation') == 'all' ? 'checked' : '') ]]>        
                 <label class='small' for='from_all'>From All</label>
             </div>
             
             <div class='radio_container'>
-                <input type='radio' name='following_filter' id='from_followed' value='followed' [[= (Filter.get('following_filter') == 'followed' ? 'checked' : '') ]]>        
+                <input type='radio' name='following_filter' id='from_followed' value='followed' [[= (Filter.get('relation') == 'followed' ? 'checked' : '') ]]>        
                 <label class='small' for='from_followed'>From Following</label>
             </div>
 
             <div class='radio_container'>
-                <input type='radio' name='following_filter' id='from_me' value='me' [[= (Filter.get('following_filter') == 'me' ? 'checked' : '') ]]>        
+                <input type='radio' name='following_filter' id='from_me' value='me' [[= (Filter.get('relation') == 'me' ? 'checked' : '') ]]>        
                 <label class='small' for='from_me'>Just Mine</label>                     
             </div>
         </div>

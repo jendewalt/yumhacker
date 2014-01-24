@@ -5,10 +5,11 @@ MainIndexView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
-        
+        console.log('Main Index init');
         this.collection = new EstablishmentCollection();
 
-        this.collection.fetch({ reset: true, data: _.extend(MainSearch.predicate(), Filter.predicate(), this.collection.predicate()) });
+        var params = _.extend(Location.predicate(), Filter.predicate(), Client.predicate(), this.collection.predicate());
+        this.collection.fetch({ reset: true, data: params });
 
         if (typeof GoogleMap === 'undefined') {
             GoogleMap = new MapView({
@@ -21,17 +22,14 @@ MainIndexView = Backbone.View.extend({
         }
         // This needs to be here if GoogleMap already exists becuase new collection is created above
         GoogleMap.collection = this.collection;
-        this.listenTo(this.collection, 'reset', function () { GoogleMap.render(); });
-
-        this.listenTo(MainSearch, 'geocode', this.updateCollection);
-        this.listenTo(MainSearch, 'change', this.updateCollection);
-
-        this.listenTo(Filter, 'change', this.updateCollection);
-        this.listenTo(Filter, 'map_change', this.updateCollectionReset);
         
-        // this.filter_view = new FilterView({
-        //  el: '#main_filter_container',
-        // });
+        this.filter_view = new FilterView({
+            el: '#main_filter_container',
+        });
+
+        this.listenTo(this.collection, 'reset', function () { GoogleMap.render(); });
+        this.listenTo(Location, 'change', this.updateCollection);
+        this.listenTo(Filter, 'change', this.updateCollection);
 
         this.main_index_establishments_list_view = new MainIndexEstablishmentsListView({
             el: '.establishments_list',
@@ -43,11 +41,11 @@ MainIndexView = Backbone.View.extend({
             collection: this.collection
         });
 
-        if (!CurrentUser.get('id')) {
-            this.authentication_options_view = new AuthenticationOptionsView({
-                el: '#login_modal_container'
-            });         
-        }
+        // if (!CurrentUser.get('id')) {
+        //     this.authentication_options_view = new AuthenticationOptionsView({
+        //         el: '#login_modal_container'
+        //     });         
+        // }
     },
 
     render: function () {
@@ -55,20 +53,14 @@ MainIndexView = Backbone.View.extend({
         this.$('.establishments_list').html(render('application/throbber_small'));
     },
 
-    updateCollection: function () {
-        App.navigate(window.location.pathname + '?' + $.param(_.extend(MainSearch.predicate(), Filter.predicate() )), { trigger: true, replace: false });
-    },
-
-    updateCollectionReset: function () {
-
-        console.log('update collection reset ')
-        // Collection fetch instead of navigate to prevent map from flashing on move or zoom
-        this.collection.fetch({ reset: true, data: _.extend(MainSearch.predicate(), Filter.predicate()) });
-
-        App.navigate(window.location.pathname + '?' + $.param(_.extend(MainSearch.predicate(), Filter.predicate() )), { trigger: false, replace: false });
+    updateCollection: function (e) {
+        console.log('update collection')
+        var params = _.extend(Location.predicate(), Filter.predicate(), Client.predicate());
+        this.collection.fetch({ reset: true, data: params });
+        App.navigate(window.location.pathname + '?' + $.param(params), { trigger: false, replace: false });
     },
 
     toggleRedoSearch: function (e) {
-        Filter.set('redo_search', e.target.checked, { silent: true });
+        Client.set('redo_search', e.target.checked);
     }
 });

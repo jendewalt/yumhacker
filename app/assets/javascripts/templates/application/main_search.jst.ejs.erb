@@ -1,7 +1,7 @@
 <form id='establishment_search_form'>
     <fieldset>        
         <div id='location_container'>
-            <input id='location_input' type='text' value="[[= MainSearch.get('location_name') ]]">
+            <input id='location_input' type='text' value="[[= Client.get('formatted_address') ]]">
             <a href='/' id='nearby_btn'><%= image_tag "current_location.svg" %></a>
             <br class="clear">
         </div>

@@ -13,7 +13,7 @@ FilterView = Backbone.View.extend({
     },
 
     toggleFollowingFilter: function (e) {
-        Filter.set('following_filter', $(e.target).val());
+        Filter.set('relation', $(e.target).val());
     }
 
 });

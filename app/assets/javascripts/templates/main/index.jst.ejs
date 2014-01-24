@@ -9,7 +9,7 @@
     <div id='map_pane'>
         <div id='redo_search_wrapper'>
             <div id='redo_search_container'>
-                <input type='checkbox' name='redo_search' id='redo_search' [[- Filter.get('redo_search') ? 'checked' : '' ]]>
+                <input type='checkbox' name='redo_search' id='redo_search' [[- Client.get('redo_search') ? 'checked' : '' ]]>
                 <label for='redo_search'>Redo search when map moved</label>
             </div>
         </div>

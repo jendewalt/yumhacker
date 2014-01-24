@@ -2,7 +2,7 @@
     <div class='pagination prev'>
         [[ if (current_page !== 1) { ]]
             [[ var prev_page = Number(current_page) - 1 ]]
-            <a class='page prev' href='[[= window.location.pathname + '?' + $.param(_.extend(MainSearch.predicate(), Filter.predicate(), { page: prev_page })) ]]' rel='[[= prev_page ]]'>Prev</a>
+            <a class='page prev' href='[[= window.location.pathname + '?' + $.param(_.extend(Location.predicate(), Filter.predicate(), Client.predicate(), { page: prev_page })) ]]' rel='[[= prev_page ]]'>Prev</a>
         [[ } ]]
     </div>
 
@@ -13,7 +13,7 @@
     <div class='pagination next'>
         [[ if (current_page !== total_pages && total_pages !== 0) { ]]
             [[ var next_page = Number(current_page) + 1 ]]
-            <a class='page next' href='[[= window.location.pathname + '?' + $.param(_.extend(MainSearch.predicate(), Filter.predicate(), { page: next_page })) ]]' rel='[[= next_page ]]'>Next</a>
+            <a class='page next' href='[[= window.location.pathname + '?' + $.param(_.extend(Location.predicate(), Filter.predicate(), Client.predicate(), { page: next_page })) ]]' rel='[[= next_page ]]'>Next</a>
         [[ } ]]
     </div>
 

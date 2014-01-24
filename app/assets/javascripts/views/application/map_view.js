@@ -3,41 +3,37 @@ MapView = Backbone.View.extend({
 	},
 
 	initialize: function () {
-		console.log('map initialized')
+		var center = Location.get('center');
 		this.markers = [];
 		this.mapOptions = {
             scrollwheel: false,
-            center: new google.maps.LatLng(37.7749295, -122.4194155),
-            zoom: 15,
+            panControl: false,
+            center: new google.maps.LatLng(center.lat, center.lng),
+            zoom: Client.get('zoom'),
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 		this.mapCanvas = this.$el;
 		this.map = new google.maps.Map(this.mapCanvas[0], this.mapOptions);
 		this.addGoogleListeners();
-		xxx = this.map;
 	},
 
 	render: function () {
-		console.log('render the map')
-
+		console.log(Location.get('contained_in'))
 		this.listen_to_map = false;
 		this.resetMarkers();
 
-		if (Filter.get('bounds') && Filter.get('redo_search')) {
-			console.log('fit map to bounds')
-			var center = Filter.get('bounds').center;
+		if (Location.get('contained_in') === 'bounds') {
+			var center = Location.get('center');
 
-			this.map.setZoom(Filter.get('zoom'));
+			this.map.setZoom(Client.get('zoom'));
 			this.map.setCenter(new google.maps.LatLng(center.lat, center.lng));
 		} else {
-			markerBounds = new google.maps.LatLngBounds();
+			var markerBounds = new google.maps.LatLngBounds();
 
 			_.each(this.markers, function (marker) {
-				console.log(marker.marker.position)
 				markerBounds.extend(marker.marker.position)
 			});
 
-		 	console.log('fitting to markers')
 			this.map.fitBounds(markerBounds);
 		}
 		this.listen_to_map = true;
@@ -82,29 +78,54 @@ MapView = Backbone.View.extend({
 	addGoogleListeners: function () {
 		var that = this;
 		this.map.addListener('dragstart', function (e) {
-			if (Filter.get('redo_search') && that.listen_to_map) {
+			if (Client.get('redo_search') && that.listen_to_map) {
 				google.maps.event.addListenerOnce(that.map, 'idle', function (e) {
-					console.log('Map dragend and idle');
+					console.log('Dragend');
 
-					var position = { 
-						bounds: that.map.getBounds(), 
-						zoom: that.map.getZoom()
+					var google_bounds = that.map.getBounds()
+					var bounds = {
+						ne: {
+							lat: google_bounds.getNorthEast().lat(),
+							lng: google_bounds.getNorthEast().lng()
+						},
+						sw: {
+							lat: google_bounds.getSouthWest().lat(),
+							lng: google_bounds.getSouthWest().lng()
+						}
+					};
+					var center = {
+						lat: google_bounds.getCenter().lat(),
+						lng: google_bounds.getCenter().lng()
 					};
 
-					Filter.setPosition(position);
+					Client.set('zoom', that.map.getZoom());
+					Location.set({ center: center, bounds: bounds, contained_in: 'bounds' });
 				});
 			}
 		});
 
 		this.map.addListener('zoom_changed', function (e) {
-			if (Filter.get('redo_search') && that.listen_to_map) {	
-				console.log('Map zoom change');
-
-				var position = { 
-					bounds: that.map.getBounds(), 
-					zoom: that.map.getZoom()
+			if (Client.get('redo_search') && that.listen_to_map) {	
+				console.log('Zoom Changed');
+	
+				var google_bounds = that.map.getBounds()
+				var bounds = {
+					ne: {
+						lat: google_bounds.getNorthEast().lat(),
+						lng: google_bounds.getNorthEast().lng()
+					},
+					sw: {
+						lat: google_bounds.getSouthWest().lat(),
+						lng: google_bounds.getSouthWest().lng()
+					}
 				};
-				Filter.setPosition(position);
+				var center = {
+					lat: google_bounds.getCenter().lat(),
+					lng: google_bounds.getCenter().lng()
+				};
+
+				Client.set('zoom', that.map.getZoom());
+				Location.set({ center: center, bounds: bounds, contained_in: 'bounds' });
 			}
 		}); 
 	}

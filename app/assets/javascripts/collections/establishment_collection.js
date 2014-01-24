@@ -4,13 +4,9 @@ EstablishmentCollection = Backbone.Collection.extend({
 	url: '/api/establishments',
 
     initialize: function () {
+        console.log('EstablishmentCollection Init')
         var params = $.deparam(window.location.search.slice(1));
-
         this.requested_page = (params.page ? Number(params.page) : 1);
-    },
-
-    predicate: function () {
-        return { page: this.requested_page };
     },
 
     parse: function (res) {
@@ -20,6 +16,10 @@ EstablishmentCollection = Backbone.Collection.extend({
         this.offset = res.offset;
         this.total = res.total;
 
-		return res.establishments;
-	}
+        return res.establishments;
+    },
+
+    predicate: function () {
+        return { page: this.requested_page };
+    }
 });
