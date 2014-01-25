@@ -6,7 +6,7 @@ EndorsementsIndexListView = Backbone.View.extend({
         this.listenTo(this.collection, 'reset', this.render);
         this.listenTo(this.collection, 'paginate', this.paginate);
 
-        var data = _.extend( MainSearch.predicate(), { user_id: this.model.get('id') });
+        var data = _.extend( Location.predicate(), { user_id: this.model.get('id') });
 
         this.collection.fetch({ reset: true, data: data });
     },
@@ -33,7 +33,7 @@ EndorsementsIndexListView = Backbone.View.extend({
     },
 
     paginate: function (e) {
-        var data = _.extend( MainSearch.predicate(), { user_id: this.model.get('id'), page: e });
+        var data = _.extend( Location.predicate(), { user_id: this.model.get('id'), page: e });
         this.collection.fetch({ reset: true, data: data });
     }
 });

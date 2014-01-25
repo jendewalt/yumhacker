@@ -21,6 +21,7 @@ UsersShowFollowingContainerView = Backbone.View.extend({
     },
 
     renderEndorsements: function (e) {
+        console.log('rendering endorsements')
         this.endorsementsIndexListContainerView = new EndorsementsIndexListContainerView({
             el: '.following_list_container',
             model: this.model

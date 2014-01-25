@@ -42,8 +42,8 @@ class Api::UsersController < ApplicationController
 
   def endorsements
     page = params[:page] || 1
-    lat = params[:lat] || 37.7749295
-    lng = params[:lng] || -122.4194155
+    lat = params[:location][:center][:lat]
+    lng = params[:location][:center][:lng]
 
     @establishments = User.find(params[:user_id]).establishments.order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").page(page).per(10)
   end
