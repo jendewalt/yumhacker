@@ -20,6 +20,7 @@ MainIndexView = Backbone.View.extend({
             $('.map_canvas_container').html('');
             MainGoogleMap.mapCanvas.appendTo($('.map_canvas_container'));
         }
+        MainGoogleMap.map.getStreetView().setVisible(false);
         // This needs to be here if MainGoogleMap already exists becuase new collection is created above
         MainGoogleMap.collection = this.collection;
         

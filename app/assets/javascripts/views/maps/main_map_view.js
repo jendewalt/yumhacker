@@ -18,6 +18,7 @@ MainMapView = Backbone.View.extend({
 	},
 
 	render: function () {
+		MainGoogleMap.map.getStreetView().setVisible(false);
 		this.listen_to_map = false;
 		this.resetMarkers();
 
