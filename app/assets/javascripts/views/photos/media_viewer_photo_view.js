@@ -1,6 +1,7 @@
 PhotosMediaViewerPhotoView = Backbone.View.extend({
     events: {
-        'click .user_name': 'goToUserShow'
+        'click .user_name': 'goToUserShow',
+        'click .delete_photo': 'deletePhoto',
     },
 
     initialize: function () {
@@ -16,7 +17,14 @@ PhotosMediaViewerPhotoView = Backbone.View.extend({
         this.$el.attr('data-thumb', this.model.get('small_url'))
     },
 
-    goToUserShow: function () {
-        App.navigate('users/' + this.model.get('user_id'), { trigger: true });
+    goToUserShow: function (e) {
+        e.preventDefault();
+        App.navigate(e.currentTarget.pathname, { trigger: true });
+    },
+
+    deletePhoto: function () {
+        if (CurrentUser.get('id') == this.model.get('user_id')) {
+            this.model.destroy();
+        }
     }
 });

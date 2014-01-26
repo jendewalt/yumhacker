@@ -65,6 +65,7 @@ body.yumhacker {
                             margin-bottom: 10px;
                             font-size: 13px;
                             color: $blue;
+                            text-decoration: none;
 
                             &:hover {
                                 text-decoration: underline; 
@@ -79,6 +80,20 @@ body.yumhacker {
                             text-align: right;
                             font-size: 13px;
                             color: $mid-grey;
+                        }
+
+                        .delete_photo {
+                            position: absolute;
+                            top: 10px;
+                            right: 10px;
+                            color: $light-grey;
+                            font-size: 9px;
+                            cursor: pointer;
+
+                            &:hover {
+                                color: $dark-grey;
+                                text-decoration: underline;
+                            }
                         }
                     }
                 }

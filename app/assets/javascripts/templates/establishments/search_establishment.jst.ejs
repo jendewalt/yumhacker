@@ -1,5 +1,9 @@
 <div class='establishment_info'>
-    <div class='biz_name'>[[= get('name') ]]</div>
+    [[ if (get('path')) { ]]
+        <a class='biz_name' href='[[= "/" + get("path") ]]'>[[= get('name') ]]</a>
+    [[ } else { ]]
+        <div class='biz_name'>[[= get('name') ]]</div>
+    [[ } ]]
 
     <div class='details'>[[= get('formatted_address') ]]</div>
 </div>

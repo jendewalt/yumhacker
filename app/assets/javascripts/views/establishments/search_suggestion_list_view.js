@@ -1,5 +1,6 @@
 EstablishmentsSearchSuggestionListView = Backbone.View.extend({
 	events: {
+		'click a.biz_name': 'goToEstablishmentShow'
 	},
 
 	initialize: function () {
@@ -28,5 +29,10 @@ EstablishmentsSearchSuggestionListView = Backbone.View.extend({
 		});
 
 		this.$('ul').append(establishment_view.el);
-	}
+	},
+
+	goToEstablishmentShow: function (e) {
+		e.preventDefault();
+        App.navigate(e.target.pathname, { trigger: true });
+    }
 });

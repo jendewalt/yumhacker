@@ -26,4 +26,13 @@ class Api::PhotosController < ApplicationController
   def preview_photos
     @photos = Establishment.find(params[:establishment_id]).preview_photos
   end
+
+  def destroy 
+    photo = Photo.find(params[:id])
+    if current_user.id == photo.user_id
+      if photo.destroy
+        render json: { success: true }
+      end
+    end
+  end
 end

@@ -10,6 +10,8 @@
     [[ } ]]
 
     <div class='follow_btn_container'>
-        <a href='/users/edit' class='edit btn text'>Edit Profile</a>
+        [[ if (CurrentUser.get('id')) { ]]
+            <a href='/users/edit' class='edit btn text'>Edit Profile</a>
+        [[ } ]]
     </div>
 </div>

@@ -1,6 +1,10 @@
 <img src="[[= get('medium_url') ]]">
 <div class='flex-caption'>
-    <a class='user_name'>[[= get('full_name') ]]</a>
+    [[ if (CurrentUser.get('id') == get('user_id')) { ]]
+        <a class='delete_photo'>delete</a>
+    [[ } ]]
+    
+    <a href='/users/[[= get("user_id") ]]' class='user_name'>[[= get('full_name') ]]</a>
 
     [[ if (get('caption')) { ]]
         <p class='caption'>[[= get('caption') ]]</p>

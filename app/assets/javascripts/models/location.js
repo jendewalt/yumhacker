@@ -4,7 +4,7 @@ Location = new (Backbone.Model.extend({
             lat: 37.7749295,
             lng: -122.4194155
         },
-        radius: 1,
+        radius: 50,
         contained_in: 'radius' // 'radius' for search, 'bounds' for map
     },
 
