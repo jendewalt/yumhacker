@@ -16,11 +16,15 @@ MainSearchView = Backbone.View.extend({
 
     getLatLng: function (e) {
         e.preventDefault();
-        MainSearch.geocode(e.target[1].value);
+        if (e.target[1].value === 'Current Location') {
+            this.getUserLocation()
+        } else {
+            MainSearch.geocode(e.target[1].value);
+        }
     },
 
     getUserLocation: function (e) {
-        e.preventDefault();
+        if (e) e.preventDefault();
         window.getCurrentLocation(function (position) {
             var center = {
                 lat: position.coords.latitude,
@@ -29,14 +33,16 @@ MainSearchView = Backbone.View.extend({
             Client.set('formatted_address', 'Current Location')
             Location.set({ 'center': center, 'contained_in': 'radius' });
 
-            // if (Backbone.history.fragment !== '') {
-            //     App.navigate('/', { trigger: true });
-            // }
+            if (Backbone.history.fragment !== '') {
+                var params = _.extend(Location.predicate(), Filter.predicate(), Client.predicate());
+                App.navigate('/' + '?' + $.param(params), { trigger: true });
+            }
         });
     },
 
     goToSubIndex: function (e) {
         e.preventDefault();
+        e.stopPropagation();
         App.navigate(e.target.pathname, { trigger: true });
     }
 });

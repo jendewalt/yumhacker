@@ -2,7 +2,7 @@
     <div id='find_user_container' class='search_container card border'>
         <h3>Facebook Friends on YumHacker</h3>
         <div class='done'>
-            <a class='btn text nav' href="/">Done</a>
+            <a class='btn text nav' href='[[= "/?" + $.param(_.extend(Location.predicate(), Filter.predicate(), Client.predicate())) ]]'>Done</a>
         </div>
     </div>
         

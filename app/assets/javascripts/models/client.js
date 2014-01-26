@@ -15,7 +15,7 @@ Client = new (Backbone.Model.extend({
                 params.client.redo_search = (params.client.redo_search === 'true');
             }
         }
-        this.set(params.client, { silent: true });
+        this.set(params.client);
     },
 
     predicate: function () {

@@ -24,10 +24,11 @@ MainSearch = new (Backbone.Model.extend({
         } else {
             alert('There was a problem with your request. Please try again.');
         }          
-
-        // if (Backbone.history.fragment !== '') {
-        //     App.navigate('/', { trigger: true });
-        // }
+        
+        if (Backbone.history.fragment !== '') {
+            var params = _.extend(Location.predicate(), Filter.predicate(), Client.predicate());
+            App.navigate('/' + '?' + $.param(params), { trigger: true });
+        }
     }
 
 }))();

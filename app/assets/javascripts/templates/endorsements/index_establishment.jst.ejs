@@ -10,7 +10,7 @@
     [[ } ]]
     
     [[ if (get('phone')) { ]]
-        <p class="details phone">[[= get('phone') ]]</p>
+        <a href='[[= "tel:" + get("phone") ]]' class="details phone">[[= get('phone') ]]</a>
     [[ } ]]
    
     <div class='details extra'>

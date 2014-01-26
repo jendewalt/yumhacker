@@ -25,6 +25,6 @@ UsersFindFacebookFriendsView = Backbone.View.extend({
 
 	goToHome: function (e) {
 		e.preventDefault();
-		App.navigate(e.target.pathname, { trigger: true });
+		App.navigate('/' + e.target.search, { trigger: true });
 	}
 });

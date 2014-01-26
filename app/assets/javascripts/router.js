@@ -18,24 +18,13 @@ Router = Backbone.Router.extend({
         'users/sign_up': 'nothing',
         'users/edit': 'editProfile',
         'users/:id(/:section)': 'usersShow',
+        'users': 'editProfile',
         'contact': 'contactPage',
         'terms': 'termsPage',
         'privacy': 'privacyPage',
-        // 'neighborhoods': 'neighborhoodsPage',
     },
 
-    setup: function () {
-        var params = $.deparam(window.location.search.slice(1));
-        if (_.isEmpty(params)) {
-            Location.set(Location.defaults, { silent: true });
-            Filter.set(Filter.defaults, { silent: true });
-            Client.set(Client.defaults, { silent: true });
-        } else {
-            Location.parseParams();
-            Filter.parseParams();
-            Client.parseParams();
-        }
-            
+    setup: function () {            
         if (this.currentView) { 
             this.currentView.remove(); 
         } else {
@@ -45,6 +34,16 @@ Router = Backbone.Router.extend({
     },
 
     mainIndex: function () {
+        var params = $.deparam(window.location.search.slice(1));
+        if (_.isEmpty(params)) {
+            Location.set(Location.defaults, { silent: true });
+            Filter.set(Filter.defaults, { silent: true });
+            Client.set(Client.defaults);
+        } else {
+            Location.parseParams();
+            Filter.parseParams();
+            Client.parseParams();
+        }
         this.setup();
         this.currentView = new MainIndexView({ el: '#main_container' });
     },
@@ -134,11 +133,6 @@ Router = Backbone.Router.extend({
         this.setup();
         this.currentView = new PrivacyView({ el: '#main_container' })
     },
-
-    // neighborhoodsPage: function () {
-    //     this.setup();
-    //     this.currentView = new NeighborhoodView({ el: '#main_container' })
-    // },
 
     nothing: function () {
     }
