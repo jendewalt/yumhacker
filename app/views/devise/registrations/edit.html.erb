@@ -7,7 +7,7 @@
       <%= devise_error_messages! %>
 
       <div class='inputs_container'>
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true } ) do |f| %>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :autocomplete => "off", :html => { :multipart => true } ) do |f| %>
 
           <div class='field'><%= f.label :first_name %><br />
           <%= f.text_field :first_name, :class => 'text_input' %></div>
@@ -28,10 +28,10 @@
 
           <div id='password_fields'>
             <div class='field'><%= f.label :new_password %><br />
-            <%= f.password_field :password, :autocomplete => "off", :value='', :class => 'text_input' %></div>
+            <%= f.password_field :password, :autocomplete => "off", :value => '', :class => 'text_input' %></div>
 
             <div class='field'><%= f.label :new_password_confirmation %><br />
-            <%= f.password_field :password_confirmation, :autocomplete => "off", :value='', :class => 'text_input' %></div>
+            <%= f.password_field :password_confirmation, :autocomplete => "off", :value => '', :class => 'text_input' %></div>
           </div>
 
           <div class='center update_btn'><%= f.submit "Update", :class => 'btn text' %></div>
