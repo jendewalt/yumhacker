@@ -36,12 +36,18 @@ MainMapView = Backbone.View.extend({
 			this.map.setCenter(new google.maps.LatLng(center.lat, center.lng));
 		} else {
 			var markerBounds = new google.maps.LatLngBounds();
+			var center = Location.get('center');
+			
+			if (this.markers.length	> 0) {
+				_.each(this.markers, function (marker) {
+					markerBounds.extend(marker.marker.position);
+				});
 
-			_.each(this.markers, function (marker) {
-				markerBounds.extend(marker.marker.position)
-			});
-
-			this.map.fitBounds(markerBounds);
+				this.map.fitBounds(markerBounds);				
+			} else {
+				this.map.setCenter(new google.maps.LatLng(center.lat, center.lng));
+				this.map.setZoom(13);
+			}
 		}
 	},
 
