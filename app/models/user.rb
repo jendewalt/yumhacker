@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def follow_all!(ids)
-    ids -= [User.first.id]
+    ids -= [User.first.id.to_s, self.id.to_s]
     ids.map!{ |id| { followed_id: id }}
     relationships.create!(ids)
   end
