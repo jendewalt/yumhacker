@@ -49,6 +49,9 @@ class Api::EstablishmentsController < ApplicationController
 
       # get all users you're following that are endorsing those establisments
       @endorsing_users = User.includes(:establishments).where('endorsements.establishment_id IN (?)', estab_ids).references(:endorsements).joins(:reverse_relationships).where(relationships: {follower_id: current_user.id}).limit(10).order('relationships.created_at DESC')
+
+      logger.info('###############')
+      logger.info(@endorsing_users.to_json)
     end
 	end
 
