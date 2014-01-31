@@ -28,6 +28,7 @@ json.establishments @establishments do |establishment|
     end
 
     users = @endorsing_users.select{ |u| u.establishments.include?(establishment) }
+    users = users[0, 10]
 
     json.endorsing_users users.each do |user|
         json.full_name user.first_name + ' ' + user.last_name
