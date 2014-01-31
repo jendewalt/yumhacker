@@ -9,7 +9,6 @@ FollowedEndorsersListView = Backbone.View.extend({
 
     render: function () {
         this.$el.html('');
-        console.log(this.collection)
         if (this.collection.length > 0) {
             this.$el.html(render('establishments/followed_endorser_list', this.model));
 
