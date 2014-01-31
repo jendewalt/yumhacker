@@ -9,6 +9,7 @@ FollowedEndorsersListView = Backbone.View.extend({
 
     render: function () {
         this.$el.html('');
+        console.log(this.collection)
         if (this.collection.length > 0) {
             this.$el.html(render('establishments/followed_endorser_list', this.model));
 
@@ -24,8 +25,6 @@ FollowedEndorsersListView = Backbone.View.extend({
             model: user
         });
 
-        if (user.id !== CurrentUser.id) {
-            this.$('.endorsers_list').append(user_view.el);
-        }
+        this.$('.endorsers_list').append(user_view.el);
     }
 });

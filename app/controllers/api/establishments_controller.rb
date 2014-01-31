@@ -44,11 +44,13 @@ class Api::EstablishmentsController < ApplicationController
     end
 
     @endorsing_users = []
-    if user_signed_in?
-      estab_ids = @establishments.map(&:id)
+    estab_ids = @establishments.map(&:id)
 
+    if user_signed_in?
       # get all users you're following that are endorsing those establisments
       @endorsing_users = User.includes(:establishments).where('endorsements.establishment_id IN (?)', estab_ids).references(:endorsements).joins(:reverse_relationships).where(relationships: {follower_id: current_user.id}).order('relationships.created_at DESC')
+    else
+      @endorsing_users = User.includes(:establishments).where('endorsements.establishment_id IN (?)', estab_ids).references(:endorsements).order('endorsements.created_at DESC')
     end
 	end
 
