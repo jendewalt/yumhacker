@@ -10,7 +10,6 @@ EstablishmentsSearchSuggestionListView = Backbone.View.extend({
 	render: function () {
 		this.$el.html('');	
 
-
 		if (!this.collection.isEmpty()) {
 			this.$el.html(render('establishments/search_suggestion_list'));
 

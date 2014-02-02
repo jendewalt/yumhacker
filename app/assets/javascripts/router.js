@@ -57,10 +57,10 @@ Router = Backbone.Router.extend({
         }
     },
 
-    establishmentsIndex: function () {
-        this.setup();
-        this.currentView = new EstablishmentsIndexView({ el: '#main_container' });
-    },
+    // establishmentsIndex: function () {
+    //     this.setup();
+    //     this.currentView = new EstablishmentsIndexView({ el: '#main_container' });
+    // },
 
     establishmentsSearch: function (id) {
         this.setup();

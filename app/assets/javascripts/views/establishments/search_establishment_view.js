@@ -5,18 +5,29 @@ EstablishmentsSearchEstablishmentView = Backbone.View.extend({
 
 	initialize: function () {
 		this.render();
-		this.listenTo(this.model, 'sync', this.goToEstablishmentShow);
+		this.listenTo(this.model, 'sync', this.render);
 	},
 
 	render: function () {
-		this.$el.html(render('establishments/search_establishment', this.model));	
+		this.$el.html(render('establishments/search_establishment', this.model));
+
+		if (this.model.get('id')) {
+			this.application_endorse_button_view = new ApplicationEndorseButtonView({ 
+	            el: this.$('.endorse_btn_container'),
+	            establishment: this.model 
+	        });				
+		}
 	},
 
 	create: function () {
-		this.model.save();
+		if (CurrentUser.get('id') === undefined) {
+			this.showAuthenticationOpts();
+		} else  {
+			this.model.save();
+		}
 	},
-	
-	goToEstablishmentShow: function () {
-		App.navigate(this.model.get('path'), { trigger: true });              
+
+    showAuthenticationOpts: function () {
+        $('#login_modal_container').fadeIn('60');
     }
 });

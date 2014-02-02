@@ -7,7 +7,6 @@ MainSearchView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
-        this.listenTo(Client, 'change:formatted_address', this.render);
     },
 
     render: function () {

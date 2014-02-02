@@ -46,7 +46,7 @@ class Api::EstablishmentsController < ApplicationController
     @endorsing_users = []
     estab_ids = @establishments.map(&:id)
 
-    if user_signed_in?
+    if user_signed_in? && relation != 'all'
       # get all users you're following that are endorsing those establisments
       @endorsing_users = User.includes(:establishments).where('endorsements.establishment_id IN (?)', estab_ids).references(:endorsements).joins(:reverse_relationships).where(relationships: {follower_id: current_user.id}).order('relationships.created_at DESC')
     else
@@ -94,7 +94,7 @@ class Api::EstablishmentsController < ApplicationController
       @establishments = google_places(query, lat, lng)
       wild_query = "%#{query.downcase.gsub(/\s+/, '%')}%"
 
-      database_establishments = Establishment.where('LOWER(name) LIKE ?', wild_query).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").limit(3)
+      database_establishments = Establishment.where('LOWER(name) LIKE ?', wild_query).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").limit(10)
 
       @establishments = database_establishments + @establishments unless database_establishments.empty?
       

@@ -8,4 +8,11 @@ json.establishments @establishments do |establishment|
     json.google_id establishment[:google_id]
 
     json.path establishment.path if establishment[:slug] 
+    json.id establishment[:id]
+
+    if establishment[:reference] == nil
+        json.user_endorsing current_user ? current_user.endorsing?(establishment) : false
+    else
+        json.user_endorsing false
+    end
 end
