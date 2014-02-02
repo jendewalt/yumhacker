@@ -20,8 +20,6 @@ UsersSignUpView = Backbone.View.extend({
                 location = e.currentTarget.pathname 
             }
         });
-
-
     },
 
     triggerGaEventForForm: function (e) {
