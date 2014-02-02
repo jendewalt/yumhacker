@@ -17,8 +17,9 @@ Router = Backbone.Router.extend({
         'users/sign_out': 'nothing',
         'users/sign_up': 'nothing',
         'users/edit': 'editProfile',
+        'users/sign_up': 'usersSignUp',
         'users/:id(/:section)': 'usersShow',
-        'users': 'editProfile',
+        'users': 'deviseViewCheck',
         'contact': 'contactPage',
         'terms': 'termsPage',
         'privacy': 'privacyPage',
@@ -99,8 +100,20 @@ Router = Backbone.Router.extend({
         this.currentView = new UsersSearchView({ el: '#main_container' });
     },
 
+    deviseViewCheck: function () {
+        if ($('#sign_up_container').length) {
+            this.usersSignUp();
+        } else {
+            this.editProfile();
+        }
+    },
+
     editProfile: function () {
         this.currentView = new UsersEditView({ el: 'section div' });
+    },
+
+    usersSignUp: function () {
+        this.currentView = new UsersSignUpView({ el: 'section div' });
     },
 
     signUpFindFacebookFriends: function () {
