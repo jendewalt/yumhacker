@@ -7,10 +7,16 @@ MainSearchView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
+        this.listenTo(Client, 'change:formatted_address', this.changeInputValue);
     },
 
     render: function () {
+        this.$el.html('')
         this.$el.html(render('application/main_search'));
+    },
+
+    changeInputValue: function () {
+        $('#location_container input').val(Client.get('formatted_address'));
     },
 
     getLatLng: function (e) {
