@@ -4,7 +4,7 @@ namespace :data do
   desc 'Get user email'
   task :user_email => :environment do
 
-    users = User.all.order('created_at desc').map{|u| [u.first_name + ' ' + u.last_name, u.email, u.location, u.created_at]}
+    users = User.all.includes(:establishments).order('created_at desc').map{|u| [u.first_name + ' ' + u.last_name, u.email, u.location, u.created_at, u.establishments.length]}
     time = Time.new
     file_name = time.year.to_s + time.month.to_s + time.day.to_s + '_user_email.csv'
 
