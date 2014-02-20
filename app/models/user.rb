@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
   has_many :comments, :dependent => :destroy
   has_many :photos, :dependent => :destroy
+  has_many :lists, :dependent => :destroy
 
   has_attached_file :avatar, :styles => { :medium => "200x200#", :small => "100x100#", :thumb => "30x30#" }, :default_url => "/missing.png"
 

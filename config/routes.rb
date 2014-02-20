@@ -18,6 +18,7 @@ Yumhacker::Application.routes.draw do
   get 'restaurants/:state/:city/:id/photos' => 'main#index', :constraints => { :state => /[A-Za-z0-9\-_]+/, :city => /[A-Za-z0-9\-_]+/, :id => /[A-Za-z0-9\-_]+/ }
   get 'users', to: 'main#index'
   get 'users/search', to: 'main#index'
+  get 'lists/new', to: 'main#index'
   get 'users/:id', to: 'main#index'
   get 'users/:id/:section', to: 'main#index'
   get 'contact', to: 'main#index'
@@ -39,6 +40,8 @@ Yumhacker::Application.routes.draw do
     get 'users/endorsements', to: 'users#endorsements'
     post 'users/endorse', to: 'users#endorse'
     delete 'users/endorse', to: 'users#unendorse'
+
+    resources :lists
     
     post 'users/follow', to: 'users#follow'
     delete 'users/follow', to: 'users#unfollow'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140110232212) do
+ActiveRecord::Schema.define(version: 20140220011258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,28 @@ ActiveRecord::Schema.define(version: 20140110232212) do
   add_index "hours", ["establishment_id", "open_in_minutes"], :name => "index_hours_on_establishment_id_and_open_in_minutes", :unique => true
   add_index "hours", ["establishment_id"], :name => "index_hours_on_establishment_id"
   add_index "hours", ["open_in_minutes"], :name => "index_hours_on_open_in_minutes"
+
+  create_table "listings", force: true do |t|
+    t.integer "establishment_id"
+    t.integer "list_id"
+  end
+
+  add_index "listings", ["establishment_id"], :name => "index_listings_on_establishment_id"
+  add_index "listings", ["list_id", "establishment_id"], :name => "index_listings_on_list_id_and_establishment_id", :unique => true
+  add_index "listings", ["list_id"], :name => "index_listings_on_list_id"
+
+  create_table "lists", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.boolean  "wish_list"
+    t.integer  "user_id"
+  end
+
+  add_index "lists", ["wish_list"], :name => "index_lists_on_wish_list"
 
   create_table "photos", force: true do |t|
     t.string   "image_file_name"
