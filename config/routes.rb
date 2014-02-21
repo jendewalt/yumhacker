@@ -11,16 +11,20 @@ Yumhacker::Application.routes.draw do
 
   get '/users/find_facebook_friends', to: 'main#index'
   get '/users/sign_up/find_facebook_friends', to: 'main#index'
+
   get 'restaurants', to: 'main#index'
   get 'restaurants/:id', to: 'main#index'
   get 'restaurants/:state/:city/:id' => 'main#index', :constraints => { :state => /[A-Za-z0-9\-_]+/, :city => /[A-Za-z0-9\-_]+/, :id => /[A-Za-z0-9\-_]+/ }
   get 'restaurants/:id/photos', to: 'main#index'
   get 'restaurants/:state/:city/:id/photos' => 'main#index', :constraints => { :state => /[A-Za-z0-9\-_]+/, :city => /[A-Za-z0-9\-_]+/, :id => /[A-Za-z0-9\-_]+/ }
+
   get 'users', to: 'main#index'
   get 'users/search', to: 'main#index'
-  get 'lists/new', to: 'main#index'
   get 'users/:id', to: 'main#index'
   get 'users/:id/:section', to: 'main#index'
+ 
+  get 'lists/:id', to: 'main#index'
+
   get 'contact', to: 'main#index'
   get 'terms', to: 'main#index'
   get 'privacy', to: 'main#index'

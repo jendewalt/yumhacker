@@ -6,7 +6,11 @@ class CreateLists < ActiveRecord::Migration
       t.attachment :image
       t.boolean :wish_list
       t.integer :user_id
+
+      t.timestamps
     end
     add_index :lists, :wish_list
+    add_index :lists, :created_at
+    add_index :lists, :updated_at
   end
 end

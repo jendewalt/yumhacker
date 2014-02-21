@@ -3,6 +3,12 @@ class Api::ListsController < ApplicationController
     logger.debug('@@@@@@@@@@@@@@@@@@@')
     logger.debug('Hello from the controller index!')
   end
+
+  def show
+    logger.debug('@@@@@@@@@@@@@@@@@@@')
+    logger.debug('Hello from the controller show!')
+    @list = List.find(params[:id])
+  end
   
   def create
     logger.debug('@@@@@@@@@@@@@@@@@@@')

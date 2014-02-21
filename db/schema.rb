@@ -112,8 +112,10 @@ ActiveRecord::Schema.define(version: 20140220011258) do
   add_index "hours", ["open_in_minutes"], :name => "index_hours_on_open_in_minutes"
 
   create_table "listings", force: true do |t|
-    t.integer "establishment_id"
-    t.integer "list_id"
+    t.integer  "establishment_id"
+    t.integer  "list_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "listings", ["establishment_id"], :name => "index_listings_on_establishment_id"
@@ -129,8 +131,12 @@ ActiveRecord::Schema.define(version: 20140220011258) do
     t.datetime "image_updated_at"
     t.boolean  "wish_list"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
+  add_index "lists", ["created_at"], :name => "index_lists_on_created_at"
+  add_index "lists", ["updated_at"], :name => "index_lists_on_updated_at"
   add_index "lists", ["wish_list"], :name => "index_lists_on_wish_list"
 
   create_table "photos", force: true do |t|

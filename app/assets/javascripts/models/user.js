@@ -2,7 +2,7 @@ User = Backbone.Model.extend({
 	urlRoot: '/api/users',
 
     initialize: function () {
-        this.on('sync', this.assignUrls)
+        this.on('sync', this.assignUrls);
     },
 
     assignUrls: function () {

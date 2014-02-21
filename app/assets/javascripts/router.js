@@ -20,7 +20,7 @@ Router = Backbone.Router.extend({
         'users/sign_up': 'usersSignUp',
         'users/:id(/:section)': 'usersShow',
         'users': 'deviseViewCheck',
-        'lists/new': 'listsNew',
+        'lists/:id': 'listsShow',
         'contact': 'contactPage',
         'terms': 'termsPage',
         'privacy': 'privacyPage',
@@ -128,9 +128,13 @@ Router = Backbone.Router.extend({
         });
     },
 
-    listsNew: function () {
+    listsShow: function (id) {
+        console.log('ListsShow')
         this.setup();
-        this.currentView = new ListsNewView({ el: '#main_container' });
+        this.currentView = new ListsShowView({ 
+            el: '#main_container',
+            model: new List({ id: id })
+        }); 
     },
 
     contactPage: function () {
