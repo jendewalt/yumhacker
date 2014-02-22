@@ -5,6 +5,10 @@ class Api::CommentsController < ApplicationController
   def index
     @comments = Comment.where(establishment_id: params[:establishment_id]).order(created_at: :desc).page(params[:page]).per(20).includes(:user)
   end
+
+  def listing
+    @comment = Comment.find(params[:id])
+  end
   
   def create 
     body = params[:body]

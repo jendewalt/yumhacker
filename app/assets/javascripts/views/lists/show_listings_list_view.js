@@ -28,6 +28,7 @@ ListsShowListingsListView = Backbone.View.extend({
         });
 
         this.$el.append(listing_view.el);
+        console.log('Listing appended');
     },
 
     goToSubIndex: function (e) {
