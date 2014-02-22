@@ -3,8 +3,8 @@ ListsShowView = Backbone.View.extend({
     },
 
     initialize: function () {
+        this.listenTo(this.model, 'sync', this.render)
         this.model.fetch();
-        this.render();
     },
 
     render: function () {
@@ -18,6 +18,12 @@ ListsShowView = Backbone.View.extend({
         this.lists_show_description_view = new ListsShowDescriptionView({
             el: '#list_description_container',
             model: this.model
+        });
+
+        this.lists_show_listings_list_view = new ListsShowListingsListView({
+            el: '#listings_container',
+            model: this.model,
+            collection: this.model.listings
         });
     }
 });
