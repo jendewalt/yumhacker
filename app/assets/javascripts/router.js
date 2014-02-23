@@ -129,12 +129,11 @@ Router = Backbone.Router.extend({
     },
 
     listsShow: function (id) {
-        console.log('ListsShow')
         this.setup();
         this.currentView = new ListsShowView({ 
             el: '#main_container',
             model: new List({ id: id })
-        }); 
+        });
     },
 
     contactPage: function () {

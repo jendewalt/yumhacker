@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222012516) do
+ActiveRecord::Schema.define(version: 20140223034538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,24 @@ ActiveRecord::Schema.define(version: 20140222012516) do
 
   add_index "authentications", ["uid"], :name => "index_authentications_on_uid"
   add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["name"], :name => "index_categories_on_name"
+
+  create_table "categorizations", force: true do |t|
+    t.integer  "category_id"
+    t.integer  "establishment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categorizations", ["category_id", "establishment_id"], :name => "index_categorizations_on_category_id_and_establishment_id"
+  add_index "categorizations", ["establishment_id", "category_id"], :name => "index_categorizations_on_establishment_id_and_category_id"
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"

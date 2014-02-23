@@ -78,4 +78,8 @@ class User < ActiveRecord::Base
     jen.follow!(id)
   end
 
+  def admin?
+    admin
+  end
+
 end

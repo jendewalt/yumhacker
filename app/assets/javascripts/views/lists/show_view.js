@@ -3,7 +3,7 @@ ListsShowView = Backbone.View.extend({
     },
 
     initialize: function () {
-        this.listenTo(this.model, 'sync', this.render)
+        this.listenTo(this.model, 'sync', this.render);
         this.model.fetch();
     },
 
@@ -21,9 +21,8 @@ ListsShowView = Backbone.View.extend({
         });
 
         this.lists_show_listings_list_view = new ListsShowListingsListView({
-            el: '#listings_container',
-            model: this.model,
-            collection: this.model.listings
+            el: 'ul#listings_container',
+            model: this.model
         });
     }
 });

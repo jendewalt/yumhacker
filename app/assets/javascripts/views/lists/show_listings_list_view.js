@@ -4,8 +4,12 @@ ListsShowListingsListView = Backbone.View.extend({
     },
 
     initialize: function () {
-        this.collection.fetch({ reset: true });
+        this.collection = new ListingsCollection();
+        this.collection.assignUrl(this.model.get('id'));
+       
         this.listenTo(this.collection, 'reset', this.render);
+        this.collection.fetch({ reset: true });
+        // this.listenTo(this.collection, 'change', this.render);
     },
 
     render: function () {
@@ -16,7 +20,6 @@ ListsShowListingsListView = Backbone.View.extend({
                 this.renderListing(listing);
             }, this);           
         } else {
-            this.$el.html('');
             this.$el.html(render('lists/no_listing_results'));
         }   
     },
@@ -28,7 +31,6 @@ ListsShowListingsListView = Backbone.View.extend({
         });
 
         this.$el.append(listing_view.el);
-        console.log('Listing appended');
     },
 
     goToSubIndex: function (e) {

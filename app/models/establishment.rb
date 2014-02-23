@@ -9,6 +9,8 @@ class Establishment < ActiveRecord::Base
   has_many :preview_photos, -> { order('created_at DESC').limit(4) }, :class_name => 'Photo'
   has_many :listings, :dependent => :destroy
   has_many :lists, :through => :listings
+  has_many :categorizations, :dependent => :destroy
+  has_many :categories, :through => :categorizations
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
