@@ -19,8 +19,8 @@
 </head>
 <body class='yumhacker'>
 	<%= yield %>
-  <a id='admin_establishment_edit' href=''>edit</a>
   <% if current_user.try(:admin?) %>
+    <a id='admin_establishment_edit' href=''>edit</a>
     <script>
       $('#admin_establishment_edit').on('click', function (e) {
         e.preventDefault();
