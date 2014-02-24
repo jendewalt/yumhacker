@@ -3,13 +3,20 @@ Establishment = Backbone.Model.extend({
 
     initialize: function () {
         this.assignHours();
+        this.assignCategories();
         this.setFormattedAttributes();
+
         this.on('sync', this.assignHours);
+        this.on('sync', this.assignCategories);
         this.on('sync', this.setFormattedAttributes);
     },
 
     assignHours: function () {
         this.hours = new HoursCollection(this.get('hours'));
+    },
+
+    assignCategories: function () {
+        this.categories = new CategoriesCollection(this.get('categories'));
     },
 
     setFormattedAttributes: function () {

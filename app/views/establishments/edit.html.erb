@@ -1,1 +1,21 @@
-<div>Hello from <%= @establishment.id %></div>
+<div id='establishment_edit_container'>
+    <% if flash[:notice] %>
+        <div id='flash_notice'><%= flash[:notice] %></div>
+    <% end %>
+
+    <h1><%= @establishment.name %></h1>
+    <h3><%= @establishment.formatted_address %></h3>
+
+    <%= form_for @establishment do |f| %>
+        <% @categories.each do |category| %>
+            <div class='category_and_checkbox'>
+                <%= label_tag(category.name) %>
+                <%= check_box_tag('categories[]', category.id, @estab_category_ids.include?(category.id), id: category.name) %>
+            </div>
+        <% end %>
+        <br id='category_and_checkbox_clear'>
+        <div id='submit_button_container'>
+            <%= f.submit %>
+        </div>
+    <% end %>
+</div>

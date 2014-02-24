@@ -88,6 +88,16 @@ body.yumhacker {
             &.extra {
                 padding-top: 8px;
             }
+
+            &.category {
+                display: inline-block;
+                font-size: 11px;
+            }
+        }
+
+        .categories_container {
+            line-height: 13px;
+            margin: 0 0 5px 0;
         }
 
         .phone {

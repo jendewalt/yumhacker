@@ -17,6 +17,11 @@ json.hours @establishment.hours
 json.lat @establishment.latlng.lat
 json.lng @establishment.latlng.lon
 
+json.categories @establishment.categories do |category|
+    json.name category.name
+    json.id category.id
+end
+
 json.hours @establishment.hours do |hour|
     json.open_day hour.open_day
     json.open_time hour.formatted_open_time

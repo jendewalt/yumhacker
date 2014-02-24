@@ -5,8 +5,6 @@ class Api::ListsController < ApplicationController
   end
 
   def show
-    logger.debug('@@@@@@@@@@@@@@@@@@@')
-    logger.debug('Hello from the controller show!')
     @list = List.find(params[:id])
   end
   
@@ -16,8 +14,6 @@ class Api::ListsController < ApplicationController
   end
 
   def listings
-    logger.debug('@@@@@@@@@@@@@@@@@@@')
-    logger.debug('Hello from the controller get listings!')
     @listings = List.find(params[:id]).listings
   end
 end

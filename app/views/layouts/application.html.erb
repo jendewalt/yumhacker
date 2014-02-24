@@ -22,9 +22,12 @@
   <a id='admin_establishment_edit' href=''>edit</a>
   <% if current_user.try(:admin?) %>
     <script>
-      var establishment_id = window.location.pathname.replace(/^.*\//, '');
-      var establishment_edit_path = '/restaurants/' + establishment_id + '/edit';
-      $('#admin_establishment_edit').attr('href', establishment_edit_path);
+      $('#admin_establishment_edit').on('click', function (e) {
+        e.preventDefault();
+        var establishment_id = window.location.pathname.replace(/^.*\//, '');
+        var establishment_edit_path = '/restaurants/' + establishment_id + '/edit';
+        window.location = establishment_edit_path;
+      });
     </script>
   <% end %>
 </body>

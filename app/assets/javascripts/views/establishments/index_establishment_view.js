@@ -16,6 +16,11 @@ EstablishmentsIndexEstablishmentView = Backbone.View.extend({
             collection: this.model.hours 
         }); 
 
+        this.categories_view = new EstablishmentsIndexEstablishmentCategoriesView({ 
+            el: this.$('.categories_container'),
+            collection: this.model.categories 
+        }); 
+
         this.followed_endorsers_list = new FollowedEndorsersListView({ 
             el: this.$('.endorsers_wrapper'),
             model: this.model

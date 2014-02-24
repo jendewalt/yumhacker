@@ -8,7 +8,7 @@ MainSearch = new (Backbone.Model.extend({
         this.googleGeocoder.geocode( { 'address': query }, $.proxy(this.updatePositionFromGeocoder, this));
     },
 
-    updatePositionFromGeocoder: function (result, status, xxx) {
+    updatePositionFromGeocoder: function (result, status) {
         if (status === 'OK') {
             var latlng = result[0].geometry.location;
             var lat = latlng.lat();
