@@ -8,9 +8,10 @@
 
     <%= form_for @establishment do |f| %>
         <% @categories.each do |category| %>
+            <% category_id_name = category.name.parameterize %>
             <div class='category_and_checkbox'>
-                <%= label_tag(category.name) %>
-                <%= check_box_tag('categories[]', category.id, @estab_category_ids.include?(category.id), id: category.name) %>
+                <%= label_tag(category_id_name, category.name) %>
+                <%= check_box_tag('categories[]', category.id, @estab_category_ids.include?(category.id), id: category_id_name) %>
             </div>
         <% end %>
         <br id='category_and_checkbox_clear'>
