@@ -58,6 +58,8 @@ Yumhacker::Application.routes.draw do
     resources :users
 
     resources :comments
+
+    resources :categories
     
     get 'photos/preview_photos', to: 'photos#preview_photos'
     resources :photos

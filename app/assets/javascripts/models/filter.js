@@ -1,6 +1,7 @@
 Filter = new (Backbone.Model.extend({
     defaults: {
         relation: 'all',    // Filter collection by all, me or followed
+        categories: []     // Filter collection by category (i.e. 'Coffee Shop')
     },
 
     parseParams: function () {
@@ -13,7 +14,8 @@ Filter = new (Backbone.Model.extend({
     predicate: function () {
         return {
             where: {
-                relation: this.get('relation')
+                relation: this.get('relation'),
+                categories: this.get('categories')
             }
         };
     }

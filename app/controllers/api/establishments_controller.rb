@@ -10,6 +10,7 @@ class Api::EstablishmentsController < ApplicationController
     client = params[:client]
     page = params[:page] || 1
     relation = where[:relation]
+    categories = where[:categories] || []
     
     lat = location[:center][:lat]
     lng = location[:center][:lng]
@@ -18,14 +19,11 @@ class Api::EstablishmentsController < ApplicationController
       radius = location[:radius]
 
       if relation == 'followed' && current_user
-        # convert miles to degrees = 1.0/(60 * 1.15078)
-        # Find estabs in bouding box area ... get center and radius from params to expand center point to radius to give bounding box.
-
-        @establishments = Establishment.from_users_followed_by(current_user).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)
+        @establishments = Establishment.from_users_followed_by(current_user).within_radius(lat, lng, radius).by_category(categories).page(page).per(10)
       elsif relation == 'me' && current_user
-        @establishments = current_user.establishments.where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)      
+        @establishments = current_user.establishments.within_radius(lat, lng, radius).by_category(categories).page(page).per(10)      
       elsif relation == 'all'
-        @establishments = Establishment.includes(:hours).where("ST_Contains(ST_Expand(ST_geomFromText('POINT (? ?)', 4326), ?), establishments.latlng :: geometry)", lng.to_f, lat.to_f, radius.to_f * 1.0/(60 * 1.15078)).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)
+        @establishments = Establishment.within_radius(lat, lng, radius).by_category(categories).page(page).per(10)
       end
     elsif location[:contained_in] == 'bounds'    # Request from bounds (i.e. Map move)
       bounds = location[:bounds]
@@ -35,11 +33,11 @@ class Api::EstablishmentsController < ApplicationController
       ymax = bounds[:ne][:lat]
 
       if relation == 'followed' && current_user
-        @establishments = Establishment.from_users_followed_by(current_user).where("ST_Contains(ST_MakeEnvelope(?, ?, ?, ?, 4326), establishments.latlng :: geometry)", xmin, ymin, xmax, ymax).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)
+        @establishments = Establishment.from_users_followed_by(current_user).within_bounds(xmin, ymin, xmax, ymax, lat, lng).by_category(categories).page(page).per(10)
       elsif relation == 'me' && current_user
-        @establishments = current_user.establishments.where("ST_Contains(ST_MakeEnvelope(?, ?, ?, ?, 4326), establishments.latlng :: geometry)", xmin, ymin, xmax, ymax).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)      
+        @establishments = current_user.establishments.within_bounds(xmin, ymin, xmax, ymax, lat, lng).by_category(categories).page(page).per(10)      
       elsif relation == 'all'
-        @establishments = Establishment.includes(:hours).where("ST_Contains(ST_MakeEnvelope(?, ?, ?, ?, 4326), establishments.latlng :: geometry)", xmin, ymin, xmax, ymax).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments).page(page).per(10)
+        @establishments = Establishment.within_bounds(xmin, ymin, xmax, ymax, lat, lng).by_category(categories).page(page).per(10)
       end
     end
 
