@@ -1,7 +1,7 @@
 <div id='main_filter'>
     [[ if (CurrentUser.logged_in()) { ]]
         <div id='following_filter_container' class='option'>
-            <p>Show:</p>
+            <p class='small label'>Show:</p>
             <div class='radio_container'>
                 <input type='radio' name='following_filter' id='from_all' value='all' [[= (Filter.get('relation') == 'all' ? 'checked' : '') ]]>        
                 <label class='small' for='from_all'>From All</label>

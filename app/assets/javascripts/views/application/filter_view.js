@@ -13,7 +13,7 @@ FilterView = Backbone.View.extend({
 
         this.filter_categories_list_view = new FilterCategoriesListView({
             el: this.$('#filter_categories_container')
-        });
+        });            
     },
 
     toggleFollowingFilter: function (e) {

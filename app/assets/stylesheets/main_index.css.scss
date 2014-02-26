@@ -30,15 +30,17 @@ body.yumhacker {
                     vertical-align: bottom;
                 }
 
+                .small.label {
+                    display: inline-block;
+                    font-size: 11px;
+                    color: $light-grey;
+                    min-width: 65px;
+                }
+
                 #following_filter_container {
                     float: left;
                     padding-top: 3px;
 
-                    p {
-                        display: inline-block;
-                        font-size: 11px;
-                        color: $light-grey;
-                    }
 
                     .radio_container {
                         display: inline-block;
@@ -59,14 +61,11 @@ body.yumhacker {
 
                 #redo_search_wrapper {
                     float: right;
+                }   
 
-                    #redo_search_container {
-                        // border: 1px solid $light-grey;
-                        // height: 20px;
-                        // width: 110px;
-                        // color: $dark-grey;
-                    }
-                }                
+                #category_selector {
+                    padding-top: 8px;
+                }             
             }
         }
 
