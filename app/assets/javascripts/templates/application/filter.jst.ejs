@@ -1,25 +1,29 @@
 <div id='main_filter'>
-    [[ if (CurrentUser.logged_in()) { ]]
-        <div id='following_filter_container' class='option'>
-            <p class='small label'>Show:</p>
-            <div class='radio_container'>
-                <input type='radio' name='following_filter' id='from_all' value='all' [[= (Filter.get('relation') == 'all' ? 'checked' : '') ]]>        
-                <label class='small' for='from_all'>From All</label>
-            </div>
-            
-            <div class='radio_container'>
-                <input type='radio' name='following_filter' id='from_followed' value='followed' [[= (Filter.get('relation') == 'followed' ? 'checked' : '') ]]>        
-                <label class='small' for='from_followed'>From Friends</label>
-            </div>
+    <div id='filter_left'>
+        [[ if (CurrentUser.logged_in()) { ]]
+            <div id='following_filter_container' class='option'>
+                <p class='small label'>Show:</p>
+                <div class='radio_container'>
+                    <input type='radio' name='following_filter' id='from_all' value='all' [[= (Filter.get('relation') == 'all' ? 'checked' : '') ]]>        
+                    <label class='small' for='from_all'>From All</label>
+                </div>
+                
+                <div class='radio_container'>
+                    <input type='radio' name='following_filter' id='from_followed' value='followed' [[= (Filter.get('relation') == 'followed' ? 'checked' : '') ]]>        
+                    <label class='small' for='from_followed'>From Friends</label>
+                </div>
 
-            <div class='radio_container'>
-                <input type='radio' name='following_filter' id='from_me' value='me' [[= (Filter.get('relation') == 'me' ? 'checked' : '') ]]>        
-                <label class='small' for='from_me'>Just Mine</label>                     
+                <div class='radio_container'>
+                    <input type='radio' name='following_filter' id='from_me' value='me' [[= (Filter.get('relation') == 'me' ? 'checked' : '') ]]>        
+                    <label class='small' for='from_me'>Just Mine</label>                     
+                </div>
             </div>
-        </div>
-    [[ } ]]
+        [[ } ]]
+        
+        <div id='filter_categories_container'></div>
+    </div>
 
-    <div id='redo_search_wrapper'>
+    <div id='filter_right'>
         <div id='redo_search_container'>
             <input type='checkbox' name='redo_search' id='redo_search' [[- Client.get('redo_search') ? 'checked' : '' ]]>
             <label for='redo_search'>Redo search when map moved</label>
@@ -28,5 +32,4 @@
 
     <br class='clear'>
 
-    <div id='filter_categories_container'></div>
 </div>

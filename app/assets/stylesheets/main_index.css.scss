@@ -37,35 +37,36 @@ body.yumhacker {
                     min-width: 65px;
                 }
 
-                #following_filter_container {
+                #filter_left {
                     float: left;
-                    padding-top: 3px;
+
+                    #following_filter_container {
+                        padding-top: 3px;
+                        padding-bottom: 3px;
 
 
-                    .radio_container {
-                        display: inline-block;
-                        padding: 0px 8px;
+                        .radio_container {
+                            display: inline-block;
+                            padding: 0px 8px;
 
-                        &:nth-child(2) {
-                            padding-left: 3px;
+                            &:nth-child(2) {
+                                padding-left: 3px;
+                            }
+
+                            input {
+                                margin: 0;
+                                margin-right: 3px;
+                                padding: 0; 
+                                vertical-align: middle;
+                            }
                         }
-
-                        input {
-                            margin: 0;
-                            margin-right: 3px;
-                            padding: 0; 
-                            vertical-align: middle;
-                        }
-                    }
+                    }           
                 }
 
-                #redo_search_wrapper {
+
+                #filter_right {
                     float: right;
                 }   
-
-                #category_selector {
-                    padding-top: 8px;
-                }             
             }
         }
 

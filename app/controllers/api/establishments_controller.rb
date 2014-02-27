@@ -19,11 +19,11 @@ class Api::EstablishmentsController < ApplicationController
       radius = location[:radius]
 
       if relation == 'followed' && current_user
-        @establishments = Establishment.from_users_followed_by(current_user).within_radius(lat, lng, radius).by_category(categories).page(page).per(10)
+        @establishments = Establishment.from_users_followed_by(current_user).within_radius(lat, lng, radius).by_category(categories).include_hours().page(page).per(10)
       elsif relation == 'me' && current_user
-        @establishments = current_user.establishments.within_radius(lat, lng, radius).by_category(categories).page(page).per(10)      
+        @establishments = current_user.establishments.within_radius(lat, lng, radius).by_category(categories).include_hours().page(page).per(10)      
       elsif relation == 'all'
-        @establishments = Establishment.within_radius(lat, lng, radius).by_category(categories).page(page).per(10)
+        @establishments = Establishment.within_radius(lat, lng, radius).by_category(categories).include_hours().page(page).per(10)
       end
     elsif location[:contained_in] == 'bounds'    # Request from bounds (i.e. Map move)
       bounds = location[:bounds]
@@ -33,11 +33,11 @@ class Api::EstablishmentsController < ApplicationController
       ymax = bounds[:ne][:lat]
 
       if relation == 'followed' && current_user
-        @establishments = Establishment.from_users_followed_by(current_user).within_bounds(xmin, ymin, xmax, ymax, lat, lng).by_category(categories).page(page).per(10)
+        @establishments = Establishment.from_users_followed_by(current_user).within_bounds(xmin, ymin, xmax, ymax, lat, lng).by_category(categories).include_hours().page(page).per(10)
       elsif relation == 'me' && current_user
         @establishments = current_user.establishments.within_bounds(xmin, ymin, xmax, ymax, lat, lng).by_category(categories).page(page).per(10)      
       elsif relation == 'all'
-        @establishments = Establishment.within_bounds(xmin, ymin, xmax, ymax, lat, lng).by_category(categories).page(page).per(10)
+        @establishments = Establishment.within_bounds(xmin, ymin, xmax, ymax, lat, lng).by_category(categories).include_hours().page(page).per(10)
       end
     end
 
