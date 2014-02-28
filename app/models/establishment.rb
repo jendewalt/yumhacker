@@ -16,7 +16,7 @@ class Establishment < ActiveRecord::Base
   friendly_id :slug_candidates, use: :slugged
 
   scope :by_category, -> (category) { 
-    joins(:categories).where('categorizations.category_id IN (?)', category).preload(:categories) if category.present? 
+    joins(:categories).where('categorizations.category_id IN (?)', category) if category.present? 
   }
 
   scope :from_users_followed_by, -> (user) {
@@ -29,10 +29,6 @@ class Establishment < ActiveRecord::Base
 
   scope :within_bounds, -> (xmin, ymin, xmax, ymax, lat, lng) {
     where("ST_Contains(ST_MakeEnvelope(?, ?, ?, ?, 4326), establishments.latlng :: geometry)", xmin, ymin, xmax, ymax).order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").references(:establishments)
-  }
-
-  scope :include_hours, -> {
-    preload(:hours)
   }
 
   def slug_candidates
