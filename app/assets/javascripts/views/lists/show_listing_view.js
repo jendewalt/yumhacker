@@ -5,6 +5,11 @@ ListsShowListingView = Backbone.View.extend({
     initialize: function () {
         this.render();
 
+        this.categories_view = new EstablishmentsIndexEstablishmentCategoriesView({ 
+            el: this.$('.categories_container'),
+            collection: this.model.categories 
+        }); 
+
         if (this.model.get('comment')) {
             this.comment_view = new CommentsListingCommentView({
                 el: this.$('.listing_comment_container'),

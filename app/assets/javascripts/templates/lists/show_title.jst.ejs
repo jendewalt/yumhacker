@@ -1,11 +1,23 @@
-<h1>[[= get('title') ]]</h1>
-<div id="user_info_container">
-    <a href="[[= get('user_path') ]]">
-        <img src="[[= get('user_thumb_url') ]]" alt="[[= get('user_full_name') ]]">
-    </a>
+<div id='list_photo_container'><img alt='***List Photo***'></div>
 
-    <div id="user_info">
-        <a href="[[= get('user_path') ]]">[[= get('user_full_name') ]]</a>
-        <p>Created [[= get('formatted_time') ]]</p>
+<div id='list_title_info_container'>
+    <h1>[[= get('title') ]]</h1>
+
+    <div id='title_lower_row'>
+        <div id="list_user_info_container">
+            <a id='list_user_photo' href="[[= get('user_path') ]]">
+                <img src="[[= get('user_thumb_url') ]]" alt="[[= get('user_full_name') ]]">
+            </a>
+
+            <div id="list_user_text">
+                <a id='list_user_name' href="[[= get('user_path') ]]">[[= get('user_full_name') ]]</a>
+                <p id='list_created_at'>Created [[= get('formatted_time') ]]</p>
+            </div>
+        </div>
+
+        <div id='list_favorite_button'>***Favorite***</div>
+        <br class='clear'>
     </div>
 </div>
+
+<br class='clear'>

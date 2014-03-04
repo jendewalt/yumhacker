@@ -1,0 +1,104 @@
+body.yumhacker {
+    $magenta: #e91367;
+    $dark-magenta: #d9114a;
+    $blue: #0d70eb;
+    $green: #2BA81C;
+    $dark-blue: #094da1;
+    $dark-grey: #313136;
+    $mid-grey: #737378;
+    $light-grey: #c1c1c3;
+    $x-light-grey: #F1F1F3;
+    $input-glow: rgba(233, 19, 103, 0.2);
+
+    #list_show_container {
+
+        #list_title_container {
+            margin-top: 20px;
+            padding: 20px;
+
+            #list_photo_container {
+                float: left;
+                text-align: center;
+                margin-right: 30px;
+
+                img {
+                    height: 150px;
+                    width: 150px;
+                    border: 1px solid black;
+                    background-color: $dark-blue;
+                    color: white;
+                }
+            }
+
+            #list_title_info_container {
+                float: left;
+                width: 780px;
+                padding-top: 10px;
+                text-align: left;
+                
+                h1 {
+                    font-size: 40px;
+                    padding: 0 10px 10px;
+                    border-bottom: 1px solid $light-grey;
+                }
+
+
+                #title_lower_row {
+                    padding-top: 30px;
+                    
+                    #list_user_info_container {
+                        float: left;
+
+
+                        #list_user_photo {
+                            display: inline-block;
+                        }
+
+                        #list_user_text {
+                            display: inline-block;
+
+                            #list_user_name {
+                                font-size: 13px;
+                                line-height: 20px;
+                                color: $blue;
+                                text-decoration: none;
+                            }
+
+                            #list_created_at {
+                                font-size: 11px;
+                                line-height: 15px;
+                                color: $mid-grey;
+                            }
+                        }
+                    }
+
+                    #list_favorite_button {
+                        float: right;
+                    }
+                }            
+            }
+        }
+
+        .column {
+            float: left;
+            padding: 20px 0;
+        }
+
+        .column.left {
+            width: 60%;
+            padding: 20px 20px 20px 0;
+
+            #list_description_container {
+                padding: 20px;
+            }
+
+            #listings_container {
+                margin-top: 10px;
+            }
+        }
+
+        .column.right {
+            width: 40%;
+        }
+    }
+}

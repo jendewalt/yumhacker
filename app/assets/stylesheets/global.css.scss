@@ -167,6 +167,21 @@ body.yumhacker {
         }
     }
 
+    // TO DO: Refactor CSS/HTML for main index to integrate with list show view 
+
+    #main_map_pane {
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+
+        .map_canvas_container {
+            #map_canvas {
+                width: 100%;
+                height: 500px;
+            }
+        }
+    }
+
     .btn {
         border: none;
         display: inline-block;
