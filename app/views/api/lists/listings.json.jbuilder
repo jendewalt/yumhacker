@@ -17,5 +17,10 @@ json.listings @listings do |listing|
         end
     end
 
-    json.user_endorsing current_user ? current_user.endorsing?(listing) : false
+    json.categories listing.establishment.categories do |category|
+        json.name category.name
+        json.id category.id
+    end
+
+    json.user_endorsing current_user ? current_user.endorsing?(listing.establishment) : false
 end

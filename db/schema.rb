@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223034538) do
+ActiveRecord::Schema.define(version: 20140304041328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,17 @@ ActiveRecord::Schema.define(version: 20140223034538) do
   add_index "establishments", ["neighborhood"], :name => "index_establishments_on_neighborhood"
   add_index "establishments", ["price"], :name => "index_establishments_on_price"
   add_index "establishments", ["slug"], :name => "index_establishments_on_slug", :unique => true
+
+  create_table "favoritizations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "list_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "favoritizations", ["list_id", "user_id"], :name => "index_favoritizations_on_list_id_and_user_id", :unique => true
+  add_index "favoritizations", ["list_id"], :name => "index_favoritizations_on_list_id"
+  add_index "favoritizations", ["user_id"], :name => "index_favoritizations_on_user_id"
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false

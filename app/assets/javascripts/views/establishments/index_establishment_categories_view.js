@@ -7,6 +7,7 @@ EstablishmentsIndexEstablishmentCategoriesView = Backbone.View.extend({
     },
 
     render: function () {
+        console.log(this.collection)
         this.collection.each(function (category, i) {
             category.formatted_name = category.get('name') + (this.collection.length > i + 1 ? ',' : '');
 

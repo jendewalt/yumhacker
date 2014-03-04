@@ -15,7 +15,12 @@ class User < ActiveRecord::Base
   has_many :photos, :dependent => :destroy
   has_many :lists, :dependent => :destroy
 
+  has_many :favoritizations, :dependent => :destroy
+  has_many :favorite_lists, :through => :favoritizations, :source => :list, :dependent => :destroy
+
   has_attached_file :avatar, :styles => { :medium => "200x200#", :small => "100x100#", :thumb => "30x30#" }, :default_url => "/missing.png"
+
+  # User following
 
   def following?(id)
     relationships.where(:followed_id => id).count > 0
@@ -35,6 +40,8 @@ class User < ActiveRecord::Base
     relationships.where(:followed_id => id).first.try(:destroy)
   end
 
+  # Restaurant endorsing
+
   def endorsing?(id)
     endorsements.where(:establishment_id => id).count > 0
   end
@@ -46,6 +53,22 @@ class User < ActiveRecord::Base
   def unendorse!(id)
     endorsements.where(:establishment_id => id).first.try(:destroy)
   end
+
+  # List favoriting
+
+  def favoriting?(id)
+    favoritizations.where(:list_id => id).count > 0
+  end
+
+  def favorite!(id)
+    favoritizations.create!(:list_id => id)
+  end
+
+  def unfavorite!(id)
+    favoritizations.where(:list_id => id).first.try(:destroy)
+  end
+
+  # Misc
 
   def path
     'users/' + id.to_s.parameterize

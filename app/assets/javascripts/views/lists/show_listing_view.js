@@ -10,6 +10,11 @@ ListsShowListingView = Backbone.View.extend({
             collection: this.model.categories 
         }); 
 
+        this.application_endorse_button_view = new ApplicationEndorseButtonView({ 
+            el: this.$('.endorse_btn_container'),
+            establishment: this.model 
+        }); 
+
         if (this.model.get('comment')) {
             this.comment_view = new CommentsListingCommentView({
                 el: this.$('.listing_comment_container'),

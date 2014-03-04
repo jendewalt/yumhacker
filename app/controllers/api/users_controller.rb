@@ -48,6 +48,22 @@ class Api::UsersController < ApplicationController
     @establishments = User.find(params[:user_id]).establishments.order("latlng :: geometry <-> 'SRID=4326;POINT(#{lng.to_f} #{lat.to_f})' :: geometry").page(page).per(10)
   end
 
+  def unfavorite
+    current_user.unfavorite!(params[:list_id])
+    render :json => { user_favoriting: current_user.favoriting?(params[:list_id]) }
+  end
+
+  def favorite
+    current_user.favorite!(params[:list_id])
+    render :json => { user_favoriting: current_user.favoriting?(params[:list_id]) } 
+  end
+
+  def favorite_lists
+    page = params[:page] || 1
+
+    @lists = User.find(params[:user_id]).favorite_lists.page(page).per(10)
+  end
+
   def search
     query = params[:query]
     @users

@@ -5,6 +5,7 @@ Listing = Backbone.Model.extend({
     },
 
     assignCategories: function () {
+        console.log('listing synced')
         this.categories = new CategoriesCollection(this.get('categories'));
     },
 });
