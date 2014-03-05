@@ -57,7 +57,7 @@ MainIndexView = Backbone.View.extend({
     updateCollection: function (e) {
         var params = _.extend(Location.predicate(), Filter.predicate(), Client.predicate());
         this.collection.fetch({ reset: true, data: params });
-        App.navigate(window.location.pathname + '?' + $.param(params), { trigger: false, replace: false });
+        App.navigate(window.location.pathname + '?' + encodeURIComponent($.param(params)), { trigger: false, replace: false });
     },
 
     toggleRedoSearch: function (e) {

@@ -1,5 +1,5 @@
 <nav>
-    <a href="[[= '/?' + $.param(_.extend(Location.predicate(), Filter.predicate(), Client.predicate())) ]]" class="logo nav"><%= image_tag "logo.svg" %></a>
+    <a href="[[= '/?' + encodeURIComponent($.param(_.extend(Location.predicate(), Filter.predicate(), Client.predicate()))) ]]" class="logo nav"><%= image_tag "logo.svg" %></a>
     
     <div id='establishment_search_container'></div>
 

@@ -9,7 +9,7 @@ Location = new (Backbone.Model.extend({
     },
 
     parseParams: function () {
-        var params = $.deparam(window.location.search.slice(1));
+        var params = $.deparam(decodeURIComponent(window.location.search.slice(1)));
 
         if (params.location) {
             if (params.location.center) {

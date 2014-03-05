@@ -5,7 +5,7 @@ Filter = new (Backbone.Model.extend({
     },
 
     parseParams: function () {
-        var params = $.deparam(window.location.search.slice(1));
+        var params = $.deparam(decodeURIComponent(window.location.search.slice(1)));
         if (params.where && params.where.relation) {
             this.set('relation', params.where.relation, { silent: true });
         }
