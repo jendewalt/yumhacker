@@ -9,5 +9,9 @@ CurrentUser = new (Backbone.Model.extend({
 
     logged_in: function () {
         return $.cookie('current_user') ? true : false;
+    },
+
+    authenticate: function () {
+        ModalView.show(new AuthenticationOptionsView({ el: '#inner_modal_content' }));
     }
 }))();

@@ -20,14 +20,10 @@ EstablishmentsSearchEstablishmentView = Backbone.View.extend({
 	},
 
 	create: function () {
-		if (CurrentUser.get('id') === undefined) {
-			this.showAuthenticationOpts();
-		} else  {
+		if (CurrentUser.logged_in()) {
 			this.model.save();
+		} else  {
+			CurrentUser.authenticate();
 		}
-	},
-
-    showAuthenticationOpts: function () {
-        $('#login_modal_container').fadeIn('60');
-    }
+	}
 });

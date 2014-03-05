@@ -29,3 +29,4 @@
 //= require_tree ./views
 //= require_tree ./helpers
 //= require router
+//= require init

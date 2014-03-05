@@ -64,6 +64,12 @@ class Api::UsersController < ApplicationController
     @lists = User.find(params[:user_id]).favorite_lists.page(page).per(10)
   end
 
+  def lists(id)
+    @lists = User.find(params[:id]).lists   
+    logger.debug('@@@@@@@@@@@@@@@@') 
+    logger.debug(@lists.inspect) 
+  end
+
   def search
     query = params[:query]
     @users

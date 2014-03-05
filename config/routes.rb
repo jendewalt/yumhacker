@@ -48,6 +48,7 @@ Yumhacker::Application.routes.draw do
     delete 'users/endorse', to: 'users#unendorse'
     post 'users/favorite', to: 'users#favorite'
     delete 'users/favorite', to: 'users#unfavorite'
+    get 'users/:id/lists', to: 'users#lists'
 
     get 'lists/:id/listings', to: 'lists#listings'
     resources :lists

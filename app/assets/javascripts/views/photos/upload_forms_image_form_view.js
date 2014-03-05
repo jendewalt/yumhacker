@@ -17,10 +17,10 @@ PhotosUploadFormsImageFormView = Backbone.View.extend({
     },
 
     showFileBrowser: function (e) {
-        if (CurrentUser.get('id')) {
+        if (CurrentUser.logged_in()) {
             $('input[type="file"]').click();
         } else {
-            this.showAuthenticationOpts();
+            CurrentUser.authenticate();
         }
     },
 
@@ -56,9 +56,5 @@ PhotosUploadFormsImageFormView = Backbone.View.extend({
             model: model,
             el: '#upload_caption_form_container'
         });
-    },
-
-    showAuthenticationOpts: function () {
-        $('#login_modal_container').fadeIn('60');
     }
 });

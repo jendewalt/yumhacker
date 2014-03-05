@@ -11,12 +11,6 @@ EstablishmentsSearchView = Backbone.View.extend({
 			collection: this.collection
 		});
 
-		if (!CurrentUser.get('id')) {
-            this.authentication_options_view = new AuthenticationOptionsView({
-                el: '#login_modal_container'
-            });         
-        }
-
 		this.listenTo(EstablishmentSearch, 'geocode', this.fetchResults);
 		this.listenTo(EstablishmentSearch, 'error', this.showError);
 	},

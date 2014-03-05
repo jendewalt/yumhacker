@@ -5,7 +5,6 @@ ListsShowTitleView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
-        console.log(this.model)
 
         this.application_favorite_button_view = new ApplicationFavoriteButtonView({ 
             el: this.$('#list_favorite_button'),

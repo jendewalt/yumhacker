@@ -41,12 +41,6 @@ MainIndexView = Backbone.View.extend({
             el: '.pagination_container',
             collection: this.collection
         });
-
-        if (!CurrentUser.get('id')) {
-            this.authentication_options_view = new AuthenticationOptionsView({
-                el: '#login_modal_container'
-            });         
-        }
     },
 
     render: function () {

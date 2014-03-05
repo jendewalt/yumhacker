@@ -10,7 +10,7 @@
     [[ } ]]
 
     <div class='follow_btn_container'>
-        [[ if (CurrentUser.get('id')) { ]]
+        [[ if (CurrentUser.logged_in()) { ]]
             <a href='/users/edit' class='edit btn text'>Edit Profile</a>
         [[ } ]]
     </div>

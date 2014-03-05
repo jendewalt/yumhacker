@@ -1,5 +1,6 @@
 ListsShowListingView = Backbone.View.extend({
     events: {
+        'click .add_to_list_btn': 'showModal'
     },
 
     initialize: function () {
@@ -25,5 +26,16 @@ ListsShowListingView = Backbone.View.extend({
 
     render: function () {
         this.$el.html(render('lists/show_listing', this.model));
+    },
+
+    showModal: function () {
+        if (CurrentUser.logged_in()) {
+            ModalView.show(new ListsAddToListModalView({
+                el: '#inner_modal_content',
+                model: this.model
+            }));
+        } else {
+            ModalView.show(new AuthenticationOptionsView({ el: '#inner_modal_content' }));
+        }            
     }
 });

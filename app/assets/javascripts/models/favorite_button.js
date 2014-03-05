@@ -2,14 +2,14 @@ FavoriteButton = Backbone.Model.extend({
     urlRoot: '/api/users/favorite',
 
     toggle: function () {
-        if (CurrentUser.get('id')) {
+        if (CurrentUser.logged_in()) {
             if (this.get('user_favoriting')) {
                 this.unfavorite();
             } else {
                 this.favorite();
             } 
         } else {
-            this.showAuthenticationOpts();
+            CurrentUser.authenticate();
         }
     },
 
@@ -43,9 +43,5 @@ FavoriteButton = Backbone.Model.extend({
                 console.log(status)
             }
         });
-    },
-
-    showAuthenticationOpts: function () {
-        $('#login_modal_container').fadeIn('60');
     }
 });

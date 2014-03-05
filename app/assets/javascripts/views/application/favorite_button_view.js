@@ -4,12 +4,11 @@ ApplicationFavoriteButtonView = Backbone.View.extend({
     },
 
     initialize: function (options) {
-        console.log(options)
         this.model = new FavoriteButton();
         this.listenTo(this.model, 'sync', this.render);
         this.listenTo(this.model, 'change', this.render);
 
-        this.model.set({ 'list_id': options.list.get('id'), 'user_favoriting': options.list.get('user_favoriting') }, { silent: true });
+        this.model.set({ 'list_id': options.list.get('id'), 'user_favoriting': options.list.get('user_favoriting'), 'number_favorites': options.list.get('number_favorites') }, { silent: true });
         this.render();
     },
 

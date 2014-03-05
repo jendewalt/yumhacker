@@ -1,7 +1,7 @@
 <div id='photo_upload_form_container'>
     <label>Add Photos<button><%= image_tag "camera_icon.svg" %></button></label>
 
-    [[ if (CurrentUser.get('id')) { ]]
+    [[ if (CurrentUser.logged_in()) { ]]
         <form id='photo_upload_form' method="post" enctype="multipart/form-data" action='/api/users/photo'>
             <input name="authenticity_token" value="[[= $('meta[name="csrf-token"]')[0].content ]]" type="hidden">
             <input name="establishment_id" value="[[= get('id') ]]" type="hidden">

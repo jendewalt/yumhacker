@@ -26,7 +26,7 @@ CommentsIndexCommentFormView = Backbone.View.extend({
 
         $.trim(body);
 
-        if (CurrentUser.get('id')) {
+        if (CurrentUser.logged_in()) {
             if (body && body.length <= 100) {
                 this.new_comment = new Comment({
                     body: body,
@@ -41,7 +41,7 @@ CommentsIndexCommentFormView = Backbone.View.extend({
                 alert('Comments cannot be blank and have a character limit of 100 characters.');
             }
         } else {
-            this.showAuthenticationOpts();
+            CurrentUser.authenticate();
         }
 
         var that = this;
@@ -50,9 +50,5 @@ CommentsIndexCommentFormView = Backbone.View.extend({
             model.set('created_at', moment().utc().format());
             that.collection.add(model);
         }
-    },
-
-    showAuthenticationOpts: function () {
-        $('#login_modal_container').fadeIn('60');
     }
 });

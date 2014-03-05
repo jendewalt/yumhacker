@@ -14,12 +14,6 @@ UsersShowView = Backbone.View.extend({
             model: this.model,
             section: options.section
         });      
-        
-        if (!CurrentUser.get('id')) {
-            this.authentication_options_view = new AuthenticationOptionsView({
-                el: '#login_modal_container'
-            });         
-        }
     },
 
     render: function () {

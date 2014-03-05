@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304041328) do
+ActiveRecord::Schema.define(version: 20140304234301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(version: 20140304041328) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "favoritizations_count", default: 0, null: false
   end
 
   add_index "lists", ["created_at"], :name => "index_lists_on_created_at"

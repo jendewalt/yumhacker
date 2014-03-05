@@ -11,12 +11,6 @@ UsersFindFacebookFriendsView = Backbone.View.extend({
 			el: '#find_user_results_container',
 			collection: this.collection
 		});
-		
-		if (!CurrentUser.get('id')) {
-			this.authentication_options_view = new AuthenticationOptionsView({
-	            el: '#login_modal_container'
-	        });			
-		}
 	},
 
 	render: function () {

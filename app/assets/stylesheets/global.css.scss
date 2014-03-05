@@ -250,7 +250,7 @@ body.yumhacker {
 
     }
     
-    .endorsing, .following {
+    .endorsing, .following, .favoriting.favorite_btn.btn.text {
         color: $light-grey;
         background-color: white;
         border: 1px solid $x-light-grey;
@@ -260,6 +260,13 @@ body.yumhacker {
             background-color: $light-grey;
             color: #59595e;
         }
+    }
+
+    .favorite_btn.btn.text {
+        width: 110px;
+        height: 28px;
+        line-height: 28px;
+        background-color: $blue;
     }
 
     .pagination_container {
@@ -327,63 +334,6 @@ body.yumhacker {
                     line-height: 11px;
                     font-size: 11px;
                     color: $mid-grey;
-                }
-            }
-        }
-    }
-
-    #login_modal_container {
-        display: none;
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        text-align: center;
-        background-color: rgba(241, 241, 243 ,0.93);
-        z-index: 100;
-
-        .inner_modal {
-            position: relative;
-            width: 600px;
-            margin: 50px auto;
-            padding: 40px;
-            border: 1px solid $light-grey;
-
-            .cancel {
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                text-decoration: none;
-                color: $mid-grey;
-                background-color: white;
-                border:none;
-                cursor:pointer;
-            }
-
-            .logo {
-                margin-bottom: 20px; 
-                img {
-                    height: 40px;
-                }
-            }
-
-            p {
-                margin: 10px 0 30px;
-                line-height: 16px;
-                color: $mid-grey;
-            }
-
-            .btn_container {
-                padding-top: 40px;
-                border-top: 1px solid $light-grey;
-
-                .btn {
-                    height: 40px;
-                    width: 160px;
-                    margin: 0 15px;
-                    line-height: 40px;
-                    font-size: 16px;
                 }
             }
         }
