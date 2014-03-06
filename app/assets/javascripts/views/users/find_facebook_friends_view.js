@@ -3,8 +3,16 @@ UsersFindFacebookFriendsView = Backbone.View.extend({
 		'click .nav': 'goToHome'
 	},
 
+	title: 'Find Facebook Friends | YumHacker',
+
+	description: 'Connect with your Facebook friends to find ' + Client.get('formatted_address') + ' restaurants and bars endorsed by people you trust. Get restaurant and bar photos, reviews, hours and more!',
+
 	initialize: function () {
 		this.render();
+
+		App.eventAggregator.trigger('domchange:title', this.title);
+        App.eventAggregator.trigger('domchange:description', this.description);
+
 		this.collection = new UserFacebookFriendsCollection();
 
 		this.user_facebook_friends_list_view = new UsersFacebookFriendsListView({

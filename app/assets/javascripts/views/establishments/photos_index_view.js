@@ -14,6 +14,7 @@ EstablishmentsPhotosIndexView = Backbone.View.extend({
 
     render: function () {
         this.$el.html(render('establishments/photos_index', this.model)); 
+        this.changeHeadInfo();
 
         this.photos_gallery_view = new PhotosGalleryView({
             collection: this.collection,
@@ -33,5 +34,13 @@ EstablishmentsPhotosIndexView = Backbone.View.extend({
     goToEstablishmentShow: function (e) {
         e.preventDefault();
         App.navigate(e.target.pathname, { trigger: true });
+    },
+
+    changeHeadInfo: function () {
+        this.title = this.model.get('name') + '\'s Photos | ' + this.model.get('city') + ' Restaurants | YumHacker';       
+        this.description = 'Photos of ' + this.model.get('name') + ' in ' + this.model.get('city') + ', ' + this.model.get('state') + ' on YumHacker.'
+
+        App.eventAggregator.trigger('domchange:title', this.title);
+        App.eventAggregator.trigger('domchange:description', this.description);
     }
 });

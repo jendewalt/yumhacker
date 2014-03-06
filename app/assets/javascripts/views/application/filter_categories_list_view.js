@@ -44,5 +44,7 @@ FilterCategoriesListView = Backbone.View.extend({
 
     setCategoriesFilter: function (e) {
         Filter.set('categories', $(e.target).val());
+        // Temp solution until I enable multi category filtering
+        Filter.set('category_name', e.target.selectedOptions[0].innerHTML); 
     }
 });

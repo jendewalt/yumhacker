@@ -27,6 +27,7 @@ UsersShowFollowingContainerView = Backbone.View.extend({
         });     
         
         $('#endorsements_tab').addClass('current_tab');
+        this.changeHeadInfo('endorsements');
     },
 
     renderFollowedUsers: function (e) {
@@ -36,6 +37,7 @@ UsersShowFollowingContainerView = Backbone.View.extend({
         });        
 
         $('#followed_users_tab').addClass('current_tab');
+        this.changeHeadInfo('following');
     },
 
     renderFollowers: function (e) {
@@ -45,10 +47,33 @@ UsersShowFollowingContainerView = Backbone.View.extend({
         });
 
         $('#followers_tab').addClass('current_tab');
+        this.changeHeadInfo('followers');
     },
 
     goToSection: function (e) {
         e.preventDefault();
         App.navigate(e.target.pathname, { trigger: true });
+    },
+
+    changeHeadInfo: function (section) {
+        console.log('change head')
+        var user_name = this.model.get('full_name');
+        var user_location = this.model.get('location') ? ' from ' + this.model.get('location') : '';
+        var section_text
+
+        if (section === 'following') {
+            section_text = this.model.get('num_followed_users') !== 1 ? ' is following ' + this.model.get('num_followed_users') + ' people' : ' is following 1 person';
+        } else if (section === 'followers') {
+            section_text = this.model.get('num_followers') !== 1 ? ' has ' + this.model.get('num_followers') + ' followers' : ' has 1 follower';
+        } else {
+            section_text = this.model.get('num_endorsements') !== 1 ? ' is endorsing ' + this.model.get('num_endorsements') + ' restaurants' : ' is endorsing 1 restaurant';            
+        }
+
+        this.title = user_name + ' | ' + capitalize(section) + ' | YumHacker';
+
+        this.description = user_name + user_location + section_text + ' on YumHacker.'
+
+        App.eventAggregator.trigger('domchange:title', this.title);
+        App.eventAggregator.trigger('domchange:description', this.description);
     }
 });

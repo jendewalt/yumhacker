@@ -1,7 +1,8 @@
 EstablishmentsShowView = Backbone.View.extend({
 	
 	initialize: function () {
-		this.listenTo(this.model, 'sync', this.render);
+        this.listenTo(this.model, 'sync', this.render);
+		this.listenTo(this.model, 'sync', this.changeHeadInfo);
         this.model.fetch();
     },
 
@@ -36,5 +37,13 @@ EstablishmentsShowView = Backbone.View.extend({
                 el: '#login_modal_container'
             });         
         }
-	}
+	},
+
+    changeHeadInfo: function () {
+        this.title = this.model.get('name') + ' | ' + this.model.get('city') + ' Restaurants | YumHacker';       
+        this.description = this.model.get('number_endorsements') + ' people are endorsing ' + this.model.get('name') + ' in ' + this.model.get('city') + ', ' + this.model.get('state') + ' on YumHacker.'
+
+        App.eventAggregator.trigger('domchange:title', this.title);
+        App.eventAggregator.trigger('domchange:description', this.description);
+    }
 });

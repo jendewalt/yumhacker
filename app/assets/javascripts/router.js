@@ -2,6 +2,10 @@ Router = Backbone.Router.extend({
     initialize: function () {
         this.route(/^restaurants\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+$/, 'establishmentsShow');
         this.route(/^restaurants\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+\/photos$/, 'establishmentsPhotosIndex');
+
+        this.eventAggregator = _.extend({}, Backbone.Events);
+        this.eventAggregator.on('domchange:title', this.changeTitle, this);
+        this.eventAggregator.on('domchange:description', this.changeDescription, this);
     },
 
     routes: {
@@ -13,9 +17,8 @@ Router = Backbone.Router.extend({
         'users/sign_up/find_facebook_friends': 'signUpFindFacebookFriends',
         'users/find_facebook_friends': 'findFacebookFriends',
         'users/search': 'usersSearch',
-        'users/sign_in': 'nothing',
+        'users/sign_in': 'usersSignIn',
         'users/sign_out': 'nothing',
-        'users/sign_up': 'nothing',
         'users/edit': 'editProfile',
         'users/sign_up': 'usersSignUp',
         'users/:id(/:section)': 'usersShow',
@@ -33,6 +36,15 @@ Router = Backbone.Router.extend({
             $('section').html('');
         }
         $('<div>', { id: 'main_container' }).appendTo('section');
+    },
+
+    changeTitle: function (title) {
+        $(document).attr('title', title);
+    },
+
+    changeDescription: function (desc) {
+        $('meta[name=description]').remove();
+        $('head').append( '<meta name="description" content="' + desc + '">' );
     },
 
     mainIndex: function () {
@@ -112,6 +124,10 @@ Router = Backbone.Router.extend({
         this.currentView = new UsersSignUpView({ el: 'section div' });
     },
 
+    usersSignIn: function () {
+        this.currentView = new UsersSignInView({ el: 'section div' });
+    },
+
     signUpFindFacebookFriends: function () {
         this.setup();
         this.currentView = new UsersSignUpFindFacebookFriendsView({ 
@@ -153,14 +169,4 @@ Router = Backbone.Router.extend({
 
     nothing: function () {
     }
-});
-
-App = new Router();
-
-$(document).ready(function () {
-    new HeaderView({ el: 'header' });
-    new FooterView({ el: 'footer' });
-
-    Backbone.history.start({ pushState: true });
-    // Backbone.history.start({ pushState: true, hashChange: false }); enable when you start worrying about IE 9 and under
 });

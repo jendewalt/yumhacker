@@ -4,8 +4,16 @@ UsersSearchView = Backbone.View.extend({
 		'click #find_friends_button': 'goToFindFbFriends'
 	},
 
+	title: 'Find Friends | YumHacker',
+
+	description: 'Search for friends to find restaurants and bars endorsed by people you trust. Get restaurant and bar photos, reviews, hours and more!',
+
 	initialize: function () {
 		this.render();
+		
+		App.eventAggregator.trigger('domchange:title', this.title);
+        App.eventAggregator.trigger('domchange:description', this.description);
+
 		this.collection = new UserSuggestionCollection();
 
 		this.user_search_suggestion_list_view = new UsersSearchSuggestionListView({
