@@ -13,5 +13,12 @@ CurrentUser = new (Backbone.Model.extend({
 
     authenticate: function () {
         ModalView.show(new AuthenticationOptionsView({ el: '#inner_modal_content' }));
+    },
+
+    addListingToListModal: function (listing) {
+        ModalView.show(new ListsAddToListModalView({ 
+            el: '#inner_modal_content',
+            model: listing
+        }));        
     }
 }))();

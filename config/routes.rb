@@ -50,8 +50,9 @@ Yumhacker::Application.routes.draw do
     delete 'users/favorite', to: 'users#unfavorite'
     get 'users/:id/lists', to: 'users#lists'
 
-    get 'lists/:id/listings', to: 'lists#listings'
+    get 'lists/:id/listings', to: 'listings#index'
     resources :lists
+    resources :listings 
     
     post 'users/follow', to: 'users#follow'
     delete 'users/follow', to: 'users#unfollow'

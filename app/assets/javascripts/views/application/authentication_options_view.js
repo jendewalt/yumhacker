@@ -1,5 +1,6 @@
 AuthenticationOptionsView = Backbone.View.extend({
     events: {
+        'click': 'consoleTest'
     },
 
     initialize: function () {
@@ -9,5 +10,7 @@ AuthenticationOptionsView = Backbone.View.extend({
     render: function () {
         this.$el.html('')
         this.$el.html(render('application/authentication_options'));
-    }
+    },
+
+    consoleTest: function () { console.log('click') }
 });

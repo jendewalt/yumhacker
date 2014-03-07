@@ -15,11 +15,9 @@ class Api::ListsController < ApplicationController
 
   def listings
     @listings = List.find(params[:id]).listings
+  end
 
-    @listings.each do |l|
-      logger.debug('##########')
-      logger.debug(current_user.endorsing?(l.establishment_id))
-      logger.debug('@@@@@@@@@@@')
-    end
+  def update
+    logger.debug('@@@@@@@@@@@@@@@@@@@')    
   end
 end
