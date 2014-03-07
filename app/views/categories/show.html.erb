@@ -1,0 +1,9 @@
+<h1><%= @user.full_name + '\'s Favorite ' + @category.name %> Restaurants</h1>
+
+<ul>
+    <% @establishments.each do |estab| %>
+        <li>
+            <%= estab.name %>
+        </li>
+    <% end %>
+</ul>

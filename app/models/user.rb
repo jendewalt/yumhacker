@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "200x200#", :small => "100x100#", :thumb => "30x30#" }, :default_url => "/missing.png"
 
+  extend FriendlyId
+  friendly_id :full_name, use: :slugged
+
   def following?(id)
     relationships.where(:followed_id => id).count > 0
   end
@@ -47,8 +50,12 @@ class User < ActiveRecord::Base
     endorsements.where(:establishment_id => id).first.try(:destroy)
   end
 
+  def full_name
+    first_name + ' ' + last_name
+  end
+
   def path
-    'users/' + id.to_s.parameterize
+    'users/' + slug
   end
 
   def get_fb_friends_on_yumhacker
