@@ -5,8 +5,16 @@ Yumhacker::Application.routes.draw do
   post '/facebook', to: 'facebook#update'
 
   # devise_for must be above root
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations"  }
- 
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" }, :skip => [:registrations]
+
+  devise_scope :user do
+    get "users/sign_up" => "registrations#new", :as => :new_user_registration
+    post "users/sign_up" => "registrations#create", :as => :user_registration
+    get "users/cancel" => "registrations#cancel", :as => :cancel_user_registration
+    get "users/edit" => "registrations#edit", :as => :edit_user_registration
+    patch "users/sign_up" => "registrations#update"
+  end
+  
   root :to => "main#index"
 
   get '/users/find_facebook_friends', to: 'main#index'

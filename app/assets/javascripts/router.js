@@ -13,17 +13,16 @@ Router = Backbone.Router.extend({
         '_=_': 'redirectToHome',
         'restaurants': 'establishmentsIndex',
         'restaurants/search': 'establishmentsSearch',
-        'users': 'nothing',
         'users/sign_up/find_facebook_friends': 'signUpFindFacebookFriends',
         'users/find_facebook_friends': 'findFacebookFriends',
         'users/search': 'usersSearch',
         'users/sign_in': 'usersSignIn',
         'users/sign_out': 'nothing',
-        'users/edit': 'editProfile',
         'users/sign_up': 'usersSignUp',
+        'users/edit': 'editProfile',
         'users/:id/categories': 'nothing',
         'users/:id(/:section)': 'usersShow',
-        'users': 'deviseViewCheck',
+        'users': 'nothing',
         'lists/:id': 'listsShow',
         'contact': 'contactPage',
         'terms': 'termsPage',
@@ -107,14 +106,6 @@ Router = Backbone.Router.extend({
     usersSearch: function () {
         this.setup();
         this.currentView = new UsersSearchView({ el: '#main_container' });
-    },
-
-    deviseViewCheck: function () {
-        if ($('#sign_up_container').length) {
-            this.usersSignUp();
-        } else {
-            this.editProfile();
-        }
     },
 
     editProfile: function () {

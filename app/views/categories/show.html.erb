@@ -1,3 +1,7 @@
+<% content_for(:title, @user.full_name + "'s Best " + @category.name + " Restaurants | Yumhacker") %>
+
+<% content_for(:description, @user.full_name + ' is endorsing ' + @establishments.length.to_s + ' ' + @category.name + ' restaurants on YumHacker!') %>
+
 <header></header>
 <section>
     <div id='establishments_list_container' class='card border category_show'>

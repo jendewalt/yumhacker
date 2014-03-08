@@ -1,3 +1,7 @@
+<% content_for(:title, @user.full_name + "'s Restaurant Categories| Find restaurants endorsed by people you trust | Yumhacker ") %>
+
+<% content_for(:description, @user.full_name + ' is endorsing restarurants in ' + @categories.length.to_s + ' categories on YumHacker!') %>
+
 <header></header>
 <section>
     <div id='categories_index_list_container' class='card border'>
