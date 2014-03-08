@@ -9,7 +9,7 @@ EstablishmentSearch = new (Backbone.Model.extend({
         if ($.cookie('establishment_search')) {
             this.set(JSON.parse($.cookie('establishment_search')));
         }
-        var params = $.deparam(window.location.search.slice(1));
+        var params = $.deparam(decodeURIComponent(window.location.search.slice(1)));
 
         if (typeof params.lat != 'undefined') this.set('lat', Number(params.lat));
         if (typeof params.lng != 'undefined') this.set('lng', Number(params.lng));

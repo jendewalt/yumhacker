@@ -1,0 +1,15 @@
+<header></header>
+<section>
+    <div id='categories_index_list_container' class='card border'>
+        <h3><a href="/<%= @user.path %>"><%= @user.full_name %></a>'s Category Lists</h3>
+
+        <ul id='categories_index_list'>
+            <% @categories.each do |category| %>
+                <li>
+                    <a href="<%= 'categories/' + category.slug %>"><%= category.name %></a>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+</section>
+<footer></footer>

@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "200x200#", :small => "100x100#", :thumb => "30x30#" }, :default_url => "/missing.png"
 
+  extend FriendlyId
+  friendly_id :full_name, use: :slugged
+
   # User following
 
   def following?(id)
@@ -70,8 +73,12 @@ class User < ActiveRecord::Base
 
   # Misc
 
+  def full_name
+    (first_name + ' ' + last_name).strip
+  end
+
   def path
-    'users/' + id.to_s.parameterize
+    'users/' + slug
   end
 
   def get_fb_friends_on_yumhacker

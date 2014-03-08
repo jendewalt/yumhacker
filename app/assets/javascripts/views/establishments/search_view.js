@@ -3,8 +3,16 @@ EstablishmentsSearchView = Backbone.View.extend({
 		'submit': 'searchForEstablishments'
 	},
 
+	title: 'Find a Restaurant | YumHacker',
+
+	description: 'Find ' + Client.get('formatted_address') + ' restaurants and bars endorsed by people you trust. Get restaurant and bar photos, reviews, hours and more!',
+
 	initialize: function () {
 		this.render();
+
+		App.eventAggregator.trigger('domchange:title', this.title);
+        App.eventAggregator.trigger('domchange:description', this.description);
+
 		this.collection = new EstablishmentSuggestionCollection();
 		this.establishment_search_suggestion_list_view = new EstablishmentsSearchSuggestionListView({
 			el: '#find_establishment_results_container',

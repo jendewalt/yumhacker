@@ -21,9 +21,9 @@ ListsAddToListModalView = Backbone.View.extend({
     },
 
     handleSubmit: function (e) {
-        e.preventDefault();
         console.log('Submit!');
-        xxx = this.model
+
+        e.preventDefault();
         var list_id = e.target[0].value;
         var listing_comment = e.target[1].value;
 
@@ -36,32 +36,10 @@ ListsAddToListModalView = Backbone.View.extend({
             });
 
             this.new_listing.save();
+            ModalView.hide();
         } else {
             CurrentUser.authenticate();            
         }
-        
-
-
-
-
-
-
-        // if (CurrentUser.logged_in()) {
-        //     if (body && body.length <= 100) {
-        //         this.new_comment = new Comment({
-        //             body: body,
-        //             establishment_id: this.model.get('id')
-        //         });
-                
-        //         this.new_comment.save({}, {success: updateCollection});
-
-        //         $('#comment_input').val('');
-        //         $('#char_counter span').html(100)            
-        //     } else {
-        //         alert('Comments cannot be blank and have a character limit of 100 characters.');
-        //     }
-        // } else {
-        // }
     }
 
 });

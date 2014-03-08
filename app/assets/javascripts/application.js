@@ -23,10 +23,10 @@
 //= require jquery.deparam
 //= require moment
 //= require jquery.flexslider
+//= require_tree ./helpers
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./templates
 //= require_tree ./views
-//= require_tree ./helpers
 //= require router
 //= require init

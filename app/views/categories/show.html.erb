@@ -1,0 +1,33 @@
+<header></header>
+<section>
+    <div id='establishments_list_container' class='card border category_show'>
+        <h3>
+            <a href="/<%= @user.path %>"><%= @user.full_name %></a>'s Favorite
+            <br>
+            <%= @category.name %> Restaurants
+        </h3>
+
+        <ul class='establishments_list'>
+            <% @establishments.each do |estab| %>
+                <li>
+                    <div class='establishment_info'>
+                        <div class='biz_name'><%= estab.name %></div>
+
+                        <div class='categories_container'>
+                            <% estab.categories.each_with_index do |category, i| %>
+                                <div class='category details'>
+                                    <%= category.name + (estab.categories.length > i + 1 ? ',' : '') %> 
+                                </div>
+                            <% end %>
+                        </div>
+
+                        <div class='details'><%= estab.street_number %> <%= estab.street %></div>
+                        <div class='details'><%= estab.city %>, <%= estab.state %> <%= estab.zip_code %></div>
+                    </div>
+                    <br class='clear'>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+</section>
+<footer></footer>

@@ -2,6 +2,10 @@ Router = Backbone.Router.extend({
     initialize: function () {
         this.route(/^restaurants\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+$/, 'establishmentsShow');
         this.route(/^restaurants\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+\/[A-Za-z0-9\-_]+\/photos$/, 'establishmentsPhotosIndex');
+
+        this.eventAggregator = _.extend({}, Backbone.Events);
+        this.eventAggregator.on('domchange:title', this.changeTitle, this);
+        this.eventAggregator.on('domchange:description', this.changeDescription, this);
     },
 
     routes: {
@@ -13,11 +17,11 @@ Router = Backbone.Router.extend({
         'users/sign_up/find_facebook_friends': 'signUpFindFacebookFriends',
         'users/find_facebook_friends': 'findFacebookFriends',
         'users/search': 'usersSearch',
-        'users/sign_in': 'nothing',
+        'users/sign_in': 'usersSignIn',
         'users/sign_out': 'nothing',
-        'users/sign_up': 'nothing',
         'users/edit': 'editProfile',
         'users/sign_up': 'usersSignUp',
+        'users/:id/categories': 'nothing',
         'users/:id(/:section)': 'usersShow',
         'users': 'deviseViewCheck',
         'lists/:id': 'listsShow',
@@ -35,8 +39,17 @@ Router = Backbone.Router.extend({
         $('<div>', { id: 'main_container' }).appendTo('section');
     },
 
+    changeTitle: function (title) {
+        $(document).attr('title', title);
+    },
+
+    changeDescription: function (desc) {
+        $('meta[name=description]').remove();
+        $('head').append( '<meta name="description" content="' + desc + '">' );
+    },
+
     mainIndex: function () {
-        var params = $.deparam(window.location.search.slice(1));
+        var params = $.deparam(decodeURIComponent(window.location.search.slice(1)));
         if (_.isEmpty(params)) {
             Location.set(Location.defaults, { silent: true });
             Filter.set(Filter.defaults, { silent: true });
@@ -110,6 +123,10 @@ Router = Backbone.Router.extend({
 
     usersSignUp: function () {
         this.currentView = new UsersSignUpView({ el: 'section div' });
+    },
+
+    usersSignIn: function () {
+        this.currentView = new UsersSignInView({ el: 'section div' });
     },
 
     signUpFindFacebookFriends: function () {

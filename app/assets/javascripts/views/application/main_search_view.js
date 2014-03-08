@@ -40,7 +40,7 @@ MainSearchView = Backbone.View.extend({
 
             if (Backbone.history.fragment !== '') {
                 var params = _.extend(Location.predicate(), Filter.predicate(), Client.predicate());
-                App.navigate('/' + '?' + $.param(params), { trigger: true });
+                App.navigate('/' + '?' + encodeURIComponent($.param(params)), { trigger: true });
             }
         });
     },

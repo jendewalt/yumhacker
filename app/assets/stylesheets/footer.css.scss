@@ -9,7 +9,7 @@ body.yumhacker {
     $x-light-grey: #F1F1F3;
 
     section {
-        padding-bottom: 40px;
+        padding-bottom: 110px;
     }
 
     footer {
@@ -17,29 +17,43 @@ body.yumhacker {
         bottom: 0;
         left: 0;
         right: 0;
-        height: 41px;
-        background-color: white;
-        border-top: 1px solid $mid-grey;
+        height: 93px;
 
-        .horizontal {
+        #subfooter {
+            background-color: #e0e0e1;
+            padding: 20px;
+            border-top: 1px solid white;
+            text-align: left;
 
-            li {
-                display: inline-block;
-                padding: 0 5px;
+            p, a {
+                font-size: 11px;
+                color: $mid-grey;
+            }
+        }
 
-                a {
-                    line-height: 40px;
-                    font-size: 11px;
-                    color: $mid-grey;
-                    text-decoration: none;
+        #footer_wrap {
+            height: 41px;
+            background-color: white;
+            border-top: 1px solid $mid-grey;
 
-                    &:hover {
-                        text-decoration: underline;
-                    }                    
+            .horizontal {
+
+                li {
+                    display: inline-block;
+                    padding: 0 5px;
+
+                    a {
+                        line-height: 40px;
+                        font-size: 11px;
+                        color: $mid-grey;
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }                    
+                    }
                 }
             }
-
         }
     }
-
 }
