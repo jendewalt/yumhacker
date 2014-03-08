@@ -1,0 +1,38 @@
+body.yumhacker {
+    $magenta: #e91367;
+    $dark-magenta: #d9114a;
+    $blue: #0d70eb;
+    $dark-blue: #094da1;
+    $dark-grey: #313136;
+    $mid-grey: #737378;
+    $light-grey: #c1c1c3;
+    $x-light-grey: #F1F1F3;
+        
+    #establishments_list_container.category_show {
+        width: 500px;
+        margin: 30px auto;
+
+        h3 {
+            padding: 20px;
+            font-size: 20px;
+            color: $mid-grey;
+            text-align: center;
+            border-bottom: 1px solid $light-grey;
+            margin-bottom: 10px;
+            line-height: 30px;
+
+            a {
+                color: $mid-grey;
+                text-decoration: none;
+
+                &:hover {
+                    color: $blue;
+                }
+            }
+        }
+
+        .establishment_info {
+            width: 100%;
+        }
+    }
+}

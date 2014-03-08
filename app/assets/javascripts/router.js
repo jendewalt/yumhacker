@@ -21,6 +21,7 @@ Router = Backbone.Router.extend({
         'users/sign_out': 'nothing',
         'users/edit': 'editProfile',
         'users/sign_up': 'usersSignUp',
+        'users/:id/categories': 'nothing',
         'users/:id(/:section)': 'usersShow',
         'users': 'deviseViewCheck',
         'lists/:id': 'listsShow',

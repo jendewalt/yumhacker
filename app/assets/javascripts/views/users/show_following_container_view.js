@@ -56,7 +56,6 @@ UsersShowFollowingContainerView = Backbone.View.extend({
     },
 
     changeHeadInfo: function (section) {
-        console.log('change head')
         var user_name = this.model.get('full_name');
         var user_location = this.model.get('location') ? ' from ' + this.model.get('location') : '';
         var section_text
