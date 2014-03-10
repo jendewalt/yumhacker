@@ -1,5 +1,6 @@
-<div class='devise_form' id='sign_up_container'>
+<% content_for(:title, "Sign Up | Yumhacker") %>
 
+<div class='devise_form' id='sign_up_container'>
     <% if flash[:error] %>
         <div class="error"><%= flash[:error] %></div>
     <% end %>

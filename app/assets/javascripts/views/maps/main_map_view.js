@@ -15,12 +15,14 @@ MainMapView = Backbone.View.extend({
 		this.mapCanvas = this.$el;
 		this.map = new google.maps.Map(this.mapCanvas[0], this.mapOptions);
 		this.addGoogleListeners();
+		$(window).on('scroll', this.fixMapOnScroll);
 	},
 
 	render: function () {
 		MainGoogleMap.map.getStreetView().setVisible(false);
 		this.listen_to_map = false;
 		this.resetMarkers();
+
 
 		var that = this;
 		google.maps.event.addListenerOnce(that.map, 'zoom_changed', function (e) {
@@ -127,5 +129,22 @@ MainMapView = Backbone.View.extend({
 				Location.set({ center: center, bounds: bounds, contained_in: 'bounds' });
 			}
 		}); 
-	}
+	},
+
+    fixMapOnScroll: function () {
+    	if ($('#main_map_pane').length > 0) {
+	        var left_column_height = $('.column.left').height();
+	        var map = $('#main_map_pane');
+	        var map_top = map.position().top;
+	        var window_scroll_top = $(window).scrollTop();
+    		
+    		if (window_scroll_top >= left_column_height || window_scroll_top <= map_top) {
+    			map.removeClass('sticky_map');
+    		} else if (window_scroll_top >= map_top) {
+    			if (!map.hasClass('sticky_map')) {
+    				map.addClass('sticky_map');
+    			}
+    		}
+    	}
+    }
 });

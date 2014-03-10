@@ -16,7 +16,7 @@ Router = Backbone.Router.extend({
         'users/sign_up/find_facebook_friends': 'signUpFindFacebookFriends',
         'users/find_facebook_friends': 'findFacebookFriends',
         'users/search': 'usersSearch',
-        'users/sign_in': 'usersSignIn',
+        'users/sign_in': 'nothing',
         'users/sign_out': 'nothing',
         'users/sign_up': 'usersSignUp',
         'users/edit': 'editProfile',

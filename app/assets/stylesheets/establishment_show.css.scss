@@ -13,13 +13,11 @@ body.yumhacker {
     #establishment_show_container {
         text-align: left;
 
-        .left_column {
-            float: left;
+        .left.column {
             width: 60%;
         }
 
-        .right_column {
-            float: right;
+        .right.column {
             width: 40%;
         }
 
@@ -36,6 +34,18 @@ body.yumhacker {
             min-height: 220px;
             padding: 20px;
             margin-bottom: 20px;
+
+            .left.column {
+                float: left;
+                width: 70%;
+                padding: 0;
+            }
+
+            .right.column {
+                float: right;
+                width: 30%;
+                padding: 0;
+            }
 
             .biz_name {
                 margin-bottom: 10px;

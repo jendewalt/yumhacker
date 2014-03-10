@@ -16,7 +16,7 @@ body.yumhacker {
         width: 100%;
 
         #main_filter_container {
-            margin: 10px 0;
+            margin-top: 10px;
             padding: 16px 20px;
             text-align: left;
             background-color: white;
@@ -42,7 +42,7 @@ body.yumhacker {
 
                     #following_filter_container {
                         padding-top: 3px;
-                        padding-bottom: 3px;
+                        padding-bottom: 6px;
 
 
                         .radio_container {
@@ -71,9 +71,6 @@ body.yumhacker {
         }
 
         #establishments_list_container {
-            display: inline-block;
-            width: 50%;
-            padding-right: 30px;
 
             #no_results_message {
                 list-style: none;

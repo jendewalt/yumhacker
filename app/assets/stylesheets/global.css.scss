@@ -19,6 +19,34 @@ body.yumhacker {
     word-break: break-word;
     word-wrap: break-word;
 
+    #main_container {
+        display: inline-block;
+        width: 1000px;
+        padding: 20px 0 60px;
+    }
+
+    .column {
+        float: left;
+        padding: 20px 0;
+    }
+
+    .column.left {
+        width: 55%;
+        padding: 20px 20px 20px 0;
+
+        #list_description_container {
+            padding: 20px;
+        }
+
+        #listings_container {
+            margin-top: 10px;
+        }
+    }
+
+    .column.right {
+        width: 45%;
+    }
+
     ol {
         display: inline-block;
         vertical-align: top;
@@ -41,10 +69,23 @@ body.yumhacker {
         word-wrap: normal;
     }
 
-    #main_container {
-        display: inline-block;
-        width: 1000px;
-        padding: 20px 0 60px;
+    #main_map_pane {
+
+        .map_canvas_container {
+            #map_canvas {
+                width: 100%;
+                height: 500px;
+            }
+        }
+    }
+
+    /* Class to have map follow scroll */
+
+    .sticky_map {
+        position: fixed;
+        top: 0;
+        height: 500px;
+        width: 100%;
     }
 
     ol.establishments_list, ul.establishments_list {
@@ -167,21 +208,6 @@ body.yumhacker {
         }
     }
 
-    // TO DO: Refactor CSS/HTML for main index to integrate with list show view 
-
-    #main_map_pane {
-        display: inline-block;
-        vertical-align: top;
-        width: 100%;
-
-        .map_canvas_container {
-            #map_canvas {
-                width: 100%;
-                height: 500px;
-            }
-        }
-    }
-
     .btn {
         border: none;
         display: inline-block;
@@ -238,10 +264,6 @@ body.yumhacker {
             font-size: 11px;
             border-top: 1px solid $magenta;
         }
-    }
-
-    .column {
-        padding: 20px 10px;
     }
 
     .endorse_btn_container {
