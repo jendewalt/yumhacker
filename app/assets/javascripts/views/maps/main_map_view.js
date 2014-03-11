@@ -133,14 +133,16 @@ MainMapView = Backbone.View.extend({
 
     fixMapOnScroll: function () {
     	if ($('#main_map_pane').length > 0) {
-	        var left_column_height = $('.column.left').height();
+    		var container = $('#main_index_establishments_container');
+	        var container_height = container.height();
 	        var map = $('#main_map_pane');
 	        var map_top = map.position().top;
-	        var window_scroll_top = $(window).scrollTop();
-    		
-    		if (window_scroll_top >= left_column_height || window_scroll_top <= map_top) {
+	        var map_height = map.height();
+	        var scroll_position = $(window).scrollTop();
+
+    		if (scroll_position >= container_height || scroll_position <= map_top) {
     			map.removeClass('sticky_map');
-    		} else if (window_scroll_top >= map_top) {
+    		} else if (scroll_position >= map_top - map.height()) {
     			if (!map.hasClass('sticky_map')) {
     				map.addClass('sticky_map');
     			}
