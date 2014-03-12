@@ -10,35 +10,23 @@ CommentsIndexCommentFormView = Backbone.View.extend({
     render: function () {
         this.$el.html('');
         this.$el.html(render('comments/index_comment_form', this.model));
-
-        $('#comment_input').on('focus', function () {
-            $('#comment_form').animate({ 'margin-bottom': 0 }, 200, function () {
-                $('#char_counter').animate({ 'opacity': '1' }, 0);
-            });
-        }).on('keyup', function () {
-            $('#char_counter span').html(100 - $(this).val().length);
-        });
     },
 
     handleSubmit: function (e) {
         e.preventDefault();
-        var body = e.target[0].value;
+        var body = $.trim(e.target[0].value);
+        var comment_data = { body: body };
 
-        $.trim(body);
+        this['model_type'] = this.model.name.toLowerCase() + '_id';
+        comment_data[this['model_type']] = this.model.get('id');      
 
         if (CurrentUser.logged_in()) {
-            if (body && body.length <= 100) {
-                this.new_comment = new Comment({
-                    body: body,
-                    establishment_id: this.model.get('id')
-                });
+            if (body) {
+                this.new_comment = new Comment( comment_data );
                 
-                this.new_comment.save({}, {success: updateCollection});
-
-                $('#comment_input').val('');
-                $('#char_counter span').html(100)            
+                this.new_comment.save({}, {success: updateCollection});           
             } else {
-                alert('Comments cannot be blank and have a character limit of 100 characters.');
+                alert('Comments cannot be blank.');
             }
         } else {
             CurrentUser.authenticate();

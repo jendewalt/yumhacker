@@ -30,10 +30,6 @@ ListsShowListingView = Backbone.View.extend({
 
     showModal: function () {
         if (CurrentUser.logged_in()) {
-            // ModalView.show(new ListsAddToListModalView({
-            //     el: '#inner_modal_content',
-            //     model: this.model
-            // }));
             CurrentUser.addListingToListModal(this.model);
         } else {
             CurrentUser.authenticate();

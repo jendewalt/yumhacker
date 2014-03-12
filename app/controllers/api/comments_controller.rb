@@ -1,9 +1,11 @@
 class Api::CommentsController < ApplicationController
   respond_to :json
   before_filter :authenticate_user!, :only => [:create, :destroy]
+  before_filter :authorize, :only => [:destroy]
 
   def index
-    @comments = Comment.where(establishment_id: params[:establishment_id]).order(created_at: :desc).page(params[:page]).per(20).includes(:user)
+    commentable = find_commentable
+    @comments = commentable.comments.order(created_at: :desc).page(params[:page]).per(20).includes(:user)
   end
 
   def listing
@@ -12,14 +14,12 @@ class Api::CommentsController < ApplicationController
   
   def create 
     body = params[:body]
-    id = params[:establishment_id]
+    commentable = find_commentable
 
-    if current_user
-      @comment = if body && !body.blank? && body.length <= 100
-        body.strip!
-        current_user.comments.create!(establishment_id: id, body: body)
-      end 
-    end
+    @comment = if body && !body.blank? 
+      body.strip!
+      commentable.comments.create!(user_id: current_user.id, body: body)
+    end 
   end
 
   def destroy 
@@ -30,4 +30,21 @@ class Api::CommentsController < ApplicationController
       end
     end
   end
+
+private
+
+  def authorize
+    @comment = Comment.find(params[:id])
+    render nothing: true, status: 401 and return unless @comment.user == current_user
+  end
+
+  def find_commentable
+    params.each do |name, value|
+      if name =~ /(.+)_id$/
+        return $1.classify.constantize.find(value)
+      end
+    end
+    nil
+  end
+
 end

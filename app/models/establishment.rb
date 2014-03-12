@@ -4,7 +4,7 @@ class Establishment < ActiveRecord::Base
   has_many :endorsements, :dependent => :destroy
   has_many :users, :through => :endorsements
   has_many :hours, :dependent => :destroy
-  has_many :comments, :dependent => :destroy
+  has_many :comments, :as => :commentable, :dependent => :destroy
   has_many :photos, -> { order('created_at DESC') }, :dependent => :destroy
   has_many :preview_photos, -> { order('created_at DESC').limit(4) }, :class_name => 'Photo'
   has_many :listings, :dependent => :destroy
