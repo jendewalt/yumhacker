@@ -1,6 +1,7 @@
 ListsShowListingView = Backbone.View.extend({
     events: {
-        'click .add_to_list_btn': 'showAddListingToListModal'
+        'click .add_to_list_btn': 'showAddListingToListModal',
+        'click .biz_name': 'goToEstablishmentShow'
     },
 
     initialize: function () {
@@ -13,6 +14,11 @@ ListsShowListingView = Backbone.View.extend({
 
         this.application_endorse_button_view = new ApplicationEndorseButtonView({ 
             el: this.$('.endorse_btn_container'),
+            establishment: this.model 
+        }); 
+
+        this.application_wish_list_button_view = new ApplicationWishListButtonView({ 
+            el: this.$('.wish_list_btn_container'),
             establishment: this.model 
         }); 
 
@@ -34,5 +40,10 @@ ListsShowListingView = Backbone.View.extend({
         } else {
             CurrentUser.authenticate();
         }            
-    }
+    },
+
+    goToEstablishmentShow: function (e) {
+        e.preventDefault();
+        App.navigate(e.target.pathname, { trigger: true });
+    }   
 });

@@ -1,4 +1,5 @@
 json.listings @listings do |listing|
+    json.listing_id listing.id
     json.path listing.establishment.path
     json.id listing.establishment.id
     json.name listing.establishment.name
@@ -23,4 +24,5 @@ json.listings @listings do |listing|
     end
 
     json.user_endorsing current_user ? current_user.endorsing?(listing.establishment) : false
+    json.user_wish_listed current_user ? current_user.wish_listed?(listing.establishment) : false
 end

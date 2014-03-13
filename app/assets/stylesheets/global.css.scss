@@ -266,10 +266,15 @@ body.yumhacker {
         }
     }
 
-    .endorse_btn_container {
+    .endorse_btn_container, .wish_list_btn_container {
         float: right;
         display: inline;
+    }
 
+    .wish_listed{
+        color: $light-grey;
+        background-color: white;
+        border: 1px solid $x-light-grey;
     }
     
     .endorsing, .following, .favoriting.favorite_btn.btn.text {

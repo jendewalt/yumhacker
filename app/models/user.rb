@@ -71,6 +71,16 @@ class User < ActiveRecord::Base
     favoritizations.where(:list_id => id).first.try(:destroy)
   end
 
+  # Wish Lists
+
+  def wish_list
+    lists.where(wish_list: true).first
+  end
+  
+  def wish_listed?(establishment)
+    wish_list.establishment_ids.include?(establishment.id)
+  end
+
   # Misc
 
   def full_name

@@ -19,9 +19,10 @@ class Api::ListsController < ApplicationController
     begin
       @list.save
       
-      if !params[:listing].nil?
-        logger.debug('@@@@@@@@@@@@@@@@@@@')
-        logger.debug('There is a listing!')
+      unless params[:listing].nil?
+        # Should the user automatically endore estab when added to list?
+        # establishment_id = params[:listing][:id]
+        # current_user.endorse!(establishment_id) unless current_user.endorsing?(establishment_id)
         @list.listings.new(establishment_id: params[:listing][:id])
         @list.save
       end
@@ -29,7 +30,6 @@ class Api::ListsController < ApplicationController
     rescue
       render nothing: true, status: 409
     end
-    
   end
 
   def listings
