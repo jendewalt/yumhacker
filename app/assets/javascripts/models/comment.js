@@ -2,6 +2,7 @@ Comment = Backbone.Model.extend({
     urlRoot: '/api/comments',
 
     initialize: function () {
+        this.format_time();
         this.on('sync', this.format_time);
     },
 

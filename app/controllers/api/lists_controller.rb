@@ -1,4 +1,6 @@
 class Api::ListsController < ApplicationController
+  before_filter :authenticate_user!, :only => [:create]
+
   def index
     logger.debug('@@@@@@@@@@@@@@@@@@@')
     logger.debug('Hello from the controller index!')
@@ -9,8 +11,25 @@ class Api::ListsController < ApplicationController
   end
   
   def create
-    logger.debug('@@@@@@@@@@@@@@@@@@@')
-    logger.debug('Hello from the controller create!')
+    title = params[:title].strip if params[:title]
+    description = params[:description].strip if params[:description]
+
+    @list = current_user.lists.new(title: title, description: description)
+
+    begin
+      @list.save
+      
+      if !params[:listing].nil?
+        logger.debug('@@@@@@@@@@@@@@@@@@@')
+        logger.debug('There is a listing!')
+        @list.listings.new(establishment_id: params[:listing][:id])
+        @list.save
+      end
+      render nothing: true, status: 201
+    rescue
+      render nothing: true, status: 409
+    end
+    
   end
 
   def listings

@@ -1,6 +1,6 @@
 ListsShowListingView = Backbone.View.extend({
     events: {
-        'click .add_to_list_btn': 'showModal'
+        'click .add_to_list_btn': 'showAddListingToListModal'
     },
 
     initialize: function () {
@@ -28,9 +28,9 @@ ListsShowListingView = Backbone.View.extend({
         this.$el.html(render('lists/show_listing', this.model));
     },
 
-    showModal: function () {
+    showAddListingToListModal: function () {
         if (CurrentUser.logged_in()) {
-            CurrentUser.addListingToListModal(this.model);
+            ModalView.addListingToListModal(this.model);
         } else {
             CurrentUser.authenticate();
         }            

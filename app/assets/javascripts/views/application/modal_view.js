@@ -24,4 +24,18 @@ ApplicationModalView = Backbone.View.extend({
             that.$('.inner_modal').append($('<div>', { id: 'inner_modal_content' }));
         });
     },
+
+    addListingToListModal: function (listing) {
+        ModalView.show(new ListsAddToListModalView({ 
+            el: '#inner_modal_content',
+            model: listing
+        }));        
+    },
+
+    createNewListModal: function (listing) {
+        ModalView.show(new ListsCreateNewListModalView({
+            el: '#inner_modal_content',
+            model: listing
+        }));
+    }
 });
