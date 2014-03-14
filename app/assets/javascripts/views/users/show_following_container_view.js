@@ -1,6 +1,6 @@
 UsersShowFollowingContainerView = Backbone.View.extend({
     events: {
-        'click a.tab': 'goToSection'
+        'click a.tab': 'navigate'
     },
 
     initialize: function (options) {
@@ -50,7 +50,7 @@ UsersShowFollowingContainerView = Backbone.View.extend({
         this.changeHeadInfo('followers');
     },
 
-    goToSection: function (e) {
+    navigate: function (e) {
         e.preventDefault();
         App.navigate(e.target.pathname, { trigger: true });
     },

@@ -1,6 +1,6 @@
 EndorsementsIndexEstablishmentView = Backbone.View.extend({
 	events: {
-		'click .biz_name': 'goToEstablishmentShow'
+		'click .biz_name': 'navigate'
 	},
 
 	initialize: function () {
@@ -16,7 +16,7 @@ EndorsementsIndexEstablishmentView = Backbone.View.extend({
 		this.$el.html(render('endorsements/index_establishment', this.model));	
 	},
 
-	goToEstablishmentShow: function (e) {
+	navigate: function (e) {
 		e.preventDefault();
 		App.navigate(e.target.pathname, { trigger: true });
 	}

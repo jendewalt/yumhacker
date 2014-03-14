@@ -2,7 +2,7 @@ MainSearchView = Backbone.View.extend({
     events: {
         'submit': 'getLatLng',
         'click #nearby_btn': 'getUserLocation',
-        'click .nav': 'goToSubIndex'
+        'click .nav': 'navigate'
     },
 
     initialize: function () {
@@ -45,7 +45,7 @@ MainSearchView = Backbone.View.extend({
         });
     },
 
-    goToSubIndex: function (e) {
+    navigate: function (e) {
         e.preventDefault();
         e.stopPropagation();
         App.navigate(e.target.pathname, { trigger: true });

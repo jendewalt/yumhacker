@@ -1,6 +1,6 @@
 HeaderView = Backbone.View.extend({
     events: {
-        'click .nav': 'goToSubIndex'
+        'click .nav': 'navigate'
     },
 
     initialize: function () {
@@ -18,7 +18,7 @@ HeaderView = Backbone.View.extend({
         });
     },
 
-    goToSubIndex: function (e) {
+    navigate: function (e) {
         e.preventDefault();
         App.navigate(e.currentTarget.pathname + e.currentTarget.search, { trigger: true });
     }

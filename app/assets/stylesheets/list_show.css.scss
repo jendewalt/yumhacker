@@ -78,5 +78,25 @@ body.yumhacker {
                 }            
             }
         }
+
+        .comment_container {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid $light-grey;
+
+            .content_container {
+                display: inline-block;
+                vertical-align: top;
+                margin-bottom: 10px;
+                font-size: 13px;
+                line-height: 18px;
+            }
+
+            .date {
+                font-size: 11px;
+                color: $mid-grey;
+                text-align: right;
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 PhotosMediaViewerPhotoView = Backbone.View.extend({
     events: {
-        'click .user_name': 'goToUserShow',
+        'click .user_name': 'navigate',
         'click .delete_photo': 'deletePhoto',
     },
 
@@ -17,7 +17,7 @@ PhotosMediaViewerPhotoView = Backbone.View.extend({
         this.$el.attr('data-thumb', this.model.get('small_url'))
     },
 
-    goToUserShow: function (e) {
+    navigate: function (e) {
         e.preventDefault();
         App.navigate(e.currentTarget.pathname, { trigger: true });
     },

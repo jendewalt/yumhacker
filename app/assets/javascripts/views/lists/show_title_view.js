@@ -1,6 +1,6 @@
 ListsShowTitleView = Backbone.View.extend({
     events: {
-        'click .nav': 'goToSubIndex'
+        'click .nav': 'navigate'
     },
 
     initialize: function () {
@@ -16,8 +16,7 @@ ListsShowTitleView = Backbone.View.extend({
         this.$el.html(render('lists/show_title', this.model));
     },
 
-    goToSubIndex: function (e) {
-        xxx = e
+    navigate: function (e) {
         e.preventDefault();
         App.navigate(e.currentTarget.pathname, { trigger: true });
     }

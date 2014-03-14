@@ -1,7 +1,7 @@
 CommentsIndexCommentView = Backbone.View.extend({
     events:{
         'click .delete_comment': 'deleteComment',
-        'click .user_name, a.avatar': 'goToUserShow'
+        'click .user_name, a.avatar': 'navigate'
     },
 
     initialize: function () {
@@ -22,7 +22,7 @@ CommentsIndexCommentView = Backbone.View.extend({
         }
     },
 
-    goToUserShow: function (e) {
+    navigate: function (e) {
         e.preventDefault();
         App.navigate(e.currentTarget.pathname, { trigger: true });
     }

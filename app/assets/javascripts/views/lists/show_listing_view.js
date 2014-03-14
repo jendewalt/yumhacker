@@ -1,7 +1,7 @@
 ListsShowListingView = Backbone.View.extend({
     events: {
         'click .add_to_list_btn': 'showAddListingToListModal',
-        'click .biz_name': 'goToEstablishmentShow'
+        'click .biz_name': 'navigate'
     },
 
     initialize: function () {
@@ -42,7 +42,7 @@ ListsShowListingView = Backbone.View.extend({
         }            
     },
 
-    goToEstablishmentShow: function (e) {
+    navigate: function (e) {
         e.preventDefault();
         App.navigate(e.target.pathname, { trigger: true });
     }   

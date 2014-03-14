@@ -1,6 +1,6 @@
 ContactView = Backbone.View.extend({
     events: {
-        'click .nav': 'goToSubIndex'
+        'click .nav': 'navigate'
     },
 
     title: 'Contact | YumHacker',
@@ -19,7 +19,7 @@ ContactView = Backbone.View.extend({
         window.scrollTo(0,0);
     },
 
-    goToSubIndex: function (e) {
+    navigate: function (e) {
         e.preventDefault();
         App.navigate(e.target.pathname, { trigger: true });
     }

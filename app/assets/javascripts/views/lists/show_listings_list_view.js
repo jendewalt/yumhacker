@@ -1,6 +1,6 @@
 ListsShowListingsListView = Backbone.View.extend({
     events: {
-        'click .nav': 'goToSubIndex'
+        'click .nav': 'navigate'
     },
 
     initialize: function () {
@@ -31,7 +31,7 @@ ListsShowListingsListView = Backbone.View.extend({
         this.$el.append(listing_view.el);
     },
 
-    goToSubIndex: function (e) {
+    navigate: function (e) {
         e.preventDefault();
         App.navigate(e.target.pathname, { trigger: true });
     }

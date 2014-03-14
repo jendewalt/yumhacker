@@ -1,19 +1,6 @@
 WishListButton = Backbone.Model.extend({
     urlRoot: '/api/users/endorsing',
 
-    // toggle: function () {
-    //     console.log(this)
-    //     if (CurrentUser.logged_in()) {
-    //         if (this.get('user_wish_listed')) {
-    //             // this.unwish_list();
-    //         } else {
-    //             this.wish_list();
-    //         } 
-    //     } else {
-    //         CurrentUser.authenticate();
-    //     }
-    // },
-
     removeFromWishList: function () {
         var that = this;
         $.ajax({

@@ -1,6 +1,6 @@
 UsersFindFacebookFriendsView = Backbone.View.extend({
 	events: {
-		'click .nav': 'goToHome'
+		'click .nav': 'navigate'
 	},
 
 	title: 'Find Facebook Friends | YumHacker',
@@ -25,7 +25,7 @@ UsersFindFacebookFriendsView = Backbone.View.extend({
 		this.$el.html(render('users/find_facebook_friends'));	
 	},
 
-	goToHome: function (e) {
+	navigate: function (e) {
 		e.preventDefault();
 		App.navigate('/' + e.target.search, { trigger: true });
 	}

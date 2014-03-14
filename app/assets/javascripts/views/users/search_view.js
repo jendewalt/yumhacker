@@ -1,7 +1,7 @@
 UsersSearchView = Backbone.View.extend({
 	events: {
 		'submit': 'searchForUsers',
-		'click #find_friends_button': 'goToFindFbFriends'
+		'click #find_friends_button': 'navigate'
 	},
 
 	title: 'Find Friends | YumHacker',
@@ -32,7 +32,7 @@ UsersSearchView = Backbone.View.extend({
 		this.collection.fetch({ reset: true, data: { query: query } });
 	},
 
-	goToFindFbFriends: function (e) {
+	navigate: function (e) {
 		e.preventDefault();
 		App.navigate(e.currentTarget.pathname, { trigger: true });
 	}

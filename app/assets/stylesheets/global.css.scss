@@ -69,6 +69,21 @@ body.yumhacker {
         word-wrap: normal;
     }
 
+    .card {
+        background-color: white;
+        padding: 10px 20px;
+        border-radius: 2px;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+        
+        &.border {
+            border-top: 3px solid $magenta;
+
+            &.grey {
+                border-color: $light-grey;
+            }
+        }
+    }
+
     #main_map_pane {
 
         .map_canvas_container {
@@ -239,53 +254,19 @@ body.yumhacker {
         }
     }
 
-    .card {
-        background-color: white;
-        padding: 10px 20px;
-        border-radius: 2px;
-        box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-        
-        &.border {
-            border-top: 3px solid $magenta;
-
-            &.grey {
-                border-color: $light-grey;
-            }
-        }
-    }
-
-    .throbber {
-        text-align: center;
-        padding: 10px;
-
-        &.upload {
-            margin-top: 5px;
-            padding: 5px;
-            font-size: 11px;
-            border-top: 1px solid $magenta;
-        }
-    }
-
-    .endorse_btn_container, .wish_list_btn_container {
+    .action_btn_container {
         float: right;
-        display: inline;
-    }
 
-    .wish_listed{
-        color: $light-grey;
-        background-color: white;
-        border: 1px solid $x-light-grey;
-    }
-    
-    .endorsing, .following, .favoriting.favorite_btn.btn.text {
-        color: $light-grey;
-        background-color: white;
-        border: 1px solid $x-light-grey;
+        .engaged {
+            color: $light-grey;
+            background-color: white;
+            border: 1px solid $x-light-grey;
 
-        &:hover {
-            font-weight: normal;
-            background-color: $light-grey;
-            color: #59595e;
+            &.hover:hover {
+                font-weight: normal;
+                background-color: $light-grey;
+                color: #59595e;
+            }
         }
     }
 
@@ -294,6 +275,18 @@ body.yumhacker {
         height: 28px;
         line-height: 28px;
         background-color: $blue;
+    }
+
+    .favorite_btn.btn.text.engaged {
+        color: $light-grey;
+        background-color: white;
+        border: 1px solid $x-light-grey;
+
+        &.hover:hover {
+            font-weight: normal;
+            background-color: $light-grey;
+            color: #59595e;
+        }
     }
 
     .pagination_container {
@@ -412,6 +405,18 @@ body.yumhacker {
                 text-decoration: none;
                 cursor: auto;
             }
+        }
+    }
+
+    .throbber {
+        text-align: center;
+        padding: 10px;
+
+        &.upload {
+            margin-top: 5px;
+            padding: 5px;
+            font-size: 11px;
+            border-top: 1px solid $magenta;
         }
     }
 
