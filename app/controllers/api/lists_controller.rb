@@ -1,5 +1,5 @@
 class Api::ListsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:create]
+  before_filter :authenticate_user!, :only => [:create, :update]
 
   def index
     logger.debug('@@@@@@@@@@@@@@@@@@@')
@@ -37,6 +37,12 @@ class Api::ListsController < ApplicationController
   end
 
   def update
-    logger.debug('@@@@@@@@@@@@@@@@@@@')    
+    logger.debug('@@@@@@@@@@@@@@@@@@@')
+    @list = List.find(params[:id])
+    @list.title = params[:title]
+    @list.description = params[:description]
+    @list.save()
+
+    render nothing: true, status: 201
   end
 end

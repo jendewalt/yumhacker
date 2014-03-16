@@ -10,7 +10,18 @@ body.yumhacker {
     $x-light-grey: #F1F1F3;
     $input-glow: rgba(233, 19, 103, 0.2);
 
-    #list_show_container {
+    #list_show_container, #list_edit_container {
+        #editing_flag {
+            margin-top: 10px;
+        }
+
+        textarea {
+            padding: 9px;
+            font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+            letter-spacing: 1px;
+            color: $dark-grey;
+            border: 1px solid $light-grey;
+        }
 
         #list_title_container {
             margin-top: 20px;
@@ -33,15 +44,25 @@ body.yumhacker {
             #list_title_info_container {
                 float: left;
                 width: 780px;
-                padding-top: 10px;
                 text-align: left;
-                
-                h1 {
-                    font-size: 40px;
-                    padding: 0 10px 10px;
-                    border-bottom: 1px solid $light-grey;
-                }
 
+                #title_container {
+                    border-bottom: 1px solid $light-grey;                    
+                    
+                    h1 {
+                        font-size: 40px;
+                        padding: 10px;
+                    }
+
+                    textarea {
+                        width: 100%;
+                        max-width: 100%;
+                        height: 60px;
+                        line-height: 40px;
+                        font-size: 40px;
+                    }
+                }
+                
 
                 #title_lower_row {
                     padding-top: 30px;
@@ -77,6 +98,23 @@ body.yumhacker {
                     }
                 }            
             }
+        }
+
+        #list_description_container {
+            padding: 20px;
+            text-align: left;
+
+            textarea {
+                width: 100%;
+                max-width: 100%;
+                height: 60px;
+                line-height: 24px;
+                font-size: 16px;
+            }
+        }
+
+        #listings_container {
+            margin-top: 10px;
         }
 
         .comment_container {

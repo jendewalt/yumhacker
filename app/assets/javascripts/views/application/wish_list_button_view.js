@@ -8,8 +8,6 @@ ApplicationWishListButtonView = Backbone.View.extend({
         this.listenTo(this.model, 'sync', this.render);
         this.listenTo(this.model, 'change', this.render);
 
-        console.log(options)
-
         this.model.set({ 
             'establishment_id': options.establishment.get('id'), 
             'user_wish_listed': options.establishment.get('user_wish_listed'),

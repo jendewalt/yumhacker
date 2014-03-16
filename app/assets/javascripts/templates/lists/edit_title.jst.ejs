@@ -2,7 +2,7 @@
 
 <div id='list_title_info_container'>
     <div id='title_container'>
-        <h1>[[= get('title') ]]</h1>
+        <textarea name='title' id='title_input'>[[= get('title') ]]</textarea>
     </div>
 
     <div id='title_lower_row'>
@@ -13,7 +13,7 @@
 
             <div id="list_user_text">
                 <a id='list_user_name' class='nav' href="/[[= get('user_path') ]]">[[= get('user_full_name') ]]</a>
-                <p id='list_created_at'>Created [[= get('formatted_time') ]]</p>
+                <p id='list_created_at'>Created [[= get('formatted_time') ]] (CURRENTLY EDITING)</p>
             </div>
         </div>
 

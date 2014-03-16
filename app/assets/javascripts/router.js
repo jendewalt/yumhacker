@@ -23,6 +23,7 @@ Router = Backbone.Router.extend({
         'users/:id/categories': 'nothing',
         'users/:id(/:section)': 'usersShow',
         'users': 'nothing',
+        'lists/:id/edit': 'listsEdit',
         'lists/:id': 'listsShow',
         'contact': 'contactPage',
         'terms': 'termsPage',
@@ -133,6 +134,14 @@ Router = Backbone.Router.extend({
         this.currentView = new UsersFindFacebookFriendsView({ 
             el: '#main_container',
             model: new User({ id: CurrentUser.get('id') }) 
+        });
+    },
+
+    listsEdit: function (id) {
+        this.setup();
+        this.currentView = new ListsEditView({ 
+            el: '#main_container',
+            model: new List({ id: id })
         });
     },
 
