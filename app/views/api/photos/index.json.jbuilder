@@ -1,7 +1,5 @@
 json.photos @photos do |photo|
     json.id photo.id
-    json.establishment_id photo.establishment_id
-    json.establishment_name photo.establishment.name
     json.user_id photo.user_id
     json.full_name photo.user.first_name + ' ' + photo.user.last_name
     json.first_name photo.user.first_name 

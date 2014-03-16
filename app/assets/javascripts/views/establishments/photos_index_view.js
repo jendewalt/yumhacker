@@ -25,8 +25,7 @@ EstablishmentsPhotosIndexView = Backbone.View.extend({
         this.collection.fetch({ 
             reset: true, 
             data: { 
-                id: this.model.get('id'), 
-                type: 'establishment' 
+                establishment_id: this.model.get('id')
             } 
         });            
     },

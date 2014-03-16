@@ -1,15 +1,20 @@
 class Api::PhotosController < ApplicationController
   respond_to :json
   before_filter :authenticate_user!, :only => [:create, :update, :destroy]
+  before_filter :authorize, :only => [:destroy]
 
   def index
-    if params[:type] == 'establishment'
-      @photos = Establishment.find(params[:id]).photos
-    end
+    imageable = find_imageable
+    @photos = imageable.photos
+
   end
   
   def create
-    @photo = current_user.photos.create(establishment_id: params[:establishment_id], content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
+    imageable = find_imageable
+
+    @photo = imageable.photos.new(user_id: current_user.id, content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
+
+    @photo.save
   end
 
   def update
@@ -28,11 +33,24 @@ class Api::PhotosController < ApplicationController
   end
 
   def destroy 
-    photo = Photo.find(params[:id])
-    if current_user.id == photo.user_id
-      if photo.destroy
-        render json: { success: true }
-      end
+    if @photo.destroy
+      render json: { success: true }
     end
   end
+
+  private
+
+    def authorize
+      @photo = Photo.find(params[:id])
+      render nothing: true, status: 401 and return unless @photo.user == current_user
+    end
+
+    def find_imageable
+      params.each do |name, value|
+        if name =~ /(.+)_id$/
+          return $1.classify.constantize.find(value)
+        end
+      end
+      nil
+    end
 end

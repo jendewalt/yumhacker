@@ -6,5 +6,7 @@ class List < ActiveRecord::Base
   has_many :favoritizations
   has_many :favorited_by, :through => :favoritizations, :source => :user
 
-  has_attached_file :avatar, :styles => { :medium => "200x200#", :small => "100x100#", :thumb => "30x30#" }
+  has_one :photo, :as => :imageable, :dependent => :destroy
+
+  # has_attached_file :avatar, :styles => { :medium => "200x200#", :small => "100x100#", :thumb => "30x30#" }
 end

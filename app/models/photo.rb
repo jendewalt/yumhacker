@@ -4,11 +4,9 @@ class Photo < ActiveRecord::Base
   has_attached_file :image, :styles => { :medium => "400x400#", :small => "160x160#", :thumb => "50x50#" }
 
   belongs_to :user
-  belongs_to :establishment
+  belongs_to :imageable, polymorphic: true
 
   validates :user, :presence => true
-  validates :establishment, :presence => true
-  validates :caption, length: { maximum: 255 }
 
   before_save :decode_base64_image
 
