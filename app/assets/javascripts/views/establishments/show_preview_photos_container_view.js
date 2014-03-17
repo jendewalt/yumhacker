@@ -1,6 +1,6 @@
 EstablishmentShowPreviewPhotosContainerView = Backbone.View.extend({
     events: {
-        'click #photos_preview_container': 'navigate'
+        'click #preview_photos_container': 'navigate'
     },
 
     initialize: function () {
@@ -25,6 +25,7 @@ EstablishmentShowPreviewPhotosContainerView = Backbone.View.extend({
     },
 
     navigate: function (e) {
+        console.log('nav')
         e.preventDefault();
         App.navigate(e.currentTarget.pathname, { trigger: true });
     }

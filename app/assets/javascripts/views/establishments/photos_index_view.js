@@ -16,10 +16,10 @@ EstablishmentsPhotosIndexView = Backbone.View.extend({
         this.$el.html(render('establishments/photos_index', this.model)); 
         this.changeHeadInfo();
 
-        this.photos_gallery_view = new PhotosGalleryView({
+        this.photos_gallery_view = new PhotosMediaViewerContainerView({
             collection: this.collection,
             model: this.model,
-            el: '#photos_gallery_container'
+            el: '#media_viewer_container'
         });
         
         this.collection.fetch({ 

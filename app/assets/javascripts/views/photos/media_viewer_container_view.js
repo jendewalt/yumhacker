@@ -1,4 +1,4 @@
-PhotosGalleryView = Backbone.View.extend({
+PhotosMediaViewerContainerView = Backbone.View.extend({
     events: {
     },
 
@@ -9,7 +9,7 @@ PhotosGalleryView = Backbone.View.extend({
 
     render: function () {
         this.$el.html('');
-        this.$el.html(render('photos/gallery'));
+        this.$el.html(render('photos/media_viewer_container'));
 
         if (!this.collection.isEmpty()){
             this.photos_media_viewer_view = new PhotosMediaViewerView({
