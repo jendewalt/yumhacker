@@ -6,7 +6,7 @@ ListsEditTitleView = Backbone.View.extend({
     initialize: function () {
         this.render();
 
-        this.lists_edit_photo_view = new ListsEditPhotoView({
+        this.lists_edit_photo_view = new ListsEditPhotoFormView({
             el: '#list_photo_container',
             model: this.model
         });

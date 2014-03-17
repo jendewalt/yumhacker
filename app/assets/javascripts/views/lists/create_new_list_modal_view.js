@@ -13,8 +13,6 @@ ListsCreateNewListModalView = Backbone.View.extend({
     },
 
     handleSubmit: function (e) {
-        console.log('Submit! create');
-
         e.preventDefault();
         var title = e.target[0].value;
         var description = e.target[1].value;

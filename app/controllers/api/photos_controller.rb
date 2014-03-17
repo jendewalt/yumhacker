@@ -6,7 +6,6 @@ class Api::PhotosController < ApplicationController
   def index
     imageable = find_imageable
     @photos = imageable.photos
-
   end
   
   def create

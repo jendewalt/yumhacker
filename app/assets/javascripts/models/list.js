@@ -1,6 +1,8 @@
 List = Backbone.Model.extend({
     urlRoot: '/api/lists',
 
+    type: 'List',
+
     initialize: function () {
         this.on('sync', this.format_time);
     },

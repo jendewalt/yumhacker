@@ -1,6 +1,6 @@
-PhotosUploadFormsImageFormView = Backbone.View.extend({
+EstablishmentShowUploadImageFormView = Backbone.View.extend({
     events: {
-        'change #photo_upload_form': 'submitPhoto',
+        'change .photo_upload_form': 'submitPhoto',
         'click button': 'showFileBrowser'
     },
 
@@ -44,17 +44,16 @@ PhotosUploadFormsImageFormView = Backbone.View.extend({
         
         var that = this;
         function updateCollection (model, response) {
+            that.upload_throbber_view.$el.hide();   
             that.collection.fetch({ reset: true, data: { establishment_id: model.get('establishment_id') } });
             that.showCaptionForm(model, response);
         }            
     },
 
     showCaptionForm: function (model, response, options) {
-        this.upload_throbber_view.$el.hide();
-        
-        this.photos_upload_photo_caption_form = new PhotosUploadCaptionFormView({
-            model: model,
-            el: '#upload_caption_form_container'
-        });
+        ModalView.show(new EstablishmentShowCaptionFormView({
+            el: '#inner_modal_content',
+            model: model
+        }));
     }
 });

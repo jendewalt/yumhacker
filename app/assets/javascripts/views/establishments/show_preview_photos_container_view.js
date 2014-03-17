@@ -1,4 +1,4 @@
-EstablishmentShowEstablishmentInfoPhotoView = Backbone.View.extend({
+EstablishmentShowPreviewPhotosContainerView = Backbone.View.extend({
     events: {
         'click #photos_preview_container': 'navigate'
     },
@@ -7,21 +7,21 @@ EstablishmentShowEstablishmentInfoPhotoView = Backbone.View.extend({
         this.render(); 
         this.collection = new PreviewPhotoCollection();
 
-        this.establishment_show_photos_preview_view = new EstablishmentShowPhotosPreviewView({
+        this.establishment_show_photos_preview_view = new EstablishmentShowPreviewPhotosView({
             model: this.model,
-            el: '#photos_preview_container',
-            collection: this.collection
-        });  
-
-        this.photos_upload_forms_view = new PhotosUploadFormsView({
-            model: this.model,
-            el: '#photos_upload_forms_container',
+            el: '#preview_photos_container',
             collection: this.collection
         });     
+
+        this.establishment_show_upload_image_form_view = new EstablishmentShowUploadImageFormView({
+            model: this.model,
+            el: '#upload_image_form_container',
+            collection: this.collection
+        });
     },
 
     render: function () {
-        this.$el.html(render('establishments/show_establishment_info_photo', this.model));
+        this.$el.html(render('establishments/show_establishment_preview_photos_container', this.model));
     },
 
     navigate: function (e) {

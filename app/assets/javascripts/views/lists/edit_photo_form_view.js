@@ -1,6 +1,6 @@
-PhotosUploadFormsImageFormView = Backbone.View.extend({
+ListsEditPhotoFormView = Backbone.View.extend({
     events: {
-        'change #photo_upload_form': 'submitPhoto',
+        'change .photo_upload_form': 'submitPhoto',
         'click button': 'showFileBrowser'
     },
 
@@ -45,6 +45,7 @@ PhotosUploadFormsImageFormView = Backbone.View.extend({
         function updateCollection (model, response) {
             console.log(model)
             console.log(response)
+            that.model.set('photo_url', model.get('small_url'))
             // that.collection.fetch({ reset: true, data: { establishment_id: model.get('establishment_id') } });
             // that.showCaptionForm(model, response);
         }            

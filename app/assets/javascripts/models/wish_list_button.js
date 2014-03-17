@@ -13,7 +13,6 @@ WishListButton = Backbone.Model.extend({
             },
             success: function (response) {
                 that.set(response);
-                console.log(response)
             },
             error: function (xhr, status) {
                 console.log(status)

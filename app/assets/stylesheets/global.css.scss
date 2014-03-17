@@ -351,6 +351,35 @@ body.yumhacker {
         }
     }
 
+    #photo_upload_form_container {
+        label {
+            font-size: 11px;
+            color: $mid-grey;
+        }
+
+        button {
+            margin: 3px 0 0 6px;
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            vertical-align: bottom;
+
+            img {
+                height: 20px;
+            }
+        }
+
+        input[type="file"] {
+            position:absolute;
+            display:none;
+        }
+
+        .upload_throbber_container {
+            display: none;
+        }
+    }
+
     #search_wrapper {
         width: 500px;
         margin: auto;

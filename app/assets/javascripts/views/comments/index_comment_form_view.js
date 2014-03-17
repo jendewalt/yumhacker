@@ -17,7 +17,7 @@ CommentsIndexCommentFormView = Backbone.View.extend({
         var body = $.trim(e.target[0].value);
         var comment_data = { body: body };
 
-        this['model_type'] = this.model.name.toLowerCase() + '_id';
+        this['model_type'] = this.model.type.toLowerCase() + '_id';
         comment_data[this['model_type']] = this.model.get('id');      
 
         if (CurrentUser.logged_in()) {

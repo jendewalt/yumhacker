@@ -1,4 +1,4 @@
-EstablishmentsShowEstablishmentInfoView = Backbone.View.extend({
+ EstablishmentsShowEstablishmentInfoView = Backbone.View.extend({
     events: {},
 	
 	initialize: function () {
@@ -9,7 +9,7 @@ EstablishmentsShowEstablishmentInfoView = Backbone.View.extend({
             establishment: this.model 
         });
         
-        this.establishment_show_establishment_info_photo_view = new EstablishmentShowEstablishmentInfoPhotoView({
+        this.establishment_show_establishment_info_photo_view = new EstablishmentShowPreviewPhotosContainerView({
             el: '#establishment_photos_container',
             model: this.model
         });

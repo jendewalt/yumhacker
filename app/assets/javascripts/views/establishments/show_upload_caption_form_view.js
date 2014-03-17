@@ -1,7 +1,6 @@
-PhotosUploadCaptionFormView = Backbone.View.extend({
-       events: {
+EstablishmentShowCaptionFormView = Backbone.View.extend({
+    events: {
         'submit': 'submitCaption',
-        'click .skip': 'exitCaptionForm'
     },
 
     initialize: function () {
@@ -23,21 +22,9 @@ PhotosUploadCaptionFormView = Backbone.View.extend({
 
         if (caption.length <= 100) {
             this.model.save({ 'caption': caption });
-            this.exitCaptionForm();
+            ModalView.hide();
         } else {
             alert('Captions must be fewer than 255 characters');
         }
-    },
-
-    remove: function() {
-        this.undelegateEvents();
-        this.$el.empty();
-        this.stopListening();
-        return this;
-    },
-
-    exitCaptionForm: function () {
-        this.$el.fadeOut('100');
-        this.remove();
-    }    
+    }   
 });

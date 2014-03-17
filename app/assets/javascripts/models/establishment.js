@@ -1,7 +1,7 @@
 Establishment = Backbone.Model.extend({
     urlRoot: '/api/establishments',
 
-    name: 'Establishment',
+    type: 'Establishment',
 
     initialize: function () {
         this.assignHours();

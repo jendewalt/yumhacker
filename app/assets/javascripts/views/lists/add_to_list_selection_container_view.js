@@ -28,8 +28,6 @@ ListsAddToListSelectionContainerView = Backbone.View.extend({
     },
 
     checkForNewList: function (e) {
-        xxx = e.target.value
-
         if (e.target.value === 'new') {
             ModalView.createNewListModal(this.establishment);
         }

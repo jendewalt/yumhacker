@@ -14,7 +14,6 @@ ListsAddToListModalView = Backbone.View.extend({
     },
 
     render: function () {
-        console.log('Rendering list modal');
         this.$el.html('');
         this.$el.html(render('lists/add_to_list_modal', this.model));
     },

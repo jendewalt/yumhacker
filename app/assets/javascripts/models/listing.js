@@ -1,7 +1,7 @@
 Listing = Backbone.Model.extend({
     urlRoot: '/api/listings',
 
-    name: 'Listing',
+    type: 'Listing',
 
     initialize: function () {
         this.assignCategories();

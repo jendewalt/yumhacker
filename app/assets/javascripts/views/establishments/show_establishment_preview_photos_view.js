@@ -1,4 +1,4 @@
-EstablishmentShowPhotosPreviewView = Backbone.View.extend({
+EstablishmentShowPreviewPhotosView = Backbone.View.extend({
     events: {
     },
 
