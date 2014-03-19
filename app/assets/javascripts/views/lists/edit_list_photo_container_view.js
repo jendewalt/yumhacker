@@ -1,30 +1,32 @@
 ListsEditListPhotoContainerView = Backbone.View.extend({
     events: {
+        'click #add_photo_modal_btn button': 'openPhotoSelector'
     },
 
     initialize: function () {
         this.render(); 
 
-        this.list_edit_photo_view = new ListEditListPhotoView({
+        this.list_edit_photo_view = new ListsEditListPhotoView({
             model: this.model,
-            el: '#photo_container',
+            el: '#list_photo_image_container',
             model: this.model
         });     
 
-        this.list_edit_upload_image_form_view = new ListEditUploadImageFormView({
-            model: this.model,
-            el: '#upload_image_form_container',
-            model: this.model
-        });
     },
 
     render: function () {
         this.$el.html(render('lists/edit_list_photo_container', this.model));
     },
 
-    navigate: function (e) {
-        console.log('nav')
-        e.preventDefault();
-        App.navigate(e.currentTarget.pathname, { trigger: true });
+    openPhotoSelector: function (e) {
+        ModalView.show(new ListsEditListPhotoSelectorView({
+            model: this.model,
+            el: '#inner_modal_content',
+        }));
     }
+
+    // new ListsEditUploadImageFormView({
+    //         model: this.model,
+    //         el: '#upload_image_form_container',
+    //     })
 });

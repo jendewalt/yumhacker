@@ -1,6 +1,7 @@
 json.id @list.id
 json.title @list.title
 json.description @list.description
+json.small_url @list.photos.last.image.url(:small)
 json.user_id @list.user_id
 json.user_first_name @list.user.first_name
 json.user_full_name @list.user.first_name + ' ' + @list.user.last_name

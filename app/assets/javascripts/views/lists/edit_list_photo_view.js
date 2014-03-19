@@ -1,4 +1,4 @@
-ListsEditPhotoView = Backbone.View.extend({
+ListsEditListPhotoView = Backbone.View.extend({
     events: {
     },
 
@@ -7,6 +7,6 @@ ListsEditPhotoView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(render('lists/edit_photo', this.model));
+        this.$el.html(render('lists/edit_list_photo', this.model));
     }
 });

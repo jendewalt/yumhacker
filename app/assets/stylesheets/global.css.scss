@@ -351,10 +351,11 @@ body.yumhacker {
         }
     }
 
-    #upload_image_form_container {
+    .upload_prompt_btn {
         label {
             font-size: 11px;
             color: $mid-grey;
+            cursor: pointer;
         }
 
         button {
