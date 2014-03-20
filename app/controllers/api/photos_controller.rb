@@ -15,17 +15,19 @@ class Api::PhotosController < ApplicationController
     if params[:image_data]
       @photo = Photo.new(user_id: current_user.id, content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
       if @photo.save
-        key = (imageable.class.name.downcase + '_id').to_sym
-        imageable = @photo.imageables.new( key => imageable.id)
-        imageable.save
+        @imageable = Imageable.where(list_id: imageable.id).first
+
+        if @imageable.present?
+          @imageable.photo_id = @photo.id
+        else
+          @imageable = @photo.imageables.new( imageable.imageable_key => imageable.id )
+        end
+
+        @imageable.save
       end
     else
-      # @photo = params[:photo_id]
-      logger.debug('$$$$$$$$$$$$$$$$$$$')
+      logger.debug('No Image Data')
     end
-
-    logger.debug(@photo.inspect)
-
   end
 
   def update

@@ -43,6 +43,10 @@ class Establishment < ActiveRecord::Base
       ]
   end
 
+  def imageable_key
+    (self.class.name.downcase + '_id').to_sym
+  end
+
   def path
     if state && city
       'restaurants/' + state.parameterize + '/' + city.parameterize + '/' + slug

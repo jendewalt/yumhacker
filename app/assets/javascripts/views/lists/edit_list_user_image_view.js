@@ -19,7 +19,7 @@ ListEditUserImageView = Backbone.View.extend({
             'photo_id': this.model.get('id')
         });
         this.list.trigger('change_photo');
-        console.log(this.list)
+        this.list.save();
         ModalView.hide();
     }
 });

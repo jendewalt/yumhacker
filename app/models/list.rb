@@ -8,4 +8,8 @@ class List < ActiveRecord::Base
 
   has_many :imageables, :dependent => :destroy
   has_many :photos, :through => :imageables
+
+  def imageable_key
+    (self.class.name.downcase + '_id').to_sym
+  end
 end
