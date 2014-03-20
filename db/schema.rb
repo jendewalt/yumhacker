@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316032502) do
+ActiveRecord::Schema.define(version: 20140320023334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,6 +144,20 @@ ActiveRecord::Schema.define(version: 20140316032502) do
   add_index "hours", ["establishment_id"], :name => "index_hours_on_establishment_id"
   add_index "hours", ["open_in_minutes"], :name => "index_hours_on_open_in_minutes"
 
+  create_table "imageables", force: true do |t|
+    t.integer  "photo_id"
+    t.integer  "establishment_id"
+    t.integer  "list_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "imageables", ["establishment_id"], :name => "index_imageables_on_establishment_id"
+  add_index "imageables", ["list_id"], :name => "index_imageables_on_list_id"
+  add_index "imageables", ["photo_id", "establishment_id"], :name => "index_imageables_on_photo_id_and_establishment_id", :unique => true
+  add_index "imageables", ["photo_id", "list_id"], :name => "index_imageables_on_photo_id_and_list_id", :unique => true
+  add_index "imageables", ["photo_id"], :name => "index_imageables_on_photo_id"
+
   create_table "listings", force: true do |t|
     t.integer  "establishment_id"
     t.integer  "list_id"
@@ -180,15 +194,13 @@ ActiveRecord::Schema.define(version: 20140316032502) do
     t.datetime "image_updated_at"
     t.string   "caption"
     t.integer  "user_id"
-    t.integer  "imageable_id"
+    t.integer  "establishment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "imageable_type"
   end
 
-  add_index "photos", ["imageable_id", "imageable_type"], :name => "index_photos_on_imageable_id_and_imageable_type"
-  add_index "photos", ["imageable_id"], :name => "index_photos_on_imageable_id"
-  add_index "photos", ["user_id", "imageable_id"], :name => "index_photos_on_user_id_and_imageable_id"
+  add_index "photos", ["establishment_id"], :name => "index_photos_on_establishment_id"
+  add_index "photos", ["user_id", "establishment_id"], :name => "index_photos_on_user_id_and_establishment_id"
   add_index "photos", ["user_id"], :name => "index_photos_on_user_id"
 
   create_table "relationships", force: true do |t|

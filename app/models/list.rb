@@ -6,5 +6,6 @@ class List < ActiveRecord::Base
   has_many :favoritizations
   has_many :favorited_by, :through => :favoritizations, :source => :user
 
-  has_many :photos, :as => :imageable, :dependent => :destroy
+  has_many :imageables, :dependent => :destroy
+  has_many :photos, :through => :imageables
 end

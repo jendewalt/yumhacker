@@ -133,5 +133,23 @@ body.yumhacker {
                 text-align: right;
             }
         }
+
+    }
+    
+    #inner_modal_content{
+
+        #user_images_list {
+            display: inline-block;
+            vertical-align: top;
+            
+            // li {
+            //     display: inline-block;
+            // }
+        }
+
+        #upload_image_form_container {
+            display: inline-block;
+            vertical-align: top;
+        }
     }
 }

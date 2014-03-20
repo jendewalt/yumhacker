@@ -3,6 +3,7 @@ ListsEditListPhotoView = Backbone.View.extend({
     },
 
     initialize: function () {
+        this.listenTo(this.model, 'change_photo', this.render);
         this.render();
     },
 

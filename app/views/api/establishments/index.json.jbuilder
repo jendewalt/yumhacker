@@ -36,7 +36,7 @@ json.establishments @establishments do |establishment|
     users = users[0, 10]
 
     json.endorsing_users users.each do |user|
-        json.full_name user.first_name + ' ' + user.last_name
+        json.full_name user.full_name
         json.path user.path
         json.avatar_url_thumb user.avatar.url(:thumb)
     end

@@ -27,6 +27,8 @@ body.yumhacker {
             margin: 50px auto;
             padding: 40px;
             border: 1px solid $light-grey;
+            max-height: 80%;
+            overflow-y: auto;
 
             .cancel {
                 position: absolute;

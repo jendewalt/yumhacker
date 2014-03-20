@@ -44,10 +44,7 @@ ListsEditUploadImageFormView = Backbone.View.extend({
         
         var that = this;
         function updateCollection (model, response) {
-            console.log(model)
-            console.log(response)
             that.upload_throbber_view.$el.hide();   
-            xxx = that
             that.model.fetch({ reset: true });
         }            
     }

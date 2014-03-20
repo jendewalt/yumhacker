@@ -41,7 +41,10 @@ class Api::ListsController < ApplicationController
     @list = List.find(params[:id])
     @list.title = params[:title]
     @list.description = params[:description]
+    @list.imageables.new(photo_id: params[:photo_id]) if params[:photo_id]
     @list.save()
+    logger.debug('List Update!')
+    logger.debug(@list.inspect)
 
     render nothing: true, status: 201
   end

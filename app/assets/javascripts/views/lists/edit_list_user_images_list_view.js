@@ -18,10 +18,10 @@ ListsEditUserImagesListView = Backbone.View.extend({
     },
 
     renderUserImage: function (image) {
-        console.log(image)
         var image_view = new ListEditUserImageView({
             tagName: 'li',
-            model: image
+            model: image,
+            list: this.model
         });
 
         this.$el.append(image_view.el);

@@ -5,10 +5,13 @@ class Establishment < ActiveRecord::Base
   has_many :users, :through => :endorsements
   has_many :hours, :dependent => :destroy
   has_many :comments, :as => :commentable, :dependent => :destroy
-  has_many :photos, -> { order('created_at DESC') } ,:as => :imageable, :dependent => :destroy
-  has_many :preview_photos, -> { order('created_at DESC').limit(4) }, :as => :imageable, :class_name => 'Photo'
+
+  has_many :imageables, :dependent => :destroy
+  has_many :photos, -> { order('created_at DESC') }, :through => :imageables
+
   has_many :listings, :dependent => :destroy
   has_many :lists, :through => :listings
+
   has_many :categorizations, :dependent => :destroy
   has_many :categories, :through => :categorizations
 

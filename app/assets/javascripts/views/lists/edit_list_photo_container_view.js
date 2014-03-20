@@ -24,9 +24,4 @@ ListsEditListPhotoContainerView = Backbone.View.extend({
             el: '#inner_modal_content',
         }));
     }
-
-    // new ListsEditUploadImageFormView({
-    //         model: this.model,
-    //         el: '#upload_image_form_container',
-    //     })
 });

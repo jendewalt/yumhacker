@@ -12,9 +12,23 @@ class Api::PhotosController < ApplicationController
     logger.debug('@@@@@@@@@@@@@@@@@@')
     imageable = find_imageable
 
-    @photo = imageable.photos.new(user_id: current_user.id, content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
+    if (params[:image_data] && imageable.class.name == 'Establishment')
+      @photo = Photo.create(user_id: current_user.id, content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
 
-    @photo.save
+      @photo.imageables.new(establishment_id: imageable.id)
+      @photo.save
+    elsif (params[:image_data] && imageable.class.name == 'List')
+      @photo = Photo.create(user_id: current_user.id, content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
+
+      @photo.imageables.new(list_id: imageable.id)
+      @photo.save
+    else
+      # @photo = params[:photo_id]
+      logger.debug('$$$$$$$$$$$$$$$$$$$')
+    end
+
+    logger.debug(@photo.inspect)
+
   end
 
   def update
@@ -30,7 +44,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def preview_photos
-    @photos = Establishment.find(params[:establishment_id]).preview_photos
+    @photos = Establishment.find(params[:establishment_id]).photos.order('created_at DESC').limit(4)
   end
 
   def destroy 
