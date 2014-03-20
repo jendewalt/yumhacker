@@ -12,16 +12,13 @@ class Api::PhotosController < ApplicationController
     logger.debug('@@@@@@@@@@@@@@@@@@')
     imageable = find_imageable
 
-    if (params[:image_data] && imageable.class.name == 'Establishment')
-      @photo = Photo.create(user_id: current_user.id, content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
-
-      @photo.imageables.new(establishment_id: imageable.id)
-      @photo.save
-    elsif (params[:image_data] && imageable.class.name == 'List')
-      @photo = Photo.create(user_id: current_user.id, content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
-
-      @photo.imageables.new(list_id: imageable.id)
-      @photo.save
+    if params[:image_data]
+      @photo = Photo.new(user_id: current_user.id, content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
+      if @photo.save
+        key = (imageable.class.name.downcase + '_id').to_sym
+        imageable = @photo.imageables.new( key => imageable.id)
+        imageable.save
+      end
     else
       # @photo = params[:photo_id]
       logger.debug('$$$$$$$$$$$$$$$$$$$')
