@@ -1,5 +1,6 @@
 ListsEditListingsContainerView = Backbone.View.extend({
     events: {
+        'click #listing_container_add_listing_btn': 'openListingSearchModal'
     },
 
     initialize: function () {  
@@ -9,15 +10,17 @@ ListsEditListingsContainerView = Backbone.View.extend({
             model: this.model,
             collection: this.collection
         });
-
-        // this.lists_edit_listings_add_listing_button_view = new ListsEditListingsAddListingButtonView({
-        //     el: '#add_listing_button_view',
-        //     model: this.model,
-        //     collection: this.collection
-        // });
     },
 
     render: function () {
         this.$el.html(render('lists/edit_listings_container'));
+    },
+
+    openListingSearchModal: function () {
+        ModalView.show(new ListsEditListingsSelectEndorsedView({
+            list: this.model,
+            listings: this.collection,
+            el: '#inner_modal_content'
+        }));
     }
 });

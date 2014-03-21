@@ -1,6 +1,5 @@
 ListsEditListingsListView = Backbone.View.extend({
     events: {
-        // 'click .nav': 'navigate'
     },
 
     initialize: function () {

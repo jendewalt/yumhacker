@@ -11,7 +11,6 @@ ListsEditListingView = Backbone.View.extend({
             collection: this.model.categories 
         });  
 
-        console.log(this.model)
         this.comment_view = new ListsEditListingCommentView({
             el: this.$('.listing_comment_container'),
             model: new Comment(this.model.get('comment')),

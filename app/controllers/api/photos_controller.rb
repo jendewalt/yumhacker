@@ -9,7 +9,6 @@ class Api::PhotosController < ApplicationController
   end
   
   def create
-    logger.debug('@@@@@@@@@@@@@@@@@@')
     imageable = find_imageable
 
     if params[:image_data]
@@ -31,7 +30,6 @@ class Api::PhotosController < ApplicationController
   end
 
   def update
-    logger.debug('###############')
     caption = params[:caption]
     if caption && !caption.blank?
       caption.strip!

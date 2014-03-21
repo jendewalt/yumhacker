@@ -1,4 +1,4 @@
-CommentsListingCommentView = Backbone.View.extend({
+ListsShowListingCommentView = Backbone.View.extend({
     events:{
         'click .delete_comment': 'deleteComment',
     },
@@ -9,7 +9,7 @@ CommentsListingCommentView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(render('comments/listing_comment', this.model));
+        this.$el.html(render('lists/show_listing_comment', this.model));
     }, 
 
     deleteComment: function () {

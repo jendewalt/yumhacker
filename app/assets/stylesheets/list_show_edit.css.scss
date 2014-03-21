@@ -112,6 +112,17 @@ body.yumhacker {
 
         #listings_container {
             margin-top: 10px;
+
+            #add_listing_btn_container {
+                padding: 10px;
+                padding-top: 0;
+                border-bottom: 1px solid $light-grey;
+
+                #listing_container_add_listing_btn {
+                    font-size: 14px;
+                    padding: 10px 40px;
+                }
+            }
         }
 
         .comment_container {

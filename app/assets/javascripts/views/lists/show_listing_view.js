@@ -23,7 +23,7 @@ ListsShowListingView = Backbone.View.extend({
         }); 
 
         if (this.model.get('comment')) {
-            this.comment_view = new CommentsListingCommentView({
+            this.comment_view = new ListsShowListingCommentView({
                 el: this.$('.listing_comment_container'),
                 model: new Comment(this.model.get('comment'))
             });
