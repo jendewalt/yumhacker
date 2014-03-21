@@ -1,4 +1,4 @@
-ListsEditUserImagesListView = Backbone.View.extend({
+ListsEditListPhotoUserImagesListView = Backbone.View.extend({
     events: {
     },
 
@@ -9,15 +9,13 @@ ListsEditUserImagesListView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(render('lists/edit_list_photo_selector_container', this.model));
-
         this.collection.each(function (image) {
             this.renderUserImage(image);
         }, this);
     },
 
     renderUserImage: function (image) {
-        var image_view = new ListEditUserImageView({
+        var image_view = new ListEditListPhotoUserImageView({
             tagName: 'li',
             model: image,
             list: this.model

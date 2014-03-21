@@ -1,4 +1,4 @@
-ListEditUserImageView = Backbone.View.extend({
+ListEditListPhotoUserImageView = Backbone.View.extend({
     events: {
         'click img': 'saveAsListImage'
     },
@@ -9,7 +9,7 @@ ListEditUserImageView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(render('lists/edit_list_user_image', this.model));
+        this.$el.html(render('lists/edit_list_photo_user_image', this.model));
     },
 
     saveAsListImage: function (e) {

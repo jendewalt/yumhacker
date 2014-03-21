@@ -1,4 +1,4 @@
-ListsEditListingsSelectEndorsedView = Backbone.View.extend({
+ListsEditListingsSelectEndorsedModalView = Backbone.View.extend({
     events: {
     },
 
@@ -14,7 +14,7 @@ ListsEditListingsSelectEndorsedView = Backbone.View.extend({
 
     render: function () {
         console.log(this.collection)
-        // this.$el.html(render('lists/edit_add_listings_modal'));
+        this.$el.html(render('lists/edit_listings_select_endorsed_modal'));
     },
 
     // openListingSearchModal: function () {

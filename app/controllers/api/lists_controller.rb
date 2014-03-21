@@ -23,7 +23,7 @@ class Api::ListsController < ApplicationController
         # Should the user automatically endore estab when added to list?
         # establishment_id = params[:listing][:id]
         # current_user.endorse!(establishment_id) unless current_user.endorsing?(establishment_id)
-        @list.listings.new(establishment_id: params[:listing][:id])
+        @list.listings.new(establishment_id: params[:listing][:establishment_id])
         @list.save
       end
       render nothing: true, status: 201

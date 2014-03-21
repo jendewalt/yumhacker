@@ -1,7 +1,7 @@
 json.listings @listings do |listing|
-    json.listing_id listing.id
+    json.id listing.id
     json.path listing.establishment.path
-    json.id listing.establishment.id
+    json.establishment_id listing.establishment.id
     json.name listing.establishment.name
     json.street_number listing.establishment.street_number
     json.street listing.establishment.street

@@ -6,6 +6,8 @@ ListsEditListingsListView = Backbone.View.extend({
         this.collection.assignUrl(this.model.get('id'));
        
         this.listenTo(this.collection, 'reset', this.render);
+        this.listenTo(this.collection, 'add', this.render);
+        this.listenTo(this.collection, 'destroy', this.render);
         this.collection.fetch({ reset: true });
     },
 

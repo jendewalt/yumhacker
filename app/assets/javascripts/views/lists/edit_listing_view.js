@@ -1,6 +1,7 @@
 ListsEditListingView = Backbone.View.extend({
     events: {
-        'click .biz_name': 'navigate'
+        'click .biz_name': 'navigate',
+        'click .delete_listing': 'deleteListing'
     },
 
     initialize: function () {
@@ -25,5 +26,9 @@ ListsEditListingView = Backbone.View.extend({
     navigate: function (e) {
         e.preventDefault();
         App.navigate(e.target.pathname, { trigger: true });
-    }   
+    },
+
+    deleteListing: function () {
+        this.model.destroy();
+    }
 });

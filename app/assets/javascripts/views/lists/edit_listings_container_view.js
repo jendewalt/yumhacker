@@ -17,7 +17,7 @@ ListsEditListingsContainerView = Backbone.View.extend({
     },
 
     openListingSearchModal: function () {
-        ModalView.show(new ListsEditListingsSelectEndorsedView({
+        ModalView.show(new ListsEditAddListingSearchModalView({
             list: this.model,
             listings: this.collection,
             el: '#inner_modal_content'

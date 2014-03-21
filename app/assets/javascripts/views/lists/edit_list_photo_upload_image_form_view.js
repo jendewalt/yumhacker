@@ -1,4 +1,4 @@
-ListsEditUploadImageFormView = Backbone.View.extend({
+ListsEditListPhotoUploadImageFormView = Backbone.View.extend({
     events: {
         'change .photo_upload_form': 'submitPhoto',
         'click button': 'showFileBrowser'

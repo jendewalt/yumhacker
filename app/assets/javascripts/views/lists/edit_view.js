@@ -54,7 +54,6 @@ ListsEditView = Backbone.View.extend({
             'title': title,
             'description': description
         }
-        console.log(title)
 
         this.model.set(attrs);
         this.model.save();

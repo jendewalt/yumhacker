@@ -1,0 +1,15 @@
+<div class='establishment_info'>
+    [[ if (get('path')) { ]]
+        <a class='biz_name' href='[[= "/" + get("path") ]]'>[[= get('name') ]]</a>
+    [[ } else { ]]
+        <div class='biz_name'>[[= get('name') ]]</div>
+    [[ } ]]
+
+    <div class='details'>[[= get('formatted_address') ]]</div>
+</div>
+
+<div class='action_btn_container'>
+    <a class='add_btn btn text'>Add To List</a>
+</div>
+
+<br class='clear'>

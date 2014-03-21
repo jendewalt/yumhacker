@@ -19,7 +19,7 @@ ListsEditListPhotoContainerView = Backbone.View.extend({
     },
 
     openPhotoSelector: function (e) {
-        ModalView.show(new ListsEditListPhotoSelectorView({
+        ModalView.show(new ListsEditListPhotoSelectorModalView({
             model: this.model,
             el: '#inner_modal_content',
         }));
