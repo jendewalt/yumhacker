@@ -1,4 +1,4 @@
-CommentsIndexCommentListView = Backbone.View.extend({
+EstablishmentShowCommentListView = Backbone.View.extend({
 	events: {
 	},
 
@@ -21,7 +21,7 @@ CommentsIndexCommentListView = Backbone.View.extend({
     },
 
     renderComment: function (comment) {
-        var comment_view = new CommentsIndexCommentView({
+        var comment_view = new EstablishmentShowCommentView({
             tagName: 'li',
             model: comment,
             className: 'comment'

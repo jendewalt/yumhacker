@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
   end
   
   def wish_listed?(establishment)
-    wish_list.establishment_ids.include?(establishment.id)
+    wish_list.nil? ? false : wish_list.establishment_ids.include?(establishment.id) 
   end
 
   # Misc

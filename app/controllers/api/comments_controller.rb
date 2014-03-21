@@ -18,8 +18,35 @@ class Api::CommentsController < ApplicationController
 
     @comment = if body && !body.blank? 
       body.strip!
-      commentable.comments.create!(user_id: current_user.id, body: body)
+      commentable.comments.new(user_id: current_user.id, body: body)
     end 
+    begin
+      @comment.save
+
+      if commentable.class.name != 'Establishment'
+        render nothing: true, status: 201
+      end
+    rescue
+      render nothing: true, status: 409
+    end
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    body = params[:body]
+    
+    if body && !body.blank?
+      body.strip!
+      @comment.body = body
+    end
+
+    begin
+      @comment.save
+      render nothing: true, status: 201
+    rescue
+      render nothing: true, status: 409
+    end
+
   end
 
   def destroy 

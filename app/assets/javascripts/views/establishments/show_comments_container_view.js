@@ -1,17 +1,17 @@
-CommentsIndexView = Backbone.View.extend({
+EstablishmentShowCommentsContainerView = Backbone.View.extend({
 	events: {
 	},
 
 	initialize: function () {
 		this.collection = new CommentCollection();
 
-		this.comments_index_comments_form_view = new CommentsIndexCommentFormView({
+		this.show_comments_form_view = new EstablishmentShowCommentFormView({
             el: '#comments_form_container',
             model: this.model,
             collection: this.collection
         });
 
-        this.comments_index_comments_list_view = new CommentsIndexCommentListView({
+        this.show_comments_list_view = new EstablishmentShowCommentListView({
             el: '#comments_list',
             model: this.model,
             collection: this.collection

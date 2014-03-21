@@ -10,11 +10,12 @@ json.listings @listings do |listing|
     json.lat listing.establishment.latlng.lat
     json.lng listing.establishment.latlng.lon
 
-    unless listing.comment.nil? 
+    unless listing.comments.empty? 
         json.comment do 
-            json.id listing.comment.id
-            json.body listing.comment.body
-            json.created_at listing.comment.created_at
+            comment = listing.comments.first
+            json.id comment.id
+            json.body comment.body
+            json.created_at comment.created_at
         end
     end
 

@@ -19,7 +19,7 @@ EstablishmentsShowView = Backbone.View.extend({
             model: this.model
         });
 
-        this.comments_index_view = new CommentsIndexView({
+        this.establishments_show_comments_container_view = new EstablishmentShowCommentsContainerView({
             el: '#establishment_comments_container',
             model: this.model
         });

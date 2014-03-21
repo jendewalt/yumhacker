@@ -1,19 +1,15 @@
-CommentsIndexCommentView = Backbone.View.extend({
+EstablishmentShowCommentView = Backbone.View.extend({
     events:{
         'click .delete_comment': 'deleteComment',
         'click .user_name, a.avatar': 'navigate'
     },
 
     initialize: function () {
-        var raw_time = new Date(this.model.get('created_at'));
-        var formatted_time = moment(raw_time).format('MMM Do YYYY, h:mm a');
-        this.model.set('formatted_time', formatted_time);
-
         this.render();
     },
 
     render: function () {
-        this.$el.html(render('comments/index_comment', this.model));
+        this.$el.html(render('establishments/show_comment', this.model));
     }, 
 
     deleteComment: function () {

@@ -37,7 +37,6 @@ class Api::ListsController < ApplicationController
   end
 
   def update
-    logger.debug('@@@@@@@@@@@@@@@@@@@')
     @list = List.find(params[:id])
     @list.title = params[:title]
     @list.description = params[:description]
@@ -51,9 +50,6 @@ class Api::ListsController < ApplicationController
     end
 
     @list.save()
-    logger.debug('List Update!')
-    logger.debug(params[:photo_id])
-    logger.debug(@imageable.inspect)
 
     render nothing: true, status: 201
   end

@@ -23,11 +23,11 @@ ListsEditView = Backbone.View.extend({
             model: this.model
         });
 
-        // this.lists_edit_listings_list_view = new ListsEditListingsListView({
-        //     el: 'ol.establishments_list',
-        //     model: this.model,
-        //     collection: this.collection
-        // });
+        this.lists_edit_listings_container_view = new ListsEditListingsContainerView({
+            el: '#listings_container',
+            model: this.model,
+            collection: this.collection
+        });
 
         if (typeof MainGoogleMap === 'undefined') {
             MainGoogleMap = new MainMapView({

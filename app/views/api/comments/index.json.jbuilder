@@ -9,6 +9,6 @@ json.comments @comments do |comment|
     json.body comment.body
     json.user_id comment.user_id
     json.full_name comment.user.first_name + ' ' + comment.user.last_name
-    json.created_at comment.created_at
+    json.created_at comment.updated_at
     json.thumb_url comment.user.avatar.url(:thumb)      
 end
