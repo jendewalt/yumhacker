@@ -3,7 +3,9 @@ class Api::ListingsController < ApplicationController
   before_filter :authorize, :only => [:create]
 
   def index
-    @listings = List.find(params[:id]).listings
+    page = params[:page] || 1
+    per = params[:per] || 10
+    @listings = List.find(params[:id]).listings.page(page).per(per)
   end
   
   def create
@@ -15,11 +17,9 @@ class Api::ListingsController < ApplicationController
       @list.save
 
       if params[:comment] && !params[:comment].blank?
-        @listing.build_comment(body: params[:comment], user_id: current_user.id) 
-        @listing.comment.save 
+        @listing.comments.new(body: params[:comment], user_id: current_user.id) 
+        @listing.save 
       end
-   
-      render nothing: true, status: 201
     rescue
       render nothing: true, status: 409
     end
@@ -28,7 +28,10 @@ class Api::ListingsController < ApplicationController
   def destroy
     @listing = Listing.find(params[:id])
 
-    @listing.destroy if current_user.list_ids.include?(@listing.list_id)
+    if current_user.list_ids.include?(@listing.list_id)
+      current_user.unendorse!(@listing.establishment) if current_user.endorsing?(@listing.establishment)      
+      @listing.destroy 
+    end
 
     render nothing: true, status: 200
   end

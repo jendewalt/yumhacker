@@ -43,6 +43,7 @@ ListsEditView = Backbone.View.extend({
         // This needs to be here if MainGoogleMap already exists becuase new collection is created above
         MainGoogleMap.collection = this.collection;
         this.listenTo(this.collection, 'reset', function () { MainGoogleMap.render(); });
+        this.listenTo(this.collection, 'add', function () { MainGoogleMap.render(); });
     },
 
     handleSubmit: function (e) {

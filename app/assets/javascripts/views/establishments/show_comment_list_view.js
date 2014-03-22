@@ -32,7 +32,7 @@ EstablishmentShowCommentListView = Backbone.View.extend({
 
     newComment: function (comment) {
         if (this.collection.length > this.collection.per_page) {
-          this.collection.pop();
+            this.collection.pop();
         } else {
             this.render();
         }

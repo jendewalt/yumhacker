@@ -1,7 +1,7 @@
 ListsEditAddListingSearchModalView = Backbone.View.extend({
         events: {
-        'submit': 'searchForEstablishments'
-    },
+            'submit': 'searchForEstablishments'
+        },
 
     initialize: function (opts) {
         EstablishmentSearch.list = opts.list;
@@ -11,7 +11,8 @@ ListsEditAddListingSearchModalView = Backbone.View.extend({
         this.collection = new EstablishmentSuggestionCollection();
         this.lists_edit_add_listing_search_suggestion_list_view = new ListsEditAddListingSearchSuggestionListView({
             el: '#find_establishment_results_container',
-            collection: this.collection
+            collection: this.collection,
+            listings: this.listings
         });
 
         this.listenTo(EstablishmentSearch, 'geocode', this.fetchResults);

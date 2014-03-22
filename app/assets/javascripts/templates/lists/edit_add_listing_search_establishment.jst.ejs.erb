@@ -9,7 +9,11 @@
 </div>
 
 <div class='action_btn_container'>
-    <a class='add_btn btn text'>Add To List</a>
+    [[ if (get('listed')) { ]]
+        <a class='engaged btn text'>Listed</a>
+    [[ } else { ]]
+        <a class='add_btn btn text'>Add to List</a>
+    [[ } ]]
 </div>
 
 <br class='clear'>

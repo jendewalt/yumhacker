@@ -8,8 +8,7 @@ ListsEditListPhotoContainerView = Backbone.View.extend({
 
         this.list_edit_photo_view = new ListsEditListPhotoView({
             model: this.model,
-            el: '#list_photo_image_container',
-            model: this.model
+            el: '#list_photo_image_container'
         });     
 
     },

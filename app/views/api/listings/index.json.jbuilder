@@ -1,3 +1,9 @@
+json.current_page @listings.current_page
+json.per_page @listings.limit_value
+json.total_pages @listings.total_pages
+json.offset @listings.offset_value
+json.total @listings.total_count
+
 json.listings @listings do |listing|
     json.id listing.id
     json.path listing.establishment.path
@@ -15,7 +21,7 @@ json.listings @listings do |listing|
             comment = listing.comments.first
             json.id comment.id
             json.body comment.body
-            json.created_at comment.created_at
+            json.updated_at comment.updated_at
         end
     end
 

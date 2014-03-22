@@ -25,7 +25,6 @@ EstablishmentShowPreviewPhotosContainerView = Backbone.View.extend({
     },
 
     navigate: function (e) {
-        console.log('nav')
         e.preventDefault();
         App.navigate(e.currentTarget.pathname, { trigger: true });
     }

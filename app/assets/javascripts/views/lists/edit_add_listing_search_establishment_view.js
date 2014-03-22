@@ -4,6 +4,12 @@ ListsEditAddListingSearchEstablishmentView = Backbone.View.extend({
     },
 
     initialize: function () {
+        if (EstablishmentSearch.listings.findWhere({ establishment_id: this.model.id }) !== undefined) {
+            this.model.set('listed', true);
+        } else {
+            this.model.set('listed', false);            
+        }
+
         this.render();
         this.listenTo(this.model, 'sync', this.render);
     },

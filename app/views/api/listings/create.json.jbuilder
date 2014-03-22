@@ -1,6 +1,6 @@
-json.listing_id @listing.id
+json.id @listing.id
 json.path @listing.establishment.path
-json.id @listing.establishment.id
+json.establishment_id @listing.establishment.id
 json.name @listing.establishment.name
 json.street_number @listing.establishment.street_number
 json.street @listing.establishment.street
@@ -14,7 +14,7 @@ unless @listing.comments.empty?
         comment = @listing.comments.first
         json.id comment.id
         json.body comment.body
-        json.created_at comment.created_at
+        json.updated_at comment.updated_at
     end
 end
 

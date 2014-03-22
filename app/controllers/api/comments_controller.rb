@@ -1,11 +1,11 @@
 class Api::CommentsController < ApplicationController
   respond_to :json
-  before_filter :authenticate_user!, :only => [:create, :destroy]
-  before_filter :authorize, :only => [:destroy]
+  before_filter :authenticate_user!, :only => [:create, :update, :destroy]
+  before_filter :authorize, :only => [:update, :destroy]
 
   def index
     commentable = find_commentable
-    @comments = commentable.comments.order(created_at: :desc).page(params[:page]).per(20).includes(:user)
+    @comments = commentable.comments.order(updated_at: :desc).page(params[:page]).per(20).includes(:user)
   end
 
   def listing
@@ -22,22 +22,19 @@ class Api::CommentsController < ApplicationController
     end 
     begin
       @comment.save
-
-      if commentable.class.name != 'Establishment'
-        render nothing: true, status: 201
-      end
     rescue
       render nothing: true, status: 409
     end
   end
 
   def update
-    @comment = Comment.find(params[:id])
     body = params[:body]
     
     if body && !body.blank?
       body.strip!
       @comment.body = body
+    elsif body.blank?
+      @comment.destroy
     end
 
     begin

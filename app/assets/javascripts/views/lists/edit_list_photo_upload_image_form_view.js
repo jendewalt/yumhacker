@@ -45,7 +45,9 @@ ListsEditListPhotoUploadImageFormView = Backbone.View.extend({
         var that = this;
         function updateCollection (model, response) {
             that.upload_throbber_view.$el.hide();   
-            that.model.fetch({ reset: true });
+            that.model.set('small_url', model.get('small_url'));
+            that.model.trigger('change_photo');
+            ModalView.hide();
         }            
     }
 });

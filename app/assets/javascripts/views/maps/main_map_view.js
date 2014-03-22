@@ -58,9 +58,16 @@ MainMapView = Backbone.View.extend({
 			this.clearMarkers();
 		}
 
-		this.collection.each(function (establishment, i) {
-			this.renderMarker(establishment, i);
-		}, this);
+		if (this.collection.length <= 10) {
+			this.collection.each(function (establishment, i) {
+				this.renderMarker(establishment, i);
+			}, this);
+		} else {
+			this.collection.each(function (establishment, i) {
+				this.renderMarker(establishment, 10);
+			}, this);
+		}
+			
 	},
 
 	clearMarkers: function () {
@@ -133,7 +140,7 @@ MainMapView = Backbone.View.extend({
 
     fixMapOnScroll: function () {
     	if ($('#main_map_pane').length > 0) {
-    		var container = $('#main_index_establishments_container');
+    		var container = $('.sticky_map_container');
 	        var container_height = container.height();
 	        var map = $('#main_map_pane');
 	        var map_top = map.position().top;

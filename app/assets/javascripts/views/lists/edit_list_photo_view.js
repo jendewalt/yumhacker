@@ -8,6 +8,7 @@ ListsEditListPhotoView = Backbone.View.extend({
     },
 
     render: function () {
+        console.log('render photo')
         this.$el.html(render('lists/edit_list_photo', this.model));
     }
 });

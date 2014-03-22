@@ -14,6 +14,6 @@ CommentCollection = Backbone.Collection.extend({
     },
 
     comparator: function (model_1, model_2) {
-        return model_1.get('created_at') < model_2.get('created_at');
+        return model_1.get('updated_at') < model_2.get('updated_at');
     }
 });

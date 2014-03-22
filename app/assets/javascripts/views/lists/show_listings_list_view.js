@@ -7,7 +7,8 @@ ListsShowListingsListView = Backbone.View.extend({
         this.collection.assignUrl(this.model.get('id'));
        
         this.listenTo(this.collection, 'reset', this.render);
-        this.collection.fetch({ reset: true });
+        
+        this.collection.fetch({ reset: true, data: this.collection.predicate() });
     },
 
     render: function () {
