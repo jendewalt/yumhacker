@@ -1,7 +1,6 @@
 ListsAddToListModalView = Backbone.View.extend({
     events: {
         'submit #add_listing_to_list_form': 'handleSubmit',
-
     },
 
     initialize: function () {

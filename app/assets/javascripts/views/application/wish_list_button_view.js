@@ -1,6 +1,6 @@
 ApplicationWishListButtonView = Backbone.View.extend({
     events: {
-        'click .wish_list_btn.not_wish_listed': 'addToWishList'
+        'click .wish_list_btn.unengaged': 'addToWishList'
     },
 
     initialize: function (options) {
@@ -8,10 +8,13 @@ ApplicationWishListButtonView = Backbone.View.extend({
         this.listenTo(this.model, 'sync', this.render);
         this.listenTo(this.model, 'change', this.render);
 
+        console.log(options)
+        console.log(options.wish_listed)
+
         this.model.set({ 
-            'establishment_id': options.establishment.get('id'), 
-            'user_wish_listed': options.establishment.get('user_wish_listed'),
-            'listing_id': options.establishment.get('listing_id') 
+            'establishment_id': options.establishment_id,
+            'wish_list_id': options.wish_list_id,
+            'wish_listed': options.wish_listed,
         }, { silent: true });
         this.render();
     },

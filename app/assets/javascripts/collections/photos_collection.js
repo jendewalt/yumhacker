@@ -1,4 +1,4 @@
-PhotoCollection = Backbone.Collection.extend({
+PhotosCollection = Backbone.Collection.extend({
 	model: Photo,
 
 	url: '/api/photos',

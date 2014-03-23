@@ -1,6 +1,7 @@
 json.id @list.id
 json.title @list.title
 json.description @list.description
+json.type @list.type
 json.small_url @list.photos.last.image.url(:small) unless @list.photos.last.nil?
 json.user_id @list.user_id
 json.user_first_name @list.user.first_name

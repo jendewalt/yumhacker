@@ -13,7 +13,7 @@ EstablishmentsSearchView = Backbone.View.extend({
 		App.eventAggregator.trigger('domchange:title', this.title);
         App.eventAggregator.trigger('domchange:description', this.description);
 
-		this.collection = new EstablishmentSuggestionCollection();
+		this.collection = new EstablishmentSuggestionsCollection();
 		this.establishment_search_suggestion_list_view = new EstablishmentsSearchSuggestionListView({
 			el: '#find_establishment_results_container',
 			collection: this.collection

@@ -10,16 +10,13 @@ ListsShowListingView = Backbone.View.extend({
         this.categories_view = new EstablishmentsIndexEstablishmentCategoriesView({ 
             el: this.$('.categories_container'),
             collection: this.model.categories 
-        }); 
-
-        this.application_endorse_button_view = new ApplicationEndorseButtonView({ 
-            el: this.$('.endorse_btn_container'),
-            establishment: this.model 
-        }); 
+        });  
 
         this.application_wish_list_button_view = new ApplicationWishListButtonView({ 
             el: this.$('.wish_list_btn_container'),
-            establishment: this.model 
+            establishment_id: this.model.get('establishment_id'),
+            wish_list_id: this.model.get('wish_list_id'),
+            wish_listed: this.model.get('wish_listed')
         }); 
 
         if (this.model.get('comment')) {

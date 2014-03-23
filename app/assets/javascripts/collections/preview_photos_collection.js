@@ -1,4 +1,4 @@
-PreviewPhotoCollection = Backbone.Collection.extend({
+PreviewPhotosCollection = Backbone.Collection.extend({
     model: Photo,
 
     url: '/api/photos/preview_photos',

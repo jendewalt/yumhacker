@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320023334) do
+ActiveRecord::Schema.define(version: 20140323035637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -163,11 +163,13 @@ ActiveRecord::Schema.define(version: 20140320023334) do
     t.integer  "list_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "listings", ["establishment_id"], :name => "index_listings_on_establishment_id"
   add_index "listings", ["list_id", "establishment_id"], :name => "index_listings_on_list_id_and_establishment_id", :unique => true
   add_index "listings", ["list_id"], :name => "index_listings_on_list_id"
+  add_index "listings", ["user_id"], :name => "index_listings_on_user_id"
 
   create_table "lists", force: true do |t|
     t.string   "title"
@@ -176,16 +178,18 @@ ActiveRecord::Schema.define(version: 20140320023334) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.boolean  "wish_list"
     t.integer  "user_id"
+    t.integer  "favoritizations_count", default: 0, null: false
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "favoritizations_count", default: 0, null: false
   end
 
   add_index "lists", ["created_at"], :name => "index_lists_on_created_at"
+  add_index "lists", ["favoritizations_count"], :name => "index_lists_on_favoritizations_count"
+  add_index "lists", ["type"], :name => "index_lists_on_type"
   add_index "lists", ["updated_at"], :name => "index_lists_on_updated_at"
-  add_index "lists", ["wish_list"], :name => "index_lists_on_wish_list"
+  add_index "lists", ["user_id"], :name => "index_lists_on_user_id"
 
   create_table "photos", force: true do |t|
     t.string   "image_file_name"

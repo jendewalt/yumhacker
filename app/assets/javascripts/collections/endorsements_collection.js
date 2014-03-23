@@ -1,4 +1,4 @@
-EndorsementCollection = Backbone.Collection.extend({
+EndorsementsCollection = Backbone.Collection.extend({
     model: Establishment,
 
     url: '/api/users/endorsements',

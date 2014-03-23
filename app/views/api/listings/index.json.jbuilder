@@ -30,6 +30,6 @@ json.listings @listings do |listing|
         json.id category.id
     end
 
-    json.user_endorsing current_user ? current_user.endorsing?(listing.establishment) : false
-    json.user_wish_listed current_user ? current_user.wish_listed?(listing.establishment) : false
+    json.wish_list_id current_user.try(:wish_lists).try(:first).try(:id)
+    json.wish_listed current_user ? current_user.wish_listed?(listing.establishment.id) : false
 end

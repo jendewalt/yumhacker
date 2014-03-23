@@ -1,6 +1,6 @@
 class List < ActiveRecord::Base
   belongs_to :user
-  has_many :listings
+  has_many :listings, :dependent => :destroy
   has_many :establishments, :through => :listings
 
   has_many :favoritizations
@@ -11,5 +11,13 @@ class List < ActiveRecord::Base
 
   def imageable_key
     (self.class.name.downcase + '_id').to_sym
+  end
+
+  def path
+    'lists/' + id.to_s
+  end
+
+  def edit_path
+    path + '/edit'
   end
 end

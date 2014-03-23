@@ -1,4 +1,4 @@
-UserSuggestionCollection = Backbone.Collection.extend({
+UserSuggestionsCollection = Backbone.Collection.extend({
     model: User,
 
     url: '/api/users/search',

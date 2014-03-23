@@ -1,7 +1,7 @@
 FollowedEndorsersListView = Backbone.View.extend({
     
     initialize: function () {
-        this.collection = new FollowedEndorserCollection();
+        this.collection = new FollowedEndorsersCollection();
         this.listenTo(this.collection, 'reset', this.render);
 
         this.collection.reset(this.model.get('endorsing_users'))

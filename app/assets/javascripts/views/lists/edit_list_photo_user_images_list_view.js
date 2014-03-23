@@ -3,7 +3,7 @@ ListsEditListPhotoUserImagesListView = Backbone.View.extend({
     },
 
     initialize: function () {
-        this.collection = new PhotoCollection({});
+        this.collection = new PhotosCollection({});
         this.listenTo(this.collection, 'reset', this.render);
         this.collection.fetch({ reset: true, data: { user_id: CurrentUser.id } });
     },

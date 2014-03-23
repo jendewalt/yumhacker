@@ -4,7 +4,7 @@ EstablishmentsPhotosIndexView = Backbone.View.extend({
 	},
 
 	initialize: function () {
-        this.collection = new PhotoCollection({
+        this.collection = new PhotosCollection({
             establishment_id: this.model.get('id')
         });
 

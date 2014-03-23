@@ -1,4 +1,4 @@
-CommentCollection = Backbone.Collection.extend({
+CommentsCollection = Backbone.Collection.extend({
     model: Comment,
 
     url: '/api/comments',

@@ -14,7 +14,7 @@ UsersSearchView = Backbone.View.extend({
 		App.eventAggregator.trigger('domchange:title', this.title);
         App.eventAggregator.trigger('domchange:description', this.description);
 
-		this.collection = new UserSuggestionCollection();
+		this.collection = new UserSuggestionsCollection();
 
 		this.user_search_suggestion_list_view = new UsersSearchSuggestionListView({
 			el: '#find_user_results_container',

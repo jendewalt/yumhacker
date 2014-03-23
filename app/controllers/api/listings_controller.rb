@@ -10,8 +10,9 @@ class Api::ListingsController < ApplicationController
   
   def create
     establishment_id = params[:establishment_id]
-    @listing = @list.listings.new(establishment_id: establishment_id)
-    current_user.endorse!(establishment_id) unless current_user.endorsing?(establishment_id)
+    @listing = @list.listings.new(establishment_id: establishment_id, user_id: current_user.id)
+
+    current_user.endorse!(establishment_id) unless current_user.endorsing?(establishment_id) || params[:wish_list]
    
     begin 
       @list.save
@@ -27,9 +28,13 @@ class Api::ListingsController < ApplicationController
 
   def destroy
     @listing = Listing.find(params[:id])
+    establishment = @listing.establishment
 
     if current_user.list_ids.include?(@listing.list_id)
-      current_user.unendorse!(@listing.establishment) if current_user.endorsing?(@listing.establishment)      
+      if current_user.listings.where({ establishment_id: establishment.id }).count == 1
+        current_user.unendorse!(@listing.establishment) if current_user.endorsing?(@listing.establishment)      
+      end
+
       @listing.destroy 
     end
 

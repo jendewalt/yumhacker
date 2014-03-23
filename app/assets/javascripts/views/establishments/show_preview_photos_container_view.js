@@ -5,7 +5,7 @@ EstablishmentShowPreviewPhotosContainerView = Backbone.View.extend({
 
     initialize: function () {
         this.render(); 
-        this.collection = new PreviewPhotoCollection();
+        this.collection = new PreviewPhotosCollection();
 
         this.establishment_show_photos_preview_view = new EstablishmentShowPreviewPhotosView({
             model: this.model,

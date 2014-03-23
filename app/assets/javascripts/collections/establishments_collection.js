@@ -1,5 +1,7 @@
-ListsCollection = Backbone.Collection.extend({
-    model: List,
+EstablishmentsCollection = Backbone.Collection.extend({
+	model: Establishment,
+
+	url: '/api/establishments',
 
     initialize: function () {
         var params = $.deparam(decodeURIComponent(window.location.search.slice(1)));
@@ -13,11 +15,7 @@ ListsCollection = Backbone.Collection.extend({
         this.offset = res.offset;
         this.total = res.total;
 
-        return res.lists;
-    },
-
-    assignUrl: function (id) {
-        this.url = '/api/users/' + id + '/lists';
+        return res.establishments;
     },
 
     predicate: function () {

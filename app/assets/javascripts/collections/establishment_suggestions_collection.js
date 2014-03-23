@@ -1,4 +1,4 @@
-EstablishmentSuggestionCollection = Backbone.Collection.extend({
+EstablishmentSuggestionsCollection = Backbone.Collection.extend({
     model: Establishment,
 
     url: '/api/establishments/search',

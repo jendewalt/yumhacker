@@ -3,7 +3,7 @@ class Api::ListsController < ApplicationController
 
   def index
     logger.debug('@@@@@@@@@@@@@@@@@@@')
-    logger.debug('Hello from the controller index!')
+    logger.debug('Hello from the lists controller index!')
   end
 
   def show
@@ -14,7 +14,7 @@ class Api::ListsController < ApplicationController
     title = params[:title].strip if params[:title]
     description = params[:description].strip if params[:description]
 
-    @list = current_user.lists.new(title: title, description: description)
+    @list = current_user.lists.new(title: title, description: description, wish_list: false)
 
     begin
       @list.save
@@ -25,7 +25,6 @@ class Api::ListsController < ApplicationController
         @list.listings.new(establishment_id: establishment_id)
         @list.save
       end
-      render nothing: true, status: 201
     rescue
       render nothing: true, status: 409
     end
@@ -37,7 +36,7 @@ class Api::ListsController < ApplicationController
 
   def update
     @list = List.find(params[:id])
-    @list.title = params[:title]
+    @list.title = params[:title] if @list.type == 'List'
     @list.description = params[:description]
     @imageable = @list.imageables.where(list_id: @list.id).first
 

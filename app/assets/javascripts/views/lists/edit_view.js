@@ -11,6 +11,7 @@ ListsEditView = Backbone.View.extend({
 
     render: function () {
         console.log('rendering edit page')
+        console.log(this.model)
         this.$el.html(render('lists/edit', this.model));
 
         this.lists_edit_title_view = new ListsEditTitleView({
@@ -44,11 +45,12 @@ ListsEditView = Backbone.View.extend({
         MainGoogleMap.collection = this.collection;
         this.listenTo(this.collection, 'reset', function () { MainGoogleMap.render(); });
         this.listenTo(this.collection, 'add', function () { MainGoogleMap.render(); });
+        this.listenTo(this.collection, 'remove', function () { MainGoogleMap.render(); });
     },
 
     handleSubmit: function (e) {
         e.preventDefault();
-        var title = $('#title_input').val();
+        var title = this.model.get('wish_list') ? 'Wish List' : $('#title_input').val();
         var description = $('#description_input').val();
 
         var attrs = { 

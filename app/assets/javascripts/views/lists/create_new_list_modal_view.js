@@ -20,12 +20,18 @@ ListsCreateNewListModalView = Backbone.View.extend({
         if (CurrentUser.logged_in()) {
             this.new_list = new List({
                 title: title,
+                description: description,
                 listing: this.model
             });
 
-            this.new_list.save();
-            // TODO: Take user to List Edit page
-            ModalView.hide();
+            this.new_list.save({}, { success: redirectToList });
+            console.log('saving')
+
+            function redirectToList (model, res) {
+                console.log(model)
+                ModalView.hide();
+                App.navigate(model.get('edit_path'), { trigger: true });
+            }
         } else {
             CurrentUser.authenticate();            
         }

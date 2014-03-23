@@ -23,5 +23,4 @@ json.categories @listing.establishment.categories do |category|
     json.id category.id
 end
 
-json.user_endorsing current_user ? current_user.endorsing?(@listing.establishment) : false
-json.user_wish_listed current_user ? current_user.wish_listed?(@listing.establishment) : false
+json.wish_listed current_user ? current_user.wish_listed?(@listing.establishment.id) : false

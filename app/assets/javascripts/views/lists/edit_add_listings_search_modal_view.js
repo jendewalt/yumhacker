@@ -8,7 +8,7 @@ ListsEditAddListingSearchModalView = Backbone.View.extend({
         EstablishmentSearch.listings = opts.listings;
         this.render();
 
-        this.collection = new EstablishmentSuggestionCollection();
+        this.collection = new EstablishmentSuggestionsCollection();
         this.lists_edit_add_listing_search_suggestion_list_view = new ListsEditAddListingSearchSuggestionListView({
             el: '#find_establishment_results_container',
             collection: this.collection,

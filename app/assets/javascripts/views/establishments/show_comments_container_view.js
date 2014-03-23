@@ -3,7 +3,7 @@ EstablishmentShowCommentsContainerView = Backbone.View.extend({
 	},
 
 	initialize: function () {
-		this.collection = new CommentCollection();
+		this.collection = new CommentsCollection();
 
 		this.show_comments_form_view = new EstablishmentShowCommentFormView({
             el: '#comments_form_container',

@@ -1,26 +1,8 @@
 WishListButton = Backbone.Model.extend({
-    urlRoot: '/api/users/endorsing',
-
-    removeFromWishList: function () {
-        var that = this;
-        $.ajax({
-            url: '/api/listings/' + this.get('listing_id'),
-            method: 'DELETE',
-            dataType: 'json',
-            data: { 
-                establishment_id: this.get('establishment_id'),
-                wish_list: true
-            },
-            success: function (response) {
-                that.set(response);
-            },
-            error: function (xhr, status) {
-                console.log(status)
-            }
-        });
-    },
+    urlRoot: '/api/listings',
 
     wishList: function () {
+        console.log(this)
         var that = this;
         $.ajax({
             url: '/api/listings/',
@@ -28,10 +10,10 @@ WishListButton = Backbone.Model.extend({
             dataType: 'json',
             data: { 
                 establishment_id: this.get('establishment_id'),
-                wish_list: true
+                list_id: this.get('wish_list_id')
             },
             success: function (response) {
-                that.set(response);
+                that.set('wish_listed', response.wish_listed);
             },
             error: function (xhr, status) {
                 console.log(status)

@@ -12,7 +12,7 @@ MainIndexView = Backbone.View.extend({
 
         this.changeHeadInfo();
 
-        this.collection = new EstablishmentCollection();
+        this.collection = new EstablishmentsCollection();
 
         var params = _.extend(Location.predicate(), Filter.predicate(), Client.predicate(), this.collection.predicate());
         this.collection.fetch({ reset: true, data: params });

@@ -14,9 +14,13 @@ class User < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :photos, :dependent => :destroy
   has_many :lists, :dependent => :destroy
+  has_many :custom_lists, :dependent => :destroy
+  has_many :wish_lists, :dependent => :destroy
 
+  has_many :listings, :dependent => :destroy
+  
   has_many :favoritizations, :dependent => :destroy
-  has_many :favorite_lists, :through => :favoritizations, :source => :list, :dependent => :destroy
+  has_many :favorite_lists, :through => :favoritizations, :source => :lists, :dependent => :destroy
 
   has_attached_file :avatar, :styles => { :medium => "200x200#", :small => "100x100#", :thumb => "30x30#" }, :default_url => "/default.png"
 
@@ -41,6 +45,12 @@ class User < ActiveRecord::Base
 
   def unfollow!(id)
     relationships.where(:followed_id => id).first.try(:destroy)
+  end
+
+  # Wish list
+
+  def wish_listed?(establishment_id)
+    wish_lists.first.establishment_ids.include?(establishment_id)
   end
 
   # Restaurant endorsing
@@ -69,16 +79,6 @@ class User < ActiveRecord::Base
 
   def unfavorite!(id)
     favoritizations.where(:list_id => id).first.try(:destroy)
-  end
-
-  # Wish Lists
-
-  def wish_list
-    lists.where(wish_list: true).first
-  end
-  
-  def wish_listed?(establishment)
-    wish_list.nil? ? false : wish_list.establishment_ids.include?(establishment.id) 
   end
 
   # Misc

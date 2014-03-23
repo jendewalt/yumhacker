@@ -3,7 +3,7 @@ EndorsementsIndexListContainerView = Backbone.View.extend({
     },
 
     initialize: function () {
-        this.collection = new EndorsementCollection();
+        this.collection = new EndorsementsCollection();
         this.render();
     },
 

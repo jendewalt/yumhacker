@@ -3,8 +3,10 @@ ListsEditDescriptionView = Backbone.View.extend({
     },
 
     initialize: function () {
-        if (this.model.get('description') === null) {
-            var desc = this.model.get('user_first_name') + '\'s ' + this.model.get('title') + ' list.';
+        var desc = this.model.get('description');
+
+        if (desc === null || desc.length === 0 ) {
+            desc = this.model.get('user_first_name') + '\'s ' + this.model.get('title') + ' list.';
             this.model.set('description', desc);
         }
         this.render();
