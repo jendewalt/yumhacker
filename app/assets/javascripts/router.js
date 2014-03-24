@@ -9,7 +9,8 @@ Router = Backbone.Router.extend({
     },
 
     routes: {
-        '': 'mainIndex',
+        '': 'homePage',
+        // '': 'mainIndex',
         '_=_': 'redirectToHome',
         'restaurants': 'establishmentsIndex',
         'restaurants/search': 'establishmentsSearch',
@@ -49,7 +50,7 @@ Router = Backbone.Router.extend({
         $('head').append( '<meta name="description" content="' + desc + '">' );
     },
 
-    mainIndex: function () {
+    homePage: function () {
         var params = $.deparam(decodeURIComponent(window.location.search.slice(1)));
         if (_.isEmpty(params)) {
             Location.set(Location.defaults, { silent: true });
@@ -61,7 +62,7 @@ Router = Backbone.Router.extend({
             Client.parseParams();
         }
         this.setup();
-        this.currentView = new MainIndexView({ el: '#main_container' });
+        this.currentView = new HomePageView({ el: '#main_container' });
     },
 
     redirectToHome: function () {

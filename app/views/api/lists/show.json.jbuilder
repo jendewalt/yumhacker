@@ -3,6 +3,7 @@ json.title @list.title
 json.description @list.description
 json.type @list.type
 json.small_url @list.photos.last.image.url(:small) unless @list.photos.last.nil?
+json.path @list.path
 json.edit_path @list.edit_path
 json.user_id @list.user_id
 json.user_first_name @list.user.first_name

@@ -14,7 +14,7 @@ class Api::ListsController < ApplicationController
     title = params[:title].strip if params[:title]
     description = params[:description].strip if params[:description]
 
-    @list = current_user.lists.new(title: title, description: description, wish_list: false)
+    @list = current_user.lists.new(title: title, description: description)
 
     begin
       @list.save
