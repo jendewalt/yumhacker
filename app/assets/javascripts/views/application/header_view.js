@@ -11,10 +11,10 @@ HeaderView = Backbone.View.extend({
     render: function () {
         this.$el.html('');
 
-        this.$el.html(render('application/header', CurrentUser));
+        this.$el.html(render('application/header'));
 
-        this.main_search_view = new MainSearchView({
-            el: '#establishment_search_container'
+        this.current_location_view = new CurrentLocationView({
+            el: '#current_location_container'
         });
     },
 

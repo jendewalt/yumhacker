@@ -41,6 +41,12 @@ body.yumhacker {
                 cursor:pointer;
             }
 
+            h1 {
+                font-size: 20px;
+                line-height: 20px;
+                color: $mid-grey;
+            }
+
             .logo {
                 margin-bottom: 20px; 
                 img {
@@ -64,6 +70,57 @@ body.yumhacker {
                     margin: 0 15px;
                     line-height: 40px;
                     font-size: 16px;
+                }
+            }
+
+            #main_search_view_container {
+
+                #main_search_form {
+                    
+                    img {
+                        height: 20px;
+                        vertical-align: middle;
+                    }
+
+                    #location_container {
+                        display: inline-block;
+                        vertical-align: top;
+                        width: 85%;
+                        border: 1px solid $light-grey;
+                        padding: 0 5px;
+
+                        #location_input {
+                            width: 90%;
+                            height: 30px;
+                            padding: 0;
+                            line-height: 16px;
+                            font-size: 16px;
+                            color: $dark-grey;
+                            border: none;
+                            word-break: initial;
+                        }
+
+                        #nearby_btn {
+                            float: right;
+                            margin: 0;
+                            padding: 0;
+                            line-height: 30px;
+                            cursor: pointer;
+                            background: #FFF;
+                            border: none;
+                        }
+                    }
+
+                    #submit_container {
+                        display: inline-block;
+                        padding: 0;
+                        margin: 0;
+                        width: 10%;
+
+                        .btn {
+                            height: 32px;
+                        }
+                    }
                 }
             }
         }

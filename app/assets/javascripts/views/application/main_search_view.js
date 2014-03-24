@@ -8,6 +8,10 @@ MainSearchView = Backbone.View.extend({
     initialize: function () {
         this.render();
         this.listenTo(Client, 'change:formatted_address', this.changeInputValue);
+        this.listenTo(Client, 'change:formatted_address', function () {
+            ModalView.hide();
+        });
+
     },
 
     render: function () {

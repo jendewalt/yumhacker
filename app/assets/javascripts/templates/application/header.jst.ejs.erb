@@ -1,10 +1,18 @@
 <nav>
     <a href="[[= '/?' + encodeURIComponent($.param(_.extend(Location.predicate(), Filter.predicate(), Client.predicate()))) ]]" class="logo nav"><%= image_tag "logo.svg" %></a>
     
-    <div id='establishment_search_container'></div>
+    <div id='current_location_container'></div>
 
     <div id="navigation_links_container">
         <ul class='user_nav'>
+            <li>
+                <a href='' class='btn text nav'>Make a List</a>
+            </li>    
+
+            <li>
+                <a href='/users/search' class='nav'>Find Friends</a>
+            </li>
+
             [[ if (CurrentUser.logged_in()) { ]]
 
                 <li>
