@@ -13,6 +13,7 @@ ListsEditTitleView = Backbone.View.extend({
     },
 
     render: function () {
+        xxx = this.model
         this.$el.html(render('lists/edit_title', this.model));
     },
 

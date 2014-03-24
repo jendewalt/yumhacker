@@ -2,7 +2,7 @@
 
 <div id='list_title_info_container'>
     <div id='title_container'>
-        [[ if (get('wish_list')) { ]]
+        [[ if (get('type') === 'WishList') { ]]
             <h1 title='Wish List title cannot be changed.'>[[= get('title') ]]</h1>            
         [[ } else { ]]
             <textarea name='title' id='title_input'>[[= get('title') ]]</textarea>

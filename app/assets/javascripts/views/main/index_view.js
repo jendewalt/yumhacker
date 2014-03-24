@@ -14,6 +14,20 @@ MainIndexView = Backbone.View.extend({
 
         this.collection = new EstablishmentsCollection();
 
+        this.filter_view = new FilterView({
+            el: '#main_filter_container',
+        });
+
+        this.main_index_establishments_list_view = new MainIndexEstablishmentsListView({
+            el: '.establishments_list',
+            collection: this.collection
+        });
+
+        this.pagination_view = new EstablishmentsIndexPaginationView({
+            el: '.pagination_container',
+            collection: this.collection
+        });
+
         var params = _.extend(Location.predicate(), Filter.predicate(), Client.predicate(), this.collection.predicate());
         this.collection.fetch({ reset: true, data: params });
 
@@ -30,24 +44,12 @@ MainIndexView = Backbone.View.extend({
         MainGoogleMap.map.getStreetView().setVisible(false);
         // This needs to be here if MainGoogleMap already exists becuase new collection is created above
         MainGoogleMap.collection = this.collection;
+        fixMapOnScroll();
         
-        this.filter_view = new FilterView({
-            el: '#main_filter_container',
-        });
-
         this.listenTo(this.collection, 'reset', function () { MainGoogleMap.render(); });
         this.listenTo(Location, 'change', this.updateCollection);
         this.listenTo(Filter, 'change', this.updateCollection);
 
-        this.main_index_establishments_list_view = new MainIndexEstablishmentsListView({
-            el: '.establishments_list',
-            collection: this.collection
-        });
-
-        this.pagination_view = new EstablishmentsIndexPaginationView({
-            el: '.pagination_container',
-            collection: this.collection
-        });
     },
 
     render: function () {

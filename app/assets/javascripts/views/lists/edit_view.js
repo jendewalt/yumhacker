@@ -46,6 +46,8 @@ ListsEditView = Backbone.View.extend({
         this.listenTo(this.collection, 'reset', function () { MainGoogleMap.render(); });
         this.listenTo(this.collection, 'add', function () { MainGoogleMap.render(); });
         this.listenTo(this.collection, 'remove', function () { MainGoogleMap.render(); });
+        fixMapOnScroll();
+        
     },
 
     handleSubmit: function (e) {
@@ -60,5 +62,6 @@ ListsEditView = Backbone.View.extend({
 
         this.model.set(attrs);
         this.model.save();
+        App.navigate(e.target.pathname, { trigger: true });
     }
 });

@@ -15,7 +15,6 @@ MainMapView = Backbone.View.extend({
 		this.mapCanvas = this.$el;
 		this.map = new google.maps.Map(this.mapCanvas[0], this.mapOptions);
 		this.addGoogleListeners();
-		$(window).on('scroll', this.fixMapOnScroll);
 	},
 
 	render: function () {
@@ -136,24 +135,5 @@ MainMapView = Backbone.View.extend({
 				Location.set({ center: center, bounds: bounds, contained_in: 'bounds' });
 			}
 		}); 
-	},
-
-    fixMapOnScroll: function () {
-    	if ($('#main_map_pane').length > 0) {
-    		var container = $('.sticky_map_container');
-	        var container_height = container.height();
-	        var map = $('#main_map_pane');
-	        var map_top = map.position().top;
-	        var map_height = map.height();
-	        var scroll_position = $(window).scrollTop();
-
-    		if (scroll_position >= container_height || scroll_position <= map_top) {
-    			map.removeClass('sticky_map');
-    		} else if (scroll_position >= map_top - map.height()) {
-    			if (!map.hasClass('sticky_map')) {
-    				map.addClass('sticky_map');
-    			}
-    		}
-    	}
-    }
+	}
 });

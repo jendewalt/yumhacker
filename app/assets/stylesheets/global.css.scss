@@ -88,11 +88,15 @@ body.yumhacker {
 
     /* Class to have map follow scroll */
 
-    .sticky_map {
-        position: fixed;
-        top: 0;
-        height: 500px;
-        width: 450px;
+    #columns_container {
+        position: relative;
+        min-height: 500px;
+
+        .sticky_column {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
     }
 
     ol.establishments_list, ul.establishments_list {
@@ -246,7 +250,17 @@ body.yumhacker {
         }
     }
 
-    .action_btn_container {
+    .btn.edit {
+        width: 110px; 
+        background-color: $light-grey;
+        border-bottom: 1px solid #9E9EA8;
+
+        &:hover {
+            color: #59595e;            
+        }
+    }
+
+    .establishment_action_btn_container {
         float: right;
 
         .engaged {
@@ -262,24 +276,34 @@ body.yumhacker {
         }
     }
 
-    .favorite_btn.btn.text {
-        width: 110px;
-        height: 28px;
-        line-height: 28px;
-        background-color: $blue;
-    }
+    #list_action_btn_container {
+        float: right;
 
-    .favorite_btn.btn.text.engaged {
-        color: $light-grey;
-        background-color: white;
-        border: 1px solid $x-light-grey;
+        .list_btn {
+            display: inline-block;
+            margin-left: 10px;
+            width: 110px;
+            height: 28px;
+            line-height: 28px;
+        }
 
-        &.hover:hover {
-            font-weight: normal;
-            background-color: $light-grey;
-            color: #59595e;
+        .favorite_btn.btn.text {
+            background-color: $blue;
+        }
+
+        .favorite_btn.btn.text.engaged {
+            color: $light-grey;
+            background-color: white;
+            border: 1px solid $x-light-grey;
+
+            &.hover:hover {
+                font-weight: normal;
+                background-color: $light-grey;
+                color: #59595e;
+            }
         }
     }
+
 
     .pagination_container {
         padding: 10px;

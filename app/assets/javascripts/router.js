@@ -30,7 +30,8 @@ Router = Backbone.Router.extend({
         'privacy': 'privacyPage',
     },
 
-    setup: function () {            
+    setup: function () { 
+        $(window).unbind('scroll'); 
         if (this.currentView) { 
             this.currentView.remove(); 
         } else {

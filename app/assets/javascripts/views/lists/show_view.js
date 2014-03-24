@@ -41,6 +41,7 @@ ListsShowView = Backbone.View.extend({
         // This needs to be here if MainGoogleMap already exists becuase new collection is created above
         MainGoogleMap.collection = this.collection;
         this.listenTo(this.collection, 'reset', function () { MainGoogleMap.render(); });
+        fixMapOnScroll();
 
         this.pagination_view = new ListsShowPaginationView({
             el: '.pagination_container',
