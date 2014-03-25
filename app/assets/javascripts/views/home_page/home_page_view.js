@@ -4,6 +4,7 @@ HomePageView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
+        this.collection = new ListsCollection();
 
         this.create_list_view = new HomePageCreateListView({
             el: '#create_list_container'
@@ -23,10 +24,15 @@ HomePageView = Backbone.View.extend({
             el: '#featured_container'
         });
 
-        // this.lists_view = new HomePageListsView({
-        //     el: '#home_page_lists_container'
-        // });
+        this.lists_view = new HomePageListsView({
+            el: '#home_page_lists',
+            collection: this.collection
+        });
 
+        this.pagination_view = new ListsShowPaginationView({
+            el: '.pagination_container',
+            collection: this.collection
+        });
     },
 
     render: function () {

@@ -3,6 +3,7 @@ List = Backbone.Model.extend({
 
     initialize: function () {
         this.on('sync', this.format_time);
+        this.format_time();
     },
 
     format_time: function () {

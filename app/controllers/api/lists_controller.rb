@@ -3,7 +3,8 @@ class Api::ListsController < ApplicationController
 
   def index
     logger.debug('@@@@@@@@@@@@@@@@@@@')
-    logger.debug('Hello from the lists controller index!')
+    page = params[:page] || 1
+    @lists = List.all.order('created_at DESC').page(page).per(5)
   end
 
   def show

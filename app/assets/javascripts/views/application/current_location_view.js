@@ -1,6 +1,7 @@
 CurrentLocationView = Backbone.View.extend({
     events: {
-        'click a#change_location': 'showChangeLocationModal'
+        'click a#change_location': 'showChangeLocationModal',
+        'click .nav': 'navigate'
     },
 
     initialize: function () {
@@ -19,6 +20,11 @@ CurrentLocationView = Backbone.View.extend({
         ModalView.show(new ChangeLocationModalView({
             el: '#inner_modal_content'
         }));
+    },
+
+    navigate: function (e) {
+        e.preventDefault();
+        App.navigate(e.target.pathname, { trigger: true });
     }
 
 });

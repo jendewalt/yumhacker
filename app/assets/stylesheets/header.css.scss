@@ -2,6 +2,7 @@ body.yumhacker {
     $magenta: #e91367;
     $dark-magenta: #d9114a;
     $blue: #0d70eb;
+    $green: #2BA81C;
     $dark-blue: #094da1;
     $dark-grey: #313136;
     $mid-grey: #737378;
@@ -25,28 +26,47 @@ body.yumhacker {
             text-decoration: none;
         }
 
-        #establishment_search_container {
-            float: left;
-            width: 45%;
-            height: 52px;
-            padding-left: 40px;
+        #current_location_container {
+            float: left;                
+            padding-left: 30px;
             text-align: left;
 
-            
+            #current_location {
+            }
 
-            #other_search_links_container {
-                padding-top: 6px;
+            #current_location_links {
+                .map_btn {
+                    display: inline-block;
+                    vertical-align: bottom;
+                    margin-left: 10px;
+                    width: initial;
+                    padding: 0 5px;
+                    font-size: 11px;
+                    line-height: 13px;
+                    height: 13px;
+                    background-color: $green;
+                }
 
-                a { 
-                    margin-right: 20px;
-                    font-size: 13px;
-                    text-decoration: none;
+                #change_location {
+                    display: inline-block;
+                    vertical-align: bottom;
                     color: $blue;
+                    text-decoration: none;
+                    font-size: 11px;
 
                     &:hover {
-                        text-decoration: underline;
+                        text-decoration: underline;                        
                     }
-                }
+                }                
+            }
+            
+        }
+
+        #new_list_btn_container {
+            float: left;
+
+            .btn {
+
             }
         }
 

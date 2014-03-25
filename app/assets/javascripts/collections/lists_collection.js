@@ -16,7 +16,11 @@ ListsCollection = Backbone.Collection.extend({
     },
 
     assignUrl: function (id) {
-        this.url = '/api/users/' + id + '/lists';
+        if (id) {
+            this.url = '/api/users/' + id + '/lists';
+        } else {
+            this.url = '/api/lists'
+        }
     },
 
     predicate: function () {

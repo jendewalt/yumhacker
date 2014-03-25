@@ -1,0 +1,25 @@
+[[ if (get('small_url')) { ]]
+    <div id='list_photo_container'>
+        <img id='list_photo' src="[[= get('small_url')]]">
+    </div>
+[[ } ]]
+
+<div id='list_title_info_container'>
+    <div id='title_container'>
+        <a href="[[= get('path') ]]" class='nav'>[[= get('title') ]]</a>
+    </div>
+
+    <div id='title_lower_row'>
+        <div id="list_user_info_container">
+            <a id='list_user_photo' class='nav' href="/[[= get('user_path') ]]">
+                <img src="[[= get('user_thumb_url') ]]" alt="[[= get('user_full_name') ]]">
+            </a>
+
+            <div id="list_user_text">
+                <a id='list_user_name' class='nav' href="/[[= get('user_path') ]]">[[= get('user_full_name') ]]</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br class='clear'>
