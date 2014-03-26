@@ -7,6 +7,10 @@ class Api::ListsController < ApplicationController
     @lists = List.all.order('created_at DESC').page(page).per(5)
   end
 
+  def new
+    logger.debug('###########')
+  end
+
   def show
     @list = List.find(params[:id])
   end

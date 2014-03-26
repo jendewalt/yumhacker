@@ -28,10 +28,10 @@ MainSearch = new (Backbone.Model.extend({
             alert('There was a problem with your request. Please try again.');
         }          
         
-        if (Backbone.history.fragment !== '') {
-            var params = _.extend(Location.predicate(), Filter.predicate(), Client.predicate());
-            App.navigate('/' + '?' + encodeURIComponent($.param(params)), { trigger: true });
-        }
+        // if (Backbone.history.fragment !== '') {
+        //     var params = _.extend(Location.predicate(), Filter.predicate(), Client.predicate());
+        //     App.navigate('/' + '?' + encodeURIComponent($.param(params)), { trigger: true });
+        // }
     }
 
 }))();

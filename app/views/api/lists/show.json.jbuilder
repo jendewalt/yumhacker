@@ -2,7 +2,11 @@ json.id @list.id
 json.title @list.title
 json.description @list.description
 json.type @list.type
-json.small_url @list.photos.last.image.url(:small) unless @list.photos.last.nil?
+if @list.photos.last.nil?
+    json.small_url '/no_photo.svg'
+else
+    json.small_url @list.photos.last.image.url(:small)
+end
 json.path @list.path
 json.edit_path @list.edit_path
 json.user_id @list.user_id

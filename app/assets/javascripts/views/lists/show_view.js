@@ -38,7 +38,7 @@ ListsShowView = Backbone.View.extend({
             MainGoogleMap.mapCanvas.appendTo($('.map_canvas_container'));
         }
         MainGoogleMap.map.getStreetView().setVisible(false);
-        // This needs to be here if MainGoogleMap already exists becuase new collection is created above
+        // This needs to be here if MainGoogleMap already exists because new collection is created above
         MainGoogleMap.collection = this.collection;
         this.listenTo(this.collection, 'reset', function () { MainGoogleMap.render(); });
         fixMapOnScroll();

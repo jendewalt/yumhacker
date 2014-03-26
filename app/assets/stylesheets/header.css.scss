@@ -9,19 +9,21 @@ body.yumhacker {
     $light-grey: #c1c1c3;
     $x-light-grey: #F1F1F3;
 
-    nav {
+    header {
         min-width: 1000px;
-        height: 72px;
-        padding: 10px 20px;
         background-color: white;
         border-bottom: 1px solid $magenta;
+    }
+
+    nav {
+        width: 1000px;
+        margin: auto;
+        padding: 10px 0;
 
         a.logo {
             float: left;
-            height: 56px;
-            line-height: 56px;
-            font-size: 26px;
-            font-weight: bold;
+            height: 33px;
+            line-height: 33px;
             color: $magenta;
             text-decoration: none;
         }
@@ -30,11 +32,17 @@ body.yumhacker {
             float: left;                
             padding-left: 30px;
             text-align: left;
+            height: 33px;
+            line-height: 33px;
+            width: 300px;
 
             #current_location {
+                line-height: 20px;
+                text-overflow: ellipsis;
             }
 
             #current_location_links {
+                line-height: 13px;
                 .map_btn {
                     display: inline-block;
                     vertical-align: bottom;
@@ -64,15 +72,20 @@ body.yumhacker {
 
         #new_list_btn_container {
             float: left;
+            margin-left: 20px;
 
             .btn {
-
+                width: 130px;
+                height: 32px;
+                line-height: 32px;
+                font-size: 14px;
             }
         }
 
         #navigation_links_container {
             float: right;
             display: block;
+            line-height: 33px;
 
             ul.user_nav {
                 display: table-cell;
@@ -80,14 +93,11 @@ body.yumhacker {
                 li {
                     display: block;
                     float: left;
-                    height: 100%;
                     padding-left: 10px;
-                    margin: 10px 0;
 
                     a {
                         display: block;
                         vertical-align: middle;
-                        line-height: 32px;
                         color: $mid-grey;
                         text-decoration: none;
                         font-size: 13px;
@@ -95,6 +105,7 @@ body.yumhacker {
 
                     a.name {
                         padding-right: 10px;
+                        padding-left: 10px;
                         border-right: 1px solid $light-grey;
                         max-width: 200px;
                         white-space: nowrap;
@@ -109,7 +120,6 @@ body.yumhacker {
                             height: 30px;
                             width: 30px;
                             vertical-align: middle;
-                            border-radius: 50%;
                         }
                     }
 

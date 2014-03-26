@@ -13,8 +13,12 @@ HeaderView = Backbone.View.extend({
 
         this.$el.html(render('application/header'));
 
-        this.current_location_view = new CurrentLocationView({
+        this.current_location_view = new HeaderCurrentLocationView({
             el: '#current_location_container'
+        });
+
+        this.new_list_view = new NewListButtonView({
+            el: '#new_list_btn_container'
         });
     },
 

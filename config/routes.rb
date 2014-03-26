@@ -36,6 +36,7 @@ Yumhacker::Application.routes.draw do
   get 'users/:id/:section', to: 'main#index'
  
   get 'lists/:id', to: 'main#index'
+  get 'lists/new', to: 'main#index'
   get 'lists/:id/edit', to: 'main#index'
 
   get 'contact', to: 'main#index'

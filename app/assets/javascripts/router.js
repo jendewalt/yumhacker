@@ -12,7 +12,7 @@ Router = Backbone.Router.extend({
         '': 'homePage',
         // '': 'mainIndex',
         '_=_': 'redirectToHome',
-        'restaurants': 'establishmentsIndex',
+        'restaurants': 'mainIndex',
         'restaurants/search': 'establishmentsSearch',
         'users/sign_up/find_facebook_friends': 'signUpFindFacebookFriends',
         'users/find_facebook_friends': 'findFacebookFriends',
@@ -63,6 +63,22 @@ Router = Backbone.Router.extend({
         }
         this.setup();
         this.currentView = new HomePageView({ el: '#main_container' });
+    },
+
+    mainIndex: function () {
+        var params = $.deparam(decodeURIComponent(window.location.search.slice(1)));
+        // if (_.isEmpty(params)) {
+        //     console.log('no params')
+        //     Location.set(Location.defaults, { silent: true });
+        //     Filter.set(Filter.defaults, { silent: true });
+        //     Client.set(Client.defaults);
+        // } else {
+            Location.parseParams();
+            Filter.parseParams();
+            Client.parseParams();
+        // }
+        this.setup();
+        this.currentView = new MainIndexView({ el: '#main_container' });
     },
 
     redirectToHome: function () {

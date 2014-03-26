@@ -8,7 +8,11 @@ ListsEditListingsListView = Backbone.View.extend({
         this.listenTo(this.collection, 'reset', this.render);
         this.listenTo(this.collection, 'add', this.render);
         this.listenTo(this.collection, 'destroy', this.render);
-        this.collection.fetch({ reset: true, data: { per: 1000 } });
+        if (this.model.get('id')) {
+            this.collection.fetch({ reset: true, data: { per: 1000 } });
+        } else {
+            this.render();
+        }
     },
 
     render: function () {

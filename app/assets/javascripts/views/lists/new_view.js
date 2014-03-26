@@ -1,18 +1,23 @@
-ListsEditView = Backbone.View.extend({
+ListsNewView = Backbone.View.extend({
     events: {
         'click #save_btn': 'handleSubmit'
     },
 
     initialize: function () {
+        var title = CurrentUser.logged_in() ? CurrentUser.get('full_name') + '\'s Favorite Spots' : 'My Favorite Spots'
+        var desc = CurrentUser.logged_in() ? CurrentUser.get('full_name') + '\'s Favorite Spots List.' : 'My Favorite Spots List.'
+        this.model = new List({
+            title: title,
+            description: desc
+        });
+
         this.collection = new ListingsCollection();
         this.listenTo(this.model, 'sync', this.render);
-        this.model.fetch();
+        this.model.save();
     },
 
     render: function () {
-        console.log('rendering edit page')
-        console.log(this.model)
-        this.$el.html(render('lists/edit', this.model));
+        this.$el.html(render('lists/new', this.model));
 
         this.lists_edit_title_view = new ListsEditTitleView({
             el: '#list_title_container',
@@ -62,6 +67,6 @@ ListsEditView = Backbone.View.extend({
 
         this.model.set(attrs);
         this.model.save();
-        App.navigate(e.target.pathname, { trigger: true });
+        // App.navigate(e.target.pathname, { trigger: true });
     }
 });

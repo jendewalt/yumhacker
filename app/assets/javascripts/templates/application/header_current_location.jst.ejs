@@ -4,5 +4,5 @@
 
 <div id='current_location_links'>
     <a href="" id='change_location'>Change Location</a>
-    <a href="" class='btn text map_btn nav'>Map</a>
+    <a href="[[= 'restaurants?' + encodeURIComponent($.param(_.extend(Location.predicate(), Filter.predicate(), Client.predicate()))) ]]" class='btn text map_btn nav'>Map</a>
 </div>
