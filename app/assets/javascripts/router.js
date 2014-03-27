@@ -67,16 +67,16 @@ Router = Backbone.Router.extend({
 
     mainIndex: function () {
         var params = $.deparam(decodeURIComponent(window.location.search.slice(1)));
-        // if (_.isEmpty(params)) {
-        //     console.log('no params')
-        //     Location.set(Location.defaults, { silent: true });
-        //     Filter.set(Filter.defaults, { silent: true });
-        //     Client.set(Client.defaults);
-        // } else {
+        if (_.isEmpty(params)) {
+            console.log('no params')
+            Location.set(Location.defaults, { silent: true });
+            Filter.set(Filter.defaults, { silent: true });
+            Client.set(Client.defaults);
+        } else {
             Location.parseParams();
             Filter.parseParams();
             Client.parseParams();
-        // }
+        }
         this.setup();
         this.currentView = new MainIndexView({ el: '#main_container' });
     },
@@ -156,7 +156,6 @@ Router = Backbone.Router.extend({
     },
 
     listsEdit: function (id) {
-        console.log(id);
         this.setup();
         this.currentView = new ListsEditView({ 
             el: '#main_container',

@@ -23,12 +23,12 @@
 
         <div id='list_action_btn_container'>
             [[ if (CurrentUser.logged_in()) { ]]
-                <div id='edit_list_button' class='list_btn'>
-                    <a href="[[= '/' + get('edit_path') ]]" class='edit btn text nav'>Edit List</a>
+                <div id='edit_list_button'>
+                    <a href="[[= '/' + get('edit_path') ]]" class='edit btn text nav list_btn'>Edit List</a>
                 </div>
             [[ } ]]
 
-            <div id='list_favorite_button' class='list_btn'></div>
+            <div id='list_favorite_button'></div>
             <br class='clear'>
         </div>
     </div>

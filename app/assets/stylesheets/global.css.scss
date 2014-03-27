@@ -3,6 +3,7 @@ body.yumhacker {
     $dark-magenta: #d9114a;
     $blue: #0d70eb;
     $green: #2BA81C;
+    $dark-green: #15510d;
     $dark-blue: #094da1;
     $dark-grey: #313136;
     $mid-grey: #737378;
@@ -280,12 +281,17 @@ body.yumhacker {
     #list_action_btn_container {
         float: right;
 
+        div {
+            display: inline-block;
+        }
+
         .list_btn {
             display: inline-block;
             margin-left: 10px;
-            width: 110px;
+            width: 120px;
             height: 28px;
             line-height: 28px;
+            font-size: 13px;
         }
 
         .favorite_btn.btn.text {
@@ -301,6 +307,17 @@ body.yumhacker {
                 font-weight: normal;
                 background-color: $light-grey;
                 color: #59595e;
+            }
+        }
+
+        #save_btn {
+            display: block;
+            background: $green;
+
+            &:active {
+                background-color: $dark-green;
+                color: #000;
+                box-shadow: 0 3px 3px rgba(0,0,0,0.1) inset;
             }
         }
     }

@@ -24,7 +24,7 @@ HeaderCurrentLocationView = Backbone.View.extend({
     navigate: function (e) {
         e.preventDefault();
         e.stopPropagation();
-        App.navigate(e.target.pathname, { trigger: true });
+        App.navigate(e.target.pathname + e.currentTarget.search, { trigger: true });
     }
 
 });

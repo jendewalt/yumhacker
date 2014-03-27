@@ -6,7 +6,15 @@
     <h1 class='user_name'>[[= get('full_name') ]]</h1>
 
     [[ if (get('location')) { ]]
-        <p class='location'>[[= get('location') ]]</p>
+        <p class='location details'>[[= get('location') ]]</p>
+    [[ } ]]
+    
+    [[ if (get('website')) { ]]
+        <a href="[[= get('website') ]]" class='website details'>[[= get('website') ]]</a>
+    [[ } ]]
+
+    [[ if (get('description')) { ]]
+        <p class='description details'>[[= get('description') ]]</p>
     [[ } ]]
 
     <div class='follow_btn_container'>

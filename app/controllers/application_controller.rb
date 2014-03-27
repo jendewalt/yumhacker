@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
     def check_if_user
       if current_user
-        user = { id: current_user.id, first_name: current_user.first_name, full_name: current_user.full_name, small_url: current_user.avatar.url(:small), thumb_url: current_user.avatar.url(:thumb), path: 'users/' + current_user.id.to_s, provider: current_user.provider }
+        user = { id: current_user.id, first_name: current_user.first_name, full_name: current_user.full_name, small_url: current_user.avatar.url(:small), thumb_url: current_user.avatar.url(:thumb), path: current_user.path, provider: current_user.provider }
         cookies[:current_user] = user.to_json
       else 
         cookies.delete(:current_user)
@@ -23,6 +23,6 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email) }
       devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :first_name, :last_name, :password, :password_confirmation) }
 
-      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :first_name, :last_name, :password, :password_confirmation, :current_password, :avatar, :location) }
+      devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :first_name, :last_name, :password, :password_confirmation, :current_password, :avatar, :location, :website, :description) }
     end     
 end

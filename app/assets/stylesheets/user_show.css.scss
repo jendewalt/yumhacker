@@ -22,7 +22,6 @@ body.yumhacker {
                     display: inline-block;
                     height: 90px;
                     width: 90px;
-                    border-radius: 50%;
 
                     img {
                         height: inherit;
@@ -37,10 +36,19 @@ body.yumhacker {
                     font-size: 24px;
                 }
 
-                .location {
-                    padding-top: 5px;
+                .details {
                     font-size: 13px;
-                    color: $mid-grey;
+                    line-height: 18px;
+                    color: $mid-grey;                    
+                    padding-top: 10px;
+                }
+
+                .location {
+                }
+
+                a.website {
+                    text-decoration: none;
+                    display: block;
                 }
 
                 .follow_btn_container {

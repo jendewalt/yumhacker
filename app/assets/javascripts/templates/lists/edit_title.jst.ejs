@@ -17,13 +17,18 @@
 
             <div id="list_user_text">
                 <a id='list_user_name' class='nav' href="/[[= get('user_path') ]]">[[= get('user_full_name') ]]</a>
-                <p id='list_updated_at'>Updated [[= get('formatted_time') ]] (CURRENTLY EDITING)</p>
+                <p id='list_updated_at'>Updated [[= get('formatted_time') ]]</p>
             </div>
         </div>
 
-        <div id='list_favorite_button'></div>
-        <br class='clear'>
+        <div id='list_action_btn_container'>
+            <div id='edit_list_button'>
+                <a href="[[= /lists/ + get('id') ]]" id='save_btn' class='btn text nav list_btn'>Save List</a>
+            </div>
+            <br class='clear'>
+        </div>
     </div>
 </div>
 
 <br class='clear'>
+

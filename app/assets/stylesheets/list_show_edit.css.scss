@@ -3,6 +3,7 @@ body.yumhacker {
     $dark-magenta: #d9114a;
     $blue: #0d70eb;
     $green: #2BA81C;
+    $dark-green: #15510d;
     $dark-blue: #094da1;
     $dark-grey: #313136;
     $mid-grey: #737378;
@@ -11,9 +12,6 @@ body.yumhacker {
     $input-glow: rgba(233, 19, 103, 0.2);
 
     #list_show_container, #list_edit_container {
-        #editing_flag {
-            margin-top: 10px;
-        }
 
         textarea {
             padding: 9px;
@@ -24,6 +22,7 @@ body.yumhacker {
         }
 
         #list_title_container {
+            position: relative;
             margin-top: 20px;
             padding: 20px;
 
@@ -89,7 +88,7 @@ body.yumhacker {
                             }
                         }
                     }
-                }            
+                } 
             }
         }
 
