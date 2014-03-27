@@ -4,18 +4,15 @@ class Api::ListsController < ApplicationController
   def index
     logger.debug('@@@@@@@@@@@@@@@@@@@')
     page = params[:page] || 1
-    @lists = List.all.order('created_at DESC').page(page).per(5)
+    @lists = List.all.order('updated_at DESC').page(page).per(5)
   end
-
-  def new
-    logger.debug('###########')
-  end
-
+  
   def show
     @list = List.find(params[:id])
   end
   
   def create
+    logger.debug('@@@@@@@@@@@@@@@@@@@')
     title = params[:title].strip if params[:title]
     description = params[:description].strip if params[:description]
 
@@ -40,6 +37,7 @@ class Api::ListsController < ApplicationController
   end
 
   def update
+    logger.debug('###############')
     @list = List.find(params[:id])
     @list.title = params[:title] if @list.type == 'List'
     @list.description = params[:description]

@@ -12,7 +12,6 @@ HomePageListView = Backbone.View.extend({
     },
 
     navigate: function (e) {
-        console.log('list clicked')
         e.preventDefault();
         App.navigate(e.target.pathname, { trigger: true });
     }   

@@ -37,6 +37,7 @@ HomePageView = Backbone.View.extend({
 
     render: function () {
         this.$el.html(render('home_page/home_page'));
+        console.log('home page rendered')
     }
 
     // changeHeadInfo: function (include_category) {

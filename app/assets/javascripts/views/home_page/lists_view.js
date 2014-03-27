@@ -6,9 +6,6 @@ HomePageListsView = Backbone.View.extend({
         this.collection.assignUrl();
         this.listenTo(this.collection, 'reset', this.render);
         this.collection.fetch({ reset: true, data: this.collection.predicate() });
-
-        xxx = this.collection
-
     },
 
     render: function () {

@@ -1,0 +1,252 @@
+body.yumhacker {
+    $magenta: #e91367;
+    $dark-magenta: #d9114a;
+    $blue: #0d70eb;
+    $green: #2BA81C;
+    $dark-blue: #094da1;
+    $dark-grey: #313136;
+    $mid-grey: #737378;
+    $light-grey: #c1c1c3;
+    $x-light-grey: #F1F1F3;
+    $input-glow: rgba(233, 19, 103, 0.2);
+
+    #home_page_container {
+        .column.right {
+            width: 60%;
+        }
+
+        .column.left {
+            width: 40%;
+        }
+
+        h4 {
+            width: 100%;
+            font-size: 16px;
+            line-height: 20px;
+            color: $magenta;
+            border-bottom: 3px solid $light-grey;
+        }
+
+        #create_list_container {
+            padding: 20px;
+
+            p {
+                margin-bottom: 12px;
+                line-height: 24px;
+            }
+
+            #home_page_new_list_btn_container {
+
+                .new_list_btn {
+                    width: 260px;
+                    height: 50px;
+                    line-height: 50px;
+                    font-size: 22px;
+                }
+            }
+        }
+
+        #home_page_user_info_container {
+            padding: 30px;
+            margin-top: 30px;
+
+            h1 {
+                font-size: 30px;
+                line-height: 38px;
+                margin-bottom: 16px;
+            }
+
+            h3 {
+                line-height: 20px;
+                font-size: 16px;
+                color: $mid-grey;
+            }
+
+            #home_page_login_buttons {
+                margin-top: 30px;
+
+                .login_btn {
+                    display: block;
+                    width: 160px;
+                    height: 50px;
+                    margin: 20px auto;
+                    line-height: 50px;
+                    font-size: 22px;
+                    background-color: $blue;
+
+                    &:active {
+                        background-color: $dark-blue;
+                        color: #000;
+                        box-shadow: 0 3px 3px rgba(0,0,0,0.1) inset;
+                    }
+                }
+            }
+        }
+
+        #featured_container {
+            text-align: left;
+
+            #featured_user {
+
+                #featured_user_info {
+                    padding: 14px 10px;
+
+                    #featured_user_image_container, #featured_user_text_container {
+                        display: inline-block;
+                        vertical-align: top;                    
+                    }
+
+                    #featured_user_image_container {
+                        img {
+                            width: 100px;
+                            height: 100px;
+                        }
+                    }
+
+                    #featured_user_text_container {
+                        width: 410px;
+                        margin-left: 20px;
+
+                        #featured_user_name {
+                            display: block;
+                            color: $dark-grey;
+                            text-decoration: none;
+                            font-size: 30px;
+                            line-height: 30px;
+
+                            &:hover {
+                                color: $blue;
+                            }
+                        }
+
+                        #featured_user_website {
+                            display: block;
+                            margin-bottom: 10px;
+                            font-size: 18px;
+                            line-height: 28px;
+                            color: $blue;
+                            text-decoration: none;
+                        }
+
+                        p {
+                            font-size: 13px;
+                            line-height: 16px;
+                        }
+                    }
+                }
+            }
+
+            #featured_list {
+                border-top: 1px solid $light-grey; 
+                padding: 14px 10px;
+
+                a {
+                    display: inline-block;
+                    text-decoration: none;
+                    color: $blue;
+                }
+
+                img {
+                    display: inline-block;
+                    vertical-align: top;
+                    height: 60px;
+                    width: 60px;
+                }
+
+                #featured_list_text {
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 400px;
+                    margin-left: 10px;
+                    padding-top: 5px;
+                    
+                    p {
+                        margin-bottom: 5px;                          
+                        font-size: 13px;
+                        line-height: 13px;
+                    }
+
+                    a {
+                        font-size: 22px;
+                        line-height: 30px;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+
+        #home_page_lists_container {
+            margin-top: 30px;
+            text-align: left;
+
+            a {
+                display: block;
+                text-decoration: none;
+                color: $blue;
+            }
+
+            ul#home_page_lists {
+
+                li {
+                    padding: 10px;
+                    border-bottom: 1px solid $light-grey;
+                
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                    
+                    .list_photo_container {
+                        display: inline-block;
+                        vertical-align: top;
+                        
+                        img {
+                            height: 60px;
+                            width: 60px;
+                        }
+                    }
+
+                    .list_info_container {
+                        display: inline-block;
+                        vertical-align: top;
+                        width: 400px;
+                        margin-left: 10px;
+                        font-size: 18px;
+
+                        .list_title_container {
+                            line-height: 24px;
+                        }
+
+                        .list_user_info_container {
+                            margin-top: 5px;
+
+                            .list_user_photo {
+                                display: inline-block;
+                                vertical-align: top;
+                            }
+
+                            .list_user_text {
+                                display: inline-block;
+                                vertical-align: top;
+                                width: 300px;
+                                font-size: 13px;
+                                line-height: 20px;
+
+                                p {
+                                    font-size: 11px;
+                                    line-height: 15px;
+                                    color: $mid-grey;
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+    }
+
+}

@@ -8,11 +8,12 @@ json.lists @lists do |list|
     json.id list.id
     json.title list.title
     json.path list.path
+    json.updated_at list.updated_at
 
     if list.photos.last.nil?
-        json.thumb_url '/no_photo.svg'
+        json.small_url '/no_photo.svg'
     else
-        json.thumb_url list.photos.last.image.url(:thumb)
+        json.small_url list.photos.last.image.url(:small)
     end
     json.user_id list.user_id
     json.user_full_name list.user.full_name

@@ -19,10 +19,8 @@ ApplicationModalView = Backbone.View.extend({
     },
 
     hide: function () {
-        console.log('hiding')
         var that = this;
-        console.log(this)
-        this.$el.fadeOut('60', function () {
+        this.$el.fadeOut('20', function () {
             that.view.remove(); 
             that.$('.inner_modal').append($('<div>', { id: 'inner_modal_content' }));
         });

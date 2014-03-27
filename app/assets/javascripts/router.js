@@ -156,6 +156,7 @@ Router = Backbone.Router.extend({
     },
 
     listsEdit: function (id) {
+        console.log(id);
         this.setup();
         this.currentView = new ListsEditView({ 
             el: '#main_container',
