@@ -15,7 +15,6 @@ ApplicationModalView = Backbone.View.extend({
         this.view = view;
         this.$('inner_modal_content').html(view.el);
         this.$el.show();
-        console.log(this.view);
     },
 
     hide: function () {

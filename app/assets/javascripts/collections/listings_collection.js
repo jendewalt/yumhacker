@@ -20,7 +20,6 @@ ListingsCollection = Backbone.Collection.extend({
 
     assignUrl: function (id) {
         this.url = '/api/lists/' + id + '/listings';
-        console.log(this.url)
     },
 
     predicate: function () {

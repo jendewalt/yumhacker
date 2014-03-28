@@ -4,15 +4,14 @@ ApplicationWishListButtonView = Backbone.View.extend({
     },
 
     initialize: function (options) {
-        this.model = new WishListButton();
-        this.listenTo(this.model, 'sync', this.render);
-        this.listenTo(this.model, 'change', this.render);
-
-        this.model.set({ 
+        this.model = new WishListButton({ 
             'establishment_id': options.establishment_id,
             'wish_list_id': options.wish_list_id,
             'wish_listed': options.wish_listed,
-        }, { silent: true });
+        });
+        this.listenTo(this.model, 'sync', this.render);
+        this.listenTo(this.model, 'change', this.render);
+
         this.render();
     },
 

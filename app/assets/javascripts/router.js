@@ -68,7 +68,6 @@ Router = Backbone.Router.extend({
     mainIndex: function () {
         var params = $.deparam(decodeURIComponent(window.location.search.slice(1)));
         if (_.isEmpty(params)) {
-            console.log('no params')
             Location.set(Location.defaults, { silent: true });
             Filter.set(Filter.defaults, { silent: true });
             Client.set(Client.defaults);

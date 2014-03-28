@@ -26,6 +26,12 @@ body.yumhacker {
             margin-top: 20px;
             padding: 20px;
 
+            #delete_list {
+                top: initial;
+                bottom: 20px;
+                right: 20px;
+            }
+
             #list_photo_container {
                 float: left;
                 text-align: center;

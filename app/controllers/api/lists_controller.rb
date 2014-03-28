@@ -1,5 +1,5 @@
 class Api::ListsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:create, :update]
+  before_filter :authenticate_user!, :only => [:create, :update, :delete]
 
   def index
     logger.debug('@@@@@@@@@@@@@@@@@@@')
@@ -21,7 +21,7 @@ class Api::ListsController < ApplicationController
     title = params[:title].strip if params[:title]
     description = params[:description].strip if params[:description]
 
-    @list = current_user.lists.new(title: title, description: description)
+    @list = current_user.custom_lists.new(title: title, description: description)
 
     begin
       @list.save
@@ -44,7 +44,7 @@ class Api::ListsController < ApplicationController
   def update
     logger.debug('###############')
     @list = List.find(params[:id])
-    @list.title = params[:title] if @list.type == 'List'
+    @list.title = params[:title] if @list.type == 'CustomList'
     @list.description = params[:description]
     @imageable = @list.imageables.where(list_id: @list.id).first
 
@@ -58,5 +58,10 @@ class Api::ListsController < ApplicationController
     @list.save()
 
     render nothing: true, status: 201
+  end
+
+  def destroy
+    List.find(params[:id]).destroy
+    render nothing: true, status: 204
   end
 end

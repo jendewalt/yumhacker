@@ -6,11 +6,10 @@ UsersShowListsIndexListView = Backbone.View.extend({
         this.listenTo(this.collection, 'reset', this.render);
         this.listenTo(this.collection, 'paginate', this.paginate);
 
-        this.collection.fetch({ reset: true });
+        this.collection.fetch({ reset: true, data: { user_id: this.model.get('id') } });
     },
 
     render: function () {
-        console.log(this.collection)
         if (this.collection.length > 0) {
             this.$el.html('');
 
@@ -28,7 +27,12 @@ UsersShowListsIndexListView = Backbone.View.extend({
             tagName: 'li',
             model: list
         });
-        this.$el.append(list_view.el);
+
+        if (list.get('type') === 'WishList') {
+            this.$el.prepend(list_view.el);
+        } else {
+            this.$el.append(list_view.el);            
+        }
     },
 
     paginate: function (e) {

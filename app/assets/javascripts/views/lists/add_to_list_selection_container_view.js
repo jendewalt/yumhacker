@@ -8,7 +8,13 @@ ListsAddToListSelectionContainerView = Backbone.View.extend({
         this.collection = new ListsCollection();
 
         this.listenTo(this.collection, 'reset', this.render);
-        this.collection.fetch({ reset: true, data: { user_id: CurrentUser.get('id') } });
+        this.collection.fetch({ 
+            reset: true, 
+            data: { 
+                user_id: CurrentUser.get('id'),
+                establishment_id: this.establishment.get('id')
+            } 
+        });
     },
 
     render: function () {

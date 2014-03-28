@@ -4,7 +4,6 @@ UsersShowListsIndexListContainerView = Backbone.View.extend({
 
     initialize: function () {
         this.collection = new ListsCollection();
-        this.collection.assignUrl(this.model.get('id'));
         this.render();
     },
 

@@ -8,7 +8,7 @@ User = Backbone.Model.extend({
     assignUrls: function () {
         this.set('url', '/' + this.get('path'));
         this.set({
-            'endorsements_url': this.get('url') + '/endorsements',
+            'lists_url': this.get('url') + '/lists',
             'following_url': this.get('url') + '/following',
             'followers_url': this.get('url') + '/followers'
         });

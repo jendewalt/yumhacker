@@ -6,13 +6,14 @@ UsersShowListView = Backbone.View.extend({
 	initialize: function () {
 		this.render();
 
-		// this.favorite_button_view = new ApplicationFavoriteButtonView({ 
-  //           el: this.$('.favorite_btn_container'),
-  //           establishment: this.model 
-  //       });			
+		this.favorite_button_view = new ApplicationFavoriteButtonView({ 
+            el: this.$('.favorite_btn_container'),
+            list: this.model 
+        });			
 	},
 
 	render: function () {
+		console.log(this.model)
 		this.$el.html(render('users/show_index_list', this.model));	
 	},
 

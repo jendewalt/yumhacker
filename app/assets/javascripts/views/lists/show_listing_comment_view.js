@@ -1,6 +1,5 @@
 ListsShowListingCommentView = Backbone.View.extend({
     events:{
-        'click .delete_comment': 'deleteComment',
     },
 
     initialize: function () {
@@ -10,11 +9,5 @@ ListsShowListingCommentView = Backbone.View.extend({
 
     render: function () {
         this.$el.html(render('lists/show_listing_comment', this.model));
-    }, 
-
-    deleteComment: function () {
-        if (CurrentUser.get('id') == this.model.get('user_id')) {
-            this.model.destroy();
-        }
     }
 });

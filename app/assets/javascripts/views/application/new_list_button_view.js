@@ -23,7 +23,6 @@ NewListButtonView = Backbone.View.extend({
             this.model.save({}, { success: goToListEdit });
 
             function goToListEdit(model) {
-                console.log(model)
                 App.navigate('/lists/' + model.get('id') + '/edit', { trigger: true });
             }            
         } else {

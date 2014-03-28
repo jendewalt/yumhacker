@@ -10,8 +10,6 @@ ListsEditView = Backbone.View.extend({
     },
 
     render: function () {
-        console.log('rendering edit page')
-        console.log(this.model)
         this.$el.html(render('lists/edit', this.model));
 
         this.lists_edit_title_view = new ListsEditTitleView({
@@ -54,6 +52,8 @@ ListsEditView = Backbone.View.extend({
         e.preventDefault();
         var title = this.model.get('wish_list') ? 'Wish List' : $('#title_input').val();
         var description = $('#description_input').val();
+
+        console.log(title)
 
         var attrs = { 
             'title': title,

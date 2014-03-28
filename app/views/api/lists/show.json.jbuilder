@@ -2,6 +2,7 @@ json.id @list.id
 json.title @list.title
 json.description @list.description
 json.type @list.type
+
 if @list.photos.last.nil?
     json.small_url '/no_photo.svg'
 else
@@ -9,6 +10,8 @@ else
 end
 json.path @list.path
 json.edit_path @list.edit_path
+json.establishment_ids @list.establishment_ids
+
 json.user_id @list.user_id
 json.user_first_name @list.user.first_name
 json.user_full_name @list.user.full_name

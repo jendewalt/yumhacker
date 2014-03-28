@@ -9,6 +9,7 @@ json.lists @lists do |list|
     json.title list.title
     json.path list.path
     json.updated_at list.updated_at
+    json.type list.type
 
     if list.photos.last.nil?
         json.small_url '/no_photo.svg'
@@ -19,4 +20,7 @@ json.lists @lists do |list|
     json.user_full_name list.user.full_name
     json.user_thumb_url list.user.avatar.url(:thumb)
     json.user_path list.user.path
+
+    json.user_favoriting current_user ? current_user.favoriting?(list) : false
+
 end

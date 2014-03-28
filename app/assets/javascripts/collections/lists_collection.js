@@ -17,14 +17,6 @@ ListsCollection = Backbone.Collection.extend({
         return res.lists;
     },
 
-    assignUrl: function (id) {
-        // if (id) {
-        //     this.url = '/api/users/' + id + '/lists';
-        // } else {
-        //     this.url = '/api/lists'
-        // }
-    },
-
     predicate: function () {
         return { page: this.requested_page };
     }

@@ -6,6 +6,7 @@ json.total @listings.total_count
 
 json.listings @listings do |listing|
     json.id listing.id
+    json.list_id listing.list_id
     json.path listing.establishment.path
     json.establishment_id listing.establishment.id
     json.name listing.establishment.name

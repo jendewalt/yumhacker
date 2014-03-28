@@ -25,7 +25,6 @@ ListsCreateNewListModalView = Backbone.View.extend({
             });
 
             this.new_list.save({}, { success: redirectToList });
-            console.log('saving')
 
             function redirectToList (model, res) {
                 console.log(model)
