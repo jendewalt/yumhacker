@@ -3,12 +3,13 @@ ListsShowView = Backbone.View.extend({
     },
 
     initialize: function () {
-        this.collection = new ListingsCollection();
         this.listenTo(this.model, 'sync', this.render);
         this.model.fetch();
     },
 
     render: function () {
+        this.collection = new ListingsCollection({ list_id: this.model.get('id') });
+
         this.$el.html(render('lists/show'));
 
         this.lists_show_title_view = new ListsShowTitleView({

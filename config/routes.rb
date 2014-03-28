@@ -73,10 +73,6 @@ Yumhacker::Application.routes.draw do
       resources :listings 
     end
 
-    resources :users do
-      resources :lists
-    end
-
     resources :comments
 
     resources :categories

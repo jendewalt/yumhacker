@@ -6,10 +6,9 @@ ListsAddToListSelectionContainerView = Backbone.View.extend({
     initialize: function (options) {
         this.establishment = options.establishment
         this.collection = new ListsCollection();
-        this.collection.assignUrl(CurrentUser.get('id'));
 
         this.listenTo(this.collection, 'reset', this.render);
-        this.collection.fetch({ reset: true });
+        this.collection.fetch({ reset: true, data: { user_id: CurrentUser.get('id') } });
     },
 
     render: function () {
@@ -29,7 +28,10 @@ ListsAddToListSelectionContainerView = Backbone.View.extend({
 
     checkForNewList: function (e) {
         if (e.target.value === 'new') {
-            ModalView.createNewListModal(this.establishment);
+            ModalView.show(new ListsCreateNewListModalView({
+                el: '#inner_modal_content',
+                model: this.establishment
+            }));
         }
     }
 

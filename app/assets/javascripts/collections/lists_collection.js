@@ -1,6 +1,8 @@
 ListsCollection = Backbone.Collection.extend({
     model: List,
 
+    url: '/api/lists',
+
     initialize: function () {
         var params = $.deparam(decodeURIComponent(window.location.search.slice(1)));
         this.requested_page = (params.page ? Number(params.page) : 1);
@@ -16,11 +18,11 @@ ListsCollection = Backbone.Collection.extend({
     },
 
     assignUrl: function (id) {
-        if (id) {
-            this.url = '/api/users/' + id + '/lists';
-        } else {
-            this.url = '/api/lists'
-        }
+        // if (id) {
+        //     this.url = '/api/users/' + id + '/lists';
+        // } else {
+        //     this.url = '/api/lists'
+        // }
     },
 
     predicate: function () {

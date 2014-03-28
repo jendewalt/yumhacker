@@ -4,7 +4,12 @@ class Api::ListsController < ApplicationController
   def index
     logger.debug('@@@@@@@@@@@@@@@@@@@')
     page = params[:page] || 1
-    @lists = List.all.order('updated_at DESC').page(page).per(5)
+
+    if params[:user_id]
+      @lists = User.find(params[:user_id]).lists.page(1).per(1000)
+    else
+      @lists = List.all.order('updated_at DESC').page(page).per(5)
+    end
   end
   
   def show

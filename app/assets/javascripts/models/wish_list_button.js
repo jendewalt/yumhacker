@@ -1,11 +1,10 @@
 WishListButton = Backbone.Model.extend({
-    urlRoot: '/api/listings',
 
     wishList: function () {
         console.log(this)
         var that = this;
         $.ajax({
-            url: '/api/listings/',
+            url: '/api/lists/' + this.get('wish_list_id') + '/listings/',
             method: 'POST',
             dataType: 'json',
             data: { 
