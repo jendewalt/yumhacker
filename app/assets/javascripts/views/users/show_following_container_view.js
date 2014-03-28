@@ -11,23 +11,22 @@ UsersShowFollowingContainerView = Backbone.View.extend({
         } else if (options.section === 'followers') {
             this.listenTo(this.model, 'sync', this.renderFollowers);
         } else {
-            this.listenTo(this.model, 'sync', this.renderEndorsements);                
+            this.listenTo(this.model, 'sync', this.renderLists);                
         }
-        
     },
 
     render: function () {
         this.$el.html(render('users/show_following_container', this.model));
     },
 
-    renderEndorsements: function (e) {
-        this.endorsementsIndexListContainerView = new EndorsementsIndexListContainerView({
+    renderLists: function (e) {
+        this.listsIndexListContainerView = new UsersShowListsIndexListContainerView({
             el: '.following_list_container',
             model: this.model
         });     
         
-        $('#endorsements_tab').addClass('current_tab');
-        this.changeHeadInfo('endorsements');
+        $('#lists_tab').addClass('current_tab');
+        this.changeHeadInfo('lists');
     },
 
     renderFollowedUsers: function (e) {
@@ -65,7 +64,7 @@ UsersShowFollowingContainerView = Backbone.View.extend({
         } else if (section === 'followers') {
             section_text = this.model.get('num_followers') !== 1 ? ' has ' + this.model.get('num_followers') + ' followers' : ' has 1 follower';
         } else {
-            section_text = this.model.get('num_endorsements') !== 1 ? ' is endorsing ' + this.model.get('num_endorsements') + ' restaurants' : ' is endorsing 1 restaurant';            
+            section_text = this.model.get('num_lists') !== 1 ? ' has made ' + this.model.get('num_lists') + ' Yum Lists.' : ' has maade one Yum List';            
         }
 
         this.title = user_name + ' | ' + capitalize(section) + ' | YumHacker';

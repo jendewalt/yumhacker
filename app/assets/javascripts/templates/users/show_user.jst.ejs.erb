@@ -1,9 +1,9 @@
 <div id='profile_container' class='card border'>
+    <h1 class='user_name'>[[= get('full_name') ]]</h1>
+
     <div class='photo_container'>
         <img src="[[= get('avatar_url_small') ]]" >
     </div>
-
-    <h1 class='user_name'>[[= get('full_name') ]]</h1>
 
     [[ if (get('location')) { ]]
         <p class='location details'>[[= get('location') ]]</p>

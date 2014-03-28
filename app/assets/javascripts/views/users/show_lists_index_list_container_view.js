@@ -1,17 +1,18 @@
-EndorsementsIndexListContainerView = Backbone.View.extend({
+UsersShowListsIndexListContainerView = Backbone.View.extend({
     events: {
     },
 
     initialize: function () {
-        this.collection = new EndorsementsCollection();
+        this.collection = new ListsCollection();
+        this.collection.assignUrl(this.model.get('id'));
         this.render();
     },
 
     render: function () {
-        this.$el.html(render('endorsements/index_endorsement_list_container', this.model));
+        this.$el.html(render('users/show_lists_index_list_container', this.model));
 
-        this.endorsementsIndexListView = new EndorsementsIndexListView({
-            el: 'ul.endorsements',
+        this.list_index_list = new UsersShowListsIndexListView({
+            el: 'ul.lists',
             model: this.model,
             collection: this.collection
         });

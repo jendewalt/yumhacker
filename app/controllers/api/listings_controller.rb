@@ -5,7 +5,9 @@ class Api::ListingsController < ApplicationController
   def index
     page = params[:page] || 1
     per = params[:per] || 10
-    @listings = List.find(params[:id]).listings.page(page).per(per)
+    logger.debug('$$$$$')
+    logger.debug(params)
+    @listings = List.find(params[:list_id]).listings.page(page).per(per)
   end
   
   def create

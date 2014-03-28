@@ -15,30 +15,21 @@ body.yumhacker {
             width: 35%;
 
             #profile_container {
-                padding-top: 40px;
+                padding-top: 20px;
                 padding-bottom: 20px;
 
                 .photo_container {
-                    display: inline-block;
-                    height: 90px;
-                    width: 90px;
-
-                    img {
-                        height: inherit;
-                        width: inherit;
-                        border-radius: inherit;
-                    }
+                    padding: 20px 0 10px;
                 }
 
                 .user_name {
-                    padding-top: 20px;
-                    line-height: 24px;
-                    font-size: 24px;
+                    line-height: 30px;
+                    font-size: 30px;
                 }
 
                 .details {
                     font-size: 13px;
-                    line-height: 18px;
+                    line-height: 13px;
                     color: $mid-grey;                    
                     padding-top: 10px;
                 }
@@ -47,8 +38,15 @@ body.yumhacker {
                 }
 
                 a.website {
+                    color: $blue;
                     text-decoration: none;
                     display: block;
+                }
+
+                .description {
+                    width: 100%;
+                    margin-top: 10px;
+                    border-top: 1px solid $light-grey;
                 }
 
                 .follow_btn_container {
