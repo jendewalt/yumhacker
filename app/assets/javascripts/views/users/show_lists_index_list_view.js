@@ -6,7 +6,14 @@ UsersShowListsIndexListView = Backbone.View.extend({
         this.listenTo(this.collection, 'reset', this.render);
         this.listenTo(this.collection, 'paginate', this.paginate);
 
-        this.collection.fetch({ reset: true, data: { user_id: this.model.get('id') } });
+        this.collection.fetch({ 
+            reset: true, 
+            data: { 
+                user_id: this.model.get('id'), 
+                favorites: this.collection.favorites,
+                per: 10 
+            } 
+        });
     },
 
     render: function () {
@@ -25,7 +32,8 @@ UsersShowListsIndexListView = Backbone.View.extend({
     renderList: function (list) {
         var list_view = new UsersShowListView({
             tagName: 'li',
-            model: list
+            model: list,
+            favorites: this.collection.favorites
         });
 
         if (list.get('type') === 'WishList') {

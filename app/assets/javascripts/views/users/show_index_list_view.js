@@ -3,7 +3,8 @@ UsersShowListView = Backbone.View.extend({
 		'click .nav': 'navigate'
 	},
 
-	initialize: function () {
+	initialize: function (options) {
+		xxx = this.model
 		this.render();
 
 		this.favorite_button_view = new ApplicationFavoriteButtonView({ 
@@ -14,8 +15,6 @@ UsersShowListView = Backbone.View.extend({
 
 	render: function () {
 		var desc = this.model.get('description');
-		console.log(this.model.get('description'));
-		xxx = this.model
 		if (desc !== null && desc.length > 105) {
 			this.model.set('description', desc.slice(0, 105) + '...');
 		}

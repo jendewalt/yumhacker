@@ -3,12 +3,18 @@ class Api::ListsController < ApplicationController
 
   def index
     logger.debug('@@@@@@@@@@@@@@@@@@@')
-    page = params[:page] || 1
+    logger.debug(params)
 
-    if params[:user_id]
-      @lists = User.find(params[:user_id]).lists.page(1).per(1000)
+    page = params[:page] || 1
+    per = params[:per] || 1000
+
+    if params[:user_id] && params[:favorites] == 'true'
+      @lists = User.find(params[:user_id]).favorite_lists.order('updated_at DESC').page(page).per(per)
+    elsif params[:user_id]
+      # Returns WishLists before CustomLists then orders by last update
+      @lists = User.find(params[:user_id]).lists.order('type DESC').order('updated_at DESC').page(page).per(per)      
     else
-      @lists = List.all.order('updated_at DESC').page(page).per(5)
+      @lists = List.all.order('updated_at DESC').page(page).per(per)
     end
   end
   

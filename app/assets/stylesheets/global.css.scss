@@ -225,6 +225,70 @@ body.yumhacker {
         }
     }
 
+
+    ul.lists {
+        a {
+            display: block;
+            text-decoration: none;
+            color: $blue;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid $light-grey;
+        
+            &:last-child {
+                border-bottom: none;
+            }
+            
+            .list_photo_container {
+                display: inline-block;
+                vertical-align: top;
+                
+                img {
+                    height: 60px;
+                    width: 60px;
+                }
+            }
+
+            .list_info_container {
+                display: inline-block;
+                vertical-align: top;
+                width: 400px;
+                margin-left: 10px;
+                font-size: 18px;
+
+                .list_title_container {
+                    line-height: 24px;
+                }
+
+                .list_user_info_container {
+                    margin-top: 5px;
+
+                    .list_user_photo {
+                        display: inline-block;
+                        vertical-align: top;
+                    }
+
+                    .list_user_text {
+                        display: inline-block;
+                        vertical-align: top;
+                        width: 300px;
+                        font-size: 13px;
+                        line-height: 20px;
+
+                        p {
+                            font-size: 11px;
+                            line-height: 15px;
+                            color: $mid-grey;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
     .pagination_container {
         padding: 10px;
         padding-bottom: 0;

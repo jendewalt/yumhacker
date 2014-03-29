@@ -11,9 +11,9 @@ UsersShowFollowingContainerView = Backbone.View.extend({
         } else if (options.section === 'followers') {
             this.listenTo(this.model, 'sync', this.renderFollowers);
         } else if (options.section === 'favorites') {
-            this.listenTo(this.model, 'sync', this.renderFavorites);
+            this.listenTo(this.model, 'sync', function () { this.renderLists({ favorites: true }); });
         } else {
-            this.listenTo(this.model, 'sync', this.renderLists);                
+            this.listenTo(this.model, 'sync', function () { this.renderLists({ favorites: false }); });                
         }
     },
 
@@ -21,24 +21,20 @@ UsersShowFollowingContainerView = Backbone.View.extend({
         this.$el.html(render('users/show_following_container', this.model));
     },
 
-    renderLists: function (e) {
+    renderLists: function (data) {
         this.listsIndexListContainerView = new UsersShowListsIndexListContainerView({
             el: '.following_list_container',
-            model: this.model
+            model: this.model,
+            favorites: data.favorites
         });     
         
-        $('#lists_tab').addClass('current_tab');
-        this.changeHeadInfo('lists');
-    },
-
-    renderLists: function (e) {
-        this.favoritesIndexListContainerView = new UsersShowFavoritesIndexListContainerView({
-            el: '.following_list_container',
-            model: this.model
-        });     
-        
-        $('#lists_tab').addClass('current_tab');
-        this.changeHeadInfo('lists');
+        if (data.favorites) {
+            $('#favorites_tab').addClass('current_tab');
+            this.changeHeadInfo('favorites');
+        } else {
+            $('#lists_tab').addClass('current_tab');
+            this.changeHeadInfo('lists');
+        }
     },
 
     renderFollowedUsers: function (e) {
@@ -75,8 +71,10 @@ UsersShowFollowingContainerView = Backbone.View.extend({
             section_text = this.model.get('num_followed_users') !== 1 ? ' is following ' + this.model.get('num_followed_users') + ' people' : ' is following 1 person';
         } else if (section === 'followers') {
             section_text = this.model.get('num_followers') !== 1 ? ' has ' + this.model.get('num_followers') + ' followers' : ' has 1 follower';
+        }  else if (section === 'favorites') {
+            section_text = this.model.get('num_favorites') !== 1 ? ' has ' + this.model.get('num_favorites') + ' favorited lists.' : ' has 1 favorited list.';
         } else {
-            section_text = this.model.get('num_lists') !== 1 ? ' has made ' + this.model.get('num_lists') + ' Yum Lists.' : ' has maade one Yum List';            
+            section_text = this.model.get('num_lists') !== 1 ? ' has made ' + this.model.get('num_lists') + ' Yum Lists.' : ' has made one Yum List';            
         }
 
         this.title = user_name + ' | ' + capitalize(section) + ' | YumHacker';

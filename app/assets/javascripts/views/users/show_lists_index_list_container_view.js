@@ -1,9 +1,11 @@
-UsersShowFavoritesIndexListContainerView = Backbone.View.extend({
+UsersShowListsIndexListContainerView = Backbone.View.extend({
     events: {
     },
 
-    initialize: function () {
+    initialize: function (options) {
         this.collection = new ListsCollection();
+        this.collection.favorites = options.favorites;
+
         this.render();
     },
 

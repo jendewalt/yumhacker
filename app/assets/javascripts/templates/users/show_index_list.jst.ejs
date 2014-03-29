@@ -1,18 +1,30 @@
-<div class="list">
-    <div class='list_img_container'>
-        <a href='/[[= get("path") ]]' class='list_img nav'>
-            <img src="[[= get('small_url') ]]">
-        </a>
+<div class='list_photo_container'>
+    <a href="[[= get('path') ]]" class='nav'>
+        <img class='list_photo' src="[[= get('small_url')]]">
+    </a>
+</div>
+
+<div class='list_info_container'>
+    <div class='list_title_container'>
+        <a href="[[= get('path') ]]" class='nav'>[[= get('title') ]]</a>
     </div>
 
-    <div class='list_text_container'>
-        <a href='/[[= get("path") ]]' class='title nav'>[[= get('title') ]]</a>
+    [[ if (collection.favorites) { ]]
+        <div class='list_user_container'>
+            <div class="list_user_info_container">
+                <a class='list_user_photo nav' href="/[[= get('user_path') ]]">
+                    <img src="[[= get('user_thumb_url') ]]" alt="[[= get('user_full_name') ]]">
+                </a>
 
-        [[ if (get('description')) { ]]
-            <p class='descripton'>[[= get('description') ]]</p>
-        [[ } ]]
-
-    </div>
+                <div class="list_user_text">
+                    <a class='list_user_name nav' href="/[[= get('user_path') ]]">[[= get('user_full_name') ]]</a>
+                    <p>Updated [[= get('formatted_time') ]]</p>
+                </div>
+            </div>
+        </div>
+    [[ } else if (get('description')){ ]]
+        <p class='description'>[[= get('description') ]]</p>
+    [[ } ]]
 </div>
 
 <div class='favorite_btn_container'></div>

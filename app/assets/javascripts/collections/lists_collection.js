@@ -18,6 +18,8 @@ ListsCollection = Backbone.Collection.extend({
     },
 
     predicate: function () {
-        return { page: this.requested_page };
+        return { 
+            page: this.requested_page
+        };
     }
 });
