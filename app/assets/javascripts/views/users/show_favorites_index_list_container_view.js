@@ -10,7 +10,7 @@ UsersShowFavoritesIndexListContainerView = Backbone.View.extend({
     render: function () {
         this.$el.html(render('users/show_lists_index_list_container', this.model));
 
-        this.list_index_list = new UsersShowListsIndexListView({
+        this.list_index_list = new UsersShowFavoritesIndexListView({
             el: 'ul.lists',
             model: this.model,
             collection: this.collection

@@ -10,6 +10,8 @@ UsersShowFollowingContainerView = Backbone.View.extend({
             this.listenTo(this.model, 'sync', this.renderFollowedUsers);                
         } else if (options.section === 'followers') {
             this.listenTo(this.model, 'sync', this.renderFollowers);
+        } else if (options.section === 'favorites') {
+            this.listenTo(this.model, 'sync', this.renderFavorites);
         } else {
             this.listenTo(this.model, 'sync', this.renderLists);                
         }
@@ -21,6 +23,16 @@ UsersShowFollowingContainerView = Backbone.View.extend({
 
     renderLists: function (e) {
         this.listsIndexListContainerView = new UsersShowListsIndexListContainerView({
+            el: '.following_list_container',
+            model: this.model
+        });     
+        
+        $('#lists_tab').addClass('current_tab');
+        this.changeHeadInfo('lists');
+    },
+
+    renderLists: function (e) {
+        this.favoritesIndexListContainerView = new UsersShowFavoritesIndexListContainerView({
             el: '.following_list_container',
             model: this.model
         });     

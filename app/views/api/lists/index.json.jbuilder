@@ -7,6 +7,7 @@ json.total @lists.total_count
 json.lists @lists do |list|
     json.id list.id
     json.title list.title
+    json.description list.description
     json.path list.path
     json.updated_at list.updated_at
     json.type list.type

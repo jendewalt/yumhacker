@@ -8,7 +8,8 @@ json.description @user.description
 
 json.num_followers @user.followers.count
 json.num_followed_users @user.followed_users.count
-json.num_lists @user.lists.count
+json.num_lists @user.favorite_lists.count
+json.num_favorites @user.lists.count
 json.avatar_url_thumb @user.avatar.url(:thumb)
 json.avatar_url_small @user.avatar.url(:small)
 json.avatar_url_medium @user.avatar.url(:medium)

@@ -53,12 +53,10 @@ ListsEditView = Backbone.View.extend({
         var title = this.model.get('wish_list') ? 'Wish List' : $('#title_input').val();
         var description = $('#description_input').val();
 
-        console.log(title)
-
         var attrs = { 
             'title': title,
             'description': description
-        }
+        };
 
         this.model.set(attrs);
         this.model.save();

@@ -1,5 +1,6 @@
 HomePageView = Backbone.View.extend({
     events: {
+        'click .nav': 'navigate'
     },
 
     initialize: function () {
@@ -37,6 +38,11 @@ HomePageView = Backbone.View.extend({
 
     render: function () {
         this.$el.html(render('home_page/home_page'));
+    },
+
+    navigate: function (e) {
+        e.preventDefault();
+        App.navigate(e.target.pathname, { trigger: true });
     }
 
     // changeHeadInfo: function (include_category) {

@@ -5,7 +5,6 @@ ApplicationFavoriteButtonView = Backbone.View.extend({
 
     initialize: function (options) {
         this.model = new FavoriteButton();
-        xxx = this.model
         this.listenTo(this.model, 'sync', this.render);
         this.listenTo(this.model, 'change', this.render);
 
@@ -18,7 +17,6 @@ ApplicationFavoriteButtonView = Backbone.View.extend({
     },
 
     render: function () {  
-        console.log(this.model) 
         this.$el.html(render('application/favorite_button', this.model));
     },
 

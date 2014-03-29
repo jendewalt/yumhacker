@@ -1,6 +1,5 @@
 HomePageListView = Backbone.View.extend({
     events: {
-        'click .nav': 'navigate'
     },
 
     initialize: function () {
@@ -9,10 +8,5 @@ HomePageListView = Backbone.View.extend({
 
     render: function () {
         this.$el.html(render('home_page/list', this.model));
-    },
-
-    navigate: function (e) {
-        e.preventDefault();
-        App.navigate(e.target.pathname, { trigger: true });
-    }   
+    } 
 });

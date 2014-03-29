@@ -27,7 +27,6 @@ ListsCreateNewListModalView = Backbone.View.extend({
             this.new_list.save({}, { success: redirectToList });
 
             function redirectToList (model, res) {
-                console.log(model)
                 ModalView.hide();
                 App.navigate(model.get('edit_path'), { trigger: true });
             }

@@ -1,10 +1,19 @@
 <div class="list">
-    <a href='/[[= get("path") ]]' class='title nav'>[[= get('title') ]]</a>
+    <div class='list_img_container'>
+        <a href='/[[= get("path") ]]' class='list_img nav'>
+            <img src="[[= get('small_url') ]]">
+        </a>
+    </div>
 
-    <img src="[[= get('small_url') ]]">
+    <div class='list_text_container'>
+        <a href='/[[= get("path") ]]' class='title nav'>[[= get('title') ]]</a>
+
+        [[ if (get('description')) { ]]
+            <p class='descripton'>[[= get('description') ]]</p>
+        [[ } ]]
+
+    </div>
 </div>
 
-<div class='list_action_btn_container'>
-    <div class='favorite_btn_container'></div>
-</div>
+<div class='favorite_btn_container'></div>
 <br class='clear'>
