@@ -1,6 +1,5 @@
 ListsShowListingView = Backbone.View.extend({
     events: {
-        'click .add_to_list_btn': 'showAddListingToListModal',
         'click .biz_name': 'navigate'
     },
 
@@ -19,6 +18,11 @@ ListsShowListingView = Backbone.View.extend({
             wish_listed: this.model.get('wish_listed')
         }); 
 
+        this.add_to_list_button_view = new ApplicationAddToListButtonView({ 
+            el: this.$('.add_to_list_btn_container'),
+            model: this.model
+        }); 
+
         if (this.model.get('comment')) {
             this.comment_view = new ListsShowListingCommentView({
                 el: this.$('.listing_comment_container'),
@@ -29,17 +33,6 @@ ListsShowListingView = Backbone.View.extend({
 
     render: function () {
         this.$el.html(render('lists/show_listing', this.model));
-    },
-
-    showAddListingToListModal: function () {
-        if (CurrentUser.logged_in()) {
-            ModalView.show(new ListsAddToListModalView({ 
-                el: '#inner_modal_content',
-                model: this.model
-            }));   
-        } else {
-            CurrentUser.authenticate();
-        }            
     },
 
     navigate: function (e) {

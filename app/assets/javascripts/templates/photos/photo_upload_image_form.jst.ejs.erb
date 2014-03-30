@@ -1,3 +1,5 @@
+<div class='upload_throbber_container'></div>
+
 <label>Add Photo<button><%= image_tag "camera_icon.svg" %></button></label>
 
 [[ if (CurrentUser.logged_in()) { ]]
@@ -6,6 +8,4 @@
         <input name="establishment_id" value="[[= get('id') ]]" type="hidden">
         <input type='file' name='image' capture='camera'>
     </form>
-
-    <div class='upload_throbber_container'></div>
 [[ } ]]

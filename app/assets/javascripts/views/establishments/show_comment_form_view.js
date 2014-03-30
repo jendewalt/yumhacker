@@ -35,6 +35,7 @@ EstablishmentShowCommentFormView = Backbone.View.extend({
         var that = this;
 
         function updateCollection (model, response, options) {
+            $('#comment_input').val('');
             model.set('updated_at', moment().utc().format());
             model.format_time();
             that.collection.add(model);

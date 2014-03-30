@@ -1,18 +1,20 @@
-UsersShowListsIndexListView = Backbone.View.extend({
+EstablishmentsShowListsIndexListView = Backbone.View.extend({
     events: {
     },
 
     initialize: function () {
         this.listenTo(this.collection, 'reset', this.render);
         this.listenTo(this.collection, 'paginate', this.paginate);
+        this.listenTo(this.model, 'new_listing', this.updateCollection);
+        this.collection.establishment_id = this.model.get('id');
+        this.collection.per = 10;
+        this.collection.favorites = false;
+
+        var params = this.collection.predicate();
 
         this.collection.fetch({ 
             reset: true, 
-            data: { 
-                user_id: this.model.get('id'), 
-                favorites: this.collection.favorites,
-                per: 10 
-            } 
+            data: params
         });
     },
 
@@ -25,25 +27,14 @@ UsersShowListsIndexListView = Backbone.View.extend({
             }, this);
             window.scrollTo(0,0);
         } else {
-            this.$el.html(render('users/show_lists_index_list_no_results', this.model));
+            this.$el.html(render('establishments/show_lists_index_list_no_results', this.model));
         }
     },
 
     renderList: function (list) {
-        var list_model = list;
-
-        if (!this.collection.favorites) {
-            list_model = list_model.clone().set('show_description', true);
-
-            var desc = list_model.get('description');
-            if (desc !== null && desc.length > 105) {
-                list_model.set('description', desc.slice(0, 105) + '...');
-            }       
-        }
-
         var list_view = new ListsIndexListView({
             tagName: 'li',
-            model: list_model,
+            model: list,
             favorites: this.collection.favorites
         });
 
@@ -57,5 +48,10 @@ UsersShowListsIndexListView = Backbone.View.extend({
     paginate: function (e) {
         var data = { user_id: this.model.get('id'), page: e };
         this.collection.fetch({ reset: true, data: data });
+    },
+
+    updateCollection: function (e) {
+        var params = this.collection.predicate();
+        this.collection.fetch({ reset: true, data: params });
     }
 });

@@ -57,15 +57,19 @@ body.yumhacker {
                 line-height: 30px;
             }
 
-            .endorse_btn_container {
-                float: none;
-                display: inline-block;
-                margin-top: 20px;
+            .establishment_action_btn_container {
+                float: left;
 
-                &:hover {
-                    text-decoration: none;
+                .btn_container {
+                    display: inline-block;
+                    margin-top: 20px;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
                 }
             }
+
 
             .right_column {
                 width: 30%;
@@ -75,8 +79,6 @@ body.yumhacker {
             }
             
             #establishment_photos_container {
-                width: 112px;
-                margin: auto;
                 text-align: right;
 
                 #preview_photos_container {
@@ -95,32 +97,6 @@ body.yumhacker {
                 }
 
                 #upload_image_form_container {
-                //     label {
-                //         font-size: 11px;
-                //         color: $mid-grey;
-                //     }
-
-                //     button {
-                //         margin: 3px 0 0 6px;
-                //         padding: 0;
-                //         background-color: transparent;
-                //         border: none;
-                //         cursor: pointer;
-                //         vertical-align: bottom;
-
-                //         img {
-                //             height: 20px;
-                //         }
-                //     }
-
-                //     input[type="file"] {
-                //         position:absolute;
-                //         display:none;
-                //     }
-
-                //     .upload_throbber_container {
-                //         display: none;
-                //     }
 
                     #upload_caption_form_container {
                         display: none;
@@ -186,22 +162,23 @@ body.yumhacker {
             #comment_form {
                 width: 100%;
                 margin-bottom: 8px;
-                padding: 10px;
+                padding: 5px;
 
                 h3 {
                     font-size: 13px;
-                    line-height: 13px;
-                    padding: 0 5px 5px;
+                    line-height: 16px;
+                    margin-bottom: 5px;
                     color: $green;
                 }
 
                 #comment_input {
                     float: left;
-                    width: 85%;
+                    width: 90%;
                     vertical-align: middle;
                     margin-top: 0;
                     word-wrap: normal;
                     word-break: normal;
+                    font-size: 13px;
 
                     &:focus {
                         box-shadow: 0 0 2px $input-glow;
@@ -211,19 +188,16 @@ body.yumhacker {
 
                 .btn {
                     float: right;
-                    width: 13%;
+                    width: 30px;
                     height: 30px;
+                    padding: 0;
                     line-height: 30px;
                     vertical-align: middle;
-                }
 
-                #char_counter {
-                    opacity: 0;
-                    // margin-top: 8px;
-                    // margin-left: 5px;
-                    // line-height: 11px;
-                    // font-size: 11px;
-                    // color: $mid-grey;
+                    img {
+                        height: 30px;
+                        padding: 10px;
+                    }
                 }
             }
         }
@@ -305,25 +279,15 @@ body.yumhacker {
             }
         }
 
-        #endorsers_list_container {
-            color: $mid-grey;
+        #lists_list_container {
+            text-align: left;
 
-            h3 {
-                padding: 0 0 5px;
-                font-size: 13px;
-                border-bottom: 1px solid $light-grey;
+            .list_photo_container, .list_info_container {
+                float: left;
             }
 
-            .user_container {
-                font-size: 13px;
-
-                a.img {
-                    width: 40px;
-                }
-
-                a.name {
-                    width: 180px;
-                }
+            .favorite_btn_container {
+                float: right;
             }
         }
     }

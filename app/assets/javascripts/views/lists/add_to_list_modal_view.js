@@ -21,15 +21,19 @@ ListsAddToListModalView = Backbone.View.extend({
         e.preventDefault();
         var list_id = e.target[0].value;
         var comment_body = $.trim(e.target[1].value);
+        var establishment_id = this.model.get('establishment_id') ? this.model.get('establishment_id') : this.model.get('id')
+        console.log(list_id)
+        console.log(this.model)
 
         if (CurrentUser.logged_in()) {
             this.new_listing = new Listing({
-                establishment_id: this.model.get('establishment_id'),
+                establishment_id: establishment_id,
                 list_id: list_id,
                 comment: comment_body
             });
 
             this.new_listing.save();
+            this.model.trigger('new_listing');
             ModalView.hide();
         } else {
             CurrentUser.authenticate();            

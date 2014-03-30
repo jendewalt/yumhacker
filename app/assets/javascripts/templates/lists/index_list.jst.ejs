@@ -9,7 +9,9 @@
         <a href="[[= get('path') ]]" class='nav'>[[= get('title') ]]</a>
     </div>
 
-    [[ if (collection.favorites) { ]]
+    [[ if (get('show_description') && get('description')) { ]]
+        <p class='description'>[[= get('description') ]]</p>
+    [[ } else  { ]]
         <div class='list_user_container'>
             <div class="list_user_info_container">
                 <a class='list_user_photo nav' href="/[[= get('user_path') ]]">
@@ -22,8 +24,6 @@
                 </div>
             </div>
         </div>
-    [[ } else if (get('description')){ ]]
-        <p class='description'>[[= get('description') ]]</p>
     [[ } ]]
 </div>
 

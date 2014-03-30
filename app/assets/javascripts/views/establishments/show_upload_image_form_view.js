@@ -25,7 +25,7 @@ EstablishmentShowUploadImageFormView = Backbone.View.extend({
     },
 
     submitPhoto: function (e) {
-        this.upload_throbber_view.$el.show();
+        this.upload_throbber_view.$('.throbber').show();
 
         if(window.File && window.FileList && window.FileReader) {
             if ($.trim(e.target.value)) {
@@ -36,21 +36,21 @@ EstablishmentShowUploadImageFormView = Backbone.View.extend({
                     collection: this.collection
                 });
 
-                this.new_photo.readFile(e.target.files[0], updateCollection);
+                this.new_photo.readFile(e.target.files[0], updatePreviewPhoto);
             }  
         }
             
         $("input[type='file']").val('');
         
         var that = this;
-        function updateCollection (model, response) {
-            that.upload_throbber_view.$el.hide();   
-            that.collection.fetch({ reset: true, data: { establishment_id: model.get('establishment_id') } });
-            that.showCaptionForm(model, response);
+        function updatePreviewPhoto (model, response) {
+            that.model.set('preview_photo', model.get('small_url'));
+            that.upload_throbber_view.$('.throbber').hide();   
+            that.showCaptionForm(model);
         }            
     },
 
-    showCaptionForm: function (model, response, options) {
+    showCaptionForm: function (model) {
         ModalView.show(new EstablishmentShowCaptionFormView({
             el: '#inner_modal_content',
             model: model

@@ -40,6 +40,14 @@ body.yumhacker {
         width: 45%;
     }
 
+    h4 {
+        width: 100%;
+        font-size: 16px;
+        line-height: 20px;
+        color: $magenta;
+        border-bottom: 3px solid $light-grey;
+    }
+
     ol {
         display: inline-block;
         vertical-align: top;
@@ -175,9 +183,6 @@ body.yumhacker {
             max-width: 80%;
             white-space: nowrap;
             overflow: hidden;
-        }
-
-        .website:hover {
             color: $blue;
         }
     }
@@ -254,7 +259,7 @@ body.yumhacker {
             .list_info_container {
                 display: inline-block;
                 vertical-align: top;
-                width: 400px;
+                width: 65%;
                 margin-left: 10px;
                 font-size: 18px;
 
@@ -373,36 +378,6 @@ body.yumhacker {
         }
     }
 
-    .upload_prompt_btn {
-        label {
-            font-size: 11px;
-            color: $mid-grey;
-            cursor: pointer;
-        }
-
-        button {
-            margin: 3px 0 0 6px;
-            padding: 0;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            vertical-align: bottom;
-
-            img {
-                height: 20px;
-            }
-        }
-
-        input[type="file"] {
-            position:absolute;
-            display:none;
-        }
-
-        .upload_throbber_container {
-            display: none;
-        }
-    }
-
     #search_wrapper {
         width: 500px;
         margin: auto;
@@ -455,13 +430,6 @@ body.yumhacker {
     .throbber {
         text-align: center;
         padding: 10px;
-
-        &.upload {
-            margin-top: 5px;
-            padding: 5px;
-            font-size: 11px;
-            border-top: 1px solid $magenta;
-        }
     }
 
     .geocode_error {

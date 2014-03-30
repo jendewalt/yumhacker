@@ -11,6 +11,7 @@ json.website @establishment.website
 json.price @establishment.price
 json.neighborhood @establishment.neighborhood
 json.path @establishment.path
+json.preview_photo @photo_url
 json.photos_path '/' + @establishment.path + '/photos'
 json.hours @establishment.hours
 

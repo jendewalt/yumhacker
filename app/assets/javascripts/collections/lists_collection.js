@@ -19,7 +19,11 @@ ListsCollection = Backbone.Collection.extend({
 
     predicate: function () {
         return { 
-            page: this.requested_page
+            page: this.requested_page,
+            favorites: this.favorites,
+            per: this.per,
+            establishment_id: this.establishment_id,
+            list_id: this.list_id
         };
     }
 });

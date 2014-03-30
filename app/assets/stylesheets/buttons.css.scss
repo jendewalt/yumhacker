@@ -25,10 +25,10 @@ body.yumhacker {
         color: white;
         border-radius: 2px;
         cursor: pointer;
-        font-weight: lighter;
+        font-weight: 300;
 
         &.text {
-            width: 92px;
+            width: 100px;
             height: 22px;
             line-height: 22px;
             padding-top: 0;
@@ -125,6 +125,7 @@ body.yumhacker {
     .upload_prompt_btn {
         label {
             font-size: 11px;
+            line-height: 20px;
             color: $mid-grey;
             cursor: pointer;
         }
@@ -148,7 +149,13 @@ body.yumhacker {
         }
 
         .upload_throbber_container {
-            display: none;
+            display: inline-block;
+            height: 20px;
+
+            .throbber.upload {
+                display: none;
+                padding: 4px;
+            }
         }
     }
 }

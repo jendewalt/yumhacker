@@ -1,10 +1,9 @@
-UsersShowListView = Backbone.View.extend({
+ListsIndexListView = Backbone.View.extend({
 	events: {
 		'click .nav': 'navigate'
 	},
 
 	initialize: function (options) {
-		xxx = this.model
 		this.render();
 
 		this.favorite_button_view = new ApplicationFavoriteButtonView({ 
@@ -14,11 +13,7 @@ UsersShowListView = Backbone.View.extend({
 	},
 
 	render: function () {
-		var desc = this.model.get('description');
-		if (desc !== null && desc.length > 105) {
-			this.model.set('description', desc.slice(0, 105) + '...');
-		}
-		this.$el.html(render('users/show_index_list', this.model));	
+		this.$el.html(render('lists/index_list', this.model));	
 	},
 
 	navigate: function (e) {

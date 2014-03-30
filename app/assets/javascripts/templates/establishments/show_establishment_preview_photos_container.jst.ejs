@@ -1,2 +1,7 @@
-<a href='[[= get("photos_path") ]]' id='preview_photos_container'></a>
+[[ if (get('preview_photo')) { ]]
+    <a href='[[= get("photos_path") ]]' id='preview_photos_container'>
+        <img src="[[= get('preview_photo') ]]">
+    </a>
+[[ } ]]
+
 <div id='upload_image_form_container' class='upload_prompt_btn'></div>

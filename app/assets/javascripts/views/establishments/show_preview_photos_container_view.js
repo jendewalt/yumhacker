@@ -4,14 +4,8 @@ EstablishmentShowPreviewPhotosContainerView = Backbone.View.extend({
     },
 
     initialize: function () {
-        this.render(); 
-        this.collection = new PreviewPhotosCollection();
-
-        this.establishment_show_photos_preview_view = new EstablishmentShowPreviewPhotosView({
-            model: this.model,
-            el: '#preview_photos_container',
-            collection: this.collection
-        });     
+        this.listenTo(this.model, 'change:preview_photo', this.changePhoto);
+        this.render();    
 
         this.establishment_show_upload_image_form_view = new EstablishmentShowUploadImageFormView({
             model: this.model,
@@ -20,8 +14,12 @@ EstablishmentShowPreviewPhotosContainerView = Backbone.View.extend({
         });
     },
 
-    render: function () {
+    render: function (e) {
         this.$el.html(render('establishments/show_establishment_preview_photos_container', this.model));
+    },
+
+    changePhoto: function () {
+        this.$('a img').attr('src', this.model.get('preview_photo'));
     },
 
     navigate: function (e) {

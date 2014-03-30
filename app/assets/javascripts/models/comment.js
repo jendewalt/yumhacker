@@ -8,7 +8,7 @@ Comment = Backbone.Model.extend({
 
     format_time: function () {
         var raw_time = new Date(this.get('updated_at'));
-        var formatted_time = moment(raw_time).format('MMM Do YYYY, h:mm a');
+        var formatted_time = moment(raw_time).format('MMM Do YYYY');
         this.set('formatted_time', formatted_time);
     }
 });
