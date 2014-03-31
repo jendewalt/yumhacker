@@ -1,11 +1,15 @@
 ListsEditTitleView = Backbone.View.extend({
     events: {
         'click .nav': 'navigate',
-        'click #delete_list': 'deleteList'
+        'click #delete_list': 'deleteList',
     },
+
+    // this.model = LIST
 
     initialize: function () {
         this.render();
+
+        this.listenTo(this.model, 'save_listing', this.saveList);
 
         this.lists_edit_list_photo_view = new ListsEditListPhotoContainerView({
             el: '#list_photo_container',
@@ -33,6 +37,18 @@ ListsEditTitleView = Backbone.View.extend({
         } else {
             CurrentUser.authenticate();
         }
-            
+    },
+
+    updateListModelTitle: function () {
+        console.log('Edit Title: Updating model title')
+        console.log($('#title_input').val())
+
+        this.model.set('title', $('#title_input').val());
+    },
+
+    saveList: function (listing) {
+        console.log('Edit title: Saving List');
+        console.log(listing)
+        // this.model.save({}, { success: $.proxy(this.saveListing, this) });
     }
 });

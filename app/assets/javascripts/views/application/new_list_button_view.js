@@ -15,19 +15,7 @@ NewListButtonView = Backbone.View.extend({
         e.preventDefault();
         
         if (CurrentUser.logged_in()) {
-            // this.model = new List({
-            //     title: CurrentUser.get('full_name') + '\'s Favorite Spots',
-            //     description: CurrentUser.get('full_name') + '\'s Favorite Spots List.'
-            // });
-
-            // goToListEdit(this.model);
-            // this.model.save({}, { success: goToListEdit });
-
-            App.navigate('/lists/new', { trigger: true });
-
-            // function goToListEdit(model) {
-            //     App.navigate('/lists/' + model.get('id') + '/edit', { trigger: true });
-            // }            
+            App.navigate('/lists/new', { trigger: true });            
         } else {
             CurrentUser.authenticate();
         }

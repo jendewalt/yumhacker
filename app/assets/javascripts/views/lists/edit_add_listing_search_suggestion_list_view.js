@@ -3,7 +3,10 @@ ListsEditAddListingSearchSuggestionListView = Backbone.View.extend({
         'click a.biz_name': 'navigate'
     },
 
-    initialize: function (opts) {
+    // this.collection = SET OF FOUND ESTABS
+    // this.model = LIST
+
+    initialize: function () {
         this.listenTo(this.collection, 'reset', this.render);
     },
 
@@ -25,7 +28,7 @@ ListsEditAddListingSearchSuggestionListView = Backbone.View.extend({
         var establishment_view = new ListsEditAddListingSearchEstablishmentView({
             tagName: 'li',
             model: establishment,
-            listings: this.listings
+            listings: this.model.listings
         });
 
         this.$('ul').append(establishment_view.el);

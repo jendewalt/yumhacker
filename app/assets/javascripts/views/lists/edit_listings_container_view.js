@@ -3,12 +3,14 @@ ListsEditListingsContainerView = Backbone.View.extend({
         'click #listing_container_add_listing_btn': 'openListingSearchModal'
     },
 
+    // this.model = LIST
+    // this.collection = LISTINGS
+
     initialize: function () {  
         this.render();  
         this.lists_edit_listings_list_view = new ListsEditListingsListView({
             el: 'ol.establishments_list',
-            model: this.model,
-            collection: this.collection
+            model: this.model
         });
     },
 
@@ -18,8 +20,7 @@ ListsEditListingsContainerView = Backbone.View.extend({
 
     openListingSearchModal: function () {
         ModalView.show(new ListsEditAddListingSearchModalView({
-            list: this.model,
-            listings: this.collection,
+            model: this.model,
             el: '#inner_modal_content'
         }));
     }

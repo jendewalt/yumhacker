@@ -3,13 +3,13 @@ ListsEditListingsListView = Backbone.View.extend({
     },
 
     initialize: function () {
-        this.collection.assignUrl(this.model.get('id'));
+        this.model.listings.assignUrl(this.model.get('id'));
        
-        this.listenTo(this.collection, 'reset', this.render);
-        this.listenTo(this.collection, 'add', this.render);
-        this.listenTo(this.collection, 'destroy', this.render);
+        this.listenTo(this.model.listings, 'reset', this.render);
+        this.listenTo(this.model.listings, 'add', this.render);
+        this.listenTo(this.model.listings, 'destroy', this.render);
         if (this.model.get('id')) {
-            this.collection.fetch({ reset: true, data: { per: 1000 } });
+            this.model.listings.fetch({ reset: true, data: { per: 1000 } });
         } else {
             this.render();
         }
@@ -18,8 +18,8 @@ ListsEditListingsListView = Backbone.View.extend({
     render: function () {
         this.$el.html('');
         
-        if (this.collection.length > 0) {
-            this.collection.each(function (listing) {
+        if (this.model.listings.length > 0) {
+            this.model.listings.each(function (listing) {
                 this.renderListing(listing);
             }, this);           
         } else {

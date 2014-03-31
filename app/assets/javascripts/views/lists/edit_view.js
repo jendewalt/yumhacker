@@ -1,10 +1,12 @@
 ListsEditView = Backbone.View.extend({
     events: {
-        'click #save_btn': 'handleSubmit'
     },
 
+    // this.model = LIST
+    // this.collection = LISTINGS
+
     initialize: function () {
-        this.collection = new ListingsCollection();
+        this.model.listings = new ListingsCollection();;
         this.listenTo(this.model, 'sync', this.render);
         this.model.fetch();
     },
@@ -12,26 +14,19 @@ ListsEditView = Backbone.View.extend({
     render: function () {
         this.$el.html(render('lists/edit', this.model));
 
-        this.lists_edit_title_view = new ListsEditTitleView({
-            el: '#list_title_container',
-            model: this.model
-        });
-
-        this.lists_edit_description_view = new ListsEditDescriptionView({
-            el: '#list_description_container',
+        this.lists_edit_list_info_view = new ListsEditListInfoView({
             model: this.model
         });
 
         this.lists_edit_listings_container_view = new ListsEditListingsContainerView({
             el: '#listings_container',
-            model: this.model,
-            collection: this.collection
+            model: this.model
         });
 
         if (typeof MainGoogleMap === 'undefined') {
             MainGoogleMap = new MainMapView({
                 el: '#map_canvas',
-                collection: this.collection
+                collection: this.model.listings
             });
         } else {
             MainGoogleMap.map.getStreetView().setVisible(false);
@@ -40,27 +35,11 @@ ListsEditView = Backbone.View.extend({
         }
         MainGoogleMap.map.getStreetView().setVisible(false);
         // This needs to be here if MainGoogleMap already exists because new collection is created above
-        MainGoogleMap.collection = this.collection;
-        this.listenTo(this.collection, 'reset', function () { MainGoogleMap.render(); });
-        this.listenTo(this.collection, 'add', function () { MainGoogleMap.render(); });
-        this.listenTo(this.collection, 'remove', function () { MainGoogleMap.render(); });
+        MainGoogleMap.collection = this.model.listings;
+        this.listenTo(this.model.listings, 'reset', function () { MainGoogleMap.render(); });
+        this.listenTo(this.model.listings, 'add', function () { MainGoogleMap.render(); });
+        this.listenTo(this.model.listings, 'remove', function () { MainGoogleMap.render(); });
         fixMapOnScroll();
         
-    },
-
-    handleSubmit: function (e) {
-        e.preventDefault();
-        var title = this.model.get('wish_list') ? 'Wish List' : $('#title_input').val();
-        var description = $('#description_input').val();
-
-        var attrs = { 
-            'title': title,
-            'description': description
-        };
-
-        this.model.set(attrs);
-        this.model.save({}, { success: function (model, res) {
-            App.navigate(model.get('redirect_url'), { trigger: true });
-        } });
     }
 });

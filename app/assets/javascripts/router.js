@@ -163,14 +163,6 @@ Router = Backbone.Router.extend({
         });
     },
 
-    listsShow: function (id) {
-        this.setup();
-        this.currentView = new ListsShowView({ 
-            el: '#main_container',
-            model: new List({ id: id })
-        });
-    },
-
     listsNew: function () {
         this.setup();
         this.currentView = new ListsEditView({ 
@@ -179,6 +171,14 @@ Router = Backbone.Router.extend({
                 title: CurrentUser.get('full_name') + '\'s Favorite Spots',
                 description: CurrentUser.get('full_name') + '\'s Favorite Spots List.'
             })
+        });
+    },
+
+    listsShow: function (id) {
+        this.setup();
+        this.currentView = new ListsShowView({ 
+            el: '#main_container',
+            model: new List({ id: id })
         });
     },
 

@@ -3,11 +3,20 @@ ListsEditAddListingSearchEstablishmentView = Backbone.View.extend({
         'click .add_btn': 'addToList'
     },
 
-    initialize: function () {
-        if (EstablishmentSearch.listings.findWhere({ establishment_id: this.model.id }) !== undefined) {
+    // this.model = FOUND ESTAB
+    // this.listings = LISTINGS COLLECTION
+
+    initialize: function (opts) {
+        console.log('Found Estab: Init')
+        this.listings = opts.listings;
+
+        // Check if the establishment is already in the LIST so we can denote that on screen
+        if (this.listings.findWhere({ establishment_id: this.model.id }) !== undefined) {
+            console.log('listed true')
             this.model.set('listed', true);
         } else {
             this.model.set('listed', false);            
+            console.log('listed false')
         }
 
         this.render();
@@ -19,41 +28,9 @@ ListsEditAddListingSearchEstablishmentView = Backbone.View.extend({
     },
 
     addToList: function () {
-        if (CurrentUser.logged_in()) {
-            if (this.model.get('id')) {
-                this.createListing();
-            } else {
-                this.model.save({}, { success: $.proxy(this.createListing, this) });
-            }
-        } else  {
-            CurrentUser.authenticate();
-        }
-    },
+        console.log('Found Estab: Add me to the list!');
+        console.log(this.model);
 
-    createListing: function (model, res) {
-        if (!EstablishmentSearch.list.get('id')) {
-            EstablishmentSearch.list.save({}, { success:  $.proxy(this.setListId, this) });
-        } else {
-            this.saveListing();
-        }
-    },
-
-    saveListing: function () {
-        this.new_listing = new Listing({
-            establishment_id: this.model.get('id'),
-            list_id: EstablishmentSearch.list.get('id')
-        });
-
-        this.new_listing.save({}, { success: this.updateCollection });
-    },
-
-    setListId: function (list, res) {
-        EstablishmentSearch.list = list;
-        this.saveListing();
-    },
-
-    updateCollection: function (model, res) {
-        EstablishmentSearch.listings.add(model);
-        ModalView.hide();
+        this.model.trigger('establishment_selected', this.model);
     }
 });
