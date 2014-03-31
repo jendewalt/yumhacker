@@ -6,16 +6,10 @@ EstablishmentsShowListsIndexListView = Backbone.View.extend({
         this.listenTo(this.collection, 'reset', this.render);
         this.listenTo(this.collection, 'paginate', this.paginate);
         this.listenTo(this.model, 'new_listing', this.updateCollection);
-        this.collection.establishment_id = this.model.get('id');
-        this.collection.per = 10;
-        this.collection.favorites = false;
 
         var params = this.collection.predicate();
 
-        this.collection.fetch({ 
-            reset: true, 
-            data: params
-        });
+        this.collection.fetch({ reset: true, data: params });
     },
 
     render: function () {
@@ -46,8 +40,9 @@ EstablishmentsShowListsIndexListView = Backbone.View.extend({
     },
 
     paginate: function (e) {
-        var data = { user_id: this.model.get('id'), page: e };
-        this.collection.fetch({ reset: true, data: data });
+        this.collection.requested_page = e;
+        var params = this.collection.predicate();
+        this.collection.fetch({ reset: true, data: params });
     },
 
     updateCollection: function (e) {

@@ -6,18 +6,42 @@ class Api::ListsController < ApplicationController
     logger.debug(params)
 
     page = params[:page] || 1
-    per = params[:per] || 1000
+    per_page = params[:per_page] || 10
 
-    if params[:user_id] && params[:favorites] == 'true'
-      @lists = User.find(params[:user_id]).favorite_lists.order('updated_at DESC').page(page).per(per)
-    elsif params[:user_id]
-      # Returns WishLists before CustomLists then orders by last update
-      @lists = User.find(params[:user_id]).lists.order('type DESC').order('updated_at DESC').page(page).per(per)
-    elsif params[:establishment_id]
-      @lists = Establishment.find(params[:establishment_id]).lists.order('updated_at DESC').page(page).per(per)
-    else
-      @lists = List.all.order('updated_at DESC').page(page).per(per)
+    @lists = List.all
+
+    params[:where] = params[:where].present? ? params[:where] : {}
+    params[:where].each do |k, v|
+      if v.is_a?(Hash)
+        @lists = @lists.joins(k.to_sym)
+      end
+      @lists = @lists.where(k.to_sym => v)
     end
+
+    params
+
+    if params[:order]
+      if params[:order].length > 1
+        params[:order].each do |k, pair|
+          @lists = @lists.order(sanatize_order(pair))
+        end 
+      else
+        @lists = @lists.order(sanatize_order(params[:order]))
+      end
+    end
+
+    @lists = @lists.page(page).per(per_page)
+
+    # if params[:user_id] && params[:favorites] == 'true'
+    #   @lists = User.find(params[:user_id]).favorite_lists.order('updated_at DESC').page(page).per(per_page)
+    # elsif params[:user_id]
+    #   # Returns WishLists before CustomLists then orders by last update
+    #   @lists = User.find(params[:user_id]).lists.order('type DESC').order('updated_at DESC').page(page).per(per_page)
+    # elsif params[:establishment_id]
+    #   @lists = Establishment.find(params[:establishment_id]).lists.order('updated_at DESC').page(page).per(per_page)
+    # else
+    #   @lists = List.all.order('updated_at DESC').page(page).per(per_page)
+    # end
   end
   
   def show
@@ -35,7 +59,7 @@ class Api::ListsController < ApplicationController
       @list.save
       
       unless params[:listing].nil?
-        establishment_id = params[:listing][:establishment_id]
+        establishment_id = params[:listing][:id]
         current_user.endorse!(establishment_id) unless current_user.endorsing?(establishment_id)
         @list.listings.new(establishment_id: establishment_id)
         @list.save
@@ -72,4 +96,20 @@ class Api::ListsController < ApplicationController
     List.find(params[:id]).destroy
     render nothing: true, status: 204
   end
+
+  private
+    def sanatize_order(pair)
+      logger.debug("the pair is: #{pair}")
+      by = pair.keys.first.to_s
+      direction = pair.values.first.to_s
+      order_by = ['updated_at', 'created_at', 'type']
+      order_direction = ['asc', 'desc']
+
+      if order_by.include?(by) && order_direction.include?(direction)
+        "#{by} #{direction}"
+      else
+        nil
+      end
+    end
+
 end

@@ -4,7 +4,8 @@ HomePageListsView = Backbone.View.extend({
 
     initialize: function () {
         this.listenTo(this.collection, 'reset', this.render);
-        this.collection.fetch({ reset: true, data: this.collection.predicate() });
+        var params = this.collection.predicate();
+        this.collection.fetch({ reset: true, data: params });
     },
 
     render: function () {

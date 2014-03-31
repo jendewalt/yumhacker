@@ -6,6 +6,7 @@ HomePageView = Backbone.View.extend({
     initialize: function () {
         this.render();
         this.collection = new ListsCollection();
+        this.collection.order = { updated_at: 'desc'};
 
         this.create_list_view = new HomePageCreateListView({
             el: '#create_list_container'
@@ -42,7 +43,7 @@ HomePageView = Backbone.View.extend({
 
     navigate: function (e) {
         e.preventDefault();
-        App.navigate(e.target.pathname, { trigger: true });
+        App.navigate(e.currentTarget.pathname, { trigger: true });
     }
 
     // changeHeadInfo: function (include_category) {

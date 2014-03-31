@@ -4,57 +4,60 @@ UsersShowFollowingContainerView = Backbone.View.extend({
     },
 
     initialize: function (options) {
-        this.listenTo(this.model, 'sync', this.render);
-
         if (options.section === 'following') {
-            this.listenTo(this.model, 'sync', this.renderFollowedUsers);                
+            this.renderFollowedUsers();
+            this.changeHeadInfo('following');
         } else if (options.section === 'followers') {
-            this.listenTo(this.model, 'sync', this.renderFollowers);
+            this.renderFollowers();
+            this.changeHeadInfo('followers');
         } else if (options.section === 'favorites') {
-            this.listenTo(this.model, 'sync', function () { this.renderLists({ favorites: true }); });
-        } else {
-            this.listenTo(this.model, 'sync', function () { this.renderLists({ favorites: false }); });                
-        }
-    },
-
-    render: function () {
-        this.$el.html(render('users/show_following_container', this.model));
-    },
-
-    renderLists: function (data) {
-        this.listsIndexListContainerView = new UsersShowListsIndexListContainerView({
-            el: '.following_list_container',
-            model: this.model,
-            favorites: data.favorites
-        });     
-        
-        if (data.favorites) {
-            $('#favorites_tab').addClass('current_tab');
+            this.renderFavorites();
             this.changeHeadInfo('favorites');
         } else {
-            $('#lists_tab').addClass('current_tab');
+            this.renderYumLists();
             this.changeHeadInfo('lists');
         }
     },
 
+    renderYumLists: function () {
+        console.log('renderYumLists')
+        var yumLists = new ListsCollection();
+        yumLists.where = { user_id: this.model.get('id') };
+        yumLists.order = [{ type: 'desc'}, { updated_at: 'desc' }];
+        
+        this.listsIndexListContainerView = new UsersShowListsIndexListContainerView({
+            el: this.$el,
+            model: this.model,
+            collection: yumLists
+        });
+    },
+    
+    renderFavorites: function () {
+        var favoriteLists = new ListsCollection();
+        favoriteLists.where =  { favoritizations: { user_id: this.model.get('id') }};
+        favoriteLists.order = { updated_at: 'desc'};
+        
+        this.listsIndexListContainerView = new UsersShowListsIndexListContainerView({
+            el: this.$el,
+            model: this.model,
+            collection: favoriteLists
+        });
+    },
+
     renderFollowedUsers: function (e) {
         this.followedUsersIndexListContainerView = new FollowedUsersIndexListContainerView({
-            el: '.following_list_container',
+            el: this.$el,
             model: this.model
         });        
 
-        $('#followed_users_tab').addClass('current_tab');
-        this.changeHeadInfo('following');
     },
 
     renderFollowers: function (e) {
         this.followersIndexListContainerView = new FollowersIndexListContainerView({
-            el: '.following_list_container',
+            el: this.$el,
             model: this.model
         });
 
-        $('#followers_tab').addClass('current_tab');
-        this.changeHeadInfo('followers');
     },
 
     navigate: function (e) {

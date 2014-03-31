@@ -33,4 +33,5 @@ json.hours @establishment.hours do |hour|
     json.open_in_minutes hour.open_in_minutes
 end
 
-json.user_endorsing current_user ? current_user.endorsing?(@establishment) : false
+json.wish_list_id current_user.try(:wish_lists).try(:first).try(:id)
+json.wish_listed current_user ? current_user.wish_listed?(@establishment.id) : false

@@ -2,6 +2,9 @@ EstablishmentsShowListsContainerView = Backbone.View.extend({
 	
 	initialize: function () {
         this.collection = new ListsCollection();
+        this.collection.where = { listings: { establishment_id: this.model.get('id') }};
+        this.collection.order = { updated_at: 'desc' };
+
         this.render();
     },
 

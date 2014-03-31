@@ -13,8 +13,8 @@ ListsShowPaginationView = Backbone.View.extend({
 
 	goToPage: function (e) {
 		e.preventDefault();
-		this.collection.requested_page = e.target.rel;
 
+		this.collection.requested_page = e.target.rel;
         this.collection.fetch({ reset: true, data: this.collection.predicate() });
 		App.navigate(e.target.pathname + e.target.search, { trigger: false, replace: false });
 

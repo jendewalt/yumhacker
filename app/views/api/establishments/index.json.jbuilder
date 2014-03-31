@@ -41,5 +41,6 @@ json.establishments @establishments do |establishment|
         json.avatar_url_thumb user.avatar.url(:thumb)
     end
 
-    json.user_endorsing current_user ? current_user.endorsing?(establishment) : false
+    json.wish_list_id current_user.try(:wish_lists).try(:first).try(:id)
+    json.wish_listed current_user ? current_user.wish_listed?(establishment.id) : false
 end

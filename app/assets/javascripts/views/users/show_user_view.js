@@ -3,8 +3,7 @@ UsersShowUserView = Backbone.View.extend({
     },
 
     initialize: function () {
-        this.model.fetch();
-        this.listenTo(this.model, 'sync', this.render);
+        this.render();
     },
 
     render: function () {

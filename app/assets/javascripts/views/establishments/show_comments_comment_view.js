@@ -20,6 +20,7 @@ EstablishmentShowCommentView = Backbone.View.extend({
 
     navigate: function (e) {
         e.preventDefault();
+        console.log(this.model)
         App.navigate(e.currentTarget.pathname, { trigger: true });
     }
 });

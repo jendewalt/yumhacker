@@ -5,15 +5,6 @@ UsersShowListsIndexListView = Backbone.View.extend({
     initialize: function () {
         this.listenTo(this.collection, 'reset', this.render);
         this.listenTo(this.collection, 'paginate', this.paginate);
-
-        this.collection.fetch({ 
-            reset: true, 
-            data: { 
-                user_id: this.model.get('id'), 
-                favorites: this.collection.favorites,
-                per: 10 
-            } 
-        });
     },
 
     render: function () {
@@ -55,7 +46,7 @@ UsersShowListsIndexListView = Backbone.View.extend({
     },
 
     paginate: function (e) {
-        var data = { user_id: this.model.get('id'), page: e };
-        this.collection.fetch({ reset: true, data: data });
+        var params = _.extend(this.collection.predicate(), { page: e });
+        this.collection.fetch({ reset: true, data: params });
     }
 });
