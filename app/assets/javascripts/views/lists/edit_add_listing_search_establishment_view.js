@@ -21,26 +21,39 @@ ListsEditAddListingSearchEstablishmentView = Backbone.View.extend({
     addToList: function () {
         if (CurrentUser.logged_in()) {
             if (this.model.get('id')) {
-                createListing(this.model);
+                this.createListing();
             } else {
-                this.model.save({}, { success: createListing });
+                this.model.save({}, { success: $.proxy(this.createListing, this) });
             }
         } else  {
             CurrentUser.authenticate();
         }
+    },
 
-        function createListing(model, res) {
-            this.new_listing = new Listing({
-                establishment_id: model.get('id'),
-                list_id: EstablishmentSearch.list.get('id')
-            });
-
-            this.new_listing.save({}, { success: updateCollection });
+    createListing: function (model, res) {
+        if (!EstablishmentSearch.list.get('id')) {
+            EstablishmentSearch.list.save({}, { success:  $.proxy(this.setListId, this) });
+        } else {
+            this.saveListing();
         }
+    },
 
-        function updateCollection (model, res) {
-            EstablishmentSearch.listings.add(model);
-            ModalView.hide();
-        }
+    saveListing: function () {
+        this.new_listing = new Listing({
+            establishment_id: this.model.get('id'),
+            list_id: EstablishmentSearch.list.get('id')
+        });
+
+        this.new_listing.save({}, { success: this.updateCollection });
+    },
+
+    setListId: function (list, res) {
+        EstablishmentSearch.list = list;
+        this.saveListing();
+    },
+
+    updateCollection: function (model, res) {
+        EstablishmentSearch.listings.add(model);
+        ModalView.hide();
     }
 });

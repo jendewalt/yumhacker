@@ -14,6 +14,7 @@ ListsEditListingCommentView = Backbone.View.extend({
     },
 
     saveComment: function (e) {
+        xxx = e
         var body = $.trim(e.target.value);
 
         if (body !== this.model.get('body')) {

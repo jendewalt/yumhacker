@@ -2,7 +2,6 @@ MainSearchView = Backbone.View.extend({
     events: {
         'submit': 'getLatLng',
         'click #nearby_btn': 'getUserLocation',
-        'click .nav': 'navigate'
     },
 
     initialize: function () {
@@ -41,17 +40,6 @@ MainSearchView = Backbone.View.extend({
             }
             Client.set('formatted_address', 'Current Location')
             Location.set({ 'center': center, 'contained_in': 'radius' });
-
-            // if (Backbone.history.fragment !== '') {
-            //     var params = _.extend(Location.predicate(), Filter.predicate(), Client.predicate());
-            //     App.navigate('/' + '?' + encodeURIComponent($.param(params)), { trigger: true });
-            // }
         });
-    },
-
-    navigate: function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        App.navigate(e.target.pathname, { trigger: true });
     }
 });

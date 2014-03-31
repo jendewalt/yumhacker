@@ -1,4 +1,4 @@
-ListsEditView = Backbone.View.extend({
+ListsNewView = Backbone.View.extend({
     events: {
         'click #save_btn': 'handleSubmit'
     },
@@ -59,8 +59,7 @@ ListsEditView = Backbone.View.extend({
         };
 
         this.model.set(attrs);
-        this.model.save({}, { success: function (model, res) {
-            App.navigate(model.get('redirect_url'), { trigger: true });
-        } });
+        this.model.save();
+        App.navigate(e.target.pathname, { trigger: true });
     }
 });

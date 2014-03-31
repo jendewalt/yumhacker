@@ -6,9 +6,16 @@ EstablishmentsIndexEstablishmentView = Backbone.View.extend({
 	initialize: function () {
 		this.render();
 
-		this.application_endorse_button_view = new ApplicationEndorseButtonView({ 
-            el: this.$('.endorse_btn_container'),
-            establishment: this.model 
+		this.application_wish_list_button_view = new ApplicationWishListButtonView({ 
+            el: this.$('.wish_list_btn_container'),
+            establishment_id: this.model.get('establishment_id'),
+            wish_list_id: this.model.get('wish_list_id'),
+            wish_listed: this.model.get('wish_listed')
+        }); 
+
+        this.add_to_list_button_view = new ApplicationAddToListButtonView({ 
+            el: this.$('.add_to_list_btn_container'),
+            model: this.model
         });	
 
         this.hours_view = new EstablishmentsIndexEstablishmentHoursView({ 

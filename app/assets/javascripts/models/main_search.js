@@ -23,15 +23,10 @@ MainSearch = new (Backbone.Model.extend({
             Location.set({ 'center': center, 'contained_in': 'radius' });
             
         } else if (status === 'ZERO_RESULTS') {
-            alert('We could not find a location named ' + this.query + '. To search for a restaurant, click on the "Find a Restaurant" link.');
+            alert('We could not find a location named ' + this.query + '.');
         } else {
             alert('There was a problem with your request. Please try again.');
         }          
-        
-        // if (Backbone.history.fragment !== '') {
-        //     var params = _.extend(Location.predicate(), Filter.predicate(), Client.predicate());
-        //     App.navigate('/' + '?' + encodeURIComponent($.param(params)), { trigger: true });
-        // }
     }
 
 }))();

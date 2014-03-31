@@ -73,6 +73,13 @@ body.yumhacker {
                 background-color: $light-grey;
                 color: #59595e;
             }
+
+            &.disabled {
+                cursor: default;
+                &:active {
+                    box-shadow: none;
+                }
+            }
         }
 
         &.green_btn {

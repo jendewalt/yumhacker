@@ -25,6 +25,7 @@ Router = Backbone.Router.extend({
         'users/:id(/:section)': 'usersShow',
         'users': 'nothing',
         'lists/:id/edit': 'listsEdit',
+        'lists/new': 'listsNew',
         'lists/:id': 'listsShow',
         'contact': 'contactPage',
         'terms': 'termsPage',
@@ -167,6 +168,17 @@ Router = Backbone.Router.extend({
         this.currentView = new ListsShowView({ 
             el: '#main_container',
             model: new List({ id: id })
+        });
+    },
+
+    listsNew: function () {
+        this.setup();
+        this.currentView = new ListsEditView({ 
+            el: '#main_container',
+            model: new List({
+                title: CurrentUser.get('full_name') + '\'s Favorite Spots',
+                description: CurrentUser.get('full_name') + '\'s Favorite Spots List.'
+            })
         });
     },
 

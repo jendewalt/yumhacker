@@ -31,17 +31,6 @@ class Api::ListsController < ApplicationController
     end
 
     @lists = @lists.page(page).per(per_page)
-
-    # if params[:user_id] && params[:favorites] == 'true'
-    #   @lists = User.find(params[:user_id]).favorite_lists.order('updated_at DESC').page(page).per(per_page)
-    # elsif params[:user_id]
-    #   # Returns WishLists before CustomLists then orders by last update
-    #   @lists = User.find(params[:user_id]).lists.order('type DESC').order('updated_at DESC').page(page).per(per_page)
-    # elsif params[:establishment_id]
-    #   @lists = Establishment.find(params[:establishment_id]).lists.order('updated_at DESC').page(page).per(per_page)
-    # else
-    #   @lists = List.all.order('updated_at DESC').page(page).per(per_page)
-    # end
   end
   
   def show
