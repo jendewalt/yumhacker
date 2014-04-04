@@ -6,9 +6,9 @@ ListsEditView = Backbone.View.extend({
     // this.collection = LISTINGS
 
     initialize: function () {
-        this.model.listings = new ListingsCollection();;
+        this.model.listings = new ListingsCollection();
         this.listenTo(this.model, 'sync', this.render);
-        this.model.fetch();
+        this.model.get('id') ? this.model.fetch() : this.render();
     },
 
     render: function () {

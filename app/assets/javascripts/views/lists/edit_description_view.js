@@ -1,5 +1,6 @@
 ListsEditDescriptionView = Backbone.View.extend({
     events: {
+        'blur .list_info_input': 'triggerUpdateListInfo'
     },
 
     initialize: function () {
@@ -14,5 +15,9 @@ ListsEditDescriptionView = Backbone.View.extend({
 
     render: function () {
         this.$el.html(render('lists/edit_description', this.model));
+    },
+
+    triggerUpdateListInfo: function () {
+        this.model.trigger('update_list_info');
     }
 });

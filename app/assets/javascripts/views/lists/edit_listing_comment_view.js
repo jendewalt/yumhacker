@@ -1,6 +1,6 @@
 ListsEditListingCommentView = Backbone.View.extend({
     events:{
-        'blur .comment_input': 'saveComment'
+        'submit .comment_form': 'saveComment'
     },
 
     initialize: function (opts) {
@@ -14,13 +14,16 @@ ListsEditListingCommentView = Backbone.View.extend({
     },
 
     saveComment: function (e) {
-        xxx = e
-        var body = $.trim(e.target.value);
+        e.preventDefault();
+        var body = $.trim(e.target[0].value);
+        xxx = this.model
+        yyy = e
+
 
         if (body !== this.model.get('body')) {
             this.model.set({ 
                 listing_id: this.listing.get('id'),
-                body: e.target.value,
+                body: body,
                 updated_at: new Date
             });
 

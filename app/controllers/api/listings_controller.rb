@@ -11,6 +11,10 @@ class Api::ListingsController < ApplicationController
   end
   
   def create
+    logger.debug('$$$$$$')
+    logger.debug('Listing create')
+    logger.debug(params)
+
     establishment_id = params[:establishment_id]
     @listing = @list.listings.new(establishment_id: establishment_id, user_id: current_user.id)
 

@@ -13,12 +13,12 @@
 
     <div id='title_lower_row'>
         <div id="list_user_info_container">
-            <a id='list_user_photo' class='nav' href="/[[= get('user_path') ]]">
-                <img src="[[= get('user_thumb_url') ]]" alt="[[= get('user_full_name') ]]">
+            <a id='list_user_photo' class='nav' href="/[[= CurrentUser.get('path') ]]">
+                <img src="[[= CurrentUser.get('thumb_url') ]]" alt="[[= CurrentUser.get('full_name') ]]">
             </a>
 
             <div id="list_user_text">
-                <a id='list_user_name' class='nav' href="/[[= get('user_path') ]]">[[= get('user_full_name') ]]</a>
+                <a id='list_user_name' class='nav' href="/[[= CurrentUser.get('path') ]]">[[= CurrentUser.get('full_name') ]]</a>
                 <p id='list_updated_at'>Updated [[= get('formatted_time') ]]</p>
             </div>
         </div>

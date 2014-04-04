@@ -2,6 +2,8 @@ ListsEditTitleView = Backbone.View.extend({
     events: {
         'click .nav': 'navigate',
         'click #delete_list': 'deleteList',
+        'click #save_btn': 'triggerSubmit',
+        'blur .list_info_input': 'triggerUpdateListInfo'
     },
 
     // this.model = LIST
@@ -39,16 +41,13 @@ ListsEditTitleView = Backbone.View.extend({
         }
     },
 
-    updateListModelTitle: function () {
-        console.log('Edit Title: Updating model title')
-        console.log($('#title_input').val())
-
-        this.model.set('title', $('#title_input').val());
+    triggerUpdateListInfo: function () {
+        this.model.trigger('update_list_info');
     },
 
-    saveList: function (listing) {
-        console.log('Edit title: Saving List');
-        console.log(listing)
-        // this.model.save({}, { success: $.proxy(this.saveListing, this) });
+    triggerSubmit: function (e) {
+        e.preventDefault();
+        console.log('trigger submit')
+        this.model.trigger('submit_list');
     }
 });

@@ -18,8 +18,6 @@ class Api::ListsController < ApplicationController
       @lists = @lists.where(k.to_sym => v)
     end
 
-    params
-
     if params[:order]
       if params[:order].length > 1
         params[:order].each do |k, pair|
@@ -76,9 +74,11 @@ class Api::ListsController < ApplicationController
       @list.imageables.new(photo_id: params[:photo_id]) if params[:photo_id]
     end
 
-    @list.save()
-
-    render nothing: true, status: 201
+    begin
+      @list.save
+    rescue
+      render nothing: true, status: 409
+    end
   end
 
   def destroy
