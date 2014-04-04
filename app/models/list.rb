@@ -10,7 +10,7 @@ class List < ActiveRecord::Base
   has_many :photos, :through => :imageables
 
   def imageable_key
-    (self.class.name.downcase + '_id').to_sym
+    :list_id
   end
 
   def path

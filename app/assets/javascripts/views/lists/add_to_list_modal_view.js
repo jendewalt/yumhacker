@@ -22,8 +22,6 @@ ListsAddToListModalView = Backbone.View.extend({
         var list_id = e.target[0].value;
         var comment_body = $.trim(e.target[1].value);
         var establishment_id = this.model.get('establishment_id') ? this.model.get('establishment_id') : this.model.get('id')
-        console.log(list_id)
-        console.log(this.model)
 
         if (CurrentUser.logged_in()) {
             this.new_listing = new Listing({

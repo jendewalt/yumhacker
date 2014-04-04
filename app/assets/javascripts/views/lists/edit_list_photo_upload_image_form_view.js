@@ -6,6 +6,8 @@ ListsEditListPhotoUploadImageFormView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
+        console.log('Photo Upload Form init')
+
     },
 
     render: function () {
@@ -24,12 +26,19 @@ ListsEditListPhotoUploadImageFormView = Backbone.View.extend({
         }
     },
 
-    submitPhoto: function (e) {
+    triggerSubmitPhoto: function (e) {
         this.upload_throbber_view.$el.show();
+        this.model.trigger('submit_photo', e);
+    },
 
+    submitPhoto: function (e) {
+        console.log(e)
+        this.model.save({}, { success: $.proxy( function () { this.savePhoto(e) }, this) });
+    },
+
+    savePhoto:function (e) {
         if(window.File && window.FileList && window.FileReader) {
             if ($.trim(e.target.value)) {
-                var that = this;
 
                 this.new_photo = new Photo({
                     list_id: this.model.get('id'),
@@ -44,10 +53,10 @@ ListsEditListPhotoUploadImageFormView = Backbone.View.extend({
         
         var that = this;
         function updateCollection (model, response) {
-            that.upload_throbber_view.$el.hide();   
             that.model.set('small_url', model.get('small_url'));
             that.model.trigger('change_photo');
             ModalView.hide();
-        }            
+        }                    
     }
+        
 });

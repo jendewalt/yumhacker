@@ -1,12 +1,9 @@
 ListsEditListInfoView = Backbone.View.extend({
     events: {
-        // 'click #save_btn': 'handleSubmit',
-        // 'click .nav': 'navigate',
-        // 'click #delete_list': 'deleteList',
-        // 'blur .list_info_input': 'updateListInfo'
     },
 
     initialize: function () {
+        console.log('Info init');
         this.lists_edit_title_view = new ListsEditTitleView({
             el: '#list_title_container',
             model: this.model
@@ -25,13 +22,6 @@ ListsEditListInfoView = Backbone.View.extend({
     createListing: function (selected_estab) {
         this.updateListInfo();
         this.saveList(selected_estab);
-        // do all the great stuff like first make sure listing details are saved to list model,
-        // then make sure the list is saved
-        // then save the listing with the establishment id
-        // these should probably all be broken out into their own methods on this view
-
-        // ??? Should updateListInfo always save to server or should we wait for a listing to be added first?
-
     },
 
     updateListInfo: function (establishment) {
@@ -60,7 +50,8 @@ ListsEditListInfoView = Backbone.View.extend({
             list_id: this.model.get('id')
         });
 
-        listing.save();
+        listing.save({}, { success: $.proxy(function (model) { this.model.listings.add(model) }, this) });
+        
         ModalView.hide();
     }, 
 

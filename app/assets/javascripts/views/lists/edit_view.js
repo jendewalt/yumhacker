@@ -7,11 +7,17 @@ ListsEditView = Backbone.View.extend({
 
     initialize: function () {
         this.model.listings = new ListingsCollection();
-        this.listenTo(this.model, 'sync', this.render);
+        this.listenToOnce(this.model, 'sync', this.render);
+        this.listenTo(this.model, 'all', this.foo);
         this.model.get('id') ? this.model.fetch() : this.render();
     },
 
-    render: function () {
+    foo: function (e) {
+        console.log(e)        
+    },
+
+    render: function (e) {
+        console.log('main init')
         this.$el.html(render('lists/edit', this.model));
 
         this.lists_edit_list_info_view = new ListsEditListInfoView({

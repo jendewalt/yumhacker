@@ -3,6 +3,8 @@ ListsEditListPhotoSelectorModalView = Backbone.View.extend({
     },
 
     initialize: function () {
+        console.log('Photo selector modal init')
+
         this.render(); 
 
         this.list_edit_upload_image_form_view = new ListsEditListPhotoUploadImageFormView({
@@ -14,7 +16,6 @@ ListsEditListPhotoSelectorModalView = Backbone.View.extend({
             model: this.model,
             el: '#user_images_list',
         });     
-
     },
 
     render: function () {
