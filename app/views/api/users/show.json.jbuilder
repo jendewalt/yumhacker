@@ -23,7 +23,7 @@ json.tabs_data ({
         count: @user.followed_users.length
     },
     followers: {
-        name: 'followers',
+        name: 'Followers',
         url: '/'+ @user.path + '/followers',
         count: @user.followers.length
     }

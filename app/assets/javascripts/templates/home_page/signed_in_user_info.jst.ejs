@@ -1,1 +1,36 @@
-<div>SIGNED IN YO!</div>
+<div id='current_user_stats_container' class='card border grey'>
+    <div id='current_user_img_container'>
+        <a href="[[= get('url') ]]" class='nav'>
+            <img src="[[= get('avatar_url_thumb') ]]">
+        </a>
+    </div>
+
+    <div id='current_user_info_container'>
+        <a href="[[= get('url') ]]" class='nav name'>[[= get('full_name') ]]</a>
+        <p>[[= get('location') ]]</p>
+    </div>
+
+    <br class='clear'>
+
+    <div id='tabs_data_container'>
+        [[ var tabs = get('tabs_data') ]]
+        <table>
+            <tr>
+                <td>
+                    <a href="[[= tabs.lists.url ]]" class='nav'>[[= tabs.lists.name + ': ' + tabs.lists.count ]]</a>
+                </td>
+                <td>
+                    <a href="[[= tabs.followers.url ]]" class='nav'>[[= tabs.followers.name + ': ' + tabs.followers.count ]]</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="[[= tabs.favorites.url ]]" class='nav'>[[= tabs.favorites.name + ': ' + tabs.favorites.count ]]</a>
+                </td>
+                <td>
+                    <a href="[[= tabs.following.url ]]" class='nav'>[[= tabs.following.name + ': ' + tabs.following.count ]]</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -39,7 +39,6 @@ body.yumhacker {
         }
 
         #home_page_user_info_container {
-            padding: 30px;
             margin-top: 30px;
 
             h1 {
@@ -54,24 +53,98 @@ body.yumhacker {
                 color: $mid-grey;
             }
 
-            #home_page_login_buttons {
-                margin-top: 30px;
+            #signed_out_user_info_container {
+                padding: 30px;
+                
+                #home_page_login_buttons {
+                    margin-top: 30px;
 
-                .login_btn {
-                    display: block;
-                    width: 160px;
-                    height: 50px;
-                    margin: 20px auto;
-                    line-height: 50px;
-                    font-size: 22px;
-                    background-color: $blue;
+                    .login_btn {
+                        display: block;
+                        width: 160px;
+                        height: 50px;
+                        margin: 20px auto;
+                        line-height: 50px;
+                        font-size: 22px;
+                        background-color: $blue;
 
-                    &:active {
-                        background-color: $dark-blue;
-                        color: #000;
-                        box-shadow: 0 3px 3px rgba(0,0,0,0.1) inset;
+                        &:active {
+                            background-color: $dark-blue;
+                            color: #000;
+                            box-shadow: 0 3px 3px rgba(0,0,0,0.1) inset;
+                        }
                     }
                 }
+            }
+
+
+            #current_user_stats_container {
+                padding: 20px;
+                padding-bottom: 10px;
+                text-align: left;
+                
+                a {
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                        color: $blue;
+                    }
+                    
+                    &.name {
+                        color: $blue;
+                        line-height: 20px;
+                    }
+                }
+
+                #current_user_img_container {
+                    float: left;
+                    margin-right: 10px; 
+                    margin-left: 10px; 
+
+                    a {
+                        height: 30px;
+                        img {
+                            height: 30px;
+                            width: 30px;
+                        }
+                    }
+                }
+
+                #current_user_info_container {
+                    float: left;
+
+                    p {
+                        font-size: 13px;
+                        line-height: 16px;
+                        color: $mid-grey;
+                    }
+                }
+
+                #tabs_data_container {
+                    width: 100%;
+                    margin-top: 10px;
+                    padding-top: 10px;
+                    border-top: 1px solid $light-grey;
+                    
+                    table {
+                        margin: auto;
+                        font-size: 13px;
+                        line-height: 24px;
+                        td {
+                            padding: 0 20px;
+
+                            a {
+                                color: $mid-grey;
+
+                                &:hover {
+                                    color: $blue;
+                                }
+                            }
+                        }
+                    }
+                }
+
             }
         }
 
