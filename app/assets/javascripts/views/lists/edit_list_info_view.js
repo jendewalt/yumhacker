@@ -3,7 +3,6 @@ ListsEditListInfoView = Backbone.View.extend({
     },
 
     initialize: function () {
-        console.log('Info init');
         this.lists_edit_title_view = new ListsEditTitleView({
             el: '#list_title_container',
             model: this.model
@@ -29,7 +28,6 @@ ListsEditListInfoView = Backbone.View.extend({
         var title = this.model.get('wish_list') ? 'Wish List' : $('#title_input').val();
         var description = $('#description_input').val();
 
-        console.log('update list')
         this.model.set({ 
             'title': title,
             'description': description
@@ -60,7 +58,6 @@ ListsEditListInfoView = Backbone.View.extend({
 
         this.model.save({}, 
             { success: function (model) {
-                console.log('SAVING')
                 App.navigate('/lists/' + model.get('id'), { trigger: true }) } 
             });
     },

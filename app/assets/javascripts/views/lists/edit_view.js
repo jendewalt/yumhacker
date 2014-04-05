@@ -2,22 +2,12 @@ ListsEditView = Backbone.View.extend({
     events: {
     },
 
-    // this.model = LIST
-    // this.collection = LISTINGS
-
     initialize: function () {
         this.model.listings = new ListingsCollection();
-        this.listenToOnce(this.model, 'sync', this.render);
-        this.listenTo(this.model, 'all', this.foo);
-        this.model.get('id') ? this.model.fetch() : this.render();
+        this.model.get('id') ? this.model.fetch({ success: $.proxy(this.render, this) }) : this.render();
     },
 
-    foo: function (e) {
-        console.log(e)        
-    },
-
-    render: function (e) {
-        console.log('main init')
+    render: function () {
         this.$el.html(render('lists/edit', this.model));
 
         this.lists_edit_list_info_view = new ListsEditListInfoView({
@@ -45,7 +35,6 @@ ListsEditView = Backbone.View.extend({
         this.listenTo(this.model.listings, 'reset', function () { MainGoogleMap.render(); });
         this.listenTo(this.model.listings, 'add', function () { MainGoogleMap.render(); });
         this.listenTo(this.model.listings, 'remove', function () { MainGoogleMap.render(); });
-        fixMapOnScroll();
-        
+        fixMapOnScroll();        
     }
 });

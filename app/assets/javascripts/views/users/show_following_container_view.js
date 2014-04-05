@@ -20,7 +20,6 @@ UsersShowFollowingContainerView = Backbone.View.extend({
     },
 
     renderYumLists: function () {
-        console.log('renderYumLists')
         var yumLists = new ListsCollection();
         yumLists.where = { user_id: this.model.get('id') };
         yumLists.order = [{ type: 'desc'}, { updated_at: 'desc' }];

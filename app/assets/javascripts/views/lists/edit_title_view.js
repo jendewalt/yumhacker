@@ -47,7 +47,6 @@ ListsEditTitleView = Backbone.View.extend({
 
     triggerSubmit: function (e) {
         e.preventDefault();
-        console.log('trigger submit')
         this.model.trigger('submit_list');
     }
 });

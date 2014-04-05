@@ -6,8 +6,6 @@ ListsEditListPhotoUploadImageFormView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
-        console.log('Photo Upload Form init')
-
     },
 
     render: function () {
@@ -32,7 +30,6 @@ ListsEditListPhotoUploadImageFormView = Backbone.View.extend({
     },
 
     submitPhoto: function (e) {
-        console.log(e)
         this.model.save({}, { success: $.proxy( function () { this.savePhoto(e) }, this) });
     },
 
