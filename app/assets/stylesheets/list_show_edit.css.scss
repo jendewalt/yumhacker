@@ -19,27 +19,43 @@ body.yumhacker {
             letter-spacing: 1px;
             color: $dark-grey;
             border: 1px solid $light-grey;
+            resize: none;
         }
 
         #list_title_container {
             position: relative;
+            min-height: 194px;
             margin-top: 20px;
             padding: 20px;
 
             #delete_list {
-                top: initial;
-                bottom: 20px;
+                top: 5px;
                 right: 20px;
             }
 
             #list_photo_container {
                 float: left;
+                position:relative;
                 text-align: center;
                 margin-right: 30px;
+                height: 150px;
+                width: 150px;
 
                 #list_photo {
                     height: 150px;
                     width: 150px;
+                }
+
+                #add_photo_modal_btn_container {
+                    position: absolute;
+                    bottom: 0px;
+                    width: 150px;
+                    background-color: rgba(255, 255, 255, 0.9);
+                    opacity: 0.3;
+
+                    &:hover {
+                        opacity: 1;
+                    }
                 }
             }
 
@@ -53,21 +69,24 @@ body.yumhacker {
                     
                     h1 {
                         font-size: 40px;
+                        line-height: 60px;
                         padding: 10px;
                     }
 
                     textarea {
                         width: 100%;
                         max-width: 100%;
-                        height: 60px;
-                        line-height: 40px;
+                        height: 80px;
+                        margin-bottom: -4px;
+                        border-bottom: none;
+                        line-height: 60px;
                         font-size: 40px;
                     }
                 }
                 
 
                 #title_lower_row {
-                    padding-top: 30px;
+                    padding-top: 20px;
                     
                     #list_user_info_container {
                         float: left;

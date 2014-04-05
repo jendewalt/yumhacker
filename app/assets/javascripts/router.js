@@ -159,7 +159,10 @@ Router = Backbone.Router.extend({
         this.setup();
         this.currentView = new ListsEditView({ 
             el: '#main_container',
-            model: new List({ id: id })
+            model: new List({
+                id: id,
+                updated_at: new Date()
+            })
         });
     },
 
@@ -169,7 +172,8 @@ Router = Backbone.Router.extend({
             el: '#main_container',
             model: new List({
                 title: CurrentUser.get('full_name') + '\'s Favorite Spots',
-                description: CurrentUser.get('full_name') + '\'s Favorite Spots List.'
+                description: CurrentUser.get('full_name') + '\'s Favorite Spots List.',
+                updated_at: new Date()
             })
         });
     },

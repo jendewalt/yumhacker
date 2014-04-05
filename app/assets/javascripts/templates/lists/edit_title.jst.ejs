@@ -1,13 +1,12 @@
 <div id='list_photo_container'></div>
 
-
 <div id='list_title_info_container'>
     <div id='title_container'>
         [[ if (get('type') === 'WishList') { ]]
             <h1 title='Wish List title cannot be changed.'>[[= get('title') ]]</h1>            
         [[ } else { ]]
-            <a id='delete_list' class='delete'>Delete List</a>
             <textarea name='title' class='list_info_input' id='title_input'>[[= get('title') ]]</textarea>
+            <a id='delete_list' class='delete'>Delete List</a>
         [[ } ]]
     </div>
 

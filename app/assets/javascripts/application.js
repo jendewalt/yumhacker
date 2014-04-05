@@ -21,6 +21,7 @@
 //= require ext/backbone.history
 //= require jquery.cookie
 //= require jquery.deparam
+//= require jquery.autosize
 //= require moment
 //= require jquery.flexslider
 //= require_tree ./helpers

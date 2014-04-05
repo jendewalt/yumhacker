@@ -11,6 +11,7 @@ ListsEditDescriptionView = Backbone.View.extend({
             this.model.set('description', desc);
         }
         this.render();
+        $('textarea').autosize();
     },
 
     render: function () {

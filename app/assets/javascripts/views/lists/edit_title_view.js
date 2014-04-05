@@ -6,17 +6,15 @@ ListsEditTitleView = Backbone.View.extend({
         'blur .list_info_input': 'triggerUpdateListInfo'
     },
 
-    // this.model = LIST
-
     initialize: function () {
         this.render();
-
         this.listenTo(this.model, 'save_listing', this.saveList);
 
         this.lists_edit_list_photo_view = new ListsEditListPhotoContainerView({
             el: '#list_photo_container',
             model: this.model
         });
+        $('textarea').autosize();
     },
 
     render: function () {
