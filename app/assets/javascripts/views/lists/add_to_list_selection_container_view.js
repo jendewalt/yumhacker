@@ -5,7 +5,6 @@ ListsAddToListSelectionContainerView = Backbone.View.extend({
 
     initialize: function (options) {
         this.establishment = options.establishment
-        this.collection = new ListsCollection();
         this.collection.per_page = 1000;
         this.collection.user_id = CurrentUser.get('id');
         this.establishment_id = this.establishment.get('id');

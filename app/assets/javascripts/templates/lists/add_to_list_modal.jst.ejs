@@ -1,10 +1,16 @@
-<h1>Add to List</h1>
+<div id='add_to_list_modal_container'>
+    <div class='biz_name'>[[= get('name') ]]</div>
+    [[ if (get('street_number') && get('street')) { ]]
+        <p class="details">[[= get('street_number') ]] [[= get('street') ]]</p>
 
-<div class='biz_name'>[[= get('name') ]]</div>
-<div class='details'>[[= get('street_number') ]] [[= get('street') ]]</div>
+        [[ if (get('city') && get('state') && get('zip_code')) { ]]
+            <p class='details'>[[=  get('city') ]], [[= get('state') ]] [[= get('zip_code') ]]</p>
+        [[ } ]]
+    [[ } ]]
 
-<form id='add_listing_to_list_form'>
-    <div id='list_selection_container'></div>
-    <input id='listing_comment_input' type='text' placeholder='Add a comment'>
-    <input type='submit'>
-</form>
+    <form id='add_listing_to_list_form'>
+        <div id='list_selection_container'></div>
+        <textarea id='listing_comment_input' class='text_input' type='text' placeholder='Add a comment'></textarea>
+        <input type='submit' class='btn text'>
+    </form>
+</div>

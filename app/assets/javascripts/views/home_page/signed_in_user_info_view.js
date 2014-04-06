@@ -9,8 +9,6 @@ HomePageSignedInUserInfoView = Backbone.View.extend({
     },
 
     render: function () {
-        console.log(this.model)
-        xxx = this.model
         this.$el.html(render('home_page/signed_in_user_info', this.model));
     }
 });

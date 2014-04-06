@@ -11,6 +11,7 @@ json.lists @lists do |list|
     json.path list.path
     json.updated_at list.updated_at
     json.type list.type
+    json.establishment_ids list.establishment_ids
 
     if list.photos.last.nil?
         json.small_url '/no_photo.svg'
@@ -23,5 +24,4 @@ json.lists @lists do |list|
     json.user_path list.user.path
 
     json.user_favoriting current_user ? current_user.favoriting?(list) : false
-
 end

@@ -58,11 +58,6 @@ class Api::UsersController < ApplicationController
     render :json => { user_favoriting: current_user.favoriting?(params[:list_id]) } 
   end
 
-  # def favorite_lists
-  #   page = params[:page] || 1
-
-  #   @lists = User.find(params[:user_id]).favorite_lists.page(page).per(10)
-  # end
 
   def lists
     @lists = User.find(params[:id]).lists   

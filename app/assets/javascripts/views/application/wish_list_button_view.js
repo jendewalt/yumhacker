@@ -3,24 +3,29 @@ ApplicationWishListButtonView = Backbone.View.extend({
         'click .wish_list_btn.unengaged': 'addToWishList'
     },
 
-    initialize: function (options) {
-        this.model = new WishListButton({ 
-            'establishment_id': options.establishment_id,
-            'wish_list_id': options.wish_list_id,
-            'wish_listed': options.wish_listed,
-        });
-        this.listenTo(this.model, 'sync', this.render);
+    initialize: function () {
+        this.wish_list_btn = new WishListButton();
+
+        this.listenTo(this.wish_list_btn, 'sync', this.render);
+        this.listenTo(this.wish_list_btn, 'change', this.render);
+        this.listenTo(this.model, 'new_listing', this.render);
         this.listenTo(this.model, 'change', this.render);
 
         this.render();
     },
 
-    render: function () {   
-        this.$el.html(render('application/wish_list_button', this.model));
+    render: function () { 
+        this.wish_list_btn.set({ 
+            'establishment_id': this.model.get('establishment_id') ? this.model.get('establishment_id') : this.model.get('id'),
+            'wish_list_id': this.model.get('wish_list_id'),
+            'wish_listed': this.model.get('wish_listed')
+        });
+        this.$el.html(render('application/wish_list_button', this.wish_list_btn));
     },
 
     addToWishList: function (e) {
         e.preventDefault();
-        this.model.wishList();
+        this.wish_list_btn.wishList();
+        this.model.set('wish_listed', true);
     }
 });

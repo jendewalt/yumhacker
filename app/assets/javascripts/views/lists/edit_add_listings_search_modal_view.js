@@ -3,10 +3,6 @@ ListsEditAddListingSearchModalView = Backbone.View.extend({
             'submit': 'searchForEstablishments'
         },
 
-    // this.model = LIST
-    // this.model.listings = LISTINGS Collection
-    // this.collection = SET OF FOUND ESTABS
-
     initialize: function () {
         this.render();
 
@@ -24,7 +20,7 @@ ListsEditAddListingSearchModalView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(render('establishments/search'));
+        this.$el.html(render('lists/edit_add_listing_search'));
     },
 
     searchForEstablishments: function (e) {

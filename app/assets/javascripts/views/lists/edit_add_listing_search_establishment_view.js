@@ -3,9 +3,6 @@ ListsEditAddListingSearchEstablishmentView = Backbone.View.extend({
         'click .add_btn': 'addToList'
     },
 
-    // this.model = FOUND ESTAB
-    // this.listings = LISTINGS COLLECTION
-
     initialize: function (opts) {
         this.listings = opts.listings;
 

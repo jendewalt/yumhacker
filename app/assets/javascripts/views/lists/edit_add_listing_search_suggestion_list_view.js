@@ -3,9 +3,6 @@ ListsEditAddListingSearchSuggestionListView = Backbone.View.extend({
         'click a.biz_name': 'navigate'
     },
 
-    // this.collection = SET OF FOUND ESTABS
-    // this.model = LIST
-
     initialize: function () {
         this.listenTo(this.collection, 'reset', this.render);
     },

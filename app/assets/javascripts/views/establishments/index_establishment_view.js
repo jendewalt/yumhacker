@@ -8,9 +8,7 @@ EstablishmentsIndexEstablishmentView = Backbone.View.extend({
 
 		this.application_wish_list_button_view = new ApplicationWishListButtonView({ 
             el: this.$('.wish_list_btn_container'),
-            establishment_id: this.model.get('establishment_id'),
-            wish_list_id: this.model.get('wish_list_id'),
-            wish_listed: this.model.get('wish_listed')
+            model: this.model
         }); 
 
         this.add_to_list_button_view = new ApplicationAddToListButtonView({ 
