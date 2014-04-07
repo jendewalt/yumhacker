@@ -3,9 +3,6 @@ ListsEditListingsContainerView = Backbone.View.extend({
         'click #listing_container_add_listing_btn': 'openListingSearchModal'
     },
 
-    // this.model = LIST
-    // this.collection = LISTINGS
-
     initialize: function () {  
         this.render();  
         this.lists_edit_listings_list_view = new ListsEditListingsListView({

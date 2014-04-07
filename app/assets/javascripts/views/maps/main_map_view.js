@@ -22,7 +22,6 @@ MainMapView = Backbone.View.extend({
 		this.listen_to_map = false;
 		this.resetMarkers();
 
-
 		var that = this;
 		google.maps.event.addListenerOnce(that.map, 'zoom_changed', function (e) {
 			google.maps.event.addListenerOnce(that.map, 'idle', function (e) {
@@ -31,7 +30,6 @@ MainMapView = Backbone.View.extend({
 		});
 		if (Location.get('contained_in') === 'bounds') {
 			var center = Location.get('center');
-
 
 			this.map.setZoom(Client.get('zoom'));
 			this.map.setCenter(new google.maps.LatLng(center.lat, center.lng));

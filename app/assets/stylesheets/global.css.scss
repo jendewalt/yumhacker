@@ -187,10 +187,15 @@ body.yumhacker {
         }
     }
 
-    ul.users_list {
-        width: 100%;
 
-        li {
+    ul.lists {
+        a {
+            display: block;
+            text-decoration: none;
+            color: $blue;
+        }
+
+        li.user {
             padding: 5px 10px;
             line-height: 30px;
             border-bottom: 1px solid $light-grey;
@@ -226,16 +231,11 @@ body.yumhacker {
             .follow_btn_container {
                 float: right;
                 text-align: center;
+
+                a.not_engaged {
+                    color: white;
+                }
             }
-        }
-    }
-
-
-    ul.lists {
-        a {
-            display: block;
-            text-decoration: none;
-            color: $blue;
         }
 
         li {

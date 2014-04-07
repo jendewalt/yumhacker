@@ -10,7 +10,7 @@ ListsAddToListModalView = Backbone.View.extend({
         this.collection.order = [{ type: 'desc'}, { updated_at: 'desc' }];
 
         this.selection_container_view = new ListsAddToListSelectionContainerView({
-            el: '#list_selection_container',
+            el: '#list_selector',
             establishment: this.model,
             collection: this.collection
         });

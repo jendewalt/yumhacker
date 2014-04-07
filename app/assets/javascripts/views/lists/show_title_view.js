@@ -8,7 +8,11 @@ ListsShowTitleView = Backbone.View.extend({
 
         this.application_favorite_button_view = new ApplicationFavoriteButtonView({ 
             el: this.$('#list_favorite_button'),
-            list: this.model 
+            model: new FavoriteButton({
+                'list_id': this.model.get('id'), 
+                'user_favoriting': this.model.get('user_favoriting'), 
+                'number_favorites': this.model.get('number_favorites') 
+            })
         });
     },
 

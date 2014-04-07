@@ -4,8 +4,7 @@ HomePageListsView = Backbone.View.extend({
 
     initialize: function () {
         this.listenTo(this.collection, 'reset', this.render);
-        var params = this.collection.predicate();
-        this.collection.fetch({ reset: true, data: params });
+        this.collection.fetch({ reset: true, data: this.collection.predicate() });
     },
 
     render: function () {
@@ -16,11 +15,9 @@ HomePageListsView = Backbone.View.extend({
     },
 
     renderList: function (list) {
-        var list_view = new HomePageListView({
+        this.$el.append(new HomePageListView({
             tagName: 'li',
             model: list
-        });
-
-        this.$el.append(list_view.el);
+        }).el);
     }
 });

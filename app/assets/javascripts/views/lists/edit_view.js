@@ -3,6 +3,7 @@ ListsEditView = Backbone.View.extend({
     },
 
     initialize: function () {
+        Location.set('contained_in', 'radius');
         this.model.listings = new ListingsCollection();
         this.model.get('id') ? this.model.fetch({ success: $.proxy(this.render, this) }) : this.render();
     },

@@ -3,9 +3,9 @@ ListsEditListingCommentView = Backbone.View.extend({
         'submit .comment_form': 'saveComment'
     },
 
-    initialize: function (opts) {
-        this.listing = opts.listing;
-        this.listenTo(this.model, 'change', this.render);
+    initialize: function () {
+        this.comment = new Comment(this.model.get('comment'));
+        this.listenTo(this.comment, 'change', this.render);
         this.render();
         // TODO: Fails on the last textarea. Investigate (http://www.jacklmoore.com/autosize/)
         $('.comment_input').autosize();
@@ -13,22 +13,20 @@ ListsEditListingCommentView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(render('lists/edit_listing_comment', this.model));
+        this.$el.html(render('lists/edit_listing_comment', this.comment));
     },
 
     saveComment: function (e) {
         e.preventDefault();
         var body = $.trim(e.target[0].value);
 
-        if (body !== this.model.get('body')) {
-            this.model.set({ 
-                listing_id: this.listing.get('id'),
-                body: body,
-                updated_at: new Date
+        if (body !== this.comment.get('body')) {
+            this.comment.set({ 
+                listing_id: this.model.get('id'),
+                body: body
             });
 
-            this.model.format_time();
-            this.model.save();           
+            this.comment.save();
         }
     }
 });

@@ -13,21 +13,17 @@ ListsShowListingsListView = Backbone.View.extend({
         this.$el.html('');
         
         if (this.collection.length > 0) {
-            this.collection.each(function (listing) {
-                this.renderListing(listing);
-            }, this);           
+            this.collection.each(this.renderListing, this);           
         } else {
             this.$el.html(render('lists/no_listing_results'));
         }   
     },
 
     renderListing: function (listing) {
-        var listing_view = new ListsShowListingView({
+        this.$el.append(new ListsShowListingView({
             tagName: 'li',
             model: listing
-        });
-
-        this.$el.append(listing_view.el);
+        }).el);
     },
 
     navigate: function (e) {

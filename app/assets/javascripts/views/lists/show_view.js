@@ -3,6 +3,7 @@ ListsShowView = Backbone.View.extend({
     },
 
     initialize: function () {
+        Location.set('contained_in', 'radius');
         this.listenTo(this.model, 'sync', this.render);
         this.model.fetch();
     },
@@ -34,7 +35,7 @@ ListsShowView = Backbone.View.extend({
                 collection: this.collection
             });
         } else {
-            MainGoogleMap.map.getStreetView().setVisible(false);
+            // MainGoogleMap.map.getStreetView().setVisible(false);
             $('.map_canvas_container').html('');
             MainGoogleMap.mapCanvas.appendTo($('.map_canvas_container'));
         }

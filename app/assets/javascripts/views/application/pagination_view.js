@@ -12,6 +12,7 @@ PaginationView = Backbone.View.extend({
 	},
 
 	pageChange: function (e) {
+		// TODO: maybe this should operate on the collection instead of triggering and event
 		e.preventDefault();
 		if (e.target.rel) this.collection.trigger('paginate', Number(e.target.rel));
 	}

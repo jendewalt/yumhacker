@@ -3,12 +3,13 @@ UsersShowTabsView = Backbone.View.extend({
         'click a.tab': 'navigate'
     },
 
-    initialize: function () {
+    initialize: function (options) {
+        this.tabs_data = options.tabs_data;
         this.render();
     },
 
     render: function () {
-        this.$el.html(render('users/show_tabs', this.model));
+        this.$el.html(render('users/show_tabs', this.tabs_data));
     },
 
     navigate: function (e) {

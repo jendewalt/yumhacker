@@ -3,6 +3,7 @@ HomePageFeaturedUserView = Backbone.View.extend({
     },
 
     initialize: function () {
+        // TODO: make a featured user model
         this.model = new User({ id: 1 });
         this.listenTo(this.model, 'sync', this.render);
         this.model.fetch(); 

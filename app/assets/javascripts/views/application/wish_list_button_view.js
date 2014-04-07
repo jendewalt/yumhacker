@@ -4,6 +4,7 @@ ApplicationWishListButtonView = Backbone.View.extend({
     },
 
     initialize: function () {
+        // TODO: make wishlist button compatible with api
         this.wish_list_btn = new WishListButton();
 
         this.listenTo(this.wish_list_btn, 'sync', this.render);
