@@ -55,6 +55,8 @@ ListsEditListInfoView = Backbone.View.extend({
 
     handleSubmit: function () {
         this.updateListInfo();
+        // Submit any unsaved comments
+        $('form').trigger('submit');
 
         this.model.save({}, 
             { success: function (model) {

@@ -21,7 +21,9 @@ ListsEditListingsListView = Backbone.View.extend({
             }, this);           
         } else {
             this.$el.html(render('lists/no_listing_results'));
-        }   
+        } 
+
+        this.$('.comment_input').autosize();
     },
 
     renderListing: function (listing) {

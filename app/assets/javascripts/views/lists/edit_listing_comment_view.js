@@ -5,11 +5,7 @@ ListsEditListingCommentView = Backbone.View.extend({
 
     initialize: function () {
         this.comment = new Comment(this.model.get('comment'));
-        this.listenTo(this.comment, 'change', this.render);
         this.render();
-        // TODO: Fails on the last textarea. Investigate (http://www.jacklmoore.com/autosize/)
-        $('.comment_input').autosize();
-        $('.comment_input').last().autosize(); // Does not work
     },
 
     render: function () {
@@ -18,6 +14,7 @@ ListsEditListingCommentView = Backbone.View.extend({
 
     saveComment: function (e) {
         e.preventDefault();
+
         var body = $.trim(e.target[0].value);
 
         if (body !== this.comment.get('body')) {
@@ -26,7 +23,14 @@ ListsEditListingCommentView = Backbone.View.extend({
                 body: body
             });
 
-            this.comment.save();
+            // If the comment exists and the user entered in a blank, send blank for deletion
+            if (body.length > 0 || (body.length === 0 && this.comment.get('id'))) {
+                this.comment.save();
+            } 
         }
+        this.$('textarea').addClass('flash');
+        setTimeout(function () {
+            this.$('textarea').removeClass('flash');
+        }, 230);
     }
 });

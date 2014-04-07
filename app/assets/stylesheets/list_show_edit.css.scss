@@ -152,14 +152,33 @@ body.yumhacker {
         .comment_container {
             margin-top: 10px;
             padding-top: 10px;
-            border-top: 1px solid $light-grey;
+            border-top: 1px solid $x-light-grey;
 
             .content_container {
                 display: inline-block;
+                width: 100%;
+                line-height: 26px;
+                font-size: 16px;
                 vertical-align: top;
-                margin-bottom: 10px;
-                font-size: 13px;
-                line-height: 18px;
+                padding: 20px 34px;
+
+                .comment_form {
+                    textarea {
+                        width: 100%;
+                        min-height: 34px;
+                        padding: 5px;
+                        margin: 0;
+                        font-size: inherit;
+                        line-height: inherit;
+                    }
+
+                    .flash {
+                        box-shadow: 1px 1px 0 #2BA81C, 
+                                    -1px -1px 0 #2BA81C, 
+                                    1px -1px 0 #2BA81C, 
+                                    -1px 1px 0 #2BA81C;
+                    }
+                }
             }
 
             .date {
