@@ -28,10 +28,15 @@ ListsEditListInfoView = Backbone.View.extend({
         var title = this.model.get('wish_list') ? 'Wish List' : $('#title_input').val();
         var description = $('#description_input').val();
 
-        this.model.set({ 
-            'title': title,
-            'description': description
-        }); 
+        if (title.length > 255) {
+            alert('Your title is too long. Titles are limited to 255 characters.');
+        } else {
+            this.model.set({ 
+                'title': title,
+                'description': description
+            });             
+        }
+
     },
 
     saveList: function (establishment) {

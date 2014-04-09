@@ -14,6 +14,10 @@ ListsEditListingCommentView = Backbone.View.extend({
 
     saveComment: function (e) {
         e.preventDefault();
+        this.$('textarea').addClass('flash');
+        setTimeout(function () {
+            this.$('textarea').removeClass('flash');
+        }, 150);
 
         var body = $.trim(e.target[0].value);
 
@@ -28,9 +32,5 @@ ListsEditListingCommentView = Backbone.View.extend({
                 this.comment.save();
             } 
         }
-        this.$('textarea').addClass('flash');
-        setTimeout(function () {
-            this.$('textarea').removeClass('flash');
-        }, 230);
     }
 });

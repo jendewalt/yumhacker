@@ -34,7 +34,8 @@ UsersFacebookFriendsListView = Backbone.View.extend({
 	renderUser: function (user) {
 		var user_view = new UsersIndexUserView({
 			tagName: 'li',
-			model: user
+			model: user,
+			className: 'user'
 		});
 
 		this.$('ul').append(user_view.el);

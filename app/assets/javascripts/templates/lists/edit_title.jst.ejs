@@ -5,7 +5,7 @@
         [[ if (get('type') === 'WishList') { ]]
             <h1 title='Wish List title cannot be changed.'>[[= get('title') ]]</h1>            
         [[ } else { ]]
-            <textarea name='title' class='list_info_input' id='title_input'>[[= get('title') ]]</textarea>
+            <textarea name='title' class='list_info_input' id='title_input' maxlength='255'>[[= get('title') ]]</textarea>
             <a id='delete_list' class='delete'>Delete List</a>
         [[ } ]]
     </div>

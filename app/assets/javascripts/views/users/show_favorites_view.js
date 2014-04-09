@@ -14,7 +14,7 @@ UsersShowFavoritesView = Backbone.View.extend({
             this.collection.each(this.renderList, this);
             window.scrollTo(0,0);
         } else {
-            this.$el.html(render('users/show_lists_index_list_no_results', this.model));
+            this.$el.html(render('users/show_favorites_no_results', this.model));
         }
     },
 

@@ -9,7 +9,7 @@ ListsEditListPhotoUploadImageFormView = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(render('photos/photo_upload_image_form', this.model));
+        this.$el.html(render('lists/edit_list_photo_upload_image_form', this.model));
 
         this.upload_throbber_view = new UploadThrobberView({
             el: '.upload_throbber_container',

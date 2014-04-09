@@ -10,6 +10,7 @@ ListsCreateNewListModalView = Backbone.View.extend({
     render: function () {
         this.$el.html('');
         this.$el.html(render('lists/create_new_list_modal'));
+        $('textarea').autosize();
     },
 
     handleSubmit: function (e) {

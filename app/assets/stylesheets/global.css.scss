@@ -48,6 +48,10 @@ body.yumhacker {
         border-bottom: 3px solid $light-grey;
     }
 
+    textarea {
+        resize: none;
+    }
+
     ol {
         display: inline-block;
         vertical-align: top;
@@ -424,6 +428,11 @@ body.yumhacker {
                 cursor: auto;
             }
         }
+    }
+
+    .no_results {
+        padding: 20px;
+        text-align: center;
     }
 
     .throbber {

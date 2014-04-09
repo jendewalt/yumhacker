@@ -1,9 +1,13 @@
-<h1>Create a new list</h1>
+<div id='create_new_list_modal'>
+    <h1>Create a new list</h1>
 
-<form id='create_new_list_form'>
-    <label>List Title:</label><input id='list_title_input' type='text' placeholder='Best Burritos, Cheap and Tasty, Date Night...'>
+    <form id='create_new_list_form'>
+        <label>List Title:</label>
+        <textarea id='list_title_input' class='text_input' maxlength='255' placeholder='Best Burritos, Cheap and Tasty, Date Night...'></textarea>
 
-    <label>List Description:</label><input id='list_title_input' type='text' placeholder='These are all of my favorite Thai Restaurants!'>
+        <label>List Description:</label>
+        <textarea id='list_desc_input' class='text_input' placeholder='These are all of my favorite Thai Restaurants!'></textarea>
 
-    <input type='submit'>
-</form>
+        <input type='submit' id="save_new_list" class='btn text' value='Create'>
+    </form>
+</div>

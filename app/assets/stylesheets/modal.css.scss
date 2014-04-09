@@ -7,6 +7,7 @@ body.yumhacker {
     $dark-grey: #313136;
     $mid-grey: #737378;
     $light-grey: #c1c1c3;
+    $lighter-grey: #E0E0E3;
     $x-light-grey: #F1F1F3;
     $input-glow: rgba(233, 19, 103, 0.2);
 
@@ -23,10 +24,10 @@ body.yumhacker {
 
         .inner_modal {
             position: relative;
-            width: 600px;
+            width: 800px;
             margin: 50px auto;
             border: 1px solid $light-grey;
-            max-height: 80%;
+            max-height: 90%;
             overflow-y: auto;
             background-color: white;
 
@@ -59,16 +60,21 @@ body.yumhacker {
                 color: $mid-grey;
             }
 
-            .btn_container {
-                padding-top: 40px;
-                border-top: 1px solid $light-grey;
+            #authentication_container {
+                padding: 30px;
 
-                .btn {
-                    height: 40px;
-                    width: 160px;
-                    margin: 0 15px;
-                    line-height: 40px;
-                    font-size: 16px;
+                .btn_container {
+                    padding-top: 40px;
+                    border-top: 1px solid $light-grey;
+                    margin-top: 5px;
+
+                    .btn {
+                        height: 40px;
+                        width: 160px;
+                        margin: 0 15px;
+                        line-height: 40px;
+                        font-size: 16px;
+                    }
                 }
             }
 
@@ -173,7 +179,6 @@ body.yumhacker {
                         display: block;
                         width: 400px;
                         margin: auto;
-                        resize: none;
                     }
 
                     input {
@@ -181,6 +186,79 @@ body.yumhacker {
                     }
                 }
 
+            }
+
+            #edit_list_image_selector_container {
+                margin: 30px auto;
+
+                #upload_image_form_container {
+                    margin: 20px auto;
+                    
+                    #upload_btn_container {
+                        position: relative;
+                        height: 40px;
+                        width: 200px;
+                        background: $x-light-grey;
+                        border: 1px solid $lighter-grey;
+                    
+                        .upload_throbber_container {
+                            position: absolute;
+                            left: 10px;
+
+                            .throbber {
+                                padding: 4px;
+                                height: 40px;
+                                line-height: 40px;
+                            }
+                        }
+
+                        label {
+                            display: block;
+                            font-size: 13px;
+                            text-transform: uppercase;
+                            padding: 5px;
+                        }
+                    }
+                }
+
+                p {
+                    margin-bottom: 20px;
+                }
+
+
+                #user_images_list {
+                    margin-top: 20px;
+
+                    li {
+                        display: inline-block;
+                        margin:4px 6px;
+                    } 
+                
+                }
+            }
+
+            #create_new_list_modal {
+                padding: 30px;
+    
+                form {
+                    margin: 20px auto;
+                    width: 80%;
+                    text-align: left;
+
+                    #save_new_list, label, textarea {
+                        display: block;
+                        margin:auto;
+                    }
+                    label
+
+                    textarea {
+                        width: 100%;
+                        margin: 5px 0 20px;
+                    }
+
+                    #save_new_list {
+                    }
+                }
             }
         }
     }

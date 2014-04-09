@@ -4,7 +4,7 @@ HomePageFeaturedListView = Backbone.View.extend({
 
     initialize: function () {
         // TODO: make a featured list model
-        this.model = new List({ id: 26 });
+        this.model = new List({ id: 25 });
         this.listenTo(this.model, 'sync', this.render);
         this.model.fetch(); 
     },

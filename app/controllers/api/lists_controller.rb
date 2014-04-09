@@ -37,7 +37,12 @@ class Api::ListsController < ApplicationController
   
   def create
     logger.debug('@@@@@@@@@@@@@@@@@@@')
-    title = params[:title].strip if params[:title]
+
+    if params.has_key?(:title)
+      title = params[:title].strip
+      title = params[:title].length <= 255 ? params[:title] : params[:title].slice(0..255)
+    end
+
     description = params[:description].strip if params[:description]
 
     @list = current_user.custom_lists.new(title: title, description: description)
@@ -46,7 +51,7 @@ class Api::ListsController < ApplicationController
       @list.save
       
       unless params[:listing].nil?
-        establishment_id = params[:listing][:id]
+        establishment_id = params[:listing][:establishment_id] ? params[:listing][:establishment_id] : params[:listing][:id]
         current_user.endorse!(establishment_id) unless current_user.endorsing?(establishment_id)
         @list.listings.new(establishment_id: establishment_id)
         @list.save

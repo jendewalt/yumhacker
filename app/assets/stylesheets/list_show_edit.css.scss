@@ -8,6 +8,7 @@ body.yumhacker {
     $dark-grey: #313136;
     $mid-grey: #737378;
     $light-grey: #c1c1c3;
+    $lighter-grey: #E0E0E3;
     $x-light-grey: #F1F1F3;
     $input-glow: rgba(233, 19, 103, 0.2);
 
@@ -18,8 +19,7 @@ body.yumhacker {
             font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
             letter-spacing: 1px;
             color: $dark-grey;
-            border: 1px solid $light-grey;
-            resize: none;
+            border: 1px solid $lighter-grey;
         }
 
         #list_title_container {
@@ -151,16 +151,15 @@ body.yumhacker {
 
         .comment_container {
             margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid $x-light-grey;
+            border-top: 1px solid $lighter-grey;
 
             .content_container {
                 display: inline-block;
                 width: 100%;
-                line-height: 26px;
+                line-height: 24px;
                 font-size: 16px;
                 vertical-align: top;
-                padding: 20px 34px;
+                padding: 18px 26px;
 
                 .comment_form {
                     textarea {
@@ -173,10 +172,10 @@ body.yumhacker {
                     }
 
                     .flash {
-                        box-shadow: 1px 1px 0 #2BA81C, 
-                                    -1px -1px 0 #2BA81C, 
-                                    1px -1px 0 #2BA81C, 
-                                    -1px 1px 0 #2BA81C;
+                        box-shadow: 1px 1px 2px rgba(43,168,28, 0.6), 
+                                    -1px -1px 2px rgba(43,168,28, 0.6), 
+                                    1px -1px 2px rgba(43,168,28, 0.6), 
+                                    -1px 1px 2px rgba(43,168,28, 0.6);
                     }
                 }
             }
@@ -186,24 +185,6 @@ body.yumhacker {
                 color: $mid-grey;
                 text-align: right;
             }
-        }
-
-    }
-    
-    #inner_modal_content{
-
-        #user_images_list {
-            display: inline-block;
-            vertical-align: top;
-            
-            // li {
-            //     display: inline-block;
-            // }
-        }
-
-        #upload_image_form_container {
-            display: inline-block;
-            vertical-align: top;
         }
     }
 }
