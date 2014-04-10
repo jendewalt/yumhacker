@@ -22,7 +22,7 @@
         </div>
 
         <div class='list_action_btn_container'>
-            [[ if (CurrentUser.logged_in()) { ]]
+            [[ if (CurrentUser.logged_in() && CurrentUser.id === get('user_id')) { ]]
                 <div id='edit_list_button'>
                     <a href="[[= '/' + get('edit_path') ]]" class='edit btn text nav'>Edit List</a>
                 </div>

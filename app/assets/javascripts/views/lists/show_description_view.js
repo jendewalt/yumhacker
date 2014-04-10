@@ -3,10 +3,16 @@ ListsShowDescriptionView = Backbone.View.extend({
     },
 
     initialize: function () {
-        if (this.model.get('description') === null) {
-            var desc = this.model.get('user_first_name') + '\'s ' + this.model.get('title') + ' list.';
+        var desc = this.model.get('description');
+        if (desc === null || desc.length === 0 ) {
+            if (this.model.get('type') === 'CustomList') {
+                desc = this.model.get('user_first_name') + '\'s ' + this.model.get('title') + ' list.';
+            } else {
+                desc = this.model.get('user_first_name') + '\'s Wish List of places to scope out.';                
+            }
             this.model.set('description', desc);
         }
+
         this.render();
     },
 

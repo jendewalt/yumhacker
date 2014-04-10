@@ -278,6 +278,11 @@ body.yumhacker {
                     .list_user_photo {
                         display: inline-block;
                         vertical-align: top;
+
+                        img {
+                            height: 30px;
+                            width: 30px;
+                        }
                     }
 
                     .list_user_text {

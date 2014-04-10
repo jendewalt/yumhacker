@@ -7,6 +7,7 @@ HomePageView = Backbone.View.extend({
         this.render();
 
         this.collection = new ListsCollection();
+        this.collection.where = { type: 'CustomList'};
         this.collection.order = { updated_at: 'desc'};
 
         this.create_list_view = new HomePageCreateListView({

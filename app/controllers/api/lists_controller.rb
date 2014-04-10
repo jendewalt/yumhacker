@@ -1,5 +1,6 @@
 class Api::ListsController < ApplicationController
   before_filter :authenticate_user!, :only => [:create, :update, :delete]
+  before_filter :authorize, :only => [:update, :delete]
 
   def index
     page = params[:page] || 1
@@ -61,7 +62,7 @@ class Api::ListsController < ApplicationController
   end
 
   def update
-    @list = List.find(params[:id])
+    # @list = List.find(params[:id])
     @list.title = params[:title] if @list.type == 'CustomList'
     @list.description = params[:description]
     @imageable = @list.imageables.where(list_id: @list.id).first
@@ -81,7 +82,7 @@ class Api::ListsController < ApplicationController
   end
 
   def destroy
-    List.find(params[:id]).destroy
+    @list.destroy unless @list.type == 'WishList'
     render nothing: true, status: 204
   end
 
@@ -97,6 +98,11 @@ class Api::ListsController < ApplicationController
       else
         nil
       end
+    end
+
+    def authorize
+      @list = List.find(params[:id])
+      render nothing: true, status: 401 and return unless @list.user == current_user
     end
 
 end

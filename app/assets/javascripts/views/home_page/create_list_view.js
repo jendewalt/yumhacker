@@ -34,6 +34,7 @@ HomePageCreateListView = Backbone.View.extend({
         if (CurrentUser.logged_in()) {
             App.navigate('/lists/new', { trigger: true });            
         } else {
+            console.log('hello')
             CurrentUser.authenticate();
         }
     }
