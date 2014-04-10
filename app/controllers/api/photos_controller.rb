@@ -11,13 +11,10 @@ class Api::PhotosController < ApplicationController
   def create
     imageable = find_imageable
 
-    logger.debug(imageable.inspect)
-
     if params[:image_data]
       @photo = Photo.new(user_id: current_user.id, content_type: params[:content_type], original_filename: params[:original_filename], image_data: params[:image_data])
    
       if @photo.save
-        logger.debug(imageable.imageable_key)
         if imageable.imageable_key == :list_id && Imageable.where(list_id: imageable.id).first.present?
           @imageable = Imageable.where(list_id: imageable.id).first
           @imageable.photo_id = @photo.id 
@@ -28,7 +25,6 @@ class Api::PhotosController < ApplicationController
         @imageable.save
       end
     else
-      logger.debug('No Image Data')
     end
   end
 

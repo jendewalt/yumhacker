@@ -2,9 +2,6 @@ class Api::ListsController < ApplicationController
   before_filter :authenticate_user!, :only => [:create, :update, :delete]
 
   def index
-    logger.debug('@@@@@@@@@@@@@@@@@@@')
-    logger.debug(params)
-
     page = params[:page] || 1
     per_page = params[:per_page] || 10
 
@@ -36,8 +33,6 @@ class Api::ListsController < ApplicationController
   end
   
   def create
-    logger.debug('@@@@@@@@@@@@@@@@@@@')
-
     if params.has_key?(:title)
       title = params[:title].strip
       title = params[:title].length <= 255 ? params[:title] : params[:title].slice(0..255)
@@ -66,7 +61,6 @@ class Api::ListsController < ApplicationController
   end
 
   def update
-    logger.debug('###############')
     @list = List.find(params[:id])
     @list.title = params[:title] if @list.type == 'CustomList'
     @list.description = params[:description]
@@ -93,7 +87,6 @@ class Api::ListsController < ApplicationController
 
   private
     def sanatize_order(pair)
-      logger.debug("the pair is: #{pair}")
       by = pair.keys.first.to_s
       direction = pair.values.first.to_s
       order_by = ['updated_at', 'created_at', 'type']

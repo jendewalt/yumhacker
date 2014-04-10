@@ -42,12 +42,10 @@ Router = Backbone.Router.extend({
     },
 
     changeTitle: function (title) {
-        console.log(title)
         $(document).attr('title', title);
     },
 
     changeDescription: function (desc) {
-        console.log(desc)
         $('meta[name=description]').remove();
         $('head').append( '<meta name="description" content="' + desc + '">' );
     },

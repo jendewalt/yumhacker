@@ -5,16 +5,10 @@ class Api::ListingsController < ApplicationController
   def index
     page = params[:page] || 1
     per = params[:per] || 10
-    logger.debug('$$$$$')
-    logger.debug(params)
     @listings = List.find(params[:list_id]).listings.page(page).per(per)
   end
   
   def create
-    logger.debug('$$$$$$')
-    logger.debug('Listing create')
-    logger.debug(params)
-
     establishment_id = params[:establishment_id]
     @listing = @list.listings.new(establishment_id: establishment_id, user_id: current_user.id)
 
