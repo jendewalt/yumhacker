@@ -9,6 +9,17 @@ class List < ActiveRecord::Base
   has_many :imageables, :dependent => :destroy
   has_many :photos, :through => :imageables
 
+  extend FriendlyId
+  friendly_id :slug_candidates, use: :slugged
+  
+  def slug_candidates
+      [
+        :title,
+        [:title, :user],
+        # [:title, :street, :city],
+      ]
+  end
+
   def imageable_key
     :list_id
   end

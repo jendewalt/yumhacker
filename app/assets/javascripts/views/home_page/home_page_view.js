@@ -5,6 +5,7 @@ HomePageView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
+
         this.collection = new ListsCollection();
         this.collection.order = { updated_at: 'desc'};
 
@@ -35,6 +36,9 @@ HomePageView = Backbone.View.extend({
             el: '.pagination_container',
             collection: this.collection
         });
+
+        this.listenTo(Client, 'change', this.changeHeadInfo);
+        this.changeHeadInfo();
     },
 
     render: function () {
@@ -44,19 +48,14 @@ HomePageView = Backbone.View.extend({
     navigate: function (e) {
         e.preventDefault();
         App.navigate(e.currentTarget.pathname, { trigger: true });
+    },
+
+    changeHeadInfo: function (include_category) {
+        this.title = 'YumHacker | Find restaurants recommended by people you trust | ' + Client.get('formatted_address');
+
+        this.description = 'Find and share the best restaurants and bars in ' + Client.get('formatted_address') + ' recommended by people you trust. Create lists of your favorite restaurants to share and see what places other foodies think are the best. Get restaurant and bar photos, reviews, hours and more!';
+        
+        App.eventAggregator.trigger('domchange:title', this.title);
+        App.eventAggregator.trigger('domchange:description', this.description);            
     }
-
-    // changeHeadInfo: function (include_category) {
-    //     var location = Client.get('formatted_address');
-    //     var category = include_category ? Filter.get('category_name') + ' ' : '';
-
-    //     if (location !== 'Current Location') {
-    //         this.title = 'YumHacker | Find ' + category + 'restaurants endorsed by people you trust | ' + Client.get('formatted_address');
-
-    //         this.description = 'Find ' + Client.get('formatted_address') + ' restaurants and bars endorsed by people you trust. Get restaurant and bar photos, reviews, hours and more!';
-
-    //         App.eventAggregator.trigger('domchange:title', this.title);
-    //         App.eventAggregator.trigger('domchange:description', this.description);            
-    //     }
-    // }
 });

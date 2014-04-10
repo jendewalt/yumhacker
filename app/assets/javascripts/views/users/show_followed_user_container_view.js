@@ -14,6 +14,8 @@ UsersShowFollowedUsersContainerView = Backbone.View.extend({
     },
 
     render: function () {
+        this.changeHeadInfo();
+
         this.$el.html(render('users/show_stuff'));
 
         this.followable_view = new UsersShowFollowableView({
@@ -27,5 +29,18 @@ UsersShowFollowedUsersContainerView = Backbone.View.extend({
             collection: this.collection
         });
         this.pagination_view.render();
+    },
+
+    changeHeadInfo: function () {
+        var user_name = this.model.get('full_name');
+        var user_location = this.model.get('location') ? ' from ' + this.model.get('location') : '';
+        var following = this.model.get('tabs_data').following.count === 1 ? this.model.get('tabs_data').following.count + ' YumHacker' : this.model.get('tabs_data').following.count + ' YumHackers'
+
+        this.title = user_name + ' | Following | YumHacker';
+
+        this.description = user_name + user_location + ' is following ' + following + ' on YumHacker.'
+
+        App.eventAggregator.trigger('domchange:title', this.title);
+        App.eventAggregator.trigger('domchange:description', this.description);
     }
 });
