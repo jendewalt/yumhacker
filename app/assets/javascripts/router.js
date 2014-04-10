@@ -86,7 +86,7 @@ Router = Backbone.Router.extend({
         if (browser && browser.toLowerCase() == 'firefox') {
             window.location = '/';
         } else {
-            App.navigate('');
+            App.navigate('', { trigger: true });
         }
     },
     
@@ -156,26 +156,35 @@ Router = Backbone.Router.extend({
     },
 
     listsEdit: function (id) {
-        this.setup();
-        this.currentView = new ListsEditView({ 
-            el: '#main_container',
-            model: new List({
-                id: id,
-                updated_at: new Date()
-            })
-        });
+        if (CurrentUser.logged_in()) {
+            this.setup();
+            this.currentView = new ListsEditView({ 
+                el: '#main_container',
+                model: new List({
+                    id: id,
+                    updated_at: new Date()
+                })
+            });
+        } else {
+            App.navigate('', { trigger: true });App.navigate('', { trigger: true });
+        }
     },
 
     listsNew: function () {
+        console.log(foo)
         this.setup();
-        this.currentView = new ListsEditView({ 
-            el: '#main_container',
-            model: new List({
-                title: CurrentUser.get('full_name') + '\'s Favorite Spots',
-                description: CurrentUser.get('full_name') + '\'s Favorite Spots List.',
-                updated_at: new Date()
-            })
-        });
+        if (CurrentUser.logged_in()) {
+            this.currentView = new ListsEditView({ 
+                el: '#main_container',
+                model: new List({
+                    title: CurrentUser.get('full_name') + '\'s Favorite Spots',
+                    description: CurrentUser.get('full_name') + '\'s Favorite Spots List.',
+                    updated_at: new Date()
+                })
+            });
+        } else {
+            App.navigate('', { trigger: true });
+        }
     },
 
     listsShow: function (id) {

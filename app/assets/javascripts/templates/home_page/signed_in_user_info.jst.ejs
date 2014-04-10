@@ -7,7 +7,9 @@
 
     <div id='current_user_info_container'>
         <a href="[[= get('url') ]]" class='nav name'>[[= get('full_name') ]]</a>
-        <p>[[= get('location') ]]</p>
+        [[ if (get('location')) { ]]
+            <p>[[= get('location') ]]</p>
+        [[ } ]]
     </div>
 
     <br class='clear'>

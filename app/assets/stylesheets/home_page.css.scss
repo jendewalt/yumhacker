@@ -3,10 +3,12 @@ body.yumhacker {
     $dark-magenta: #d9114a;
     $blue: #0d70eb;
     $green: #2BA81C;
+    $dark-green: #15510d;
     $dark-blue: #094da1;
     $dark-grey: #313136;
     $mid-grey: #737378;
     $light-grey: #c1c1c3;
+    $lighter-grey: #E0E0E3;
     $x-light-grey: #F1F1F3;
     $input-glow: rgba(233, 19, 103, 0.2);
 
@@ -22,18 +24,35 @@ body.yumhacker {
         #create_list_container {
             padding: 20px;
 
+            h1 {
+                line-height: 22px;
+                font-size: 20px;
+                color: $blue;
+            }
+
+            h3 {
+                padding-top: 10px;
+                line-height: 28px;
+                font-size: 18px;
+                color: $dark-grey;
+            }
+
             p {
-                margin-bottom: 12px;
-                line-height: 24px;
+                padding-left: 10px;
+                text-align: left;
+                font-size: 13px;
+                color: $mid-grey;
+                border-bottom: 1px solid $lighter-grey;
             }
 
             #home_page_new_list_btn_container {
 
                 .new_list_btn {
-                    width: 260px;
-                    height: 50px;
-                    line-height: 50px;
-                    font-size: 22px;
+                    width: 192px;
+                    height: 40px;
+                    margin: 12px auto 28px;
+                    line-height: 40px;
+                    font-size: 16px;
                 }
             }
         }
@@ -42,19 +61,20 @@ body.yumhacker {
             margin-top: 30px;
 
             h1 {
-                font-size: 30px;
-                line-height: 38px;
+                font-size: 34px;
+                line-height: 48px;
                 margin-bottom: 16px;
             }
 
             h3 {
-                line-height: 20px;
+                line-height: 24px;
                 font-size: 16px;
-                color: $mid-grey;
+                color: #737378;
+                padding: 0 28px;
             }
 
             #signed_out_user_info_container {
-                padding: 30px;
+                padding: 30px 10px;
                 
                 #home_page_login_buttons {
                     margin-top: 30px;

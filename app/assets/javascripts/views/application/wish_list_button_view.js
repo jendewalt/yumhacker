@@ -26,7 +26,11 @@ ApplicationWishListButtonView = Backbone.View.extend({
 
     addToWishList: function (e) {
         e.preventDefault();
-        this.wish_list_btn.wishList();
-        this.model.set('wish_listed', true);
+        if (CurrentUser.logged_in()) {
+            this.wish_list_btn.wishList();
+            this.model.set('wish_listed', true);            
+        } else {
+            CurrentUser.authenticate();
+        }
     }
 });
