@@ -25,7 +25,7 @@ ListsEditListInfoView = Backbone.View.extend({
 
     updateListInfo: function (establishment) {
         // Set the List model attrs on client
-        var title = this.model.get('wish_list') ? 'Wish List' : $('#title_input').val();
+        var title = this.model.get('type') === 'WishList' ? this.model.get('title') : $('#title_input').val();
         var description = $('#description_input').val();
 
         if (title.length > 255) {
@@ -36,7 +36,6 @@ ListsEditListInfoView = Backbone.View.extend({
                 'description': description
             });             
         }
-
     },
 
     saveList: function (establishment) {

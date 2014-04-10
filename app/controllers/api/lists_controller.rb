@@ -32,7 +32,7 @@ class Api::ListsController < ApplicationController
   end
   
   def show
-    @list = List.find(params[:id])
+    @list = List.friendly.find(params[:id])
   end
   
   def create

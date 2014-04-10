@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140327034305) do
+ActiveRecord::Schema.define(version: 20140410043821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -183,10 +183,12 @@ ActiveRecord::Schema.define(version: 20140327034305) do
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "lists", ["created_at"], :name => "index_lists_on_created_at"
   add_index "lists", ["favoritizations_count"], :name => "index_lists_on_favoritizations_count"
+  add_index "lists", ["slug"], :name => "index_lists_on_slug"
   add_index "lists", ["type"], :name => "index_lists_on_type"
   add_index "lists", ["updated_at"], :name => "index_lists_on_updated_at"
   add_index "lists", ["user_id"], :name => "index_lists_on_user_id"

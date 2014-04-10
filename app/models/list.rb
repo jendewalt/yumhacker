@@ -15,8 +15,9 @@ class List < ActiveRecord::Base
   def slug_candidates
       [
         :title,
-        [:title, :user],
-        # [:title, :street, :city],
+        [user.full_name, :title],
+        [user.full_name, user.location, :title],
+        [user.full_name, user.location, :title, user.id]
       ]
   end
 
@@ -25,10 +26,14 @@ class List < ActiveRecord::Base
   end
 
   def path
-    'lists/' + id.to_s
+    'lists/' + slug
   end
 
   def edit_path
     path + '/edit'
+  end
+
+  def should_generate_new_friendly_id?
+    title_changed?
   end
 end
