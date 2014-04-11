@@ -9,6 +9,8 @@ class List < ActiveRecord::Base
   has_many :imageables, :dependent => :destroy
   has_many :photos, :through => :imageables
 
+  validates :title, :presence => true
+
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
   

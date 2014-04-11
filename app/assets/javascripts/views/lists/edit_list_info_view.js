@@ -30,6 +30,8 @@ ListsEditListInfoView = Backbone.View.extend({
 
         if (title.length > 255) {
             alert('Your title is too long. Titles are limited to 255 characters.');
+        } else if (title.length <= 5) {
+            alert('Your title is too short. Title your list something descriptive to help other YumHackers find it!');            
         } else {
             this.model.set({ 
                 'title': title,

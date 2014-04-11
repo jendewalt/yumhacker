@@ -1,6 +1,6 @@
 class Api::ListsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:create, :update, :delete]
-  before_filter :authorize, :only => [:update, :delete]
+  before_filter :authenticate_user!, :only => [:create, :update, :destroy]
+  before_filter :authorize, :only => [:update, :destroy]
 
   def index
     page = params[:page] || 1
@@ -41,7 +41,7 @@ class Api::ListsController < ApplicationController
 
     description = params[:description].strip if params[:description]
 
-    @list = current_user.custom_lists.new(title: title, description: description)
+    @list = current_user.custom_lists.new(title: title, description: description) unless title.blank?
 
     begin
       @list.save
