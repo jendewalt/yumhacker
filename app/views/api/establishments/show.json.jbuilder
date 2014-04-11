@@ -18,8 +18,6 @@ json.hours @establishment.hours
 json.lat @establishment.latlng.lat
 json.lng @establishment.latlng.lon
 
-json.number_endorsements @establishment.endorsements.count
-
 json.categories @establishment.categories do |category|
     json.name category.name
     json.id category.id

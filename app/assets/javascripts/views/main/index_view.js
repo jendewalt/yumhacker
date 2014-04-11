@@ -72,9 +72,9 @@ MainIndexView = Backbone.View.extend({
         var category = include_category ? Filter.get('category_name') + ' ' : '';
 
         if (location !== 'Current Location') {
-            this.title = 'YumHacker | Find ' + category + 'restaurants endorsed by people you trust | ' + Client.get('formatted_address');
+            this.title = 'YumHacker | Find ' + category + 'restaurants recommended by people you trust | ' + Client.get('formatted_address');
 
-            this.description = 'Find ' + Client.get('formatted_address') + ' restaurants and bars endorsed by people you trust. Get restaurant and bar photos, reviews, hours and more!';
+            this.description = 'Find and share the best restaurants and bars in ' + Client.get('formatted_address') + ' recommended by people you trust. Create lists of your favorite restaurants to share and see the places other foodies think are the best. Get restaurant and bar photos, reviews, hours and more!';
 
             App.eventAggregator.trigger('domchange:title', this.title);
             App.eventAggregator.trigger('domchange:description', this.description);            

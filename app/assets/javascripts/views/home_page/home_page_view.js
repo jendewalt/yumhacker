@@ -54,7 +54,7 @@ HomePageView = Backbone.View.extend({
     changeHeadInfo: function (include_category) {
         this.title = 'YumHacker | Find restaurants recommended by people you trust | ' + Client.get('formatted_address');
 
-        this.description = 'Find and share the best restaurants and bars in ' + Client.get('formatted_address') + ' recommended by people you trust. Create lists of your favorite restaurants to share and see what places other foodies think are the best. Get restaurant and bar photos, reviews, hours and more!';
+        this.description = 'Find and share the best restaurants and bars in ' + Client.get('formatted_address') + ' recommended by people you trust. Create lists of your favorite restaurants to share and see the places other foodies think are the best. Get restaurant and bar photos, reviews, hours and more!';
         
         App.eventAggregator.trigger('domchange:title', this.title);
         App.eventAggregator.trigger('domchange:description', this.description);            

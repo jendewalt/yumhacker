@@ -21,6 +21,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   def after_sign_up_path_for(resource)
     resource.automatic_relationships!
+    resource.wish_lists.create(title: resource.full_name + '\'s Wish List')
+
     root_path
   end
 end

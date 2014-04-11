@@ -13,6 +13,7 @@ EstablishmentsShowListsIndexListView = Backbone.View.extend({
     },
 
     render: function () {
+        this.changeHeadInfo();
         if (this.collection.length > 0) {
             this.$el.html('');
 
@@ -48,5 +49,13 @@ EstablishmentsShowListsIndexListView = Backbone.View.extend({
     updateCollection: function (e) {
         var params = this.collection.predicate();
         this.collection.fetch({ reset: true, data: params });
+    },
+
+    changeHeadInfo: function () {
+        this.title = this.model.get('name') + ' | ' + this.model.get('city') + ' Restaurants | YumHacker';       
+        this.description = this.model.get('name') + ' is recommended on ' + this.collection.length + ' Yum Lists on YumHacker.'
+
+        App.eventAggregator.trigger('domchange:title', this.title);
+        App.eventAggregator.trigger('domchange:description', this.description);
     }
 });

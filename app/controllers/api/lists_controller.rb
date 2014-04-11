@@ -62,7 +62,6 @@ class Api::ListsController < ApplicationController
   end
 
   def update
-    # @list = List.find(params[:id])
     @list.title = params[:title] if @list.type == 'CustomList'
     @list.description = params[:description]
     @imageable = @list.imageables.where(list_id: @list.id).first
