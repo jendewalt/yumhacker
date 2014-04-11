@@ -14,6 +14,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     @user = User.where(:provider => auth[:provider], :uid => auth[:uid]).first
     
+    
     if @user
       @user.update(token: auth[:token]) unless @user.token == auth[:token]
       sign_in_and_redirect @user, :event => :authentication
@@ -24,9 +25,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           redirect_to new_user_session_path
         else
 
-
           token = auth[:token]
           email = auth[:email] if auth[:email] && auth[:email].include?('@')
+
 
           if email
             user = User.create({ first_name: auth[:first_name],
@@ -39,9 +40,15 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
                                  token: token
                                })
             begin
-              user.avatar = URI.parse(auth[:image])
+              facebook_image_uri = URI.parse(auth[:image])
+              fb_img_res = Net::HTTP.get_response(facebook_image_uri)
+              if fb_img_res.code == '301' || fb_img_res.code == '302'
+                facebook_image_uri = URI.parse(fb_img_res.header['location'])
+              end
+              user.avatar = facebook_image_uri
               user.save
               user.automatic_relationships!
+              user.default_lists!
             rescue
             end
 

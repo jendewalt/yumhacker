@@ -118,6 +118,10 @@ class User < ActiveRecord::Base
     jen.follow!(id)
   end
 
+  def default_lists!
+    wish_lists.create(title: self.full_name + '\'s Wish List')
+  end
+
   def admin?
     admin
   end
