@@ -52,7 +52,7 @@ ListsShowView = Backbone.View.extend({
         });
     },
 
-    changeHeadInfo: function (include_category) {
+    changeHeadInfo: function () {
         this.title = this.model.get('title') + ' | ' + this.model.get('user_full_name') + ' | YumHacker';
 
         this.description = this.model.get('description') + ' Find and share the best restaurants and bars in ' + Client.get('formatted_address') + ' recommended by people you trust. Create lists of your favorite restaurants to share and see the places other foodies think are the best. Get restaurant and bar photos, reviews, hours and more!';

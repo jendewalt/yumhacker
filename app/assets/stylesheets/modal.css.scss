@@ -185,7 +185,54 @@ body.yumhacker {
                         margin-top: 10px;
                     }
                 }
+            }
 
+            #caption_form_container {
+                padding: 30px;
+            
+                h1 {
+                    margin-bottom: 20px;
+                    line-height: 20px;
+                    font-size: 20px;
+                    text-transform: uppercase;
+                }
+
+                img {
+                    border: 10px solid $mid-grey;
+                }
+
+
+                #caption_form {
+
+                    input, textarea {
+                        display: block;
+                        margin: auto;
+
+                        &[type='submit'] {
+                            margin: 10px auto;
+                        }
+                    }
+
+                    textarea {
+                        width: 400px;
+                        margin-top: 20px;
+                    }
+
+                    #char_counter {
+                        font-size: 13px;
+                        padding: 10px;
+                    }
+
+                    .skip {
+                        font-size: 13px;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: $blue;
+                            text-decoration: underline;
+                        }
+                    }
+                }
             }
 
             #edit_list_image_selector_container {
@@ -204,6 +251,7 @@ body.yumhacker {
                         .upload_throbber_container {
                             position: absolute;
                             left: 10px;
+                            top:0;
 
                             .throbber {
                                 padding: 4px;

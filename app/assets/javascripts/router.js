@@ -127,6 +127,7 @@ Router = Backbone.Router.extend({
     },
 
     editProfile: function () {
+        console.log('hola dude')
         this.currentView = new UsersEditView({ el: 'section div' });
     },
 

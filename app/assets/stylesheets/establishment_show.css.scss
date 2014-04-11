@@ -95,64 +95,6 @@ body.yumhacker {
                         }
                     }
                 }
-
-                #upload_image_form_container {
-
-                    #upload_caption_form_container {
-                        display: none;
-                        position: absolute;
-                        z-index: 10;
-                        top: 0;
-                        left: 0;
-                        bottom: 0;
-                        right: 0;
-                        text-align: center;
-                        background-color: rgba(255, 255, 255, 0.96);
-
-                        #caption_form_container {
-                            margin: 50px auto;
-                        
-                            h1 {
-                                margin-bottom: 20px;
-                                line-height: 20px;
-                                font-size: 20px;
-                                text-transform: uppercase;
-                            }
-
-                            img {
-                                border: 10px solid $mid-grey;
-                            }
-
-
-                            #caption_form {
-
-                                input {
-                                    display: block;
-                                    margin: auto;
-
-                                    &[type='text'] {
-                                        width: 400px;
-                                        margin-top: 20px;
-                                    }
-
-                                    &[type='submit'] {
-                                        margin: 20px auto;
-                                    }
-                                }
-
-                                .skip {
-                                    font-size: 13px;
-                                    cursor: pointer;
-
-                                    &:hover {
-                                        color: $blue;
-                                        text-decoration: underline;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
             }
         }
 

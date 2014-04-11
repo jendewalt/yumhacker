@@ -24,12 +24,9 @@ ListsEditListPhotoUploadImageFormView = Backbone.View.extend({
         }
     },
 
-    triggerSubmitPhoto: function (e) {
-        this.upload_throbber_view.$el.show();
-        this.model.trigger('submit_photo', e);
-    },
-
     submitPhoto: function (e) {
+        // TODO: Shut down selection interface while image is uploading
+        $('.throbber').show();
         this.model.save({}, { success: $.proxy( function () { this.savePhoto(e) }, this) });
     },
 

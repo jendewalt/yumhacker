@@ -17,7 +17,7 @@ ListsEditListingCommentView = Backbone.View.extend({
         this.$('textarea').addClass('flash');
         setTimeout(function () {
             this.$('textarea').removeClass('flash');
-        }, 150);
+        }, 200);
 
         var body = $.trim(e.target[0].value);
 
