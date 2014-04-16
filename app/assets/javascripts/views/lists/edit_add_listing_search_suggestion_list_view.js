@@ -34,5 +34,6 @@ ListsEditAddListingSearchSuggestionListView = Backbone.View.extend({
     navigate: function (e) {
         e.preventDefault();
         App.navigate(e.target.pathname, { trigger: true });
+        ModalView.hide();
     }
 });
