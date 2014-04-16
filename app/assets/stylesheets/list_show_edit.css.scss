@@ -6,6 +6,7 @@ body.yumhacker {
     $dark-green: #15510d;
     $dark-blue: #094da1;
     $dark-grey: #313136;
+    $dark-mid-grey: #555560;
     $mid-grey: #737378;
     $light-grey: #c1c1c3;
     $lighter-grey: #E0E0E3;
@@ -123,15 +124,20 @@ body.yumhacker {
         }
 
         #list_description_container {
-            padding: 20px;
+            padding: 20px 30px;
             text-align: left;
+            line-height: 30px;
+            font-size: 18px;
+            color: $dark-mid-grey;
 
             textarea {
                 width: 100%;
                 max-width: 100%;
                 height: 60px;
-                line-height: 24px;
-                font-size: 16px;
+                line-height: 30px;
+                font-size: 18px;
+                color: $dark-mid-grey;
+                padding: 0px 5px;
             }
         }
 
@@ -161,10 +167,11 @@ body.yumhacker {
             .content_container {
                 display: inline-block;
                 width: 100%;
-                line-height: 24px;
+                line-height: 26px;
                 font-size: 16px;
                 vertical-align: top;
                 padding: 18px 26px;
+                color: $dark-mid-grey;
 
                 .comment_form {
                     textarea {

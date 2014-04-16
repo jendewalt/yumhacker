@@ -8,7 +8,7 @@ ListsEditDescriptionView = Backbone.View.extend({
 
         if (desc === null || desc.length === 0 ) {
             if (this.model.get('type') === 'CustomList') {
-                desc = this.model.get('user_first_name') + '\'s ' + this.model.get('title') + ' list.';
+                desc = 'These are some bars and restaurants I totally dig.';
             } else {
                 desc = this.model.get('user_first_name') + '\'s Wish List of places to scope out.';                
             }
