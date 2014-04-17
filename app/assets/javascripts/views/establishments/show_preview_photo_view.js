@@ -1,4 +1,4 @@
-EstablishmentShowPreviewPhotosContainerView = Backbone.View.extend({
+EstablishmentShowPreviewPhotoView = Backbone.View.extend({
     events: {
         'click #preview_photos_container': 'navigate'
     },
@@ -15,7 +15,7 @@ EstablishmentShowPreviewPhotosContainerView = Backbone.View.extend({
     },
 
     render: function (e) {
-        this.$el.html(render('establishments/show_establishment_preview_photos_container', this.model));
+        this.$el.html(render('establishments/show_establishment_preview_photo', this.model));
     },
 
     changePhoto: function () {

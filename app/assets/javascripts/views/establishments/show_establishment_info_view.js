@@ -14,7 +14,7 @@
             model: this.model
         }); 
         
-        this.establishment_show_establishment_info_photo_view = new EstablishmentShowPreviewPhotosContainerView({
+        this.preview_photo_view = new EstablishmentShowPreviewPhotoView({
             el: '#establishment_photos_container',
             model: this.model
         });

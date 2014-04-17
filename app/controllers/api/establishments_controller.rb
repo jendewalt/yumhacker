@@ -53,8 +53,7 @@ class Api::EstablishmentsController < ApplicationController
 	end
 
   def show
-    @establishment = Establishment.includes(:hours).friendly.find(params[:id])
-    @photo_url = @establishment.photos.first.image.url(:small) unless @establishment.photos.last.nil?
+    @establishment = Establishment.includes(:hours).includes(:photos).friendly.find(params[:id])
   end
 
   def create

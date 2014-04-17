@@ -39,10 +39,6 @@ class Api::PhotosController < ApplicationController
     end
   end
 
-  def preview_photos
-    @photos = Establishment.find(params[:establishment_id]).photos.order('created_at DESC').limit(4)
-  end
-
   def destroy 
     if @photo.destroy
       render json: { success: true }
