@@ -12,7 +12,7 @@ class Api::ListingsController < ApplicationController
     establishment_id = params[:establishment_id]
     @listing = @list.listings.new(establishment_id: establishment_id, user_id: current_user.id)
 
-    current_user.endorse!(establishment_id) unless current_user.endorsing?(establishment_id) || params[:wish_list]
+    current_user.endorse!(establishment_id) unless current_user.endorsing?(establishment_id) || @list.type == 'WishList'
    
     begin 
       @list.save
