@@ -1,0 +1,69 @@
+<table id="main" style="margin: 0;padding: 10px;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;background-color: #F1F1F3;">
+    <tbody style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+        <tr class="width" style="margin: auto;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;width: 662px;"><td class="magenta border top" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;height: 5px;background-color: #e91367;"></td></tr>
+        <tr class="width" style="margin: auto;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;width: 662px;">
+            <td style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                <table id="heading_content" style="margin: 0;padding: 10px;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #e91367;background-color: white;text-align: right;">
+                    <tbody style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                        <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                            <td class="logo" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                                <a href="http://yumhacker.com" style="color: #0d70eb;text-decoration: none;">
+                                    <%= image_tag 'email_logo.png', :alt => 'YumHacker' %>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                            <td class="grey border thin" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;height: 1px;background-color: #d1d1d6;margin-top: 10px;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table id="message_content" style="margin: 0;padding: 0px 30px 20px;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;background-color: white;">
+                    <tbody style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                        <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                            <td class="greeting message" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;line-height: 40px;">Hi <%= @user.first_name %>!</td>
+                        </tr>
+                        
+                        <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                            <td class="message" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;line-height: 40px;">
+                                <% if @list.favorited_by.length > 1 %>
+                                    You're list, <a href='<%= "http://yumhacker.com/lists/" + @list.slug %>' style="color: #0d70eb;text-decoration: none;"><%= @list.title %></a>, has been favorited by <%= @list.favorited_by.length.to_s %> new people.
+                                <% else %>
+                                    You're list, <a href='<%= "http://yumhacker.com/lists/" + @list.slug %>' style="color: #0d70eb;text-decoration: none;"><%= @list.title %></a>, has been favorited by <%= @list.favorited_by.first.full_name %>.
+                                <% end %>
+                            </td>
+                        </tr>
+                        <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                            <td class="message" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;line-height: 40px;">
+                                <table id="followers_container" style="margin: 0;padding: 20px 0 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                                    <tbody style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                                        <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+
+                                        <% @list.favorited_by.each do |user| %>
+                                            <td class="follower" style="margin: 10px -2px;padding: 0 0 20px;display: inline-block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;width: 150px;vertical-align: top;word-break: break-word;line-height: 18px;word-wrap: break-word;text-align: center;">
+                                                <a href="<%= "http://yumhacker.com/" + user.path %>" style="color: #0d70eb;text-decoration: none;font-size: 13px;line-height: 18px;display: block;">
+                                                    <img alt='<%= user.full_name %>' src="<%= 'http://yumhacker.com' + user.avatar.url(:small) %>" style='height: 100px; width:100px;'>
+                                                </a>
+                            
+                                                <a href="<%= "http://yumhacker.com/" + user.path %>" style="color: #0d70eb;text-decoration: none;font-size: 13px;line-height: 18px;display: block;"><%= user.full_name %></a>
+                                            </td>
+                                        <% end %>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                            <td class="message" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;line-height: 40px;">
+                                View your list on <a href="<%= "http://yumhacker.com/list/" + @list.slug %>" style="color: #0d70eb;text-decoration: none;">YumHacker</a>.
+                            </td>
+                        </tr>
+                        <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
+                            <td class="message valediction" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;line-height: 40px;">Cheers!</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

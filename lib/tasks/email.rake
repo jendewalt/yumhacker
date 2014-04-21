@@ -8,4 +8,14 @@ namespace :email do
       UserMailer.new_followers(user).deliver
     end
   end
+
+  desc 'Send daily email to users whose lists have been favorited'
+  task :new_favorites => :environment do
+
+    lists_with_new_favoritizations = List.includes(:favorited_by).where('favoritizations.created_at > ? AND favoritizations.created_at <= ?', Time.now.utc.midnight + 13.hours - 1.day, Time.now.utc.midnight + 13.hours).references(:favoritizations)
+
+    lists_with_new_favoritizations.each do |list| 
+      UserMailer.new_favorites(list).deliver
+    end
+  end
 end

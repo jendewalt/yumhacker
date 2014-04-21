@@ -12,4 +12,16 @@ class UserMailer < ActionMailer::Base
     mail(to: "#{@user.first_name} #{@user.last_name} <#{@user.email}>", subject: subject)
   end
 
+  def new_favorites(list)
+    @list = list
+    @user = list.user
+
+    subject = if @list.favorited_by.length > 1
+      "#{@user.followers.length} people have favorited your list on YumHacker"
+    else
+      'A new person has favorited your list on YumHacker'
+    end
+    mail(to: "#{@user.first_name} #{@user.last_name} <#{@user.email}>", subject: subject)
+  end
+
 end
