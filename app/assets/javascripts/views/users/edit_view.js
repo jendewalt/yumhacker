@@ -5,12 +5,10 @@ UsersEditView = Backbone.View.extend({
     },
 
     initialize: function () {
-        console.log('hello')
         $('textarea').autosize();
     },
 
     openChangePasswordFields: function (e) {
-        console.log('hola')
         e.preventDefault();
         e.stopPropagation();
         $('#password_fields').show();
