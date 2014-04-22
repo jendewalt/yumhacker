@@ -266,6 +266,14 @@ body.yumhacker {
         #home_page_lists_container {
             margin-top: 30px;
             text-align: left;
+
+            .favorite_btn_container {
+                float: right;
+
+                .btn.text {
+                    width: 84px;
+                }
+            }
         }
 
     }
