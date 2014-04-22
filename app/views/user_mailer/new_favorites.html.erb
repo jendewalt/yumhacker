@@ -27,9 +27,9 @@
                         <tr style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;">
                             <td class="message" style="margin: 0;padding: 0;display: block;font-family: &quot;Avant Garde&quot;, Avantgarde, &quot;Century Gothic&quot;, CenturyGothic, &quot;AppleGothic&quot;, sans-serif;letter-spacing: 1px;color: #737378;line-height: 40px;">
                                 <% if @list.favorited_by.length > 1 %>
-                                    You're list, <a href='<%= "http://yumhacker.com/lists/" + @list.slug %>' style="color: #0d70eb;text-decoration: none;"><%= @list.title %></a>, has been favorited by <%= @list.favorited_by.length.to_s %> new people.
+                                    Your list, <a href='<%= "http://yumhacker.com/lists/" + @list.slug %>' style="color: #0d70eb;text-decoration: none;"><%= @list.title %></a>, has been favorited by <%= @list.favorited_by.length.to_s %> new people.
                                 <% else %>
-                                    You're list, <a href='<%= "http://yumhacker.com/lists/" + @list.slug %>' style="color: #0d70eb;text-decoration: none;"><%= @list.title %></a>, has been favorited by <%= @list.favorited_by.first.full_name %>.
+                                    Your list, <a href='<%= "http://yumhacker.com/lists/" + @list.slug %>' style="color: #0d70eb;text-decoration: none;"><%= @list.title %></a>, has been favorited by <%= @list.favorited_by.first.full_name %>.
                                 <% end %>
                             </td>
                         </tr>

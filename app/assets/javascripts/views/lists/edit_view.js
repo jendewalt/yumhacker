@@ -40,6 +40,7 @@ ListsEditView = Backbone.View.extend({
         MainGoogleMap.map.getStreetView().setVisible(false);
         // This needs to be here if MainGoogleMap already exists because new collection is created above
         MainGoogleMap.collection = this.model.listings;
+        MainGoogleMap.render();
         this.listenTo(this.model.listings, 'reset', function () { MainGoogleMap.render(); });
         this.listenTo(this.model.listings, 'add', function () { MainGoogleMap.render(); });
         this.listenTo(this.model.listings, 'remove', function () { MainGoogleMap.render(); });

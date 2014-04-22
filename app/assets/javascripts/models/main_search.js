@@ -4,6 +4,7 @@ MainSearch = new (Backbone.Model.extend({
     },
 
     geocode: function (query) {
+        console.log('main seach geocode')
         this.query = query;
         this.googleGeocoder.geocode( { 'address': query }, $.proxy(this.updatePositionFromGeocoder, this));
     },

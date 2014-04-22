@@ -18,10 +18,12 @@ json.lists @lists do |list|
     else
         json.small_url list.photos.last.image.url(:small)
     end
+
     json.user_id list.user_id
     json.user_full_name list.user.full_name
     json.user_thumb_url list.user.avatar.url(:thumb)
     json.user_path list.user.path
+    json.user_location list.user.location
 
     json.user_favoriting current_user ? current_user.favoriting?(list) : false
 end

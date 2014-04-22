@@ -15,8 +15,6 @@ EstablishmentSearch = new (Backbone.Model.extend({
         if (typeof params.lng != 'undefined') this.set('lng', Number(params.lng));
 
         this.googleGeocoder = new google.maps.Geocoder();
-
-        // this.on('change', this.writeCookie, this);
     },
 
     writeCookie: function () {

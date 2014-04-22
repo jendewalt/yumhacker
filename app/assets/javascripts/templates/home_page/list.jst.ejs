@@ -17,7 +17,7 @@
 
             <div class="list_user_text">
                 <a class='list_user_name nav' href="/[[= get('user_path') ]]">[[= get('user_full_name') ]]</a>
-                <!-- <p>Updated [[= get('formatted_time') ]]</p> -->
+                <p>[[- get('user_location') ? get('user_location') : '' ]]</p>
             </div>
         </div>
     </div>
