@@ -17,6 +17,10 @@ HeaderView = Backbone.View.extend({
             el: '#current_location_container'
         });
 
+        this.header_search_view = new HeaderSearchOptionsView({
+            el: '#search_options_container'
+        });
+
         this.new_list_view = new NewListButtonView({
             el: '#new_list_btn_container'
         });

@@ -127,6 +127,21 @@ body.yumhacker {
                     }
                 }
             }
+
+            #search_options_container {
+                position: relative;
+                text-align: right;
+
+                .sub_menu {
+                    // visibility: hidden;
+                    li {
+                        display: block;
+                        float: none;
+
+                    }
+
+                }
+            }
         }
     }
 
