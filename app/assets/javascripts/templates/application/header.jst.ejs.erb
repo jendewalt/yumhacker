@@ -7,9 +7,6 @@
 
     <div id="navigation_links_container">
         <ul class='user_nav'>
-            <li id='search_options_container'>
-                <!-- <a href='/users/search' class='nav'>Find Friends</a> -->
-            </li>
 
             [[ if (CurrentUser.logged_in()) { ]]
 
@@ -20,12 +17,15 @@
                 <li>
                     <a class="nav user name" href="/[[= CurrentUser.get('path') ]]">[[= CurrentUser.get('first_name') ]]</a>
                 </li>
+                
+                <li id='search_options_container'></li>
 
                 <li>
                     <a data-method="delete" href="/users/sign_out" rel="nofollow">Sign Out</a>
                 </li>
 
             [[ } else { ]]
+                <li id='search_options_container'></li>
                 
                 <li>
                     <a href="/users/sign_in" >Sign In</a>

@@ -1,0 +1,21 @@
+<div class='establishment_info'>
+    [[ if (get('path')) { ]]
+        <a class='biz_name' href='[[= "/" + get("path") ]]'>[[= get('name') ]]</a>
+    [[ } else { ]]
+        <div class='biz_name'>[[= get('name') ]]</div>
+    [[ } ]]
+
+    <div class='details'>[[= get('formatted_address') ]]</div>
+</div>
+
+<div class='establishment_action_btn_container'>
+    <div class='add_to_list_btn_container'>
+        <a class='create_btn add_to_list_btn btn unengaged text' data-action='add_to_list'>Add to List</a>
+    </div>
+
+    <div class='wish_list_btn_container'>
+        <a class='create_btn wish_list_btn green_btn btn unengaged text' data-action='wish_list'>Wish List</a>
+    </div>
+</div>
+        
+<br class='clear'>

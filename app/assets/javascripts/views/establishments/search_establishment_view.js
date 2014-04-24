@@ -6,24 +6,48 @@ EstablishmentsSearchEstablishmentView = Backbone.View.extend({
 	initialize: function () {
 		this.render();
 		this.listenTo(this.model, 'sync', this.render);
+
+		if (this.model.get('id')) {
+			this.application_wish_list_button_view = new ApplicationWishListButtonView({ 
+	            el: this.$('.wish_list_btn_container'),
+	            model: this.model
+	        }); 
+
+	        this.add_to_list_button_view = new ApplicationAddToListButtonView({ 
+	            el: this.$('.add_to_list_btn_container'),
+	            model: this.model
+	        });	
+		}
 	},
 
 	render: function () {
 		this.$el.html(render('establishments/search_establishment', this.model));
-
-		if (this.model.get('id')) {
-			this.application_endorse_button_view = new ApplicationEndorseButtonView({ 
-	            el: this.$('.endorse_btn_container'),
-	            establishment: this.model 
-	        });				
-		}
 	},
 
-	create: function () {
+	create: function (e) {
+		var action = e.currentTarget.dataset.action; // 'wish_list' or 'add_to_list'
 		if (CurrentUser.logged_in()) {
-			this.model.save();
+			if (action == 'wish_list') {
+				this.model.save({}, { success: $.proxy(this.wishList, this) });
+			} else {
+				this.model.save({}, { success: $.proxy(this.addToList, this) });
+			}
 		} else  {
 			CurrentUser.authenticate();
 		}
+	},
+
+	wishList: function (mod, res) {
+		// TODO: Toggle the wish list button
+		this.new_wish_list_listing = new Listing({
+			url: '/api/lists/' + this.model.get('wish_list_id') + '/listings/',
+            establishment_id: this.model.get('id'),
+            list_id: this.model.get('wish_list_id')
+		});
+	},
+
+	addToList: function (mod, res) {
+		console.log('hello')
+		console.log(this.model);
 	}
 });

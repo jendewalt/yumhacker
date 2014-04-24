@@ -105,7 +105,7 @@ body.yumhacker {
 
                     a.name {
                         padding-right: 10px;
-                        border-right: 1px solid $light-grey;
+                        // border-right: 1px solid $light-grey;
                         max-width: 200px;
                         white-space: nowrap;
                         overflow: hidden;
@@ -128,50 +128,71 @@ body.yumhacker {
                 }
 
                 #search_options_container {
+                    padding: 0;
+
                     ul.dropdown { 
                         position: relative; 
-                        text-align: left;
+                        text-align: right;
+                        z-index: 20;
 
                         li { 
+                            padding: 0;
                             font-weight: bold; 
                             float: left; 
                             zoom: 1; 
                             
                             a { 
                                 display: block; 
-                                padding-right: 10px; 
-                                padding-right: 10px; 
+                                padding-right: 10px;
+                                padding-left: 10px;
+                                border-right: 1px solid $light-grey;
+                                border-left: 1px solid $light-grey;
+
                             }
 
                             &.hover, &:hover { 
+                                background: $x-light-grey; 
+                                position: relative;
+                                color: white;
+                                box-shadow: 0 -1px $light-grey;
+                            }
+                        
+                            &:hover > ul   { visibility: visible; }
+                        }
+                        
+                        ul { 
+                            visibility: hidden; 
+                            position: absolute; 
+                            top: 100%; 
+                            right: 0; 
+                            width: 150px; 
+                            border-top: 1px solid $light-grey;
+                            
+                            li { 
+                                font-weight: normal; 
                                 background: white; 
                                 color: $dark-grey; 
-                                position: relative;
-                                
-                                a { color: $dark-grey; }
-                            }
-                        }
+                                border-bottom: 1px solid $light-grey; 
+                                float: none; 
 
-                        a:hover { color: #000; }
-                        a:active { color: #ffa500; }
+                                &:hover {
+                                    background: $x-light-grey; 
+                                }
+                                
+                                a { 
+                                    display: inline-block; 
+                                    width: 100%; 
+                                    padding-left: 10px; 
+                                    color: $mid-grey; 
+                                    
+                                    &:hover { color: $blue; }
+                                } 
+                            }
+                            
+                            ul { left: 100%; top: 0; }
+                        }
                     }
 
-
-                    /* 
-                        LEVEL TWO
-                    */
-                    ul.dropdown ul              { width: 220px; visibility: hidden; position: absolute; top: 100%; left: 0; }
-                    ul.dropdown ul li           { font-weight: normal; background: #f6f6f6; color: #000; 
-                                                          border-bottom: 1px solid #ccc; float: none; }
-                                                          
-                                                        /* IE 6 & 7 Needs Inline Block */
-                    ul.dropdown ul li a         { border-right: none; width: 100%; display: inline-block; } 
-
-                    /* 
-                        LEVEL THREE
-                    */
-                    ul.dropdown ul ul           { left: 100%; top: 0; }
-                    ul.dropdown li:hover > ul   { visibility: visible; }
                 }
             }
         }

@@ -15,4 +15,13 @@ json.establishments @establishments do |establishment|
     else
         json.user_endorsing false
     end
+
+    json.wish_list_id current_user.try(:wish_lists).try(:first).try(:id)
+
+    if establishment[:id].nil?
+        json.wish_listed false
+    else
+        json.wish_listed current_user ? current_user.wish_listed?(establishment.id) : false
+    end
+
 end
