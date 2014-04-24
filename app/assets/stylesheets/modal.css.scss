@@ -138,6 +138,33 @@ body.yumhacker {
                 }
             }
 
+            #create_new_list_modal {
+                padding: 30px;
+                margin: auto;
+            
+                #create_new_list_form {  
+                    width: 500px;
+                    margin: 20px auto;
+
+                    #text_fields {
+                        text-align: left;
+                        
+                        label {
+                            vertical-align: bottom;
+                            font-size: 13px;
+                            color: $mid-grey;
+                            display: block;
+                        }
+
+                        .text_input {
+                            width: 500px;
+                            margin-bottom: 20px;
+                            display: block;
+                        }
+                    }
+                }
+            }
+
             #add_to_list_modal_container {
                 padding: 30px;
 
@@ -285,29 +312,6 @@ body.yumhacker {
                 }
             }
 
-            #create_new_list_modal {
-                padding: 30px;
-    
-                form {
-                    margin: 20px auto;
-                    width: 80%;
-                    text-align: left;
-
-                    #save_new_list, label, textarea {
-                        display: block;
-                        margin:auto;
-                    }
-                    label
-
-                    textarea {
-                        width: 100%;
-                        margin: 5px 0 20px;
-                    }
-
-                    #save_new_list {
-                    }
-                }
-            }
         }
     }
 }
