@@ -6,6 +6,10 @@ EstablishmentsSearchEstablishmentView = Backbone.View.extend({
 	initialize: function () {
 		this.render();
 		this.listenTo(this.model, 'sync', this.render);
+	},
+
+	render: function () {
+		this.$el.html(render('establishments/search_establishment', this.model));
 
 		if (this.model.get('id')) {
 			this.application_wish_list_button_view = new ApplicationWishListButtonView({ 
@@ -18,10 +22,6 @@ EstablishmentsSearchEstablishmentView = Backbone.View.extend({
 	            model: this.model
 	        });	
 		}
-	},
-
-	render: function () {
-		this.$el.html(render('establishments/search_establishment', this.model));
 	},
 
 	create: function (e) {
@@ -38,16 +38,26 @@ EstablishmentsSearchEstablishmentView = Backbone.View.extend({
 	},
 
 	wishList: function (mod, res) {
-		// TODO: Toggle the wish list button
+		// TODO: Refactor this nuttiness
 		this.new_wish_list_listing = new Listing({
 			url: '/api/lists/' + this.model.get('wish_list_id') + '/listings/',
             establishment_id: this.model.get('id'),
             list_id: this.model.get('wish_list_id')
 		});
+
+		this.model.set('wish_listed', true);
+		this.new_wish_list_listing.save();
 	},
 
 	addToList: function (mod, res) {
-		console.log('hello')
-		console.log(this.model);
+		// TODO: Refactor this nuttiness
+		if (CurrentUser.logged_in()) {
+            ModalView.show(new ListsAddToListModalView({ 
+                el: '#inner_modal_content',
+                model: this.model
+            }));   
+        } else {
+            CurrentUser.authenticate();
+        }   
 	}
 });
