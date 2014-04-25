@@ -6,7 +6,8 @@ ListsEditView = Backbone.View.extend({
         Location.set('contained_in', 'radius');
         this.model.listings = new ListingsCollection();
         this.model.get('id') ? this.model.fetch({ success: $.proxy(function (model) {
-            if (model.get('user_id') === CurrentUser.get('id')) { 
+            // TODO: Create admin list editor
+            if (model.get('user_id') === CurrentUser.get('id') || CurrentUser.get('admin')) { 
                 this.render();
             } else {
                 App.navigate('', { trigger: true });

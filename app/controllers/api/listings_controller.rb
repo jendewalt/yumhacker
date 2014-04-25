@@ -49,6 +49,6 @@ class Api::ListingsController < ApplicationController
       elsif params[:wish_list]
         @list = current_user.lists.where(wish_list: true).first
       end
-      render nothing: true, status: 401 and return unless @list.user == current_user
+      render nothing: true, status: 401 and return unless @list.user == current_user || current_user.admin?
     end
 end

@@ -101,7 +101,7 @@ class Api::ListsController < ApplicationController
 
     def authorize
       @list = List.find(params[:id])
-      render nothing: true, status: 401 and return unless @list.user == current_user
+      render nothing: true, status: 401 and return unless @list.user == current_user || current_user.admin?
     end
 
 end

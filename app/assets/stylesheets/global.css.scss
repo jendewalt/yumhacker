@@ -468,4 +468,17 @@ body.yumhacker {
         bottom: 10px;
         right: 20px;
     }
+
+    #admin_flag {
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #F8A439; 
+
+        p {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 20px;
+            color: #FFF;
+            letter-spacing: 2px;
+        }
+    }
 }

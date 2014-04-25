@@ -1,4 +1,10 @@
 <div id='list_edit_container' class='sticky_map_container'>
+    [[ if (get('user_id') !== CurrentUser.get('id') && CurrentUser.get('admin')) { ]]
+        <div id='admin_flag' class='card'>
+            <p>EDITING LIST AS ADMIN</p>
+        </div>
+    [[ } ]]
+
     <div id='list_title_container' class='card border'></div>
 
     <div id='columns_container'>

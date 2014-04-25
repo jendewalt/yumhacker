@@ -5,6 +5,7 @@ json.last_name @user.last_name
 json.location @user.location
 json.website @user.website
 json.description @user.description
+json.admin @user.admin?
 
 json.tabs_data ({
     lists: {
