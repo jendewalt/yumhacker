@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
     def check_if_user
       if current_user
-        user = { id: current_user.id, first_name: current_user.first_name, full_name: current_user.full_name, small_url: current_user.avatar.url(:small), thumb_url: current_user.avatar.url(:thumb), path: current_user.path, provider: current_user.provider }
+        user = { id: current_user.id, first_name: current_user.first_name, full_name: current_user.full_name, small_url: current_user.avatar.url(:small), thumb_url: current_user.avatar.url(:thumb), path: current_user.path, admin: current_user.admin, provider: current_user.provider }
         cookies[:current_user] = user.to_json
       else 
         cookies.delete(:current_user)

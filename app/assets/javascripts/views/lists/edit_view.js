@@ -7,8 +7,6 @@ ListsEditView = Backbone.View.extend({
         this.model.listings = new ListingsCollection();
         this.model.get('id') ? this.model.fetch({ success: $.proxy(function (model) {
             // TODO: Create admin list editor
-            console.log(model.get('user_id'))
-            console.log(CurrentUser.get('admin'))
             if (model.get('user_id') === CurrentUser.get('id') || CurrentUser.get('admin')) { 
                 this.render();
             } else {
