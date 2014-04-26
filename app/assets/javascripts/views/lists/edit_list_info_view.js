@@ -66,7 +66,7 @@ ListsEditListInfoView = Backbone.View.extend({
 
         this.model.save({}, 
             { success: function (model) {
-                App.navigate('/lists/' + model.get('id'), { trigger: true }) } 
+                App.navigate('/lists/' + model.get('slug'), { trigger: true }) } 
             });
     },
 

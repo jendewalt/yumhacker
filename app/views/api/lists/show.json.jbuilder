@@ -2,6 +2,7 @@ json.id @list.id
 json.title @list.title
 json.description @list.description
 json.type @list.type
+json.slug @list.slug
 
 if @list.photos.last.nil?
     json.small_url '/no_photo.svg'

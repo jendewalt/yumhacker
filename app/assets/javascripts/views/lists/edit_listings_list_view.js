@@ -27,12 +27,10 @@ ListsEditListingsListView = Backbone.View.extend({
     },
 
     renderListing: function (listing) {
-        var listing_view = new ListsEditListingView({
+        this.$el.append(new ListsEditListingView({
             tagName: 'li',
             model: listing
-        });
-
-        this.$el.append(listing_view.el);
+        }).el);
     },
 
 });
