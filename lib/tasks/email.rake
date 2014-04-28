@@ -20,7 +20,7 @@ namespace :email do
   end
 
   desc 'New features update email'
-  task :new_features_update => :environment, :users do
+  task :new_features_update => :environment do
     # Users.all.each do |user| 
       UserMailer.new_features_update(User.first).deliver
     # end
