@@ -8,6 +8,7 @@ json.city @listing.establishment.city
 json.state @listing.establishment.state
 json.lat @listing.establishment.latlng.lat
 json.lng @listing.establishment.latlng.lon
+json.created_at @listing.created_at
 
 unless @listing.comments.empty? 
     json.comment do 

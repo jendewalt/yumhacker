@@ -1,6 +1,8 @@
 ListingsCollection = Backbone.Collection.extend({
     model: Listing,
 
+    comparator: 'created_at',
+
     initialize: function () {
         var params = $.deparam(decodeURIComponent(window.location.search.slice(1)));
         this.requested_page = (params.page ? Number(params.page) : 1);
