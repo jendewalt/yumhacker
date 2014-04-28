@@ -76,6 +76,10 @@ GEM
       addressable
       faraday
       multi_json
+    launchy (2.4.2)
+      addressable (~> 2.3)
+    letter_opener (1.2.0)
+      launchy (~> 2.2)
     libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -196,6 +200,7 @@ DEPENDENCIES
   jquery-rails
   kaminari (~> 0.14.1)
   koala (~> 1.8.0rc1)
+  letter_opener
   oj
   omniauth
   omniauth-facebook

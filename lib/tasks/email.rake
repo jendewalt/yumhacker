@@ -18,4 +18,11 @@ namespace :email do
       UserMailer.new_favorites(list).deliver
     end
   end
+
+  desc 'New features update email'
+  task :new_features_update => :environment, :users do
+    # Users.all.each do |user| 
+      UserMailer.new_features_update(User.first).deliver
+    # end
+  end
 end

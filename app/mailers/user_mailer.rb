@@ -24,4 +24,10 @@ class UserMailer < ActionMailer::Base
     mail(to: "#{@user.first_name} #{@user.last_name} <#{@user.email}>", subject: subject)
   end
 
+  def new_features_update(user)
+    @user = user
+    subject = "Introducing YumHacker 2.0!"
+
+    mail(to: "#{@user.first_name} #{@user.last_name} <#{@user.email}>", subject: subject)
+  end
 end
