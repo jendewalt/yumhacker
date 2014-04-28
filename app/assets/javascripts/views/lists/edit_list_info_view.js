@@ -64,9 +64,11 @@ ListsEditListInfoView = Backbone.View.extend({
         // Submit any unsaved comments
         $('form').trigger('submit');
 
+        console.log(this.model)
+
         this.model.save({}, 
             { success: function (model) {
-                App.navigate('/lists/' + model.get('slug'), { trigger: true }) } 
+                App.navigate('/' + model.get('path'), { trigger: true }) } 
             });
     },
 
