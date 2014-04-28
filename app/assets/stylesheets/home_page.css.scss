@@ -61,12 +61,6 @@ body.yumhacker {
         #home_page_user_info_container {
             margin-top: 30px;
 
-            h1 {
-                font-size: 34px;
-                line-height: 48px;
-                margin-bottom: 16px;
-            }
-
             h3 {
                 line-height: 24px;
                 font-size: 16px;
@@ -75,7 +69,17 @@ body.yumhacker {
             }
 
             #signed_out_user_info_container {
-                padding: 30px 10px;
+                padding: 20px 10px;
+
+                h1 {
+                    font-size: 32px;
+                    line-height: 50px;
+                    margin-bottom: 24px;
+                    padding-bottom: 14px;
+                    text-transform: uppercase;
+                    border-bottom: 1px solid ;
+                    color: #e91367;
+                }
                 
                 #home_page_login_buttons {
                     margin-top: 30px;
@@ -206,7 +210,7 @@ body.yumhacker {
 
                         #featured_user_website {
                             display: block;
-                            margin-bottom: 10px;
+                            padding: 5px 0px;
                             font-size: 18px;
                             line-height: 28px;
                             color: $blue;
@@ -222,7 +226,7 @@ body.yumhacker {
             }
 
             #featured_list {
-                border-top: 1px solid $light-grey; 
+                border-bottom: 1px solid $light-grey; 
                 padding: 14px 10px;
 
                 a {

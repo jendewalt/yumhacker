@@ -26,6 +26,11 @@ body.yumhacker {
             line-height: 33px;
             color: $magenta;
             text-decoration: none;
+
+            img {
+                border-radius: 0;
+                box-shadow: none;
+            }
         }
 
         #current_location_container {
@@ -137,7 +142,6 @@ body.yumhacker {
 
                         li { 
                             padding: 0;
-                            font-weight: bold; 
                             float: left; 
                             zoom: 1; 
                             
