@@ -19,6 +19,7 @@ Router = Backbone.Router.extend({
         'users/sign_in': 'nothing',
         'users/sign_out': 'nothing',
         'users/sign_up': 'usersSignUp',
+        'users/password/:action': 'nothing',
         'users/edit': 'editProfile',
         'users/:id/categories': 'nothing',
         'users/:id(/:section)': 'usersShow',

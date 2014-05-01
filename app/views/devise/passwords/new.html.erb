@@ -1,12 +1,27 @@
-<h2>Forgot your password?</h2>
+<% content_for(:title, "Yumhacker") %>
+<% content_for(:description, "Forgot your password? Enter your email address and we'll send you instructions to reset it. YumHacker let's you create lists of the places you love and find restaurants and bars recommended by people you trust. Get restaurant and bar photos, reviews, hours and more!") %>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+<header></header>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+<section>
+    <div class='devise_form' id='password_recovery_container'>
+    <div class='form_container card border'>
+        <h3>Forgot your password?</h3>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
+        <p>No Problem! Enter your email address below and we'll send you instructions to reset your password.</p>
 
-<%= render "devise/shared/links" %>
+        <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div class='inputs_container'>
+                <div class='field'><%= f.email_field :email, :autofocus => true, :class => 'text_input', :placeholder => "Email address" %></div>
+
+                <div class='center'><%= f.submit "Submit", :class => 'btn text' %></div>
+            </div>
+        <% end %>
+    </div>
+
+    <div class='devise_links'>
+    <%= render "devise/shared/links" %>
+    </div>
+</section>

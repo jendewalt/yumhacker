@@ -1,16 +1,32 @@
-<h2>Change your password</h2>
+<% content_for(:title, "Yumhacker") %>
+<% content_for(:description, "Forgot your password? Enter your email address and we'll send you instructions to reset it. YumHacker let's you create lists of the places you love and find restaurants and bars recommended by people you trust. Get restaurant and bar photos, reviews, hours and more!") %>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+<header></header>
 
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password, :autofocus => true %></div>
+<section>
+    <div class='devise_form' id='password_recovery_container'>
+    <div class='form_container card border'>
+        <h3>Change your password</h3>
 
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
+        <div class='inputs_container'>
 
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
+            <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+              <%= devise_error_messages! %>
+              <%= f.hidden_field :reset_password_token %>
 
-<%= render "devise/shared/links" %>
+              <div class='field'><%= f.label :password, "New password" %><br />
+              <%= f.password_field :password, :autofocus => true, :class => 'text_input' %></div>
+
+              <div class='field'><%= f.label :password_confirmation, "Confirm new password" %><br />
+              <%= f.password_field :password_confirmation, :class => 'text_input' %></div>
+
+              <div class='center'><%= f.submit "Change my password", :class => 'btn text' %></div>
+            <% end %>        
+        </div>
+    </div>
+
+    <div class='devise_links'>
+    <%= render "devise/shared/links" %>
+    </div>
+</section>
+

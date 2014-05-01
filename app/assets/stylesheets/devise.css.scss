@@ -30,6 +30,24 @@ body.yumhacker {
             text-decoration: none;
         }
 
+        &#password_recovery_container {
+
+            .text {
+                width: inherit;
+            }
+
+            p {
+                font-size: 13px;
+                color: $mid-grey;
+                line-height: 22px;
+                margin-top: 20px;
+            }
+
+            .inputs_container {
+                margin-top: 10px;
+            }
+        }
+
         .form_container {
             width: 100%;
             margin: auto;
@@ -125,14 +143,12 @@ body.yumhacker {
                     display: none;
                     padding-bottom: 0;
                 }
-
             }
-
         }
 
         .devise_links {
             margin: 20px 0;
-            line-height: 20px;
+            line-height: 30px;
             text-align: right;
             color: $mid-grey;
             
