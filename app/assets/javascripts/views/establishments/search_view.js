@@ -19,7 +19,7 @@ EstablishmentsSearchView = Backbone.View.extend({
 			collection: this.collection
 		});
 
-        this.listenTo(this.collection, "establishment_selected", this.addEstabToList);
+        // this.listenTo(this.collection, "establishment_selected", this.addEstabToList);
 
 		this.listenTo(EstablishmentSearch, 'geocode', this.fetchResults);
 		this.listenTo(EstablishmentSearch, 'error', this.showError);

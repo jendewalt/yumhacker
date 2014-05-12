@@ -29,6 +29,7 @@ ListsEditListingCommentView = Backbone.View.extend({
 
             // If the comment exists and the user entered in a blank, send blank for deletion
             if (body.length > 0 || (body.length === 0 && this.comment.get('id'))) {
+                this.model.set("comment", { body: body, updated_at: new Date });
                 this.comment.save();
             } 
         }
