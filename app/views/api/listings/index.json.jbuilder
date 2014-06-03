@@ -14,6 +14,10 @@ json.listings @listings do |listing|
     json.street listing.establishment.street
     json.city listing.establishment.city
     json.state listing.establishment.state
+    json.zip_code listing.establishment.zip_code
+    json.phone listing.establishment.phone
+    json.website listing.establishment.website
+    json.price listing.establishment.price
     json.lat listing.establishment.latlng.lat
     json.lng listing.establishment.latlng.lon
     json.created_at listing.created_at

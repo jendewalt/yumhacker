@@ -1,15 +1,16 @@
 class Photo < ActiveRecord::Base
   attr_accessor :content_type, :original_filename, :image_data
   
-  has_attached_file :image, :styles => { :medium => "400x400#", :small => "160x160#", :thumb => "50x50#" }, :default_url => "/no_photo.svg"
+  validates :user, :presence => true
+
+  has_attached_file :image, :styles => { :original => "800x800", :medium => "400x400#", :small => "160x160#", :thumb => "50x50#" }, :default_url => "/no_photo.svg"
+  validates_attachment :image, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
 
   belongs_to :user
 
   has_many :imageables, :dependent => :destroy
   has_many :establishments, :through => :imageables
   has_many :lists, :through => :imageables
-
-  validates :user, :presence => true
 
   before_save :decode_base64_image
 

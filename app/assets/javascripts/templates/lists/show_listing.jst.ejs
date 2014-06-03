@@ -9,6 +9,18 @@
      [[ if (get('city') && get('state')) { ]]
         <p class='details'>[[=  get('city') ]], [[= get('state') ]]</p>
     [[ } ]]
+
+    [[ if (get('phone')) { ]]
+        <a href='[[= "tel:" + get("phone") ]]' class="details phone">[[= get('phone') ]]</a>
+    [[ } ]]
+
+    <div class='details extra'>
+        <p class='price'>[[- get('price_symbol') ? get('price_symbol') : '' ]]</p>
+        [[ if (get('website')) { ]]
+            <a class="details website" href="[[= get('website') ]]" target='_blank'>[[= get('formatted_url') ]]</a>
+        [[ } ]]
+        <br class='clear'>
+    </div>
 </div>
 
 <div class='establishment_action_btn_container'>

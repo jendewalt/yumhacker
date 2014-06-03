@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   has_many :favorite_lists, :through => :favoritizations, :source => :list, :dependent => :destroy
 
   has_attached_file :avatar, :styles => { :medium => "200x200#", :small => "100x100#", :thumb => "30x30#" }, :default_url => "/default.png"
+  validates_attachment :avatar, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
 
   extend FriendlyId
   friendly_id :full_name, use: :slugged
