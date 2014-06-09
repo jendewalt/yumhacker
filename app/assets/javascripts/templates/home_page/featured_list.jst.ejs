@@ -1,7 +1,17 @@
 <div id='featured_list_info'>
-    <a href="[[= get('path') ]]" class='nav'><img src="[[= get('small_url') ]]"></a>
-    <div id='featured_list_text'>
-        <p>[[= get('user_first_name')]]'s list of</p>
-        <a href="[[= get('path') ]]" class='nav'>[[= get('title') ]]</a>
+    <div class='list_info_container'>
+        <div class='list_title_container'>
+            <a href="[[= get('path') ]]" class='nav'>[[= get('title') ]]</a>
+        </div>
+
+        <div class='list_photo_container'>
+            <a href="[[= get('path') ]]" class='nav'>
+                <img class='list_photo' src="[[= get('small_url')]]">
+            </a>
+        </div>
+
+        <div class='list_description'>
+            <p>[[= get('description') ]]</p>
+        </div>
     </div>
 </div>

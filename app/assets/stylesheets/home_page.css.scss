@@ -175,93 +175,83 @@ body.yumhacker {
         #featured_container {
             text-align: left;
 
-            #featured_user {
-
-                #featured_user_info {
-                    padding: 14px 10px;
-
-                    #featured_user_image_container, #featured_user_text_container {
-                        display: inline-block;
-                        vertical-align: top;                    
-                    }
-
-                    #featured_user_image_container {
-                        img {
-                            width: 100px;
-                            height: 100px;
-                        }
-                    }
-
-                    #featured_user_text_container {
-                        width: 410px;
-                        margin-left: 20px;
-
-                        #featured_user_name {
-                            display: block;
-                            color: $dark-grey;
-                            text-decoration: none;
-                            font-size: 30px;
-                            line-height: 30px;
-
-                            &:hover {
-                                color: $blue;
-                            }
-                        }
-
-                        #featured_user_website {
-                            display: block;
-                            padding: 5px 0px;
-                            font-size: 18px;
-                            line-height: 28px;
-                            color: $blue;
-                            text-decoration: none;
-                        }
-
-                        p {
-                            font-size: 13px;
-                            line-height: 16px;
-                        }
-                    }
-                }
+            a {
+                display: inline-block;
+                text-decoration: none;
+                color: $blue;
             }
 
             #featured_list {
-                border-bottom: 1px solid $light-grey; 
-                padding: 14px 10px;
 
-                a {
-                    display: inline-block;
-                    text-decoration: none;
-                    color: $blue;
-                }
-
-                img {
+                .list_photo_container {
                     display: inline-block;
                     vertical-align: top;
-                    height: 60px;
-                    width: 60px;
+
+                    img {
+                        height: 140px;
+                    }
                 }
 
-                #featured_list_text {
+                .list_info_container {
                     display: inline-block;
                     vertical-align: top;
-                    width: 400px;
                     margin-left: 10px;
-                    padding-top: 5px;
-                    
-                    p {
-                        margin-bottom: 5px;                          
-                        font-size: 13px;
-                        line-height: 13px;
+                    font-size: 18px;
+
+                    .list_title_container {
+                        border-bottom: 1px solid $lighter-grey;
+                        margin-bottom: 10px;
+
+                        a {
+                            padding: 10px 0;
+                            text-align: center;
+                            font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+
+                            font-size: 28px;
+                            line-height: 38px;
+                        }
                     }
 
-                    a {
-                        font-size: 22px;
-                        line-height: 30px;
+                    .list_user_info_container {
+                        margin-top: 5px;
 
-                        &:hover {
-                            text-decoration: underline;
+                        .list_user_photo {
+                            display: inline-block;
+                            vertical-align: top;
+
+                            img {
+                                height: 30px;
+                                width: 30px;
+                            }
                         }
+
+                        .list_user_text {
+                            display: inline-block;
+                            vertical-align: top;
+                            width: 300px;
+                            font-size: 13px;
+                            line-height: 20px;
+
+                            p {
+                                font-size: 11px;
+                                line-height: 15px;
+                                color: $mid-grey;
+                            }
+                        }
+
+                    }
+                }
+
+                .list_description {
+                    display: inline-block;
+                    width: 400px;
+                    padding-left: 10px;
+
+                    p {
+                        line-height: 26px;
+                        font-size: 16px;
+                        vertical-align: top;
+                        color: $dark-mid-grey;
                     }
                 }
             }
