@@ -16,7 +16,7 @@ SocialButtonsView = Backbone.View.extend({
         
         var obj = {
             method: 'feed',
-            link: window.location.origin + this.model.get('path'),
+            link: window.location.origin + '/' + this.model.get('path'),
             picture: window.location.origin + this.model.get('small_url'),
             name: this.model.get('title'),
             caption: '',
