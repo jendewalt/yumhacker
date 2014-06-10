@@ -41,6 +41,21 @@ class Api::ListingsController < ApplicationController
     render nothing: true, status: 200
   end
 
+  def update
+    photo_id = params[:photo_id]
+    listing = Listing.find(params[:id])
+    imageable = listing.imageables.first
+
+    imageable ||= listing.imageables.new
+    imageable.photo_id = photo_id
+
+    if imageable.save
+      render nothing: true, status: 201
+    else
+      render nothing: true, status: 500
+    end
+  end
+
   private
 
     def authorize

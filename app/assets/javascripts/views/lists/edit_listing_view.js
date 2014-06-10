@@ -16,6 +16,11 @@ ListsEditListingView = Backbone.View.extend({
             el: this.$('.listing_comment_container'),
             model: this.model
         });
+
+        this.photo_view = new ListsEditListingPhotoContainerView({
+            el: this.$('.listing_photo_container'),
+            model: this.model
+        });
     },
 
     render: function () {

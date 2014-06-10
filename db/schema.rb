@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410043821) do
+ActiveRecord::Schema.define(version: 20140610022707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -150,10 +150,12 @@ ActiveRecord::Schema.define(version: 20140410043821) do
     t.integer  "list_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "listing_id"
   end
 
   add_index "imageables", ["establishment_id"], :name => "index_imageables_on_establishment_id"
   add_index "imageables", ["list_id"], :name => "index_imageables_on_list_id"
+  add_index "imageables", ["listing_id"], :name => "index_imageables_on_listing_id"
   add_index "imageables", ["photo_id", "establishment_id"], :name => "index_imageables_on_photo_id_and_establishment_id", :unique => true
   add_index "imageables", ["photo_id", "list_id"], :name => "index_imageables_on_photo_id_and_list_id", :unique => true
   add_index "imageables", ["photo_id"], :name => "index_imageables_on_photo_id"

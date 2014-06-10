@@ -10,7 +10,6 @@ ListsEditListPhotoContainerView = Backbone.View.extend({
             model: this.model,
             el: '#list_photo_image_container'
         });     
-
     },
 
     render: function () {

@@ -21,15 +21,22 @@
         [[ } ]]
         <br class='clear'>
     </div>
-</div>
 
-<div class='establishment_action_btn_container'>
-    <div class='add_to_list_btn_container'>
-        <a class='add_to_list_btn btn unengaged text'>Add to List</a>
+    <div class='establishment_action_btn_container'>
+        <div class='add_to_list_btn_container'>
+            <a class='add_to_list_btn btn unengaged text'>Add to List</a>
+        </div>
+
+        <div class='wish_list_btn_container'></div>
     </div>
-
-    <div class='wish_list_btn_container'></div>
 </div>
+
+<div class='listing_photo_container'>
+    [[ if (get('small_url') && get('small_url') !== '/no_photo.svg') { ]]
+        <img class='listing_photo' src="[[= get('small_url')]]">
+    [[ } ]]
+</div>
+
 <br class='clear'>
 
 <div class='listing_comment_container'></div>

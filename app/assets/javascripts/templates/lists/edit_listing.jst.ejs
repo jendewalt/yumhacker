@@ -1,4 +1,4 @@
-<a class='delete_listing delete'>remove</a>
+<a class='delete_listing delete'>x</a>
 
 <div class="establishment_info">
     <a href='/[[= get("path") ]]' class='biz_name'>[[= get('name') ]]</a>
@@ -11,6 +11,20 @@
      [[ if (get('city') && get('state')) { ]]
         <p class='details'>[[=  get('city') ]], [[= get('state') ]]</p>
     [[ } ]]
+
+    [[ if (get('phone')) { ]]
+        <a href='[[= "tel:" + get("phone") ]]' class="details phone">[[= get('phone') ]]</a>
+    [[ } ]]
+
+    <div class='details extra'>
+        <p class='price'>[[- get('price_symbol') ? get('price_symbol') : '' ]]</p>
+        [[ if (get('website')) { ]]
+            <a class="details website" href="[[= get('website') ]]" target='_blank'>[[= get('formatted_url') ]]</a>
+        [[ } ]]
+        <br class='clear'>
+    </div>
 </div>
+
+<div class='listing_photo_container'></div>
 
 <div class='listing_comment_container'></div>

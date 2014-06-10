@@ -11,6 +11,7 @@ class Photo < ActiveRecord::Base
   has_many :imageables, :dependent => :destroy
   has_many :establishments, :through => :imageables
   has_many :lists, :through => :imageables
+  has_many :listings, :through => :imageables
 
   before_save :decode_base64_image
 

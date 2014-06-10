@@ -34,12 +34,12 @@ body.yumhacker {
     }
 
     .column.left {
-        width: 55%;
+        width: 65%;
         padding: 20px 20px 20px 0;
     }
 
     .column.right {
-        width: 45%;
+        width: 35%;
     }
 
     h4 {
@@ -124,7 +124,7 @@ body.yumhacker {
 
         li {
             text-align: left;
-            padding: 5px 10px;
+            padding: 10px;
             line-height: 30px;
             border-bottom: 1px solid $light-grey;
         
@@ -136,6 +136,7 @@ body.yumhacker {
 
     .establishment_info {
         display: inline-table;
+        vertical-align: top;
         table-layout: fixed;
         width: 65%;
 

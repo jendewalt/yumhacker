@@ -144,6 +144,7 @@ body.yumhacker {
         #listings_container {
             margin-top: 10px;
 
+
             #add_listing_btn_container {
                 padding: 10px;
                 padding-top: 0;
@@ -157,6 +158,62 @@ body.yumhacker {
 
             li {
                 position: relative;
+
+                .establishment_action_btn_container {
+                    float: inherit;
+                    padding-top: 10px;
+
+                    div {
+                        display: inline-block;
+                    }
+                }
+
+                .delete_listing.delete {
+                    right: inherit;
+                    left: 10px;
+                    background-color: white;
+                    border-radius: 3px;
+                    opacity: 0;
+                    padding: 0 10px;
+                    color: $mid-grey;
+                    font-size: 16px;
+                    box-shadow: 0 0 2px $light-grey;
+                }
+
+                &:hover {
+                    .delete_listing.delete {
+                        opacity: 1;
+                        color: $dark-grey;
+                    }
+                }
+            }
+        }
+
+        .listing_photo_container {
+            display: inline-block;
+            vertical-align: top;
+            position:relative;
+            height: 150px;
+            width: 150px;
+
+            .listing_photo {
+                display: inline-block;
+                margin-top: 3px; 
+                width: 150px;
+                height: 150px;
+            }
+            
+            .upload_prompt_btn {
+                position: absolute;
+                text-align: center;
+                bottom: -3px;
+                width: 150px;
+                background-color: rgba(255, 255, 255, 0.9);
+                opacity: 0.3;
+
+                &:hover {
+                    opacity: 1;
+                }
             }
         }
 

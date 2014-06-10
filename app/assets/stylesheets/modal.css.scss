@@ -262,8 +262,23 @@ body.yumhacker {
                 }
             }
 
-            #edit_list_image_selector_container {
+            .image_search_container {
                 margin: 30px auto;
+
+                #establishment_images_list {
+                    margin-bottom: 20px;
+                }
+
+                #add_a_photo {
+                    padding-top: 20px;
+                    border-top: 1px solid $lighter-grey;
+                }
+
+                p {
+                    a {
+                        color: $blue;
+                    }
+                }
 
                 #upload_image_form_container {
                     margin: 20px auto;
@@ -301,12 +316,13 @@ body.yumhacker {
                 }
 
 
-                #user_images_list {
+                .image_search_list {
                     margin-top: 20px;
 
                     li {
                         display: inline-block;
                         margin:4px 6px;
+                        cursor: pointer;
                     } 
                 
                 }
