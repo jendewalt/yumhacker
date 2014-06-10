@@ -6,6 +6,11 @@ ListsShowTitleView = Backbone.View.extend({
     initialize: function () {
         this.render();
 
+        this.social_buttons_view = new SocialButtonsView({ 
+            el: '#social_buttons_container', 
+            model: this.model
+        });
+
         this.application_favorite_button_view = new ApplicationFavoriteButtonView({ 
             el: this.$('#list_favorite_button'),
             model: new FavoriteButton({
