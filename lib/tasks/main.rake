@@ -15,7 +15,8 @@ namespace :main do
               "best-places-in-the-san-francisco-mission-for-bottomless-mimosas",
               "michelin-star-restaurants-in-san-francisco",
               "top-ten-best-sports-bars-in-san-francisco-soma",
-              "best-coffee-shops-to-work-from-in-soma" ].sample(4)
+              "best-coffee-shops-to-work-from-in-soma",
+              "coolest-places-to-get-your-coffee-fix-in-san-francisco" ].sample(4)
 
     slugs.each do |slug|
       list = List.where(slug: slug).first
