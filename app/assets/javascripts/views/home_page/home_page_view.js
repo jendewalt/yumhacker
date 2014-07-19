@@ -5,6 +5,7 @@ HomePageView = Backbone.View.extend({
 
     initialize: function () {
         this.render();
+        mixpanel.track('Main Index');
 
         this.collection = new ListsCollection();
         this.collection.where = { type: 'CustomList'};

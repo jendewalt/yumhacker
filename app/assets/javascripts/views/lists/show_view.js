@@ -6,6 +6,7 @@ ListsShowView = Backbone.View.extend({
         Location.set('contained_in', 'radius');
         this.listenTo(this.model, 'sync', this.render);
         this.model.fetch();
+        mixpanel.track('List Show');
     },
 
     render: function () {
