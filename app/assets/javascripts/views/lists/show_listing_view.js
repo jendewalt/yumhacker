@@ -1,6 +1,6 @@
 ListsShowListingView = Backbone.View.extend({
     events: {
-        'click .biz_name': 'navigate'
+        'click .nav': 'navigate'
     },
 
     initialize: function () {
@@ -35,6 +35,6 @@ ListsShowListingView = Backbone.View.extend({
 
     navigate: function (e) {
         e.preventDefault();
-        App.navigate(e.target.pathname, { trigger: true });
+        App.navigate(e.currentTarget.pathname, { trigger: true });
     }   
 });
