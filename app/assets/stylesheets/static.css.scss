@@ -34,6 +34,22 @@ body.yumhacker {
                 }
             }
         }
+
+        #other_projects {
+            margin-top: 10px;
+            padding-top: 20px;
+            border-top: 1px solid #ccc;
+
+            h3, a {
+                font-size: 13px;
+                padding: 0;
+                line-height: 24px;
+            }
+
+            h3 {
+                font-weight: bold;
+            }
+        }
     }
 
     .privacy_container, .terms_container {
