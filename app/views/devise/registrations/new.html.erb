@@ -45,8 +45,9 @@
                 <div class='field'><%= f.label :password_confirmation %><br />
                 <%= f.password_field :password_confirmation, :class=> 'text_input' %></div>
 
-                <p class="invisible">Please leave this field blank.</p>
-                <label class="invisible">Email: <input type="text" class="field invisible" name="delicious_cheese" value="" autocomplete="off"></label>
+                <div class='field validate'><%= f.label :phone %><br />
+                <%= f.text_field :phone, :class => 'text_input validate', :value => '', :autocomplete => 'off' %></div>
+                <p class="validate">Please leave this validation field blank.</p>
 
                 <div class='center'><%= f.submit "Sign up", :class => 'btn text' %></div>
             </div>

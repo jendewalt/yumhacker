@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "200x200#", :small => "100x100#", :thumb => "30x30#" }, :default_url => "/default.png"
   validates_attachment :avatar, :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
+  validates_length_of :description, maximum: 140
 
   extend FriendlyId
   friendly_id :full_name, use: :slugged

@@ -26,7 +26,7 @@
           <%= f.text_field :website, :class => 'text_input' %></div>
 
           <div class='field'><%= f.label :description %><br />
-          <%= f.text_area :description, :class => 'text_input' %></div>
+          <%= f.text_area :description, :class => 'text_input', :maxlength => '140' %></div>
 
           <div class='field'><%= f.label :email %><br />
           <%= f.email_field :email, :autocomplete => "off", :class => 'text_input' %></div>
@@ -44,6 +44,10 @@
             <%= f.password_field :password_confirmation, :autocomplete => "off", :value => '', :class => 'text_input' %></div>
           </div>
 
+          <div class='field validate'><%= f.label :email %><br />
+          <%= f.text_field :phone, :class => 'text_input validate', :value => '', :autocomplete => 'off' %></div>
+          <p class="validate">Please leave this validation field blank.</p>
+
           <div class='center update_btn'><%= f.submit "Update", :class => 'btn text' %></div>
 
           <div class='throbber'>
@@ -51,7 +55,7 @@
           </div>
         <% end %>
       </div>
-    </div> 
+    </div>
 
     <div class='cancel_container'>
       <a href="<%= '/users/' + current_user.id.to_s %>">Cancel</a>

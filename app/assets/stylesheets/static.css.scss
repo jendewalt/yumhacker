@@ -109,7 +109,8 @@ body.yumhacker {
         }
     }
 
-    .invisible {
-        display: none;
+    .validate {
+        position: absolute !important;
+        left: -9000px !important;
     }
 }

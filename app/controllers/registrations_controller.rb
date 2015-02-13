@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_filter :check_honeypot, :only => [:create]
+  before_filter :check_honeypot, :only => [:create, :update]
 
   def update
     account_update_params = devise_parameter_sanitizer.sanitize(:account_update)
@@ -29,7 +29,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def check_honeypot
-    unless params[:delicious_cheese].blank?
+    unless params[:user][:phone].blank?
       redirect_to root_path
     end
   end
