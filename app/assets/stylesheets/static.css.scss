@@ -61,7 +61,7 @@ body.yumhacker {
             text-align: left;
 
             h1 {
-                padding: 10px 0; 
+                padding: 10px 0;
                 font-size: 20px;
                 line-height: 20px;
                 font-weight: bold;
@@ -95,7 +95,7 @@ body.yumhacker {
             font-size: 13px;
             line-height: 13px;
             cursor: pointer;
-        } 
+        }
 
         canvas {
             display: block;
@@ -107,5 +107,9 @@ body.yumhacker {
             font-size: 13px;
             color: $mid-grey;
         }
+    }
+
+    .invisible {
+        display: none;
     }
 }

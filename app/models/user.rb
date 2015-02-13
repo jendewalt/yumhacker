@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :wish_lists, :dependent => :destroy
 
   has_many :listings, :dependent => :destroy
-  
+
   has_many :favoritizations, :dependent => :destroy
   has_many :favorite_lists, :through => :favoritizations, :source => :list, :dependent => :destroy
 
